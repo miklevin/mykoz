@@ -14,5 +14,3 @@ export SCREENDIR=$HOME/.screen
 # Un-comment the following line if you have a shared folder between WSL & LXD
 # and want to enable Linux graphics on LXD.
 # echo "export DISPLAY=${DISPLAY}" > ~/repos/transfer/display.sh
-
-echo "Use the jupyme command to start Jupyter Lab server."
