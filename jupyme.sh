@@ -33,11 +33,12 @@ lxc exec jupyter -- apt install python3.10-venv -y
 lxc exec jupyter -- su --login ubuntu bash -c "/usr/bin/python3.10 -m venv /home/ubuntu/py310"
 lxc exec jupyter -- su --login ubuntu bash -c "echo 'source ~/py310/bin/activate' > /home/ubuntu/.bash_profile"
 
-lxc exec jupyter -- su --login ubuntu bash -c "https://raw.githubusercontent.com/miklevin/jupyme/main/.bash_prompt"
-lxc exec jupyter -- su --login ubuntu bash -c "https://raw.githubusercontent.com/miklevin/jupyme/main/.bash_profile"
-lxc exec jupyter -- su --login ubuntu bash -c "https://raw.githubusercontent.com/miklevin/jupyme/main/.screenrc"
-# WIN_HOME="$(printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/')"
-# lxc config device add jupyter repos disk source=${WIN_HOME}repos path=/home/ubuntu/repos
-# lxc config device add jupyter ssh disk source=${WIN_HOME}.ssh/ path=/home/ubuntu/.ssh/
-# 
-# lxc exec jupyter -- sudo --login --user ubuntu bash -ilc "/home/ubuntu/py310/bin/python3.10 -m pip install jupyterlab"
+lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.screenrc https://raw.githubusercontent.com/miklevin/jupyme/main/.screenrc"
+lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.bash_prompt https://raw.githubusercontent.com/miklevin/jupyme/main/.bash_prompt"
+lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/jupyme/main/.bash_profile"
+
+WIN_HOME="$(printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/')"
+lxc config device add jupyter repos disk source=${WIN_HOME}repos path=/home/ubuntu/repos
+lxc config device add jupyter ssh disk source=${WIN_HOME}.ssh/ path=/home/ubuntu/.ssh
+
+lxc exec jupyter -- sudo --login --user ubuntu bash -ilc "/home/ubuntu/py310/bin/python3.10 -m pip install jupyterlab"
