@@ -36,7 +36,8 @@ lxc exec jupyter -- su --login ubuntu bash -c "echo 'source ~/py310/bin/activate
 lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.screenrc https://raw.githubusercontent.com/miklevin/jupyme/main/.screenrc"
 lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.bash_prompt https://raw.githubusercontent.com/miklevin/jupyme/main/.bash_prompt"
 lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/jupyme/main/.bash_profile"
-lxc exec jupyter -- curl -L -o /usr/local/sbin https://raw.githubusercontent.com/miklevin/jupyme/main/jupyme
+lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyme https://raw.githubusercontent.com/miklevin/jupyme/main/jupyme
+
 lxc exec jupyter -- chmod +x /usr/local/sbin/jupyme
 
 WIN_HOME="$(printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/')"
