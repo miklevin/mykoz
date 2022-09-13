@@ -42,8 +42,9 @@ lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.screenrc
 lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.bash_prompt https://raw.githubusercontent.com/miklevin/jupyme/main/.bash_prompt"
 lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/jupyme/main/.bash_profile"
 lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyme https://raw.githubusercontent.com/miklevin/jupyme/main/jupyme
-
 lxc exec jupyter -- chmod +x /usr/local/sbin/jupyme
+lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyme https://raw.githubusercontent.com/miklevin/jupyme/main/jupysee
+lxc exec jupyter -- chmod +x /usr/local/sbin/jupysee
 
 WIN_HOME="$(printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/')"
 lxc config device add jupyter repos disk source=${WIN_HOME}repos path=/home/ubuntu/repos
@@ -54,8 +55,10 @@ lxc exec jupyter -- sudo --login --user ubuntu bash -ilc "/home/ubuntu/py310/bin
 
 lxc exec jupyter -- su --login ubuntu bash -c "jupyme >/dev/null 2>&1 &"
 lxc alias add jupyme "exec jupyter -- su --login ubuntu -c /usr/local/sbin/jupyme"
-lxc alias add jupyter "exec jupyter -- su --login ubuntu"
+lxc alias add jupyter "exec jupyter -- su --login ubuntu -c /usr/local/sbin/jupysee"
 lxc exec jupyter -- figlet -t "Done!"
 
-echo "Visit JyupterLab at http://localhost:8888"
-echo "If it's not running, start the server with the command: ./jupyme.sh"
+echo "Use JuypterLab at http://localhost:8888"
+echo "If using Edge be sure to .../Apps/Install this site as an app."
+echo "If Jupyter isn't running, type the command: lxc jupyme"
+echo "To log into the server, type the command: lxc jupyter"
