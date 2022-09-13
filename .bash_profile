@@ -13,11 +13,6 @@ export SCREENDIR=$HOME/.screen
 
 # Un-comment the following line if you have a shared folder between WSL & LXD
 # and want to enable Linux graphics on LXD.
-# echo "export DISPLAY=${DISPLAY}" > ~/data/display.sh
+# echo "export DISPLAY=${DISPLAY}" > ~/repos/display.sh
 
-# This runs Jupyter server in a way accessible to WSL upon first Container login.
-# If you have not done so already, execute the following line on WSL to add proxy.
-# lxc config device add kingcoyote jupyme proxy listen=tcp:0.0.0.0:8888 connect=tcp:127.0.0.1:8888
-
-# Set Jupyter folder and run in gnu screen in a way accessible from WSL
-jn
+echo "Use the jupyme command to start Jupyter Lab server."

@@ -15,7 +15,7 @@ else
 fi
 
 lxc launch ubuntu:18.04 jupyter
-lxc config device add jupyter jupyme proxy listen=tcp:0.0.0.0:8888 connect=tcp:127.0.0.1:8888
+lxc config device add jupyter localhost8888 proxy listen=tcp:0.0.0.0:8888 connect=tcp:127.0.0.1:8888
 
 until [ ! -z "$(lxc ls jupyter -c '4' --format csv)" ]
 do
@@ -36,8 +36,8 @@ lxc exec jupyter -- su --login ubuntu bash -c "echo 'source ~/py310/bin/activate
 lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.screenrc https://raw.githubusercontent.com/miklevin/jupyme/main/.screenrc"
 lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.bash_prompt https://raw.githubusercontent.com/miklevin/jupyme/main/.bash_prompt"
 lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/jupyme/main/.bash_profile"
-lxc exec jupyter -- curl -L -o /usr/local/sbin https://raw.githubusercontent.com/miklevin/jupyme/main/jn
-lxc exec jupyter -- chmod +x /usr/local/sbin/jn
+lxc exec jupyter -- curl -L -o /usr/local/sbin https://raw.githubusercontent.com/miklevin/jupyme/main/jupyme
+lxc exec jupyter -- chmod +x /usr/local/sbin/jupyme
 
 WIN_HOME="$(printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/')"
 lxc config device add jupyter repos disk source=${WIN_HOME}repos path=/home/ubuntu/repos
@@ -45,4 +45,7 @@ lxc config device add jupyter ssh disk source=${WIN_HOME}.ssh/ path=/home/ubuntu
 
 lxc exec jupyter -- sudo --login --user ubuntu bash -ilc "/home/ubuntu/py310/bin/python3.10 -m pip install jupyterlab"
 
-jn >/dev/null 2>&1 &
+lxc exec jupyter -- su --login ubuntu bash -c "jupyme >/dev/null 2>&1 &"
+
+echo "Visit JyupterLab at http://localhost:8888"
+echo "If it's not running, use the jupyme command to start server."
