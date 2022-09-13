@@ -20,8 +20,4 @@ export SCREENDIR=$HOME/.screen
 # lxc config device add kingcoyote jupyme proxy listen=tcp:0.0.0.0:8888 connect=tcp:127.0.0.1:8888
 
 # Set Jupyter folder and run in gnu screen in a way accessible from WSL
-cd ~/repos
-screen -wipe >/dev/null 2>&1
-if ! screen -list | grep -q "jupyter"; then
-    screen -dmS jupyter /home/ubuntu/py310/bin/jupyter lab --ip 0.0.0.0 --port 8888 --no-browser --ServerApp.password='argon2:$argon2id$v=19$m=10240,t=10,p=8$ijPab+qx2WAOlDKJiRE56Q$wJ5s4RI9dIw36HxHh+0P6eN8SwqTGy0PmnGe7D+oPlc'
-fi
+jn
