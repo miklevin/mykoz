@@ -53,6 +53,8 @@ lxc exec jupyter -- figlet -t "Installing Jupyter Lab"
 lxc exec jupyter -- sudo --login --user ubuntu bash -ilc "/home/ubuntu/py310/bin/python3.10 -m pip install jupyterlab"
 
 lxc exec jupyter -- su --login ubuntu bash -c "jupyme >/dev/null 2>&1 &"
+lxc alias add jupyme "exec jupyter -- su --login ubuntu -c /usr/local/sbin/jupyme"
+lxc alias add jupyter "exec jupyter -- su --login ubuntu"
 lxc exec jupyter -- figlet -t "Done!"
 
 echo "Visit JyupterLab at http://localhost:8888"

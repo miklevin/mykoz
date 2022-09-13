@@ -13,4 +13,4 @@ export SCREENDIR=$HOME/.screen
 
 # Un-comment the following line if you have a shared folder between WSL & LXD
 # and want to enable Linux graphics on LXD.
-# echo "export DISPLAY=${DISPLAY}" > ~/repos/transfer/display.sh
+# source ~/repos/transfer/display.sh
