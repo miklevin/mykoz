@@ -2,6 +2,7 @@
 
 CONTAINERS="$(lxc ls -c "n" --format csv | grep jupyter)"
 for container in $CONTAINERS; do
+  sleep 1
   echo "Stopping $container..."
   lxc stop $container
 done
