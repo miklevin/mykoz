@@ -1,6 +1,3 @@
-# Prevent interactive apt get
-export DEBIAN_FRONTEND=noninteractive
-
 # Activate py310 virtual environment.
 source ~/py310/bin/activate
 
