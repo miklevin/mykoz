@@ -24,9 +24,13 @@ done
 
 lxc exec jupyter -- su --login ubuntu bash -c "echo 'export DEBIAN_FRONTEND=noninteractive' > /home/ubuntu/.bash_profile"
 lxc exec jupyter -- add-apt-repository ppa:deadsnakes/ppa -y
+lxc exec jupyter -- apt install figlet -y
+lxc exec jupyter -- figlet -t "Installing Jupyter Right!"
 lxc exec jupyter -- apt update
 lxc exec jupyter -- apt upgrade -y
 lxc exec jupyter -- apt autoremove -y
+
+lxc exec jupyter -- figlet -t "Installing Python 3.10"
 lxc exec jupyter -- apt install python3.10 -y
 lxc exec jupyter -- apt install python3.10-venv -y
 
@@ -44,9 +48,10 @@ WIN_HOME="$(printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/')"
 lxc config device add jupyter repos disk source=${WIN_HOME}repos path=/home/ubuntu/repos
 lxc config device add jupyter ssh disk source=${WIN_HOME}.ssh/ path=/home/ubuntu/.ssh
 
+lxc exec jupyter -- figlet -t "Installing Jupyter Lab"
 lxc exec jupyter -- sudo --login --user ubuntu bash -ilc "/home/ubuntu/py310/bin/python3.10 -m pip install jupyterlab"
 
 lxc exec jupyter -- su --login ubuntu bash -c "jupyme >/dev/null 2>&1 &"
 
 echo "Visit JyupterLab at http://localhost:8888"
-echo "If it's not running, start the server with the command: ./jupyme.sh
+echo "If it's not running, start the server with the command: ./jupyme.sh"
