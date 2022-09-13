@@ -31,6 +31,12 @@ lxc exec jupyter -- add-apt-repository ppa:deadsnakes/ppa -y
 lxc exec jupyter -- apt install python3.10 -y
 lxc exec jupyter -- apt install python3.10-venv -y
 lxc exec jupyter -- python3.10 -m venv /home/ubuntu/py310
-lxc exec jupyter -- curl -L -o /home/ubuntu/.bash_profile "https://raw.githubusercontent.com/miklevin/dotconfigs/main/.bash_profile"
-lxc exec jupyter -- curl -L -o /home/ubuntu/.bash_prompt "https://raw.githubusercontent.com/miklevin/dotconfigs/main/.bash_prompt"
+lxc exec jupyter -- curl -L -o /home/ubuntu/.bash_profile "https://raw.githubusercontent.com/miklevin/jupyme/main/.bash_profile"
+lxc exec jupyter -- curl -L -o /home/ubuntu/.bash_prompt "https://raw.githubusercontent.com/miklevin/jupyme/main/.bash_prompt"
+lxc exec jupyter -- curl -L -o /home/ubuntu/.bash_prompt "https://raw.githubusercontent.com/miklevin/jupyme/main/.screenrc"
 lxc exec jupyter -- /home/ubuntu/py310/bin/python3.10 -m pip install jupyterlab
+lxc exec jupyter -- chmod -R 777 /home/ubuntu/py310
+lxc exec jupyter -- chmod -R 777 /home/ubuntu/repos
+lxc exec jupyter -- chmod -R 777 /home/ubuntu/.bash_profile
+lxc exec jupyter -- chmod -R 777 /home/ubuntu/.bash_pompt
+lxc exec jupyter -- chmod -R 700 /home/ubuntu/.screenrc
