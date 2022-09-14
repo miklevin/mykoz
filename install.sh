@@ -64,11 +64,16 @@ lxc exec jupyter -- figlet -t "Installing Jupyter Lab"
 lxc exec jupyter -- sudo --login --user ubuntu bash -ilc "/home/ubuntu/py310/bin/python3.10 -m pip install jupyterlab"
 
 lxc exec jupyter -- su --login ubuntu bash -c "jupyme >/dev/null 2>&1 &"
+lxc alias remove jupyme
 lxc alias add jupyme "exec jupyter -- su --login ubuntu -c /usr/local/sbin/jupyme"
-lxc alias add jupyter "exec jupyter -- su --login ubuntu -c /usr/local/sbin/jupysee"
+lxc alias remove jupysee
+lxc alias add jupysee "exec jupyter -- su --login ubuntu -c /usr/local/sbin/jupysee"
+lxc alias remove jupyter
+lxc alias add jupyter "exec jupyter -- su --login ubuntu"
 lxc exec jupyter -- figlet -t "Done!"
 
 echo "Use JuypterLab at http://localhost:8888"
 echo "If using Edge be sure to .../Apps/Install this site as an app."
-echo "If Jupyter isn't running, type the command: lxc jupyme"
-echo "To log into the server, type the command: lxc jupyter"
+echo "If Jupyter isn't running, type: lxc jupyme"
+echo "To see the server running, type (Ctrl+A,D to exit): lxc jupysee"
+echo "To log into the Container, type (type exit to exit): lxc jupyter"
