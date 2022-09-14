@@ -1,1 +1,1 @@
-lxc exec jupyter -- su --login ubuntu -c "screen -r jupyter"
+lxc exec jupyter -- su --login ubuntu bash -c "screen -r jupyter"
