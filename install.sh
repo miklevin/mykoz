@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 echo "You must have a repos and .ssh folder in your home folder C:\\Users\\[username]"
-read -p "This will replace your current Jupyter LXD Container. Are you sure? " -n 1 -r
+echo "This will replace your current Jupyter Container, config and pip installs."
+echo ""
+read -p "Are you sure you want to continue?" -n 1 -r
 echo    # (optional) move to a new line
 if [[ ! $REPLY =~ ^[Yy]$ ]]
 then
