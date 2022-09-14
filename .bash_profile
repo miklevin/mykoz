@@ -2,15 +2,16 @@
 source ~/py310/bin/activate
 
 # Color-code prompt.
-. ~/.bash_prompt
+source ~/.bash_prompt
 
 # Make gnu screen show more useful information.
 export SCREENDIR=$HOME/.screen
 
 # Un-comment the following lines to enable Linux graphics using VcXsrv or Xming.
-# export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
+# source ~/repos/transfer/display.sh
 # LIBGL_ALWAYS_INDIRECT=1
 
-# Un-comment the following line if you have a shared folder between WSL & LXD
-# and want to enable Linux graphics on LXD.
+# Un-comment the following line if you've set up graphis on WSL host.
 # source ~/repos/transfer/display.sh
+
+cd ~/repos
