@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+echo "You must have a repos and .ssh folder in your home folder C:\\Users\\[username]"
+read -p "This will replace your current Jupyter LXD Container. Are you sure? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+    [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1
+fi
+
 CONTAINERS="$(lxc ls -c "n" --format csv | grep jupyter)"
 for container in $CONTAINERS; do
   sleep 1
