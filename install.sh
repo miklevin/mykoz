@@ -53,7 +53,7 @@ lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.bash_pro
 lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/jupyme/main/.bash_profile"
 lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyme https://raw.githubusercontent.com/miklevin/jupyme/main/jupyme
 lxc exec jupyter -- chmod +x /usr/local/sbin/jupyme
-lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyme https://raw.githubusercontent.com/miklevin/jupyme/main/jupysee
+lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupysee https://raw.githubusercontent.com/miklevin/jupyme/main/jupysee
 lxc exec jupyter -- chmod +x /usr/local/sbin/jupysee
 
 WIN_HOME="$(printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/')"
