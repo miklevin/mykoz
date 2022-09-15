@@ -49,7 +49,7 @@ wsl -u root -e /home/ubuntu/repos/temp/install.sh install
 wsl -u root -e /opt/distrod/bin/distrod enable
 
 wsl -u root -- lxd init --auto
-wsl -u root -e curl -L -o /home/ubuntu/repos/temp/install.sh "https://raw.githubusercontent.com/miklevin/jupyme/main/install.sh"
+wsl -u root -e curl -L -H 'Cache-Control: no-cache' -o /home/ubuntu/repos/temp/install.sh "https://raw.githubusercontent.com/miklevin/jupyme/main/install.sh"
 wsl -u root -e chmod 777 /home/ubuntu/repos/temp/install.sh
 wsl -u root -e chown ubuntu:ubuntu /home/ubuntu/repos/temp/install.sh
 wsl -u root -e /home/ubuntu/repos/temp/install.sh
