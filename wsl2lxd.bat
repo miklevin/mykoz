@@ -18,9 +18,7 @@ echo.
 
 wsl --unregister Ubuntu-18.04
 
-:::alice:::  test
-:::alice:::  test
-:::alice:::  test
+:::alice:::  Insert Alice falling down rabbit hole ascii art here.
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::alice:::" "%~f0"') do (echo.%%B)
 
 
@@ -37,12 +35,6 @@ wsl -u root usermod -aG adm,cdrom,sudo,dip,plugdev "%wsluer%"
 
 ubuntu1804 config --default-user "%wsluer%"
 
-REM echo.
-REM echo Have you set an Ubuntu username and password? If so, close
-REM echo the Ubuntu window now (leave this window open) and press Enter
-REM set /p warning=Press enter to continue...
-REM echo.
-
 mkdir %USERPROFILE%\repos
 rmdir /S /Q %USERPROFILE%\repos\temp
 mkdir %USERPROFILE%\repos\temp
@@ -52,7 +44,6 @@ wsl -u root -e mv wsl.conf /etc/
 wsl -u root -e ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh
 wsl -u root -e ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos
 
-wsl --shutdown
 wsl -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitconfig /home/ubuntu/"
 wsl -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/"
 
@@ -79,6 +70,6 @@ wsl -u root -e chmod 777 /home/ubuntu/repos/temp/install.sh
 wsl -u root -e chown ubuntu:ubuntu /home/ubuntu/repos/temp/install.sh
 wsl -u root -e /home/ubuntu/repos/temp/install.sh
 
-
+set /p warning=Press [Enter] to jump down this rabbit hole or press Ctrl+C escape. %
 
 
