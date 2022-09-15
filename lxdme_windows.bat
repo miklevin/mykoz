@@ -1,13 +1,13 @@
 cls
 @echo off 
 echo.
-echo This will install Ubuntu 18.04 on WSL to host LXD Linux containers.
-echo You must wsl --unregister Ubuntu-18.04 if there's an existing one.
+echo This will uninstall any previous Ubuntu-18.04 and install a new one that will
+echo serve JuputerLab on localhost:8888 from an LXD Linux container under WSL.
+echo.
 set /p warning=Press Enter to continue.%
 echo.
 
-REM wsl --install --distribution Ubuntu-18.04
-REM wsl --shutdown
+wsl --unregister Ubuntu-18.04
 
 set wsluer="ubuntu"
 set password="foo"
@@ -48,11 +48,19 @@ wsl -u root -e chown ubuntu:ubuntu /home/ubuntu/repos/temp/install.sh
 wsl -u root -e /home/ubuntu/repos/temp/install.sh install
 wsl -u root -e /opt/distrod/bin/distrod enable
 
-wsl -u root -- lxd init --auto
-wsl -u root -e curl -L -H 'Cache-Control: no-cache' -o /home/ubuntu/repos/temp/install.sh "https://raw.githubusercontent.com/miklevin/jupyme/main/install.sh"
+wsl -u root -- echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL'> ubuntu
+wsl -u root -- chmod 0440 ubuntu
+wsl -u root -- chown 0 ubuntu
+wsl -u root -- mv ubuntu /etc/sudoers.d/
+
+timeout 2 > null
+wsl exec -- sudo lxd init --auto
+
+wsl -u root -e curl -L -o /home/ubuntu/repos/temp/install.sh "https://raw.githubusercontent.com/miklevin/jupyme/main/install.sh"
 wsl -u root -e chmod 777 /home/ubuntu/repos/temp/install.sh
 wsl -u root -e chown ubuntu:ubuntu /home/ubuntu/repos/temp/install.sh
 wsl -u root -e /home/ubuntu/repos/temp/install.sh
 
-set /p warning=Done! Hit Enter to dismiss install script.
+
+
 
