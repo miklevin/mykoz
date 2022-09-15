@@ -65,7 +65,7 @@ wsl --distribution Ubuntu-18.04 -u root -- chmod 0440 ubuntu
 wsl --distribution Ubuntu-18.04 -u root -- chown 0 ubuntu
 wsl --distribution Ubuntu-18.04 -u root -- mv ubuntu /etc/sudoers.d/
 
-::timeout /t 3 /nobreak >nul
+timeout /t 3 /nobreak >nul
 wsl --distribution Ubuntu-18.04 exec -- sudo lxd init --auto
 
 wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Installing Container'"
