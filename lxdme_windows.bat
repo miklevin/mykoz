@@ -1,13 +1,13 @@
 cls
 @echo off
-:::  Begin your life-time journey of Linux, Python, vim & git.         /)
-:::      _                   _          __   __                 /)\_ _//
-:::     | |_   _ _ __  _   _| |_ ___ _ _\ \ / /__  _   _    ___(/_ 0 0
-:::  _  | | | | | '_ \| | | | __/ _ \ '__\ V / _ \| | | | *(     =(_T_)=
-::: | |_| | |_| | |_) | |_| | ||  __/ |   | | (_) | |_| |   \  )   \"\
-:::  \___/ \__,_| .__/ \__, |\__\___|_|   |_|\___/ \__,_|    |__>-\_>_>
-:::             |_|    |___/
-for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
+:::intro:::  Begin your life-time journey of Linux, Python, vim & git.         /)
+:::intro:::      _                   _          __   __                 /)\_ _//
+:::intro:::     | |_   _ _ __  _   _| |_ ___ _ _\ \ / /__  _   _    ___(/_ 0 0
+:::intro:::  _  | | | | | '_ \| | | | __/ _ \ '__\ V / _ \| | | | *(     =(_T_)=
+:::intro::: | |_| | |_| | |_) | |_| | ||  __/ |   | | (_) | |_| |   \  )   \"\
+:::intro:::  \___/ \__,_| .__/ \__, |\__\___|_|   |_|\___/ \__,_|    |__>-\_>_>
+:::intro:::             |_|    |___/
+for /f "delims=: tokens=1*" %%A in ('findstr /b ":::intro:::" "%~f0"') do (echo.%%B)
 echo.
 echo This will uninstall any previous Ubuntu-18.04 and install a new one.
 echo The new Ubutnu 18.04 will then create a new JupyterLab LXD container
@@ -17,6 +17,12 @@ set /p warning=Press [Enter] to jump down this rabbit hole or press Ctrl+C escap
 echo.
 
 wsl --unregister Ubuntu-18.04
+
+:::alice:::  test
+:::alice:::  test
+:::alice:::  test
+for /f "delims=: tokens=1*" %%A in ('findstr /b ":::alice:::" "%~f0"') do (echo.%%B)
+
 
 set wsluer="ubuntu"
 set password="foo"
@@ -41,7 +47,6 @@ mkdir %USERPROFILE%\repos
 rmdir /S /Q %USERPROFILE%\repos\temp
 mkdir %USERPROFILE%\repos\temp
 wsl --set-default-version 2
-wsl --set-default Ubuntu-18.04
 wsl -u root -e echo -e "[automount]\n"options = \"metadata\" > wsl.conf
 wsl -u root -e mv wsl.conf /etc/
 wsl -u root -e ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh
@@ -68,6 +73,7 @@ wsl -u root -- mv ubuntu /etc/sudoers.d/
 timeout 2
 wsl exec -- sudo lxd init --auto
 
+cls
 wsl -u root -e curl -L -o /home/ubuntu/repos/temp/install.sh "https://raw.githubusercontent.com/miklevin/jupyme/main/install.sh"
 wsl -u root -e chmod 777 /home/ubuntu/repos/temp/install.sh
 wsl -u root -e chown ubuntu:ubuntu /home/ubuntu/repos/temp/install.sh
