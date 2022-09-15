@@ -1,10 +1,19 @@
 cls
-@echo off 
+@echo off
+:::  Begin your life-time journey of Linux, Python, vim & git.         /)
+:::      _                   _          __   __                 /)\_ _//
+:::     | |_   _ _ __  _   _| |_ ___ _ _\ \ / /__  _   _    ___(/_ 0 0
+:::  _  | | | | | '_ \| | | | __/ _ \ '__\ V / _ \| | | | *(     =(_T_)=
+::: | |_| | |_| | |_) | |_| | ||  __/ |   | | (_) | |_| |   \  )   \"\
+:::  \___/ \__,_| .__/ \__, |\__\___|_|   |_|\___/ \__,_|    |__>-\_>_>
+:::             |_|    |___/
+for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
 echo.
-echo This will uninstall any previous Ubuntu-18.04 and install a new one that will
-echo serve JuputerLab on localhost:8888 from an LXD Linux container under WSL.
+echo This will uninstall any previous Ubuntu-18.04 and install a new one.
+echo The new Ubutnu 18.04 will then create a new JupyterLab LXD container
+echo which you will be able to reach in browser at http://localhost:8888.
 echo.
-set /p warning=Press Enter to continue.%
+set /p warning=Press [Enter] to jump down this rabbit hole or press Ctrl+C escape. %
 echo.
 
 wsl --unregister Ubuntu-18.04
@@ -42,6 +51,9 @@ wsl --shutdown
 wsl -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitconfig /home/ubuntu/"
 wsl -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/"
 
+wsl -u root -e sudo apt update
+wsl -u root -e sudo apt upgrade -y
+
 wsl -u root -e curl -L -o /home/ubuntu/repos/temp/install.sh "https://raw.githubusercontent.com/nullpo-head/wsl-distrod/main/install.sh"
 wsl -u root -e chmod 777 /home/ubuntu/repos/temp/install.sh
 wsl -u root -e chown ubuntu:ubuntu /home/ubuntu/repos/temp/install.sh
@@ -53,7 +65,7 @@ wsl -u root -- chmod 0440 ubuntu
 wsl -u root -- chown 0 ubuntu
 wsl -u root -- mv ubuntu /etc/sudoers.d/
 
-timeout 2 > null
+timeout 2
 wsl exec -- sudo lxd init --auto
 
 wsl -u root -e curl -L -o /home/ubuntu/repos/temp/install.sh "https://raw.githubusercontent.com/miklevin/jupyme/main/install.sh"
