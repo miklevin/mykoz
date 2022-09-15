@@ -51,8 +51,11 @@ lxc exec jupyter -- chmod +x /usr/local/sbin/jupyterstart
 lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyterscreen https://raw.githubusercontent.com/miklevin/wsl2lxd/main/jupyterscreen
 lxc exec jupyter -- chmod +x /usr/local/sbin/jupyterscreen
 
+echo "Where lxc configs happen"
 WIN_HOME="$(printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/')"
+sleep 1
 lxc config device add jupyter repos disk source=${WIN_HOME}repos path=/home/ubuntu/repos
+sleep 1
 lxc config device add jupyter ssh disk source=${WIN_HOME}.ssh/ path=/home/ubuntu/.ssh
 
 lxc exec jupyter -- figlet -t "Installing JupyterLab"
