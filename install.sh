@@ -37,7 +37,7 @@ done
 lxc exec jupyter -- su --login ubuntu bash -c "echo 'export DEBIAN_FRONTEND=noninteractive' > /home/ubuntu/.bash_profile"
 lxc exec jupyter -- add-apt-repository ppa:deadsnakes/ppa -y
 lxc exec jupyter -- apt install figlet -y
-lxc exec jupyter -- figlet -t "Installing Jupyter Right!"
+lxc exec jupyter -- figlet -t "Deeper Down The Rabbit Hole!"
 lxc exec jupyter -- apt update
 lxc exec jupyter -- apt upgrade -y
 lxc exec jupyter -- apt autoremove -y
@@ -49,28 +49,28 @@ lxc exec jupyter -- apt install python3.10-venv -y
 lxc exec jupyter -- su --login ubuntu bash -c "/usr/bin/python3.10 -m venv /home/ubuntu/py310"
 lxc exec jupyter -- su --login ubuntu bash -c "echo 'source ~/py310/bin/activate' > /home/ubuntu/.bash_profile"
 
-lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.screenrc https://raw.githubusercontent.com/miklevin/jupyme/main/.screenrc"
-lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.bash_prompt https://raw.githubusercontent.com/miklevin/jupyme/main/.bash_prompt"
-lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/jupyme/main/.bash_profile"
-lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyme https://raw.githubusercontent.com/miklevin/jupyme/main/jupyme
-lxc exec jupyter -- chmod +x /usr/local/sbin/jupyme
-lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupysee https://raw.githubusercontent.com/miklevin/jupyme/main/jupysee
-lxc exec jupyter -- chmod +x /usr/local/sbin/jupysee
+lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.screenrc https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.screenrc"
+lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.bash_prompt https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.bash_prompt"
+lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.bash_profile"
+lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/wsl2lxd https://raw.githubusercontent.com/miklevin/wsl2lxd/main/wsl2lxd
+lxc exec jupyter -- chmod +x /usr/local/sbin/wsl2lxd
+lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyterscreen https://raw.githubusercontent.com/miklevin/wsl2lxd/main/jupyterscreen
+lxc exec jupyter -- chmod +x /usr/local/sbin/jupyterscreen
 
 WIN_HOME="$(printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/')"
 lxc config device add jupyter repos disk source=${WIN_HOME}repos path=/home/ubuntu/repos
 lxc config device add jupyter ssh disk source=${WIN_HOME}.ssh/ path=/home/ubuntu/.ssh
 
-lxc exec jupyter -- figlet -t "Installing Jupyter Lab"
+lxc exec jupyter -- figlet -t "Installing JupyterLab"
 lxc exec jupyter -- sudo --login --user ubuntu bash -ilc "/home/ubuntu/py310/bin/python3.10 -m pip install jupyterlab"
 
-lxc exec jupyter -- su --login ubuntu bash -c "jupyme >/dev/null 2>&1 &"
-lxc alias remove jupyme
-lxc alias add jupyme "exec jupyter -- su --login ubuntu -c /usr/local/sbin/jupyme"
-lxc alias remove jupysee
-lxc alias add jupysee "exec jupyter -- su --login ubuntu -c /usr/local/sbin/jupysee"
+lxc exec jupyter -- su --login ubuntu bash -c "wsl2lxd >/dev/null 2>&1 &"
+lxc alias remove wsl2lxd
+lxc alias add jupyterstart "exec jupyter -- su --login ubuntu -c /usr/local/sbin/jupyterstart"
+lxc alias remove jupyterscreen
+lxc alias add jupyterscreen "exec jupyterk-- su --login ubuntu -c /usr/local/sbin/jupyterscreen"
 lxc alias remove jupyter
-lxc alias add jupyter "exec jupyter -- su --login ubuntu"
+lxc alias add jupyterlogin "exec jupyter -- su --login ubuntu"
 lxc exec jupyter -- figlet -t "Done!"
 
 echo "Use JuypterLab at http://localhost:8888"

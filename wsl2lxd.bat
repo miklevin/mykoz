@@ -18,7 +18,7 @@ echo.
 
 wsl --unregister Ubuntu-18.04
 wsl --set-default-version 2
-timeout /t 3 /nobreak >nul
+::timeout /t 3 /nobreak >nul
 
 :::alice:::  Insert Alice falling down rabbit hole ascii art here.
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::alice:::" "%~f0"') do (echo.%%B)
@@ -48,6 +48,8 @@ wsl --distribution Ubuntu-18.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitcon
 wsl --distribution Ubuntu-18.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/"
 
 wsl --distribution Ubuntu-18.04 -u root -e sudo apt update
+wsl --distribution Ubuntu-18.04 -u root -e sudo apt install figlet
+wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Down The Rabbit Hole!'"
 wsl --distribution Ubuntu-18.04 -u root -e sudo apt upgrade -y
 
 wsl --distribution Ubuntu-18.04 -u root -e curl -L -o /home/ubuntu/repos/temp/install.sh "https://raw.githubusercontent.com/nullpo-head/wsl-distrod/main/install.sh"
@@ -56,20 +58,20 @@ wsl --distribution Ubuntu-18.04 -u root -e chown ubuntu:ubuntu /home/ubuntu/repo
 wsl --distribution Ubuntu-18.04 -u root -e /home/ubuntu/repos/temp/install.sh install
 wsl --distribution Ubuntu-18.04 -u root -e /opt/distrod/bin/distrod enable
 
+wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Systemd Installed'"
+
 wsl --distribution Ubuntu-18.04 -u root -- echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL'> ubuntu
 wsl --distribution Ubuntu-18.04 -u root -- chmod 0440 ubuntu
 wsl --distribution Ubuntu-18.04 -u root -- chown 0 ubuntu
 wsl --distribution Ubuntu-18.04 -u root -- mv ubuntu /etc/sudoers.d/
 
-timeout /t 3 /nobreak >nul
+::timeout /t 3 /nobreak >nul
 wsl --distribution Ubuntu-18.04 exec -- sudo lxd init --auto
 
-cls
+wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Installing Container'"
+
 wsl --distribution Ubuntu-18.04 -u root -e curl -L -o /home/ubuntu/repos/temp/install.sh "https://raw.githubusercontent.com/miklevin/jupyme/main/install.sh"
 wsl --distribution Ubuntu-18.04 -u root -e chmod 777 /home/ubuntu/repos/temp/install.sh
 wsl --distribution Ubuntu-18.04 -u root -e chown ubuntu:ubuntu /home/ubuntu/repos/temp/install.sh
 wsl --distribution Ubuntu-18.04 -u root -e /home/ubuntu/repos/temp/install.sh
-
-set /p warning=Installation done! Press Enter to release this console. %
-
 
