@@ -38,7 +38,7 @@ lxc exec jupyter -- apt autoremove -y
 lxc exec jupyter -- figlet -t "Installing Python 3.10"
 lxc exec jupyter -- apt install python3.10 -y
 lxc exec jupyter -- apt install python3.10-venv -y
-lxc exec jupyter -- apt install apt install build-essential -y
+lxc exec jupyter -- apt install build-essential -y
 
 lxc exec jupyter -- su --login ubuntu bash -c "/usr/bin/python3.10 -m venv /home/ubuntu/py310"
 lxc exec jupyter -- su --login ubuntu bash -c "echo 'source ~/py310/bin/activate' > /home/ubuntu/.bash_profile"
