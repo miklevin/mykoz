@@ -1,24 +1,25 @@
 #!/usr/bin/env bash
 
-echo "You must have a repos and .ssh folder in your home folder C:\\Users\\[username]"
-echo "This will replace your current Jupyter Container, config and pip installs."
-echo
-read -p "Are you sure you want to continue? " -n 1 -r
-echo
-if [[ ! $REPLY =~ ^[Yy]$ ]]
-then
-    [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1
-fi
+# echo "You must have a repos and .ssh folder in your home folder C:\\Users\\[username]"
+# echo "This will replace your current Jupyter Container, config and pip installs."
+# echo
+# read -p "Are you sure you want to continue? " -n 1 -r
+# echo
+# if [[ ! $REPLY =~ ^[Yy]$ ]]
+# then
+#     [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1
+# fi
 
-CONTAINERS="$(lxc ls -c "n" --format csv | grep jupyter)"
-for container in $CONTAINERS; do
-  sleep 1
-  echo "Stopping $container..."
-  lxc stop $container
-done
+# CONTAINERS="$(lxc ls -c "n" --format csv | grep jupyter)"
+# for container in $CONTAINERS; do
+#   sleep 1
+#   echo "Stopping $container..."
+#   lxc stop $container
+# done
 
 JUPYTER_EXISTS="$(lxc ls -c "n" --format csv | grep jupyter)"
 if [ "$JUPYTER_EXISTS" == "jupyter" ]; then
+  lxc stop jupyter
   lxc delete jupyter --force
   echo "Old Jupyter container deleted."
 else
@@ -30,7 +31,7 @@ lxc config device add jupyter localhost8888 proxy listen=tcp:0.0.0.0:8888 connec
 
 until [ ! -z "$(lxc ls jupyter -c '4' --format csv)" ]
 do
-  sleep 2
+  sleep 5
 done
 
 lxc exec jupyter -- su --login ubuntu bash -c "echo 'export DEBIAN_FRONTEND=noninteractive' > /home/ubuntu/.bash_profile"
