@@ -26,7 +26,7 @@ else
   echo "jupyter container doesn't exist"
 fi
 
-lxc launch ubuntu:18.04 jupyter
+lxc launch ubuntu:20.04 jupyter
 lxc config device add jupyter localhost8888 proxy listen=tcp:0.0.0.0:8888 connect=tcp:127.0.0.1:8888
 
 until [ ! -z "$(lxc ls jupyter -c '4' --format csv)" ]
