@@ -32,9 +32,9 @@ wsl --distribution Ubuntu-18.04 -u root usermod -aG adm,cdrom,sudo,dip,plugdev "
 
 ubuntu1804 config --default-user "%wsluer%"
 
-mkdir %USERPROFILE%\repos >nil
-rmdir /S /Q %USERPROFILE%\repos\temp >nil
-mkdir %USERPROFILE%\repos\temp >nil
+mkdir %USERPROFILE%\repos 2>nul
+rmdir /S /Q %USERPROFILE%\repos\temp 2>nul
+mkdir %USERPROFILE%\repos\temp 2>nul
 wsl --distribution Ubuntu-18.04 -u root -e echo -e "[automount]\n"options = \"metadata\" > wsl.conf
 wsl --distribution Ubuntu-18.04 -u root -e mv wsl.conf /etc/
 wsl --distribution Ubuntu-18.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh"
