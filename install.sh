@@ -35,7 +35,7 @@ lxc exec jupyter -- figlet -t "Updating LXD Container"
 lxc exec jupyter -- apt update
 lxc exec jupyter -- figlet -t "Upgrading LXD Container"
 lxc exec jupyter -- apt upgrade -y
-lxc exec jupyter -- apt install build-essential -y
+# lxc exec jupyter -- apt install build-essential -y
 
 lxc exec jupyter -- figlet -t "Installing Python 3.10"
 lxc exec jupyter -- apt install python3.10 -y
