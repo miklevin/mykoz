@@ -70,12 +70,10 @@ wsl --distribution Ubuntu-18.04 -u root -- chown 0 ubuntu
 wsl --distribution Ubuntu-18.04 -u root -- mv ubuntu /etc/sudoers.d/
 
 timeout /t 3 /nobreak >nul
-wsl --distribution Ubuntu-18.04 exec -- lxd init --auto
+wsl --distribution Ubuntu-18.04 -u ubuntu -e lxd init --auto
 
 wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Installing LXD Container'"
 
-wsl --distribution Ubuntu-18.04 -u root -e curl -L -o /home/ubuntu/repos/temp/install.sh "https://raw.githubusercontent.com/miklevin/jupyme/main/install.sh"
-wsl --distribution Ubuntu-18.04 -u root -e chmod 777 /home/ubuntu/repos/temp/install.sh
-wsl --distribution Ubuntu-18.04 -u root -e chown ubuntu:ubuntu /home/ubuntu/repos/temp/install.sh
-wsl --distribution Ubuntu-18.04 exec -- sudo /home/ubuntu/repos/temp/install.sh
+wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/repos/temp/install.sh "https://raw.githubusercontent.com/miklevin/jupyme/main/install.sh"
+wsl --distribution Ubuntu-18.04 -u ubuntu -e /home/ubuntu/repos/temp/install.sh
 
