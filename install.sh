@@ -29,8 +29,6 @@ do
   sleep 2
 done
 
-lxc exec jupyter -- echo 'export DEBIAN_FRONTEND=noninteractive' > /home/ubuntu/.bash_profile
-lxc exec jupyter -- sudo chown ubuntu:ubuntu /home/ubuntu/.bash_profile
 lxc exec jupyter -- add-apt-repository ppa:deadsnakes/ppa -y
 lxc exec jupyter -- apt install figlet -y
 lxc exec jupyter -- figlet -t "Updating LXD Container"
@@ -46,23 +44,21 @@ lxc exec jupyter -- apt autoremove -y
 
 lxc exec jupyter -- figlet -t "Creating Python venv"
 lxc exec jupyter -- /usr/bin/python3.10 -m venv /home/ubuntu/py310
-lxc exec jupyter -- echo 'source ~/py310/bin/activate' > /home/ubuntu/.bash_profile
+lxc exec jupyter -- su --login ubuntu bash -c "echo 'source ~/py310/bin/activate' > /home/ubuntu/.bash_profile"
 
 lxc exec jupyter -- figlet -t "Configuring"
 echo .bash_profile
-lxc exec jupyter -- sudo curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.bash_profile
-lxc exec jupyter -- sudo chown ubuntu:ubuntu /home/ubuntu/.bash_profile
+lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.bash_profile"
 echo .bash_prompt
-lxc exec jupyter -- sudo curl -L -o /home/ubuntu/.bash_prompt https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.bash_prompt
-lxc exec jupyter -- sudo chown ubuntu:ubuntu /home/ubuntu/.bash_prompt
+lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.bash_prompt https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.bash_prompt"
 echo .screenrc
-lxc exec jupyter -- sudo curl -L -o /home/ubuntu/.screenrc https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.screenrc
-lxc exec jupyter -- sudo chown ubuntu:ubuntu /home/ubuntu/.screenrc
+lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.screenrc https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.screenrc"
+
 echo jupyterstart
 lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyterstart https://raw.githubusercontent.com/miklevin/wsl2lxd/main/jupyterstart
-lxc exec jupyter -- chmod +x /usr/local/sbin/jupyterstart
 echo jupyterscreen
 lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyterscreen https://raw.githubusercontent.com/miklevin/wsl2lxd/main/jupyterscreen
+
 lxc exec jupyter -- chmod +x /usr/local/sbin/jupyterscreen
 
 lxc exec jupyter -- figlet -t "Installing JupyterLab"
