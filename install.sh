@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # echo "You must have a repos and .ssh folder in your home folder C:\\Users\\[username]"
 # echo "This will replace your current Jupyter Container, config and pip installs."
