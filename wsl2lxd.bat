@@ -73,5 +73,5 @@ wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Installing Container'"
 wsl --distribution Ubuntu-18.04 -u root -e curl -L -o /home/ubuntu/repos/temp/install.sh "https://raw.githubusercontent.com/miklevin/jupyme/main/install.sh"
 wsl --distribution Ubuntu-18.04 -u root -e chmod 777 /home/ubuntu/repos/temp/install.sh
 wsl --distribution Ubuntu-18.04 -u root -e chown ubuntu:ubuntu /home/ubuntu/repos/temp/install.sh
-wsl --distribution Ubuntu-18.04 -e bash -lic "/home/ubuntu/repos/temp/install.sh"
+wsl --distribution Ubuntu-18.04 exec -- /home/ubuntu/repos/temp/install.sh
 

@@ -20,13 +20,9 @@ else
 fi
 
 lxc launch ubuntu:20.04 jupyter
-sleep 5
 lxc config device add jupyter repos disk source=$(printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/')repos path=/home/ubuntu/repos
-sleep 5
 lxc config device add jupyter ssh disk source=$(printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/').ssh/ path=/home/ubuntu/.ssh
-sleep 5
 lxc config device add jupyter localhost8888 proxy listen=tcp:0.0.0.0:8888 connect=tcp:127.0.0.1:8888
-sleep 5
 
 until [ ! -z "$(lxc ls jupyter -c '4' --format csv)" ]
 do
