@@ -1,5 +1,5 @@
 until
-    lxc jupyterstart >/dev/null 2>&1
+    lxc jupyterstart 2>/dev/null
 do
     sleep 2
 done
