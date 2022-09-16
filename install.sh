@@ -87,7 +87,8 @@ lxc alias remove jupyterscreen >/dev/null 2>&1
 lxc alias add jupyterscreen "exec jupyter -- su --login ubuntu -c /usr/local/sbin/jupyterscreen"
 lxc alias remove jupyter >/dev/null 2>&1
 lxc alias add jupyterlogin "exec jupyter -- su --login ubuntu"
-lxc exec jupyter -- figlet -t "Done!"
+lxc exec jupyter -- figlet -t "Jupyter Installed"
+lxc exec jupyter -- figlet -t "Done."
 
 echo "Use JuypterLab at http://localhost:8888"
 echo "From Edge .../Apps/Install this site as an app."
