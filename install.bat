@@ -10,12 +10,14 @@ cls
 
 :: Welcome to the most amazing thing you're going to see all day, and perhaps one
 :: that will change your life forever. Enough hype, let's get on with the thing
-:: Microsoft doesn't want you to see, and certainly not be able to do. Simply right-
-:: click in this window, select all, create a file named install.bat on your local
-:: Windows 10 or 11 computer and double-click it to run. It will take over your
-:: Ubuntu 18.04 "slot" in the Windows Subsysystem for Linux, then install the LXD
-:: Linux Conainer software with an Ubuntu 20.04 hosting JupyterLab Server reachable
-:: on your Windows machine at http://localhost:8888 Step #3: Heal The World!
+:: Microsoft doesn't want you to see, and certainly not be able to do. Simply
+:: right-click in this window (if you're viewing it from the Github raw view at
+:: https://raw.githubusercontent.com/miklevin/wsl2lxd/main/install.bat ), select
+:: all, create a file named install.bat on your local Windows 10 or 11 computer
+:: and double-click it to run. It will take over your Ubuntu 18.04 "slot" in the
+:: Windows Subsysystem for Linux, then install the LXD Linux Conainer software
+:: with an Ubuntu 20.04 hosting JupyterLab Server reachable on your Windows
+:: machine at http://localhost:8888 Step #3: Heal The World!
 
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::intro:::" "%~f0"') do (echo.%%B)
 echo.
