@@ -18,10 +18,6 @@ echo.
 
 wsl --unregister Ubuntu-18.04
 wsl --set-default-version 2
-::timeout /t 3 /nobreak >nul
-
-:::alice:::  Insert Alice falling down rabbit hole ascii art here.
-for /f "delims=: tokens=1*" %%A in ('findstr /b ":::alice:::" "%~f0"') do (echo.%%B)
 
 set wsluer="ubuntu"
 set password="foo"
@@ -36,9 +32,9 @@ wsl --distribution Ubuntu-18.04 -u root usermod -aG adm,cdrom,sudo,dip,plugdev "
 
 ubuntu1804 config --default-user "%wsluer%"
 
-mkdir %USERPROFILE%\repos
-rmdir /S /Q %USERPROFILE%\repos\temp
-mkdir %USERPROFILE%\repos\temp
+mkdir %USERPROFILE%\repos >nil
+rmdir /S /Q %USERPROFILE%\repos\temp >nil
+mkdir %USERPROFILE%\repos\temp >nil
 wsl --distribution Ubuntu-18.04 -u root -e echo -e "[automount]\n"options = \"metadata\" > wsl.conf
 wsl --distribution Ubuntu-18.04 -u root -e mv wsl.conf /etc/
 wsl --distribution Ubuntu-18.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh"
@@ -47,18 +43,26 @@ wsl --distribution Ubuntu-18.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/repo
 wsl --distribution Ubuntu-18.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitconfig /home/ubuntu/"
 wsl --distribution Ubuntu-18.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/"
 
+:::apt:::  _   _           _       _   _              __        ______  _       _     _                  
+:::apt::: | | | |_ __   __| | __ _| |_(_)_ __   __ _  \ \      / / ___|| |     | |   (_)_ __  _   ___  __
+:::apt::: | | | | '_ \ / _` |/ _` | __| | '_ \ / _` |  \ \ /\ / /\___ \| |     | |   | | '_ \| | | \ \/ /
+:::apt::: | |_| | |_) | (_| | (_| | |_| | | | | (_| |   \ V  V /  ___) | |___  | |___| | | | | |_| |>  < 
+:::apt:::  \___/| .__/ \__,_|\__,_|\__|_|_| |_|\__, |    \_/\_/  |____/|_____| |_____|_|_| |_|\__,_/_/\_\
+:::apt:::       |_|                            |___/                                                     
+for /f "delims=: tokens=1*" %%A in ('findstr /b ":::apt:::" "%~f0"') do (echo.%%B)
+
 wsl --distribution Ubuntu-18.04 -u root -e sudo apt update
 wsl --distribution Ubuntu-18.04 -u root -e sudo apt install figlet
-wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Updating WSL Linux'"
+wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Ugrading WSL Linux'"
 wsl --distribution Ubuntu-18.04 -u root -e sudo apt upgrade -y
-
+wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Installing systemd'"
 wsl --distribution Ubuntu-18.04 -u root -e curl -L -o /home/ubuntu/repos/temp/install.sh "https://raw.githubusercontent.com/nullpo-head/wsl-distrod/main/install.sh"
 wsl --distribution Ubuntu-18.04 -u root -e chmod 777 /home/ubuntu/repos/temp/install.sh
 wsl --distribution Ubuntu-18.04 -u root -e chown ubuntu:ubuntu /home/ubuntu/repos/temp/install.sh
 wsl --distribution Ubuntu-18.04 -u root -e /home/ubuntu/repos/temp/install.sh install
 wsl --distribution Ubuntu-18.04 -u root -e /opt/distrod/bin/distrod enable
 
-wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Systemd Installed on WSL'"
+wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Systemd Installed'"
 
 wsl --distribution Ubuntu-18.04 -u root -- echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL'> ubuntu
 wsl --distribution Ubuntu-18.04 -u root -- chmod 0440 ubuntu

@@ -32,8 +32,9 @@ done
 lxc exec jupyter -- echo 'export DEBIAN_FRONTEND=noninteractive' > /home/ubuntu/.bash_profile
 lxc exec jupyter -- add-apt-repository ppa:deadsnakes/ppa -y
 lxc exec jupyter -- apt install figlet -y
-lxc exec jupyter -- figlet -t "Inside LXD Container"
+lxc exec jupyter -- figlet -t "Updating LXD Container"
 lxc exec jupyter -- apt update
+lxc exec jupyter -- figlet -t "Upgrading LXD Container"
 lxc exec jupyter -- apt upgrade -y
 lxc exec jupyter -- apt install build-essential -y
 
@@ -42,8 +43,8 @@ lxc exec jupyter -- apt install python3.10 -y
 lxc exec jupyter -- apt install python3.10-venv -y
 lxc exec jupyter -- apt autoremove -y
 
-lxc exec jupyter -- su --login ubuntu bash -c "/usr/bin/python3.10 -m venv /home/ubuntu/py310"
-lxc exec jupyter -- su --login ubuntu bash -c "echo 'source ~/py310/bin/activate' > /home/ubuntu/.bash_profile"
+lxc exec jupyter -- sudo /usr/bin/python3.10 -m venv /home/ubuntu/py310j
+lxc exec jupyter -- sudo echo 'source ~/py310/bin/activate' > /home/ubuntu/.bash_profile
 
 lxc exec jupyter -- figlet -t "Configuring"
 lxc exec jupyter -- sudo curl -L -o /home/ubuntu/.screenrc https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.screenrc
