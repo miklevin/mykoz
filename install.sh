@@ -29,11 +29,9 @@ done
 
 sleep 5
 lxc exec jupyter -- chown -R ubuntu:ubuntu /home/ubuntu/
-WINUSER=$(printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/')
-REPOS=$(echo "${WINUSER}repos")
-DSSH=$(echo "${WINUSER}.ssh")
-lxc config device add jupyter repos disk source=$(echo "${REPOS}") path=/home/ubuntu/repos/
-lxc config device add jupyter ssh disk source=$(echo "${DSSH}") path=/home/ubuntu/.ssh/
+WIN_HOME="$(printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/')"
+lxc config device add jupyter repos disk source=${WIN_HOME}repos path=/home/ubuntu/repos/
+lxc config device add jupyter ssh disk source=${WIN_HOME}.ssh path=/home/ubuntu/.ssh/
 
 lxc exec jupyter -- add-apt-repository ppa:deadsnakes/ppa -y
 lxc exec jupyter -- apt install figlet -y
