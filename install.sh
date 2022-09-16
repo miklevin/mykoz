@@ -51,10 +51,16 @@ lxc exec jupyter -- /usr/bin/python3.10 -m venv /home/ubuntu/py310
 lxc exec jupyter -- figlet -t "Configuring"
 echo .bash_profile
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.bash_profile"
+lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/.bash_profile
+lxc exec jupyter -- chmod 777 /home/ubuntu/.bash_profile
 echo .bash_prompt
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/.bash_prompt https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.bash_prompt"
+lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/.bash_prompt
+lxc exec jupyter -- chmod 777 /home/ubuntu/.bash_prompt
 echo .screenrc
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/.screenrc https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.screenrc"
+lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/.screenrc
+lxc exec jupyter -- chmod 777 /home/ubuntu/.screenrc
 
 echo jupyterstart
 lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyterstart https://raw.githubusercontent.com/miklevin/wsl2lxd/main/jupyterstart
