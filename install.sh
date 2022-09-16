@@ -70,23 +70,22 @@ echo .screenrc
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/.screenrc https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.screenrc"
 lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/.screenrc
 lxc exec jupyter -- chmod 777 /home/ubuntu/.screenrc
-
 echo jupyterstart
 lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyterstart https://raw.githubusercontent.com/miklevin/wsl2lxd/main/jupyterstart
+lxc exec jupyter -- chmod +x /usr/local/sbin/jupyterstart
 echo jupyterscreen
 lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyterscreen https://raw.githubusercontent.com/miklevin/wsl2lxd/main/jupyterscreen
-
 lxc exec jupyter -- chmod +x /usr/local/sbin/jupyterscreen
 
 lxc exec jupyter -- figlet -t "Installing JupyterLab"
 lxc exec jupyter -- su --login ubuntu bash -c "/home/ubuntu/py310/bin/python3.10 -m pip install jupyterlab"
 
 lxc exec jupyter -- su --login ubuntu bash -c "jupyterstart >/dev/null 2>&1 &"
-lxc alias remove jupyterstart
+lxc alias remove jupyterstart >/dev/null 2>&1
 lxc alias add jupyterstart "exec jupyter -- su --login ubuntu -c /usr/local/sbin/jupyterstart"
-lxc alias remove jupyterscreen
+lxc alias remove jupyterscreen >/dev/null 2>&1
 lxc alias add jupyterscreen "exec jupyter -- su --login ubuntu -c /usr/local/sbin/jupyterscreen"
-lxc alias remove jupyter
+lxc alias remove jupyter >/dev/null 2>&1
 lxc alias add jupyterlogin "exec jupyter -- su --login ubuntu"
 lxc exec jupyter -- figlet -t "Done!"
 
