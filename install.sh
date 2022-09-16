@@ -46,7 +46,7 @@ lxc exec jupyter -- apt install python3.10-venv -y
 lxc exec jupyter -- apt autoremove -y
 
 lxc exec jupyter -- figlet -t "Creating Python venv"
-lxc exec jupyter -- su --login ubuntu bash -c /usr/bin/python3.10 -m venv /home/ubuntu/py310
+lxc exec jupyter -- su --login ubuntu bash -c "/usr/bin/python3.10 -m venv /home/ubuntu/py310"
 
 lxc exec jupyter -- figlet -t "Configuring"
 echo .bash_profile
