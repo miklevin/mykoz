@@ -21,16 +21,15 @@ fi
 
 lxc launch ubuntu:20.04 jupyter
 lxc config device add jupyter localhost8888 proxy listen=tcp:0.0.0.0:8888 connect=tcp:127.0.0.1:8888
-# lxc config device add jupyter repos disk source=`printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/'`repos path=/home/ubuntu/repos
-# lxc config device add jupyter ssh disk source=`printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/'`.ssh/ path=/home/ubuntu/.ssh
-
-lxc config device add jupyter repos disk source=/mnt/c/Users/mikle/repos path=/home/ubuntu/repos
-lxc config device add jupyter ssh disk source=/mnt/c/Users/mikle/.ssh/ path=/home/ubuntu/.ssh
 
 until [ ! -z "$(lxc ls jupyter -c '4' --format csv)" ]
 do
   sleep 2
 done
+
+lxc exec jupyter -- chown -R ubuntu:ubuntu /home/ubuntu/
+lxc config device add jupyter repos disk source=`printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/'`repos path=/home/ubuntu/repos
+lxc config device add jupyter ssh disk source=`printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/'`.ssh/ path=/home/ubuntu/.ssh
 
 lxc exec jupyter -- add-apt-repository ppa:deadsnakes/ppa -y
 lxc exec jupyter -- apt install figlet -y
