@@ -19,13 +19,14 @@ cls
 :: with an Ubuntu 20.04 hosting JupyterLab Server reachable on your Windows
 :: machine at http://localhost:8888 Step #3: Heal The World!
 
+:: Display the above bunny-banner when the script is run as Windows .BAT file.
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::intro:::" "%~f0"') do (echo.%%B)
 echo.
 echo This will uninstall any previous Ubuntu-18.04 and install a new one.
 echo The new Ubutnu 18.04 will then create a new JupyterLab LXD container
-echo which you will be able to reach in browser at http://localhost:8888.
+echo which will host Jupyter in Windows browser at http://localhost:8888.
 echo.
-set /p warning=Press [Enter] to jump down this rabbit hole or press Ctrl+C escape. %
+set /p warning=Press [Enter] to jump down Linux rabbit hole or press Ctrl+C escape. %
 echo.
 
 :: If you're runnnig Ubuntu 18.04 under WSL, this is going to delete it!
@@ -112,3 +113,5 @@ wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/repos/temp/
 wsl --distribution Ubuntu-18.04 -e bash -lic "echo j > ~/.bash_profile"
 wsl --distribution Ubuntu-18.04 -u ubuntu -e bash /home/ubuntu/repos/temp/install.sh
 
+:: See the rest at https://raw.githubusercontent.com/miklevin/jupyme/main/install.sh
+:: but you don't have to do anything because it is downloaded and run from above.
