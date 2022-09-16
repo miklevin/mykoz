@@ -29,10 +29,10 @@ do
   sleep 2
 done
 
-lxc exec jupyter -- su --login ubuntu bash -c "echo 'export DEBIAN_FRONTEND=noninteractive' > /home/ubuntu/.bash_profile"
+lxc exec jupyter -- echo 'export DEBIAN_FRONTEND=noninteractive' > /home/ubuntu/.bash_profile
 lxc exec jupyter -- add-apt-repository ppa:deadsnakes/ppa -y
 lxc exec jupyter -- apt install figlet -y
-lxc exec jupyter -- figlet -t "Now Inside Container"
+lxc exec jupyter -- figlet -t "Inside LXD Container"
 lxc exec jupyter -- apt update
 lxc exec jupyter -- apt upgrade -y
 lxc exec jupyter -- apt install build-essential -y
@@ -46,9 +46,9 @@ lxc exec jupyter -- su --login ubuntu bash -c "/usr/bin/python3.10 -m venv /home
 lxc exec jupyter -- su --login ubuntu bash -c "echo 'source ~/py310/bin/activate' > /home/ubuntu/.bash_profile"
 
 lxc exec jupyter -- figlet -t "Configuring"
-lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.screenrc https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.screenrc"
-lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.bash_prompt https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.bash_prompt"
-lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.bash_profile"
+lxc exec jupyter -- curl -L -o /home/ubuntu/.screenrc https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.screenrc
+lxc exec jupyter -- curl -L -o /home/ubuntu/.bash_prompt https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.bash_prompt
+lxc exec jupyter -- curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.bash_profile
 lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyterstart https://raw.githubusercontent.com/miklevin/wsl2lxd/main/jupyterstart
 lxc exec jupyter -- chmod +x /usr/local/sbin/jupyterstart
 lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyterscreen https://raw.githubusercontent.com/miklevin/wsl2lxd/main/jupyterscreen
