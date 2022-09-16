@@ -47,11 +47,19 @@ lxc exec jupyter -- sudo /usr/bin/python3.10 -m venv /home/ubuntu/py310j
 lxc exec jupyter -- sudo echo 'source ~/py310/bin/activate' > /home/ubuntu/.bash_profile
 
 lxc exec jupyter -- figlet -t "Configuring"
-lxc exec jupyter -- sudo curl -L -o /home/ubuntu/.screenrc https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.screenrc
-lxc exec jupyter -- sudo curl -L -o /home/ubuntu/.bash_prompt https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.bash_prompt
+echo .bash_profile
 lxc exec jupyter -- sudo curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.bash_profile
+lxc exec jupyter -- sudo chown ubuntu:ubuntu /home/ubuntu/.bash_profile
+echo .bash_prompt
+lxc exec jupyter -- sudo curl -L -o /home/ubuntu/.bash_prompt https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.bash_prompt
+lxc exec jupyter -- sudo chown ubuntu:ubuntu /home/ubuntu/.bash_prompt
+echo .screenrc
+lxc exec jupyter -- sudo curl -L -o /home/ubuntu/.screenrc https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.screenrc
+lxc exec jupyter -- sudo chown ubuntu:ubuntu /home/ubuntu/.screenrc
+echo jupyterstart
 lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyterstart https://raw.githubusercontent.com/miklevin/wsl2lxd/main/jupyterstart
 lxc exec jupyter -- chmod +x /usr/local/sbin/jupyterstart
+echo jupyterscreen
 lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyterscreen https://raw.githubusercontent.com/miklevin/wsl2lxd/main/jupyterscreen
 lxc exec jupyter -- chmod +x /usr/local/sbin/jupyterscreen
 
