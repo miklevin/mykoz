@@ -52,15 +52,10 @@ lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/.bas
 lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/.bash_profile
 lxc exec jupyter -- chmod 777 /home/ubuntu/.bash_profile
 
-#WIN_REPOS="$(printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/')repos"
-#LXRCMD="lxc config device add jupyter repos disk source=${WIN_REPOS} path=/home/ubuntu/repos/"
-#$LXRCMD
-#WIN_SSH="$(printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/').ssh"
-#LXSCMD="lxc config device add jupyter ssh disk source=${WIN_SSH} path=/home/ubuntu/.ssh/"
-#$LXSCMD
+WIN_HOME="$(printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/')"
 
-# lxc config device add jupyter repos disk source=${WIN_REPOS} path=/home/ubuntu/repos/
-# lxc config device add jupyter ssh disk source=${WIN_SSH} path=/home/ubuntu/.ssh/
+lxc config device add jupyter repos disk source=${WIN_HOME}repos/ path=/home/ubuntu/repos/
+lxc config device add jupyter ssh disk source=${WIN_HOME}.ssh/ path=/home/ubuntu/.ssh/
 
 lxc config device add jupyter repos disk source=/mnt/c/Users/mikle/repos/ path=/home/ubuntu/repos/
 sleep 5
