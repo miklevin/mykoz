@@ -28,8 +28,8 @@ do
 done
 
 lxc exec jupyter -- chown -R ubuntu:ubuntu /home/ubuntu/
-lxc config device add jupyter repos disk source=`printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/'`repos path=/home/ubuntu/repos
-lxc config device add jupyter ssh disk source=`printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/'`.ssh/ path=/home/ubuntu/.ssh
+lxc config device add jupyter repos disk source="`printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/'`repos" path=/home/ubuntu/repos
+lxc config device add jupyter ssh disk source="`printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/'`.ssh/" path=/home/ubuntu/.ssh
 
 lxc exec jupyter -- add-apt-repository ppa:deadsnakes/ppa -y
 lxc exec jupyter -- apt install figlet -y
