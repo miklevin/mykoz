@@ -32,19 +32,20 @@ done
 lxc exec jupyter -- su --login ubuntu bash -c "echo 'export DEBIAN_FRONTEND=noninteractive' > /home/ubuntu/.bash_profile"
 lxc exec jupyter -- add-apt-repository ppa:deadsnakes/ppa -y
 lxc exec jupyter -- apt install figlet -y
-lxc exec jupyter -- figlet -t "One Linux Deeper"
+lxc exec jupyter -- figlet -t "Now Inside Container"
 lxc exec jupyter -- apt update
 lxc exec jupyter -- apt upgrade -y
-lxc exec jupyter -- apt autoremove -y
+lxc exec jupyter -- apt install build-essential -y
 
 lxc exec jupyter -- figlet -t "Installing Python 3.10"
 lxc exec jupyter -- apt install python3.10 -y
 lxc exec jupyter -- apt install python3.10-venv -y
-lxc exec jupyter -- apt install build-essential -y
+lxc exec jupyter -- apt autoremove -y
 
 lxc exec jupyter -- su --login ubuntu bash -c "/usr/bin/python3.10 -m venv /home/ubuntu/py310"
 lxc exec jupyter -- su --login ubuntu bash -c "echo 'source ~/py310/bin/activate' > /home/ubuntu/.bash_profile"
 
+lxc exec jupyter -- figlet -t "Configuring"
 lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.screenrc https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.screenrc"
 lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.bash_prompt https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.bash_prompt"
 lxc exec jupyter -- su --login ubuntu bash -c "curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.bash_profile"
@@ -54,13 +55,13 @@ lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyterscreen https://raw.gi
 lxc exec jupyter -- chmod +x /usr/local/sbin/jupyterscreen
 
 lxc exec jupyter -- figlet -t "Installing JupyterLab"
-lxc exec jupyter -- sudo --login --user ubuntu bash -ilc "/home/ubuntu/py310/bin/python3.10 -m pip install jupyterlab"
+lxc exec jupyter -- su --login ubuntu bash -c "/home/ubuntu/py310/bin/python3.10 -m pip install jupyterlab"
 
-lxc exec jupyter -- su --login ubuntu bash -c "wsl2lxd >/dev/null 2>&1 &"
-lxc alias remove wsl2lxd
+lxc exec jupyter -- su --login ubuntu bash -c "jupyterstart >/dev/null 2>&1 &"
+lxc alias remove jupyterstart
 lxc alias add jupyterstart "exec jupyter -- su --login ubuntu -c /usr/local/sbin/jupyterstart"
 lxc alias remove jupyterscreen
-lxc alias add jupyterscreen "exec jupyterk-- su --login ubuntu -c /usr/local/sbin/jupyterscreen"
+lxc alias add jupyterscreen "exec jupyter -- su --login ubuntu -c /usr/local/sbin/jupyterscreen"
 lxc alias remove jupyter
 lxc alias add jupyterlogin "exec jupyter -- su --login ubuntu"
 lxc exec jupyter -- figlet -t "Done!"
