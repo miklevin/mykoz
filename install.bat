@@ -16,8 +16,8 @@ cls
 :: that Microsoft doesn't want you to see -- and certainly not be able to perform.
 
 :: WHERE To GO TO LEARN MORE
-:: If you found this page through https://mikelev.in/ux and want to see the Github
-:: and want to learn more, visit main page at https://github.com/miklevin/wsl2lxd
+:: If you found this page from https://mikelev.in/ux and want to learn more, then
+:: please visit the Github project main page at https://github.com/miklevin/wsl2lxd
 
 :: HOW TO INSTALL (SAVE THIS AND RUN)
 :: Right-click in this window (if you're viewing it from the Github raw view at
