@@ -92,5 +92,5 @@ lxc exec jupyter -- figlet -t "Done."
 
 echo "Use JuypterLab at http://localhost:8888"
 echo "From Edge .../Apps/Install this site as an app."
-echo "Learn more at https://MikeLev.in/rabbithole"
+echo "Learn more at https://mikelev.in/ux"
 read -p "Press any key to continue."
