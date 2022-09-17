@@ -7,7 +7,8 @@ source ~/.bash_prompt
 # Make gnu screen show more useful information.
 export SCREENDIR=$HOME/.screen
 
-export JUPYTER_CONFIG_DIR=~/repos/
+# Allow all your Jupyter configuration (dark mode) survive reinstalls.
+export JUPYTER_CONFIG_DIR=~/repos/transfer/.jupyter
 
 # Un-comment the following lines to enable Linux graphics using VcXsrv or Xming.
 # source ~/repos/transfer/display.sh
