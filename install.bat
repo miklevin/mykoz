@@ -59,6 +59,8 @@ ubuntu1804 config --default-user "%wsluer%"
 :: This creates "repos" folder in your Windows HOME for Windows/Linux file sharing.
 if not exist "%USERPROFILE%\repos" mkdir %USERPROFILE%\repos
 if not exist "%USERPROFILE%\repos\temp" mkdir %USERPROFILE%\repos\temp
+if not exist "%USERPROFILE%\repos\transfer" mkdir %USERPROFILE%\repos\transfer
+if not exist "%USERPROFILE%\repos\transfer\.jupyter" mkdir %USERPROFILE%\repos\transfer\.jupyter
 
 :: This makes file permissions under WSL keyed off of your Windows-side.
 wsl --distribution Ubuntu-18.04 -u root -e echo -e "[automount]\n"options = \"metadata\" > wsl.conf
