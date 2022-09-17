@@ -10,19 +10,22 @@ cls
 :::intro:::             |_|    |___/
 :::intro::: RUN JUPYTER ON LXD LINUX CONTAINER UNDER WINDOWS SUBSYSTEM FOR LINUX
 
+:: LIFE AFTER WINDOWS STARTS HERE
 :: Welcome to the most amazing thing you're going to see all day, and perhaps one
 :: that will change your life forever. Enough hype. Let's get on with the process
 :: that Microsoft doesn't want you to see -- and certainly not be able to perform.
 
-:: HOW TO INSTALL (SAVE THIS AND RUN)
+:: WHERE To GO TO LEARN MORE
+:: If you found this page through https://mikelev.in/ux and want to see the Github
+:: and want to learn more, visit main page at https://github.com/miklevin/wsl2lxd
 
+:: HOW TO INSTALL (SAVE THIS AND RUN)
 :: Right-click in this window (if you're viewing it from the Github raw view at
 :: https://raw.githubusercontent.com/miklevin/wsl2lxd/main/install.bat ), select
 :: all, create a file named install.bat on your local Windows 10 or 11 computer
 :: and double-click it to run. 
 
 :: WHAT DOES IT DO? (INSTALLS A PORTABLE LINUX)
-
 :: It will take over your Ubuntu 18.04 "slot" in the Windows Subsysystem for Linux,
 :: (WSL) then install the LXD Linux Conainer software with an Ubuntu 20.04 hosting
 :: JupyterLab Server reachable on your Windows machine at http://localhost:8888 
