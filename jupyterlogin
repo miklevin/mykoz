@@ -3,3 +3,4 @@ until
 do
         sleep 1
 done
+lxc exec jupyter -- su --login ubuntu
