@@ -64,7 +64,7 @@ ubuntu1804 config --default-user "%wsluer%"
 
 :: This creates "repos" folder in your Windows HOME for Windows/Linux file sharing.
 if not exist "%USERPROFILE%\repos" mkdir %USERPROFILE%\repos
-if not exist "%USERPROFILE%\repos\temp" mkdir %USERPROFILE%\repos\temp
+if not exist "%USERPROFILE%\repos\transfer\.jupyter" mkdir %USERPROFILE%\repos\transfer\.jupyter
 if not exist "%USERPROFILE%\repos\transfer" mkdir %USERPROFILE%\repos\transfer
 if not exist "%USERPROFILE%\repos\transfer\.jupyter" mkdir %USERPROFILE%\repos\transfer\.jupyter
 
@@ -105,10 +105,10 @@ wsl --distribution Ubuntu-18.04 -u root -e chown ubuntu:ubuntu /usr/local/sbin/j
 wsl --distribution Ubuntu-18.04 -u root -e chmod +x /usr/local/sbin/jupyterlogin
 
 :: Grab and run distrod's install.sh from Github to turn on systemd (required for LXD).
-wsl --distribution Ubuntu-18.04 -u root -e curl -L -o /home/ubuntu/repos/temp/install.sh "https://raw.githubusercontent.com/nullpo-head/wsl-distrod/main/install.sh"
-wsl --distribution Ubuntu-18.04 -u root -e chmod 777 /home/ubuntu/repos/temp/install.sh
-wsl --distribution Ubuntu-18.04 -u root -e chown ubuntu:ubuntu /home/ubuntu/repos/temp/install.sh
-wsl --distribution Ubuntu-18.04 -u root -e /home/ubuntu/repos/temp/install.sh install
+wsl --distribution Ubuntu-18.04 -u root -e curl -L -o /home/ubuntu/install.sh "https://raw.githubusercontent.com/nullpo-head/wsl-distrod/main/install.sh"
+wsl --distribution Ubuntu-18.04 -u root -e chmod 777 /home/ubuntu/install.sh
+wsl --distribution Ubuntu-18.04 -u root -e chown ubuntu:ubuntu /home/ubuntu/install.sh
+wsl --distribution Ubuntu-18.04 -u root -e /home/ubuntu/install.sh install
 
 :: Activate the LXD requirement "systemd" under WSL (previously unvailable).
 wsl --distribution Ubuntu-18.04 -u root -e /opt/distrod/bin/distrod enable
@@ -126,9 +126,10 @@ wsl --distribution Ubuntu-18.04 -u ubuntu -e lxd init --auto
 wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Installing LXD Container'"
 
 :: Grab and run install.sh from my Github for second half of install (under LXD)
-wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/repos/temp/install.sh "https://raw.githubusercontent.com/miklevin/jupyme/main/install.sh"
+wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/install.sh "https://raw.githubusercontent.com/miklevin/jupyme/main/install.sh"
 wsl --distribution Ubuntu-18.04 -e bash -lic "echo jupyterlogin > ~/.bash_profile"
-wsl --distribution Ubuntu-18.04 -u ubuntu -e bash /home/ubuntu/repos/temp/install.sh
+wsl --distribution Ubuntu-18.04 -u ubuntu -e bash /home/ubuntu/install.sh
+wsl --distribution Ubuntu-18.04 -u ubuntu -e bash rm /home/ubuntu/install.sh
 
 :: See the rest at https://raw.githubusercontent.com/miklevin/jupyme/main/install.sh
 :: but you don't have to do anything because it is downloaded and run from above.
