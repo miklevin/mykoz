@@ -96,12 +96,12 @@ wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Ugrading WSL Linux'"
 wsl --distribution Ubuntu-18.04 -u root -e sudo apt upgrade -y
 wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Installing systemd'"
 
-:: The "j" program is how Ubuntu 18.04 in WSL starts Jupyter on Ubuntu 20.04 in LXD.
-wsl --distribution Ubuntu-18.04 -u root -e curl -L -o /usr/local/sbin/j "https://raw.githubusercontent.com/miklevin/wsl2lxd/main/j"
-wsl --distribution Ubuntu-18.04 -u root -e chown ubuntu:ubuntu /usr/local/sbin/j
-wsl --distribution Ubuntu-18.04 -u root -e chmod +x /usr/local/sbin/j
+:: Grab program that waits for Jupyter to start on Ubuntu 18.04 and put in sbin.
+wsl --distribution Ubuntu-18.04 -u root -e curl -L -o /usr/local/sbin/jupyterlogin "https://raw.githubusercontent.com/miklevin/wsl2lxd/main/jupyterlogin"
+wsl --distribution Ubuntu-18.04 -u root -e chown ubuntu:ubuntu /usr/local/sbin/jupyterlogin
+wsl --distribution Ubuntu-18.04 -u root -e chmod +x /usr/local/sbin/jupytelogin
 
-:: Grab and run distrod's install.sh from Github to turn on systemd (required for LXD)
+:: Grab and run distrod's install.sh from Github to turn on systemd (required for LXD).
 wsl --distribution Ubuntu-18.04 -u root -e curl -L -o /home/ubuntu/repos/temp/install.sh "https://raw.githubusercontent.com/nullpo-head/wsl-distrod/main/install.sh"
 wsl --distribution Ubuntu-18.04 -u root -e chmod 777 /home/ubuntu/repos/temp/install.sh
 wsl --distribution Ubuntu-18.04 -u root -e chown ubuntu:ubuntu /home/ubuntu/repos/temp/install.sh
