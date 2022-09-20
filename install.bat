@@ -115,10 +115,10 @@ wsl --distribution Ubuntu-18.04 -u root -e /opt/distrod/bin/distrod enable
 wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Systemd Installed'"
 
 :: You know what's nice? Not having to type a password every time you sudo a command!
-wsl --distribution Ubuntu-18.04 -u root -- echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL'> ubuntu
-wsl --distribution Ubuntu-18.04 -u root -- chmod 0440 ubuntu
-wsl --distribution Ubuntu-18.04 -u root -- chown 0 ubuntu
-wsl --distribution Ubuntu-18.04 -u root -- mv ubuntu /etc/sudoers.d/
+echo before
+wsl --distribution Ubuntu-18.04 -u root -- echo "ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL> /etc/sudoers.d/ubuntu"
+wsl --distribution Ubuntu-18.04 -u root -- sleep 10
+echo after
 
 :: Deep breath... Install the LXD Linux Container system on WSL accepting all defaults.
 timeout /t 3 /nobreak >nul
