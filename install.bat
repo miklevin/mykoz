@@ -99,7 +99,7 @@ wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Installing systemd'"
 :: Grab program that waits for Jupyter to start on Ubuntu 18.04 and put in sbin.
 wsl --distribution Ubuntu-18.04 -u root -e curl -L -o /usr/local/sbin/jupyterlogin "https://raw.githubusercontent.com/miklevin/wsl2lxd/main/jupyterlogin"
 wsl --distribution Ubuntu-18.04 -u root -e chown ubuntu:ubuntu /usr/local/sbin/jupyterlogin
-wsl --distribution Ubuntu-18.04 -u root -e chmod +x /usr/local/sbin/jupytelogin
+wsl --distribution Ubuntu-18.04 -u root -e chmod +x /usr/local/sbin/jupyterlogin
 
 :: Grab and run distrod's install.sh from Github to turn on systemd (required for LXD).
 wsl --distribution Ubuntu-18.04 -u root -e curl -L -o /home/ubuntu/repos/temp/install.sh "https://raw.githubusercontent.com/nullpo-head/wsl-distrod/main/install.sh"
