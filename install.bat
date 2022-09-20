@@ -23,7 +23,10 @@ cls
 :: Right-click in this window (if you're viewing it from the Github raw view at
 :: https://raw.githubusercontent.com/miklevin/wsl2lxd/main/install.bat ), select
 :: all, create a file named install.bat on your local Windows 10 or 11 computer
-:: and double-click it to run. You may have to override security warnings.
+:: and right-click it to Run as administrator. If the icon doesn't look like gears
+:: then you have a hidden .txt extension you can get rid of with File Explorer /
+:: View / Options / View (tab) / Uncheck "Hide extensions for known types" after
+:: which you will be able to see and delete the .txt extension.
 
 :: WHAT DOES IT DO? (INSTALLS A PORTABLE LINUX)
 :: It will take over your Ubuntu 18.04 "slot" in the Windows Subsysystem for Linux,
