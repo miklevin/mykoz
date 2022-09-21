@@ -30,9 +30,9 @@ done
 sleep 5
 lxc exec jupyter -- chown -R ubuntu:ubuntu /home/ubuntu/
 
+lxc exec jupyter -- figlet -t "Updating LXD Container"
 lxc exec jupyter -- add-apt-repository ppa:deadsnakes/ppa -y
 lxc exec jupyter -- apt install figlet -y
-lxc exec jupyter -- figlet -t "Updating LXD Container"
 lxc exec jupyter -- apt update
 lxc exec jupyter -- figlet -t "Upgrading LXD Container"
 lxc exec jupyter -- apt upgrade -y
