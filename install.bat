@@ -134,8 +134,7 @@ wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Installing & Updating C
 wsl --distribution Ubuntu-18.04 -u ubuntu -e bash /home/ubuntu/install.sh
 
 :: Clean up after the install, deleting whatever is not intentionally left behind.
-wsl --distribution Ubuntu-18.04 -u root -- echo jupyterstart>> /home/ubuntu/.bash_profile
-wsl --distribution Ubuntu-18.04 -u ubuntu -- ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos>nul
+wsl --distribution Ubuntu-18.04 -u root -- echo jupyterlogin>> /home/ubuntu/.bash_profile
 wsl --distribution Ubuntu-18.04 -u ubuntu -- rm /home/ubuntu/install.sh
 
 set /p warning=Press [Enter] to release this console window. %
