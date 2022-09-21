@@ -44,14 +44,15 @@ lxc exec jupyter -- figlet -t "Creating Python venv"
 lxc exec jupyter -- su --login ubuntu bash -c "/usr/bin/python3.10 -m venv /home/ubuntu/py310"
 
 lxc exec jupyter -- figlet -t "Linking Repos & .ssh"
-curl -L -o /usr/local/sbin/lxconfig https://raw.githubusercontent.com/miklevin/wsl2lxd/main/lxconfig
+lsb_release --all
+curl -L -o /usr/local/sbin/lxconfig https://raw.githubusercontent.com/miklevin/lxdwin/main/lxconfig
 chmod +x /usr/local/sbin/lxconfig
 lxconfig
 echo "TAKE A CLOSE LOOK"
 sleep 10
 
 echo .bash_profile
-lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.bash_profile"
+lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_profile"
 lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/.bash_profile
 lxc exec jupyter -- chmod 777 /home/ubuntu/.bash_profile
 
@@ -60,22 +61,22 @@ lxc exec jupyter -- chmod 777 /home/ubuntu/.bash_profile
 # lxc config device add jupyter ssh disk source="$WIN_HOME".ssh/ path=/home/ubuntu/.ssh/
 
 echo .bash_prompt
-lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/.bash_prompt https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.bash_prompt"
+lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/.bash_prompt https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_prompt"
 lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/.bash_prompt
 lxc exec jupyter -- chmod 777 /home/ubuntu/.bash_prompt
 echo .screenrc
-lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/.screenrc https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.screenrc"
+lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/.screenrc https://raw.githubusercontent.com/miklevin/lxdwin/main/.screenrc"
 lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/.screenrc
 lxc exec jupyter -- chmod 777 /home/ubuntu/.screenrc
 echo jupyterstart
-lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyterstart https://raw.githubusercontent.com/miklevin/wsl2lxd/main/jupyterstart
+lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyterstart https://raw.githubusercontent.com/miklevin/lxdwin/main/jupyterstart
 lxc exec jupyter -- chmod +x /usr/local/sbin/jupyterstart
 echo jupyterscreen
-lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyterscreen https://raw.githubusercontent.com/miklevin/wsl2lxd/main/jupyterscreen
+lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyterscreen https://raw.githubusercontent.com/miklevin/lxdwin/main/jupyterscreen
 lxc exec jupyter -- chmod +x /usr/local/sbin/jupyterscreen
 
 lxc exec jupyter -- figlet -t "Optional Installs"
-lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/postinstall https://raw.githubusercontent.com/miklevin/wsl2lxd/main/postinstall
+lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/postinstall https://raw.githubusercontent.com/miklevin/lxdwin/main/postinstall
 lxc exec jupyter -- chmod +x /usr/local/sbin/postinstall
 lxc exec jupyter -- su --login ubuntu bash -c "postinstall"
 
