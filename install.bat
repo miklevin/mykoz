@@ -70,7 +70,7 @@ if not exist "%USERPROFILE%\repos\transfer\.jupyter" mkdir %USERPROFILE%\repos\t
 
 :: If you're running from a location with these optional second-stage install files, copy them over.
 if exist apt_installs.sh copy apt_installs.sh %USERPROFILE%\repos\transfer
-if exist requirements.txt copy apt_installs.sh %USERPROFILE%\repos\transfer
+if exist requirements.txt copy requirements.txt %USERPROFILE%\repos\transfer
 
 :: This makes file permissions under WSL keyed off of your Windows-side.
 wsl --distribution Ubuntu-18.04 -u root -e echo -e "[automount]\n"options = \"metadata\" > wsl.conf
