@@ -77,6 +77,11 @@ echo jupyterscreen
 lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyterscreen https://raw.githubusercontent.com/miklevin/wsl2lxd/main/jupyterscreen
 lxc exec jupyter -- chmod +x /usr/local/sbin/jupyterscreen
 
+echo postinstall
+lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/postinstall https://raw.githubusercontent.com/miklevin/wsl2lxd/main/postinstall
+lxc exec jupyter -- chmod +x /usr/local/sbin/postinstall
+lxc exec jupyter -- su --login ubuntu bash -c "postinstall"
+
 lxc exec jupyter -- figlet -t "Installing JupyterLab"
 lxc exec jupyter -- su --login ubuntu bash -c "/home/ubuntu/py310/bin/python3.10 -m pip install jupyterlab"
 

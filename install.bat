@@ -130,6 +130,8 @@ wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Installing LXD Containe
 wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/install.sh "https://raw.githubusercontent.com/miklevin/jupyme/main/install.sh"
 wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/.bash_profile "https://raw.githubusercontent.com/miklevin/jupyme/main/.bash_profile-wsl"
 wsl --distribution Ubuntu-18.04 -u ubuntu -e bash /home/ubuntu/install.sh
+
+:: Clean up after the install, deleting whatever is not intentionally left behind.
 wsl --distribution Ubuntu-18.04 -u root -- rm /home/ubuntu/install.sh
 
 :: See the rest at https://raw.githubusercontent.com/miklevin/jupyme/main/install.sh

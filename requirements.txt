@@ -1,6 +1,1 @@
-art
 pandas
-pyppeteer
-httpx
-pyhton-slugify
-dumbquotes
