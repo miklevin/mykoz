@@ -41,7 +41,6 @@ lxc exec jupyter -- apt autoremove -y
 lxc exec jupyter -- figlet -t "Creating Python venv"
 lxc exec jupyter -- su --login ubuntu bash -c "/usr/bin/python3.10 -m venv /home/ubuntu/py310"
 echo "Done"
-lxc exec jupyter -- su --login ubuntu bash -c "exit"
 lxc exec jupyter -- figlet -t "Linking Repos & .ssh"
 lsb_release --all
 curl -L -o /home/ubuntu/lxconfig https://raw.githubusercontent.com/miklevin/lxdwin/main/lxconfig
