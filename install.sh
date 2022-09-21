@@ -15,8 +15,6 @@ else
 fi
 
 lxc launch ubuntu:20.04 jupyter
-lxc config device add jupyter localhost8888 proxy listen=tcp:0.0.0.0:8888 connect=tcp:127.0.0.1:8888
-
 
 until [ ! -z "$(lxc ls jupyter -c '4' --format csv)" ]
 do
@@ -41,8 +39,9 @@ lxc exec jupyter -- apt autoremove -y
 lxc exec jupyter -- figlet -t "Creating Python venv"
 lxc exec jupyter -- su --login ubuntu bash -c "/usr/bin/python3.10 -m venv /home/ubuntu/py310"
 echo "Done"
-lxc exec jupyter -- figlet -t "Linking Repos & .ssh"
+lxc exec jupyter -- figlet -t "Adding LXD Devices"
 
+lxc config device add jupyter localhost8888 proxy listen=tcp:0.0.0.0:8888 connect=tcp:127.0.0.1:8888
 WIN_HOME="$(printenv | grep -m 1 -o '/mnt/c/Users/[a-zA-Z]*/')"
 ACMD="lxc config device add jupyter repos disk source=${WIN_HOME}repos/ path=/home/ubuntu/repos/"
 echo "$ACMD"
