@@ -135,7 +135,8 @@ wsl --distribution Ubuntu-18.04 -u ubuntu -e bash /home/ubuntu/install.sh
 
 :: Clean up after the install, deleting whatever is not intentionally left behind.
 wsl --distribution Ubuntu-18.04 -u root -- "echo jupyterlogin>> /home/ubuntu/.bash_profile"
-wsl --distribution Ubuntu-18.04 -u root -- rm /home/ubuntu/install.sh
+wsl --distribution Ubuntu-18.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos" >nul
+wsl --distribution Ubuntu-18.04 -e bash -lic "rm /home/ubuntu/install.sh"
 
 set /p warning=Press [Enter] to release this console window. %
 
@@ -148,8 +149,16 @@ set /p warning=Press [Enter] to release this console window. %
 ::   | | (_) | |_| | (_) |
 ::   |_|\___/|____/ \___/
 
-:: - Provide drag-copy shortcut in repo to run server after reboot.
 :: - Switch Jupyter startup method from .bash_profile to Linux service.
-:: - Prevent Jupyter configuration from being wiped-out by reinstalls.
-:: - Copy requirements.txt LXD-side and one-time pip install -r requirements.txt
-:: - Copy apt_installs.txt LXD-side and one-time source avtivate them.
+
+::  ____                   
+:: |  _ \  ___  _ __   ___ 
+:: | | | |/ _ \| '_ \ / _ \
+:: | |_| | (_) | | | |  __/
+:: |____/ \___/|_| |_|\___|
+
+:: WEEK OF SEPT 18, 2022
+:: - Provided drag-copy shortcut in repo to run server after reboot.
+:: - Prevented Jupyter configuration from being wiped-out by reinstalls.
+:: - Copied requirements.txt LXD-side and one-time pip install -r requirements.txt
+:: - Copied apt_installs.txt LXD-side and one-time source avtivate them.
