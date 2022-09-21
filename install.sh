@@ -29,6 +29,7 @@ lxc exec jupyter -- chown -R ubuntu:ubuntu /home/ubuntu/
 
 lxc exec jupyter -- add-apt-repository ppa:deadsnakes/ppa -y
 lxc exec jupyter -- apt install figlet -y
+sleep 2
 lxc exec jupyter -- figlet -t "Updating LXD Container"
 lxc exec jupyter -- apt update
 lxc exec jupyter -- figlet -t "Upgrading LXD Container"
@@ -45,9 +46,9 @@ lxc exec jupyter -- su --login ubuntu bash -c "/usr/bin/python3.10 -m venv /home
 
 lxc exec jupyter -- figlet -t "Linking Repos & .ssh"
 lsb_release --all
-curl -L -o /usr/local/sbin/lxconfig https://raw.githubusercontent.com/miklevin/lxdwin/main/lxconfig
-chmod +x /usr/local/sbin/lxconfig
-lxconfig
+curl -L -o /home/ubuntu/lxconfig https://raw.githubusercontent.com/miklevin/lxdwin/main/lxconfig
+chmod +x /home/ubuntu/lxconfig
+/home/ubuntu/lxconfig
 echo "TAKE A CLOSE LOOK"
 sleep 10
 
