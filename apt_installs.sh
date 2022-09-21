@@ -1,1 +1,1 @@
-sudo apt install x11-apps
+sudo apt install x11-apps -y

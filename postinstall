@@ -1,9 +1,11 @@
 if [ -f ~/repos/transfer/apt_installs.sh ]
 then
+    figlet -t "Doing Apt Installs"
     source ~/repos/transfer/apt_installs.sh
 fi
 
 if [ -f ~/repos/transfer/requirements.txt ]
 then
+    figlet -t "Doing Pip Installs"
     python3.10 -m pip install -r ~/repos/transfer/requirements.txt
 fi
