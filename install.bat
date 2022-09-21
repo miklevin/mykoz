@@ -124,8 +124,8 @@ wsl --distribution Ubuntu-18.04 -u root -- echo "ubuntu	ALL=(ALL:ALL) NOPASSWD:A
 
 :: Deep breath... Install the LXD Linux Container system on WSL accepting all defaults.
 timeout /t 2 /nobreak >nul
+wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Installing LXD'"
 wsl --distribution Ubuntu-18.04 -u ubuntu -e lxd init --auto
-wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Installing LXD Container'"
 
 :: Grab and run second-half of install that runs under WSL and set up Linux graphics.
 wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/install.sh "https://raw.githubusercontent.com/miklevin/lxdwin/main/install.sh"
