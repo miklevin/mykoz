@@ -1,0 +1,9 @@
+if [ -f ~/repos/transfer/apt_installs.sh ]
+then
+    source ~/repos/transfer/apt_installs.sh
+fi
+
+if [ -f ~/repos/transfer/requirements.txt ]
+then
+    python3.10 -m pip install -r ~/repos/transfer/requirements.txt
+fi
