@@ -42,10 +42,18 @@ lxc exec jupyter -- figlet -t "Creating Python venv"
 lxc exec jupyter -- su --login ubuntu bash -c "/usr/bin/python3.10 -m venv /home/ubuntu/py310"
 echo "Done"
 lxc exec jupyter -- figlet -t "Linking Repos & .ssh"
-lsb_release --all
-curl -L -o /home/ubuntu/lxconfig https://raw.githubusercontent.com/miklevin/lxdwin/main/lxconfig
-chmod +x /home/ubuntu/lxconfig
-/home/ubuntu/lxconfig
+# curl -L -o /home/ubuntu/lxconfig https://raw.githubusercontent.com/miklevin/lxdwin/main/lxconfig
+# chmod +x /home/ubuntu/lxconfig
+# /home/ubuntu/lxconfig
+
+WIN_HOME="$(printenv | grep -m 1 -o '/mnt/c/Users/[a-zA-Z]*/')"
+cmd = lxc config device add jupyter repos disk source="$WIN_HOME"repos/ path=/home/ubuntu/repos/
+echo "$cmd"
+eval $cmd 
+cmd = lxc config device add jupyter ssh disk source="$WIN_HOME".ssh/ path=/home/ubuntu/.ssh/
+echo "$cmd"
+eval $cmd 
+lxc config device add jupyter ssh disk source="$WIN_HOME".ssh/ path=/home/ubuntu/.ssh/
 echo "TAKE A CLOSE LOOK"
 sleep 30
 
@@ -53,11 +61,6 @@ echo .bash_profile
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_profile"
 lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/.bash_profile
 lxc exec jupyter -- chmod 777 /home/ubuntu/.bash_profile
-
-# WIN_HOME="$(printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/')"
-# lxc config device add jupyter repos disk source="$WIN_HOME"repos/ path=/home/ubuntu/repos/
-# lxc config device add jupyter ssh disk source="$WIN_HOME".ssh/ path=/home/ubuntu/.ssh/
-
 echo .bash_prompt
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/.bash_prompt https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_prompt"
 lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/.bash_prompt
