@@ -47,6 +47,8 @@ lxc exec jupyter -- figlet -t "Linking Repos & .ssh"
 # /home/ubuntu/lxconfig
 
 WIN_HOME="$(printenv | grep -m 1 -o '/mnt/c/Users/[a-zA-Z]*/')"
+echo "HERE HERE HERE"
+echo "${WIN_HOME}"
 ACMD = "lxc config device add jupyter repos disk source=${WIN_HOME}repos/ path=/home/ubuntu/repos/"
 echo "$ACMD"
 eval "$ACMD"
@@ -54,7 +56,7 @@ ACMD = "lxc config device add jupyter ssh disk source=${WIN_HOME}.ssh/ path=/hom
 echo "$ACMD"
 eval "$ACMD"
 echo "TAKE A CLOSE LOOK"
-sleep 30
+sleep 300
 
 echo .bash_profile
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_profile"
