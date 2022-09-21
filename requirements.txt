@@ -1,1 +1,11 @@
+PyYAML
+httpx
+nb-black
+nltk
+ohawf
+openpyxl
 pandas
+pyppeteer
+sqlitedict
+tldextract
+yake
