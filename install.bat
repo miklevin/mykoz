@@ -126,12 +126,9 @@ timeout /t 3 /nobreak >nul
 wsl --distribution Ubuntu-18.04 -u ubuntu -e lxd init --auto
 wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Installing LXD Container'"
 
-:: Grab and run install.sh from my Github for second half of install (under LXD)
+:: Grab and run second-half of install that runs under WSL and set up Linux graphics.
 wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/install.sh "https://raw.githubusercontent.com/miklevin/jupyme/main/install.sh"
 wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/.bash_profile "https://raw.githubusercontent.com/miklevin/jupyme/main/.bash_profile-wsl"
-
-wsl --distribution Ubuntu-18.04 -e bash -lic "echo jupyterlogin > ~/.bash_profile"
-
 wsl --distribution Ubuntu-18.04 -u ubuntu -e bash /home/ubuntu/install.sh
 wsl --distribution Ubuntu-18.04 -u root -- rm /home/ubuntu/install.sh
 
