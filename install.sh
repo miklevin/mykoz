@@ -42,21 +42,14 @@ lxc exec jupyter -- figlet -t "Creating Python venv"
 lxc exec jupyter -- su --login ubuntu bash -c "/usr/bin/python3.10 -m venv /home/ubuntu/py310"
 echo "Done"
 lxc exec jupyter -- figlet -t "Linking Repos & .ssh"
-# curl -L -o /home/ubuntu/lxconfig https://raw.githubusercontent.com/miklevin/lxdwin/main/lxconfig
-# chmod +x /home/ubuntu/lxconfig
-# /home/ubuntu/lxconfig
 
 WIN_HOME="$(printenv | grep -m 1 -o '/mnt/c/Users/[a-zA-Z]*/')"
-echo "HERE HERE HERE"
-echo "I have: ${WIN_HOME}"
 ACMD="lxc config device add jupyter repos disk source=${WIN_HOME}repos/ path=/home/ubuntu/repos/"
 echo "$ACMD"
 eval "$ACMD"
 ACMD="lxc config device add jupyter ssh disk source=${WIN_HOME}.ssh/ path=/home/ubuntu/.ssh/"
 echo "$ACMD"
 eval "$ACMD"
-echo "TAKE A CLOSE LOOK"
-sleep 300
 
 echo .bash_profile
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_profile"
