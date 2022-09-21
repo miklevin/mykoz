@@ -69,6 +69,7 @@ if not exist "%USERPROFILE%\repos\transfer" mkdir %USERPROFILE%\repos\transfer
 if not exist "%USERPROFILE%\repos\transfer\.jupyter" mkdir %USERPROFILE%\repos\transfer\.jupyter
 
 :: If you're running from a location with these optional second-stage install files, copy them over.
+echo "Copying optional installer files apt_installs.sh and requirements.txt if they exist."
 if exist apt_installs.sh copy apt_installs.sh %USERPROFILE%\repos\transfer
 if exist requirements.txt copy requirements.txt %USERPROFILE%\repos\transfer
 

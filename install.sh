@@ -1,14 +1,9 @@
 #!/bin/bash
 
-# echo "You must have a repos and .ssh folder in your home folder C:\\Users\\[username]"
-# echo "This will replace your current Jupyter Container, config and pip installs."
-# echo
-# read -p "Are you sure you want to continue? " -n 1 -r
-# echo
-# if [[ ! $REPLY =~ ^[Yy]$ ]]
-# then
-#     [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1
-# fi
+# This is the second-stage install script for activating LXD Containers on
+# the Windows Subsystem for Linux (WSL). It does a JupyterLab Server install
+# by default. Put other things you want installed in the apt_installs.sh and
+# requirements.txt files. Linux graphics are supported with VcXsrv or Xming.
 
 JUPYTER_EXISTS="$(lxc ls -c "n" --format csv | grep jupyter)"
 if [ "$JUPYTER_EXISTS" == "jupyter" ]; then
@@ -46,16 +41,20 @@ lxc exec jupyter -- apt autoremove -y
 lxc exec jupyter -- figlet -t "Creating Python venv"
 lxc exec jupyter -- su --login ubuntu bash -c "/usr/bin/python3.10 -m venv /home/ubuntu/py310"
 
-lxc exec jupyter -- figlet -t "Configuring"
 echo .bash_profile
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.bash_profile"
 lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/.bash_profile
 lxc exec jupyter -- chmod 777 /home/ubuntu/.bash_profile
 
-WIN_HOME="$(printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/')"
+lxc exec jupyter -- figlet -t "Linking Repos & .ssh"
+lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/lxconfig https://raw.githubusercontent.com/miklevin/wsl2lxd/main/lxconfig
+lxc exec jupyter -- chmod +x /usr/local/sbin/lxconfig
+lxc exec jupyter -- su --login ubuntu bash -c "lxconfig"
+sleep 10
 
-lxc config device add jupyter repos disk source="$WIN_HOME"repos/ path=/home/ubuntu/repos/
-lxc config device add jupyter ssh disk source="$WIN_HOME".ssh/ path=/home/ubuntu/.ssh/
+# WIN_HOME="$(printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/')"
+# lxc config device add jupyter repos disk source="$WIN_HOME"repos/ path=/home/ubuntu/repos/
+# lxc config device add jupyter ssh disk source="$WIN_HOME".ssh/ path=/home/ubuntu/.ssh/
 
 echo .bash_prompt
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/.bash_prompt https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.bash_prompt"
