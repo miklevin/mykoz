@@ -47,13 +47,12 @@ lxc exec jupyter -- figlet -t "Linking Repos & .ssh"
 # /home/ubuntu/lxconfig
 
 WIN_HOME="$(printenv | grep -m 1 -o '/mnt/c/Users/[a-zA-Z]*/')"
-cmd = 'lxc config device add jupyter repos disk source="$WIN_HOME"repos/ path=/home/ubuntu/repos/'
-echo "$cmd"
-eval $cmd 
-cmd = 'lxc config device add jupyter ssh disk source="$WIN_HOME".ssh/ path=/home/ubuntu/.ssh/'
-echo "$cmd"
-eval $cmd 
-lxc config device add jupyter ssh disk source="$WIN_HOME".ssh/ path=/home/ubuntu/.ssh/
+ACMD = "lxc config device add jupyter repos disk source=${WIN_HOME}repos/ path=/home/ubuntu/repos/"
+echo "$ACMD"
+eval "$ACMD"
+ACMD = "lxc config device add jupyter ssh disk source=${WIN_HOME}.ssh/ path=/home/ubuntu/.ssh/"
+echo "$ACMD"
+eval "$ACMD"
 echo "TAKE A CLOSE LOOK"
 sleep 30
 
