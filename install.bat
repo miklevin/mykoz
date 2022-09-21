@@ -128,7 +128,10 @@ wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Installing LXD Containe
 
 :: Grab and run install.sh from my Github for second half of install (under LXD)
 wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/install.sh "https://raw.githubusercontent.com/miklevin/jupyme/main/install.sh"
+wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/.bash_profile "https://raw.githubusercontent.com/miklevin/jupyme/main/.bash_profile-wsl"
+
 wsl --distribution Ubuntu-18.04 -e bash -lic "echo jupyterlogin > ~/.bash_profile"
+
 wsl --distribution Ubuntu-18.04 -u ubuntu -e bash /home/ubuntu/install.sh
 wsl --distribution Ubuntu-18.04 -u root -- rm /home/ubuntu/install.sh
 
