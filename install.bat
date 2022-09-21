@@ -17,11 +17,11 @@ cls
 
 :: WHERE To GO TO LEARN MORE
 :: If you found this page from https://mikelev.in/ux and want to learn more, then
-:: please visit the Github project main page at https://github.com/miklevin/wsl2lxd
+:: please visit the Github project main page at https://github.com/miklevin/lxdwin
 
 :: HOW TO INSTALL (SAVE THIS AND RUN)
 :: Right-click in this window (if you're viewing it from the Github raw view at
-:: https://raw.githubusercontent.com/miklevin/wsl2lxd/main/install.bat ), select
+:: https://raw.githubusercontent.com/miklevin/lxdwin/main/install.bat ), select
 :: all, create a file named install.bat on your local Windows 10 or 11 computer
 :: and right-click it to Run as administrator. If the icon doesn't look like gears
 :: then you have a hidden .txt extension you can get rid of with File Explorer /
@@ -105,7 +105,7 @@ wsl --distribution Ubuntu-18.04 -u root -e sudo apt upgrade -y
 wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Installing systemd'"
 
 :: Grab program that waits for Jupyter to start on Ubuntu 18.04 and put in sbin.
-wsl --distribution Ubuntu-18.04 -u root -e curl -L -o /usr/local/sbin/jupyterlogin "https://raw.githubusercontent.com/miklevin/wsl2lxd/main/jupyterlogin"
+wsl --distribution Ubuntu-18.04 -u root -e curl -L -o /usr/local/sbin/jupyterlogin "https://raw.githubusercontent.com/miklevin/lxdwin/main/jupyterlogin"
 wsl --distribution Ubuntu-18.04 -u root -e chown ubuntu:ubuntu /usr/local/sbin/jupyterlogin
 wsl --distribution Ubuntu-18.04 -u root -e chmod +x /usr/local/sbin/jupyterlogin
 
