@@ -137,6 +137,8 @@ wsl --distribution Ubuntu-18.04 -u ubuntu -e bash /home/ubuntu/install.sh
 wsl --distribution Ubuntu-18.04 -e bash -lic "echo jupyterlogin>> /home/ubuntu/.bash_profile"
 wsl --distribution Ubuntu-18.04 -u root -- rm /home/ubuntu/install.sh
 
+set /p warning=Press [Enter] to release this console window. %
+
 :: See the rest at https://raw.githubusercontent.com/miklevin/jupyme/main/install.sh
 :: but you don't have to do anything because it is downloaded and run from above.
 
