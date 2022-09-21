@@ -17,6 +17,8 @@ fi
 lxc launch ubuntu:20.04 jupyter
 lxc config device add jupyter localhost8888 proxy listen=tcp:0.0.0.0:8888 connect=tcp:127.0.0.1:8888
 
+
+
 until [ ! -z "$(lxc ls jupyter -c '4' --format csv)" ]
 do
   sleep 2
@@ -25,9 +27,9 @@ done
 sleep 5
 lxc exec jupyter -- chown -R ubuntu:ubuntu /home/ubuntu/
 
-lxc exec jupyter -- figlet -t "Updating LXD Container"
 lxc exec jupyter -- add-apt-repository ppa:deadsnakes/ppa -y
 lxc exec jupyter -- apt install figlet -y
+lxc exec jupyter -- figlet -t "Updating LXD Container"
 lxc exec jupyter -- apt update
 lxc exec jupyter -- figlet -t "Upgrading LXD Container"
 lxc exec jupyter -- apt upgrade -y
@@ -41,16 +43,17 @@ lxc exec jupyter -- apt autoremove -y
 lxc exec jupyter -- figlet -t "Creating Python venv"
 lxc exec jupyter -- su --login ubuntu bash -c "/usr/bin/python3.10 -m venv /home/ubuntu/py310"
 
+lxc exec jupyter -- figlet -t "Linking Repos & .ssh"
+curl -L -o /usr/local/sbin/lxconfig https://raw.githubusercontent.com/miklevin/wsl2lxd/main/lxconfig
+chmod +x /usr/local/sbin/lxconfig
+lxconfig
+echo "TAKE A CLOSE LOOK"
+sleep 10
+
 echo .bash_profile
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/wsl2lxd/main/.bash_profile"
 lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/.bash_profile
 lxc exec jupyter -- chmod 777 /home/ubuntu/.bash_profile
-
-lxc exec jupyter -- figlet -t "Linking Repos & .ssh"
-lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/lxconfig https://raw.githubusercontent.com/miklevin/wsl2lxd/main/lxconfig
-lxc exec jupyter -- chmod +x /usr/local/sbin/lxconfig
-lxc exec jupyter -- su --login ubuntu bash -c "lxconfig"
-sleep 10
 
 # WIN_HOME="$(printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/')"
 # lxc config device add jupyter repos disk source="$WIN_HOME"repos/ path=/home/ubuntu/repos/

@@ -98,7 +98,7 @@ wsl --distribution Ubuntu-18.04 -u root -e sudo apt update
 
 :: With Figlet installed, I no longer need to embed ASCII art headlines.
 wsl --distribution Ubuntu-18.04 -u root -e sudo apt install figlet
-wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Ugrading WSL Linux'"
+wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Upgrading WSL Linux'"
 
 :: And now the big upgrading of all the Ubuntu 18.04 software.
 wsl --distribution Ubuntu-18.04 -u root -e sudo apt upgrade -y
@@ -123,7 +123,7 @@ wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Systemd Installed'"
 wsl --distribution Ubuntu-18.04 -u root -- echo "ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL> /etc/sudoers.d/ubuntu"
 
 :: Deep breath... Install the LXD Linux Container system on WSL accepting all defaults.
-timeout /t 3 /nobreak >nul
+timeout /t 2 /nobreak >nul
 wsl --distribution Ubuntu-18.04 -u ubuntu -e lxd init --auto
 wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Installing LXD Container'"
 
