@@ -134,7 +134,7 @@ wsl --distribution Ubuntu-18.04 -u ubuntu -e bash /home/ubuntu/install.sh
 
 :: Clean up after the install, deleting whatever is not intentionally left behind.
 :: wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/.bash_profile "https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_profile-wsl" >nul
-wsl --distribution Ubuntu-18.04 -u ubuntu -e "wget -c https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_profile-wsl -o .bash_profile >nul"
+wsl --distribution Ubuntu-18.04 -u ubuntu -e bash "wget -c https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_profile-wsl -o .bash_profile >nul"
 wsl --distribution Ubuntu-18.04 -u ubuntu -- rm /home/ubuntu/install.sh
 
 set /p warning=Press [Enter] to release this console window. %
