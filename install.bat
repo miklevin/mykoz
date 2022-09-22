@@ -151,7 +151,6 @@ set /p warning=Press [Enter] to release this console window. %
 ::   |_|\___/|____/ \___/
 
 :: - Switch Jupyter startup method from .bash_profile to Linux service.
-:: - Preserve Google Chrome settings between reinstalls
 :: - Set the keyboard shortcut for reset kernel and clear all outputs 
 
 ::  ____                   
@@ -161,6 +160,7 @@ set /p warning=Press [Enter] to release this console window. %
 :: |____/ \___/|_| |_|\___|
 
 :: WEEK OF SEPT 18, 2022
+:: - Preserving Google Chrome settings between reinstalls.
 :: - Provided drag-copy shortcut in repo to run server after reboot.
 :: - Prevented Jupyter configuration from being wiped-out by reinstalls.
 :: - Copied requirements.txt LXD-side and one-time pip install -r requirements.txt
