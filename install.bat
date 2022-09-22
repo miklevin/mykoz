@@ -64,6 +64,7 @@ ubuntu1804 config --default-user "%wsluer%"
 
 :: This creates "repos" folder in your Windows HOME for Windows/Linux file sharing.
 if not exist "%USERPROFILE%\repos" mkdir %USERPROFILE%\repos
+if not exist "%USERPROFILE%\.config" mkdir %USERPROFILE%\.config
 if not exist "%USERPROFILE%\repos\transfer\.jupyter" mkdir %USERPROFILE%\repos\transfer\.jupyter
 if not exist "%USERPROFILE%\repos\transfer" mkdir %USERPROFILE%\repos\transfer
 if not exist "%USERPROFILE%\repos\transfer\.jupyter" mkdir %USERPROFILE%\repos\transfer\.jupyter
@@ -77,9 +78,10 @@ if exist requirements.txt copy requirements.txt %USERPROFILE%\repos\transfer
 wsl --distribution Ubuntu-18.04 -u root -e echo -e "[automount]\n"options = \"metadata\" > wsl.conf
 wsl --distribution Ubuntu-18.04 -u root -e mv wsl.conf /etc/
 
-:: This creates the a repos and .ssh folder on WSL by linking to your Windows-side.
+:: This creates the a repos, .ssh and .config folders on WSL by linking to your Windows-side.
 wsl --distribution Ubuntu-18.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh" >nul
 wsl --distribution Ubuntu-18.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos" >nul
+wsl --distribution Ubuntu-18.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.config/ /home/ubuntu/.config" >nul
 
 :: If you keep a .vimrc and .gitconfig Windows-side, this copies them over.
 wsl --distribution Ubuntu-18.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/" >nul
