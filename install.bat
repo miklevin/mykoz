@@ -149,6 +149,8 @@ set /p warning=Press [Enter] to release this console window. %
 ::   |_|\___/|____/ \___/
 
 :: - Switch Jupyter startup method from .bash_profile to Linux service.
+:: - Preserve Google Chrome settings between reinstalls
+:: - Set the keyboard shortcut for reset kernel and clear all outputs 
 
 ::  ____                   
 :: |  _ \  ___  _ __   ___ 
