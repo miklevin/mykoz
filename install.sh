@@ -49,6 +49,9 @@ eval "$ACMD"
 ACMD="lxc config device add jupyter ssh disk source=${WIN_HOME}.ssh/ path=/home/ubuntu/.ssh/"
 echo "$ACMD"
 eval "$ACMD"
+ACMD="lxc config device add jupyter config disk source=${WIN_HOME}.config/ path=/home/ubuntu/.config/"
+echo "$ACMD"
+eval "$ACMD"
 
 echo .bash_profile
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_profile"
