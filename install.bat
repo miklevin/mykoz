@@ -129,12 +129,11 @@ wsl --distribution Ubuntu-18.04 -u ubuntu -e lxd init --auto
 
 :: Grab and run second-half of install that runs under WSL and set up Linux graphics.
 wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/install.sh "https://raw.githubusercontent.com/miklevin/lxdwin/main/install.sh"
-wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/.bash_profile "https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_profile-wsl"
 wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Installing & Updating Container'"
 wsl --distribution Ubuntu-18.04 -u ubuntu -e bash /home/ubuntu/install.sh
 
 :: Clean up after the install, deleting whatever is not intentionally left behind.
-wsl --distribution Ubuntu-18.04 -u ubuntu -e 'echo "jupyterlogin">> /home/ubuntu/.bash_profile'
+wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/.bash_profile "https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_profile-wsl"
 wsl --distribution Ubuntu-18.04 -u ubuntu -- rm /home/ubuntu/install.sh
 
 set /p warning=Press [Enter] to release this console window. %
