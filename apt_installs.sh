@@ -10,3 +10,9 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 
 # Install Google Chrome using hte local installer
 sudo apt install ./google-chrome*.deb -y
+
+# Install Microsoft Playright browsers
+playwright install
+
+# Install teh default Pypeteer Chromium browser
+pyppeteer-install

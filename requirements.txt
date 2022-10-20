@@ -1,11 +1,14 @@
-PyYAML
 httpx
 nb-black
 nltk
 ohawf
 openpyxl
 pandas
+playwright
 pyppeteer
+pyppeteer-stealth
+python-slugify
+PyYAML
 sqlitedict
 tldextract
 yake
