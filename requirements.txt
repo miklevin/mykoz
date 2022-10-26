@@ -5,6 +5,7 @@ ohawf
 openpyxl
 pandas
 playwright
+playwright-steatlh
 pyppeteer
 pyppeteer-stealth
 python-slugify
