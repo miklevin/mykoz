@@ -1,4 +1,6 @@
+fuzzywuzzy
 httpx
+Levenshtein
 nb-black
 nltk
 ohawf
@@ -8,8 +10,11 @@ playwright
 playwright-steatlh
 pyppeteer
 pyppeteer-stealth
+python-levenshtein
 python-slugify
 PyYAML
+rapidfuzz
+requests
 sqlitedict
 tldextract
 yake
