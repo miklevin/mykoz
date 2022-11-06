@@ -15,8 +15,19 @@ else
 fi
 
 lxc launch ubuntu:20.04 jupyter
-
 lxc config set jupyter security.privileged true
+
+WIN_HOME="$(printenv | grep -m 1 -o '/mnt/c/Users/[a-zA-Z]*/')"
+ACMD="lxc config device add jupyter repos disk source=${WIN_HOME}repos/ path=/home/ubuntu/repos/"
+echo "$ACMD"
+eval "$ACMD"
+ACMD="lxc config device add jupyter ssh disk source=${WIN_HOME}.ssh/ path=/home/ubuntu/.ssh/"
+echo "$ACMD"
+eval "$ACMD"
+ACMD="lxc config device add jupyter config disk source=${WIN_HOME}.config/ path=/home/ubuntu/.config/"
+echo "$ACMD"
+eval "$ACMD"
+
 lxc config device add jupyter localhost8888 proxy listen=tcp:0.0.0.0:8888 connect=tcp:127.0.0.1:8888
 until [ ! -z "$(lxc ls jupyter -c '4' --format csv)" ]
 do
@@ -43,16 +54,16 @@ lxc exec jupyter -- su --login ubuntu bash -c "/usr/bin/python3.10 -m venv /home
 echo "Done"
 lxc exec jupyter -- figlet -t "Adding LXD Devices"
 
-WIN_HOME="$(printenv | grep -m 1 -o '/mnt/c/Users/[a-zA-Z]*/')"
-ACMD="lxc config device add jupyter repos disk source=${WIN_HOME}repos/ path=/home/ubuntu/repos/"
-echo "$ACMD"
-eval "$ACMD"
-ACMD="lxc config device add jupyter ssh disk source=${WIN_HOME}.ssh/ path=/home/ubuntu/.ssh/"
-echo "$ACMD"
-eval "$ACMD"
-ACMD="lxc config device add jupyter config disk source=${WIN_HOME}.config/ path=/home/ubuntu/.config/"
-echo "$ACMD"
-eval "$ACMD"
+# WIN_HOME="$(printenv | grep -m 1 -o '/mnt/c/Users/[a-zA-Z]*/')"
+# ACMD="lxc config device add jupyter repos disk source=${WIN_HOME}repos/ path=/home/ubuntu/repos/"
+# echo "$ACMD"
+# eval "$ACMD"
+# ACMD="lxc config device add jupyter ssh disk source=${WIN_HOME}.ssh/ path=/home/ubuntu/.ssh/"
+# echo "$ACMD"
+# eval "$ACMD"
+# ACMD="lxc config device add jupyter config disk source=${WIN_HOME}.config/ path=/home/ubuntu/.config/"
+# echo "$ACMD"
+# eval "$ACMD"
 
 echo .bash_profile
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_profile"
@@ -74,9 +85,9 @@ lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/repo
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/repos/transfer/unrot.py https://raw.githubusercontent.com/miklevin/lxdwin/main/unrot.py" 
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/repos/transfer/pub.txt https://raw.githubusercontent.com/miklevin/lxdwin/main/pub.txt" 
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/repos/transfer/priv.txt https://raw.githubusercontent.com/miklevin/lxdwin/main/priv.txt" 
-lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/repos/transfer/unrot.py
-lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/repos/transfer/pub.txt
-lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/repos/transfer/priv.txt
+# lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/repos/transfer/unrot.py
+# lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/repos/transfer/pub.txt
+# lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/repos/transfer/priv.txt
 lxc exec jupyter -- /home/ubuntu/py310/bin/python3.10 /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/pub.txt --output /home/ubuntu/repos/transfer/id_rsa_lxdwin.pub
 lxc exec jupyter -- /home/ubuntu/py310/bin/python3.10 /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/priv.txt --output /home/ubuntu/repos/transfer/id_rsa_lxdwin
 lxc exec jupyter -- su --login ubuntu bash -c "sudo mv /home/ubuntu/repos/transfer/id_rsa_lxdwin.pub /home/ubuntu/.ssh"
