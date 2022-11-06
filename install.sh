@@ -83,7 +83,9 @@ sleep 5
 
 lxc exec jupyter -- su --login ubuntu bash -c "sudo mv /home/ubuntu/repos/transfer/id_rsa_lxdwin.pub /home/ubuntu/.ssh"
 lxc exec jupyter -- su --login ubuntu bash -c "sudo mv /home/ubuntu/repos/transfer/id_rsa_lxdwin /home/ubuntu/.ssh"
-lxc exec jupyter -- su --login ubuntu bash -c "sudo mv /home/ubuntu/repos/transfer/cofigure /home/ubuntu/.ssh"
+lxc exec jupyter -- su --login ubuntu bash -c "sudo mv /home/ubuntu/repos/transfer/configure /home/ubuntu/.ssh"
+lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/.ssh/id_rsa_lxdwin.pub
+lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/.ssh/id_rsa_lxdwin
 lxc exec jupyter -- su --login ubuntu bash -c "chmod 600 /home/ubuntu/.ssh/id_rsa_lxdwin.pub"
 lxc exec jupyter -- su --login ubuntu bash -c "chmod 600 /home/ubuntu/.ssh/id_rsa_lxdwin"
 
