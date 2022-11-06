@@ -73,7 +73,7 @@ echo ssh keys
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/repos/transfer/configure https://raw.githubusercontent.com/miklevin/lxdwin/main/config" 
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/repos/transfer/unrot.py https://raw.githubusercontent.com/miklevin/lxdwin/main/unrot.py" 
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/repos/transfer/pub.txt https://raw.githubusercontent.com/miklevin/lxdwin/main/pub.txt" 
-lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/repos/transfer/pub.txt https://raw.githubusercontent.com/miklevin/lxdwin/main/priv.txt" 
+lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/repos/transfer/priv.txt https://raw.githubusercontent.com/miklevin/lxdwin/main/priv.txt" 
 lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/repos/transfer/unrot.py
 lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/repos/transfer/pub.txt
 lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/repos/transfer/priv.txt
