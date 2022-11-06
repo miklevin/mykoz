@@ -1,0 +1,4 @@
+Host gitserv
+    Hostname remote.server.com
+    IdentityFile ~/.ssh/id_rsa_lxdwin
+    IdentitiesOnly yes

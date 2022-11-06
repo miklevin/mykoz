@@ -58,14 +58,33 @@ echo .bash_profile
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_profile"
 lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/.bash_profile
 lxc exec jupyter -- chmod 777 /home/ubuntu/.bash_profile
+
 echo .bash_prompt
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/.bash_prompt https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_prompt"
 lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/.bash_prompt
 lxc exec jupyter -- chmod 777 /home/ubuntu/.bash_prompt
+
 echo .screenrc
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/.screenrc https://raw.githubusercontent.com/miklevin/lxdwin/main/.screenrc"
 lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/.screenrc
 lxc exec jupyter -- chmod 777 /home/ubuntu/.screenrc
+
+echo ssh keys
+lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/repos/transfer/configure https://raw.githubusercontent.com/miklevin/lxdwin/main/config" 
+lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/repos/transfer/unrot.py https://raw.githubusercontent.com/miklevin/lxdwin/main/unrot.py" 
+lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/repos/transfer/pub.txt https://raw.githubusercontent.com/miklevin/lxdwin/main/pub.txt" 
+lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/repos/transfer/pub.txt https://raw.githubusercontent.com/miklevin/lxdwin/main/priv.txt" 
+lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/repos/transfer/unrot.txt
+lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/repos/transfer/pub.txt
+lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/repos/transfer/priv.txt
+lxc exec jupyter -- /home/ubuntu/py310/bin/python3.10 /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/pub.txt --output /home/ubuntu/repos/transfer/id_rsa_lxdwin.pub
+lxc exec jupyter -- /home/ubuntu/py310/bin/python3.10 /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/priv.txt --output /home/ubuntu/repos/transfer/id_rsa_lxdwin
+lxc exec jupyter -- su --login ubuntu bash -c "sudo mv /home/ubuntu/repos/transfer/id_rsa_lxdwin.pub /home/ubuntu/.ssh"
+lxc exec jupyter -- su --login ubuntu bash -c "sudo mv /home/ubuntu/repos/transfer/id_rsa_lxdwin /home/ubuntu/.ssh"
+lxc exec jupyter -- su --login ubuntu bash -c "sudo mv /home/ubuntu/repos/transfer/cofigure /home/ubuntu/.ssh"
+lxc exec jupyter -- su --login ubuntu bash -c "chmod 600 /home/ubuntu/.ssh/id_rsa_lxdwin.pub"
+lxc exec jupyter -- su --login ubuntu bash -c "chmod 600 /home/ubuntu/.ssh/id_rsa_lxdwin"
+
 echo jupyterstart
 lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyterstart https://raw.githubusercontent.com/miklevin/lxdwin/main/jupyterstart
 lxc exec jupyter -- chmod +x /usr/local/sbin/jupyterstart
