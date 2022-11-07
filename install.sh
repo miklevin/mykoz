@@ -79,7 +79,7 @@ lxc exec jupyter -- /home/ubuntu/py310/bin/python3.10 /home/ubuntu/repos/transfe
 
 lxc exec jupyter -- figlet -t "Restart"
 lxc restart jupyter
-sleep 5
+sleep 10
 
 lxc exec jupyter -- su --login ubuntu bash -c "sudo mv /home/ubuntu/repos/transfer/id_rsa_lxdwin.pub /home/ubuntu/.ssh"
 lxc exec jupyter -- su --login ubuntu bash -c "sudo mv /home/ubuntu/repos/transfer/id_rsa_lxdwin /home/ubuntu/.ssh"
