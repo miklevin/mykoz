@@ -16,3 +16,6 @@ playwright install
 
 # Install teh default Pypeteer Chromium browser
 pyppeteer-install
+
+cd ~/repos
+git clone git@github.com:miklevin/mlseo
