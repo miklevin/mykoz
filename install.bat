@@ -138,9 +138,12 @@ wsl --distribution Ubuntu-18.04 -u ubuntu -e bash /home/ubuntu/install.sh
 wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/.bash_profile "https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_profile-wsl" >nul
 wsl --distribution Ubuntu-18.04 -u ubuntu -- rm /home/ubuntu/install.sh
 
-set /p warning=Press [Enter] to release this console window. %
-
+:: Grab post-reboot scripts. ACLs aren't sufficent for git cloning without a wsl --shutdown
 wsl --shutdown
+wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/lxdwin/main/git_installs.sh"
+wsl --distribution Ubuntu-18.04 -u ubuntu -e lxc exec jupyter -- bash /home/ubuntu/repos/transfer/git_installs.sh
+
+set /p warning=Press [Enter] to release this console window. %
 
 :: See the rest at https://raw.githubusercontent.com/miklevin/jupyme/main/install.sh
 :: but you don't have to do anything because it is downloaded and run from above.
