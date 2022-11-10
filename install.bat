@@ -142,7 +142,7 @@ wsl --distribution Ubuntu-18.04 -u ubuntu -- rm /home/ubuntu/install.sh
 wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Rebooting WSL'"
 wsl --shutdown
 wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/lxdwin/main/git_installs.sh"
-wsl --distribution Ubuntu-18.04 -u ubuntu -e lxc exec jupyter -- su --login ubuntu bash -c "/home/ubuntu/repos/transfer/git_installs.sh"
+wsl --distribution Ubuntu-18.04 -u ubuntu -e lxc exec jupyter -- /home/ubuntu/repos/transfer/git_installs.sh
 
 set /p warning=Press [Enter] to release this console window. %
 
