@@ -132,7 +132,8 @@ wsl --distribution Ubuntu-18.04 -u ubuntu -e lxd init --auto
 :: Grab and run second-half of install that runs under WSL and set up Linux graphics.
 wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/install.sh "https://raw.githubusercontent.com/miklevin/lxdwin/main/install.sh"
 wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Installing & Updating Container'"
-wsl --distribution Ubuntu-18.04 -u ubuntu -e bash /home/ubuntu/install.sh
+:: wsl --distribution Ubuntu-18.04 -u ubuntu -e bash /home/ubuntu/install.sh
+wsl --distribution Ubuntu-18.04 -e bash -lic "bash /home/ubuntu/install.sh"
 
 :: Clean up after the install, deleting whatever is not intentionally left behind.
 wsl --distribution Ubuntu-18.04 -u ubuntu -- rm /home/ubuntu/install.sh
@@ -149,7 +150,6 @@ echo From Edge you can make JupyterLab an app from.../Apps/Install
 echo To start JupyterLab after reboot, make Windows Shortcut and set target to:
 echo wt PowerShell -c "wsl -d Ubuntu-18.04"
 echo Learn more at https://mikelev.in/ux
-echo 
 set /p warning=Press [Enter] to release this console window. %
 
 
