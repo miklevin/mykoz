@@ -139,10 +139,12 @@ echo Returning from install.sh
 
 :: Clean up after the install, deleting whatever is not intentionally left behind.
 :: wsl --distribution Ubuntu-18.04 -u ubuntu -- rm /home/ubuntu/install.sh
-::wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/.bash_profile "https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_profile-wsl" >nul
+:: wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/.bash_profile "https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_profile-wsl" >nul
 :: Grab post-reboot scripts. ACLs aren't sufficent for git cloning without a wsl --shutdown
-wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Rebooting WSL'"
+:: wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Rebooting WSL'"
+echo shutdown
 wsl --shutdown
+
 wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/lxdwin/main/git_installs.sh"
 wsl --distribution Ubuntu-18.04 -u ubuntu -e lxc exec jupyter -- /home/ubuntu/repos/transfer/git_installs.sh
 
