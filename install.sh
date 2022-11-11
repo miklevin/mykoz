@@ -111,13 +111,7 @@ lxc alias add jupyterstart "exec jupyter -- su --login ubuntu -c /usr/local/sbin
 lxc alias remove jupyterscreen >/dev/null 2>&1
 lxc alias add jupyterscreen "exec jupyter -- su --login ubuntu -c /usr/local/sbin/jupyterscreen"
 lxc alias remove jupyter >/dev/null 2>&1
-lxc alias add jupyterlogin "exec jupyter -- su --login ubuntu"
+# lxc alias add jupyterlogin "exec jupyter -- su --login ubuntu"
 lxc exec jupyter -- figlet -t "Jupyter Installed"
-lxc exec jupyter -- figlet -t "Done."
+#lxc exec jupyter -- figlet -t "Done."
 
-echo "You can now reach JupyterLab at http://localhost:8888"
-echo "From Edge you can make JupyterLab an app from.../Apps/Install"
-echo "To start JupyterLab after reboot, make Windows Shortcut and set target to:"
-echo 'wt PowerShell -c "wsl -d Ubuntu-18.04"'
-echo "Learn more at https://mikelev.in/ux"
-echo ""

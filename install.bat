@@ -146,6 +146,13 @@ wsl --distribution Ubuntu-18.04 -u ubuntu -e lxc exec jupyter -- /home/ubuntu/re
 
 set /p warning=Press [Enter] to release this console window. %
 
+echo "You can now reach JupyterLab at http://localhost:8888"
+echo "From Edge you can make JupyterLab an app from.../Apps/Install"
+echo "To start JupyterLab after reboot, make Windows Shortcut and set target to:"
+echo 'wt PowerShell -c "wsl -d Ubuntu-18.04"'
+echo "Learn more at https://mikelev.in/ux"
+echo ""
+
 :: See the rest at https://raw.githubusercontent.com/miklevin/jupyme/main/install.sh
 :: but you don't have to do anything because it is downloaded and run from above.
 
