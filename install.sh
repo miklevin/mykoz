@@ -105,13 +105,13 @@ lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/repo
 lxc exec jupyter -- figlet -t "Installing JupyterLab"
 lxc exec jupyter -- su --login ubuntu bash -c "/home/ubuntu/py310/bin/python3.10 -m pip install jupyterlab"
 
-lxc exec jupyter -- su --login ubuntu bash -c "jupyterstart >/dev/null 2>&1 &"
+# lxc exec jupyter -- su --login ubuntu bash -c "jupyterstart >/dev/null 2>&1 &"
 lxc alias remove jupyterstart >/dev/null 2>&1
 lxc alias add jupyterstart "exec jupyter -- su --login ubuntu -c /usr/local/sbin/jupyterstart"
 lxc alias remove jupyterscreen >/dev/null 2>&1
 lxc alias add jupyterscreen "exec jupyter -- su --login ubuntu -c /usr/local/sbin/jupyterscreen"
 lxc alias remove jupyter >/dev/null 2>&1
-# lxc alias add jupyterlogin "exec jupyter -- su --login ubuntu"
+lxc alias add jupyterlogin "exec jupyter -- su --login ubuntu"
 lxc exec jupyter -- figlet -t "Jupyter Installed"
 #lxc exec jupyter -- figlet -t "Done."
 exit
