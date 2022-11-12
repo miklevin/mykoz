@@ -147,9 +147,6 @@ wsl --distribution Ubuntu-18.04 -e lxc exec jupyter -- su -c /home/ubuntu/repos/
 
 :: Clean up after the install, deleting whatever is not intentionally left behind.
 wsl --distribution Ubuntu-18.04 -u root rm /home/ubuntu/install.sh
-wsl --distribution Ubuntu-18.04 -u root rm /home/ubuntu/repos/transfer/configure
-wsl --distribution Ubuntu-18.04 -u root rm /home/ubuntu/repos/transfer/id_rsa_lxdwin
-wsl --distribution Ubuntu-18.04 -u root rm /home/ubuntu/repos/transfer/id_rsa_lxdwin.pub
 wsl --distribution Ubuntu-18.04 -u root rm /home/ubuntu/repos/transfer/pub.txt
 wsl --distribution Ubuntu-18.04 -u root rm /home/ubuntu/repos/transfer/priv.txt
 wsl --distribution Ubuntu-18.04 -u root rm /home/ubuntu/repos/transfer/unrot.py
