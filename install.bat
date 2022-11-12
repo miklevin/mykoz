@@ -149,7 +149,7 @@ echo Returning from install.sh
 wsl --shutdown
 
 wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/lxdwin/main/git_installs.sh"
-wsl --distribution Ubuntu-18.04 -u root su -c '/home/ubuntu/repos/transfer/git_installs.sh' ubuntu
+wsl --distribution Ubuntu-18.04 -e lxc exec jupyter -- su -c /home/ubuntu/repos/transfer/git_installs.sh ubuntu
 
 echo.
 echo You can now reach JupyterLab at http://localhost:8888
