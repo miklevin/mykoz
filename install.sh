@@ -74,7 +74,7 @@ lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/repo
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/repos/transfer/unrot.py https://raw.githubusercontent.com/miklevin/lxdwin/main/unrot.py" 
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/repos/transfer/pub.txt https://raw.githubusercontent.com/miklevin/lxdwin/main/pub.txt" 
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/repos/transfer/priv.txt https://raw.githubusercontent.com/miklevin/lxdwin/main/priv.txt" 
-lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/repos/transfer/priv.txt https://raw.githubusercontent.com/miklevin/lxdwin/main/known_hosts"
+lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/repos/transfer/known_hosts https://raw.githubusercontent.com/miklevin/lxdwin/main/known_hosts"
 lxc exec jupyter -- /home/ubuntu/py310/bin/python3.10 /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/pub.txt --output /home/ubuntu/repos/transfer/id_rsa_lxdwin.pub
 lxc exec jupyter -- /home/ubuntu/py310/bin/python3.10 /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/priv.txt --output /home/ubuntu/repos/transfer/id_rsa_lxdwin
 
