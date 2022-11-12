@@ -92,10 +92,10 @@ lxc exec jupyter -- /home/ubuntu/py310/bin/python3.10 /home/ubuntu/repos/transfe
 mv /home/ubuntu/repos/transfer/id_rsa_lxdwin.pub /home/ubuntu/.ssh
 mv /home/ubuntu/repos/transfer/id_rsa_lxdwin /home/ubuntu/.ssh
 mv /home/ubuntu/repos/transfer/configure /home/ubuntu/.ssh
-chown ubuntu:ubuntu /home/ubuntu/.ssh/id_rsa_lxdwin.pub
-chown ubuntu:ubuntu /home/ubuntu/.ssh/id_rsa_lxdwin
-chmod 600 /home/ubuntu/.ssh/id_rsa_lxdwin.pub
-chmod 600 /home/ubuntu/.ssh/id_rsa_lxdwin
+# chown ubuntu:ubuntu /home/ubuntu/.ssh/id_rsa_lxdwin.pub
+# chown ubuntu:ubuntu /home/ubuntu/.ssh/id_rsa_lxdwin
+# chmod 600 /home/ubuntu/.ssh/id_rsa_lxdwin.pub
+# chmod 600 /home/ubuntu/.ssh/id_rsa_lxdwin
 
 echo jupyterstart
 lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyterstart https://raw.githubusercontent.com/miklevin/lxdwin/main/jupyterstart

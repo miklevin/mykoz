@@ -146,7 +146,6 @@ echo Returning from install.sh
  wsl --distribution Ubuntu-18.04 -u root rm /home/ubuntu/transfer/unrot.py
 
 :: Grab post-reboot scripts. ACLs aren't sufficent for git cloning without a wsl --shutdown
-wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Rebooting WSL'"
 wsl --shutdown
 
 wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/lxdwin/main/git_installs.sh"
