@@ -138,21 +138,22 @@ wsl --distribution Ubuntu-18.04 -e bash -lic "curl -L -o /home/ubuntu/.bash_prof
 echo Returning from install.sh
 
 :: Clean up after the install, deleting whatever is not intentionally left behind.
-:: wsl --distribution Ubuntu-18.04 -u ubuntu -- rm /home/ubuntu/install.sh
-:: wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/.bash_profile "https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_profile-wsl" >nul
+ wsl --distribution Ubuntu-18.04 -u ubuntu -- rm /home/ubuntu/install.sh
+
 :: Grab post-reboot scripts. ACLs aren't sufficent for git cloning without a wsl --shutdown
-:: wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Rebooting WSL'"
-echo shutdown
+wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Rebooting WSL'"
 wsl --shutdown
 
 wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/lxdwin/main/git_installs.sh"
 wsl --distribution Ubuntu-18.04 -u root su -c '/home/ubuntu/repos/transfer/git_installs.sh' ubuntu
 
+echo.
 echo You can now reach JupyterLab at http://localhost:8888
 echo From Edge you can make JupyterLab an app from.../Apps/Install
 echo To start JupyterLab after reboot, make Windows Shortcut and set target to:
 echo wt PowerShell -c "wsl -d Ubuntu-18.04"
 echo Learn more at https://mikelev.in/ux
+echo.
 set /p warning=Press [Enter] to release this console window. %
 
 
