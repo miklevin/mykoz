@@ -146,7 +146,7 @@ echo shutdown
 wsl --shutdown
 
 wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/lxdwin/main/git_installs.sh"
-wsl --distribution Ubuntu-18.04 -e lxc exec jupyter -- sh /home/ubuntu/repos/transfer/git_installs.sh
+wsl --distribution Ubuntu-18.04 -u root su -c '/home/ubuntu/repos/transfer/git_installs.sh' ubuntu
 
 echo You can now reach JupyterLab at http://localhost:8888
 echo From Edge you can make JupyterLab an app from.../Apps/Install
