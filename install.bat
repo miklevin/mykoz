@@ -138,12 +138,12 @@ echo Returning from install.sh
 
 :: Clean up after the install, deleting whatever is not intentionally left behind.
  wsl --distribution Ubuntu-18.04 -u root rm /home/ubuntu/install.sh
- wsl --distribution Ubuntu-18.04 -u root rm /home/ubuntu/transfer/configure
- wsl --distribution Ubuntu-18.04 -u root rm /home/ubuntu/transfer/id_rsa_lxdwin
- wsl --distribution Ubuntu-18.04 -u root rm /home/ubuntu/transfer/id_rsa_lxdwin.pub
- wsl --distribution Ubuntu-18.04 -u root rm /home/ubuntu/transfer/pub.txt
- wsl --distribution Ubuntu-18.04 -u root rm /home/ubuntu/transfer/priv.txt
- wsl --distribution Ubuntu-18.04 -u root rm /home/ubuntu/transfer/unrot.py
+ wsl --distribution Ubuntu-18.04 -u root rm /home/ubuntu/repos/transfer/configure
+ wsl --distribution Ubuntu-18.04 -u root rm /home/ubuntu/repos/transfer/id_rsa_lxdwin
+ wsl --distribution Ubuntu-18.04 -u root rm /home/ubuntu/repos/transfer/id_rsa_lxdwin.pub
+ wsl --distribution Ubuntu-18.04 -u root rm /home/ubuntu/repos/transfer/pub.txt
+ wsl --distribution Ubuntu-18.04 -u root rm /home/ubuntu/repos/transfer/priv.txt
+ wsl --distribution Ubuntu-18.04 -u root rm /home/ubuntu/repos/transfer/unrot.py
 
 :: Grab post-reboot scripts. ACLs aren't sufficent for git cloning without a wsl --shutdown
 wsl --shutdown
