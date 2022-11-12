@@ -1,13 +1,13 @@
 @echo off
 cls
 
-:::intro:::  Begin your life-time journey of Linux, Python, vim & git.         /)
-:::intro:::      _                   _          __   __                 /)\_ _//
-:::intro:::     | |_   _ _ __  _   _| |_ ___ _ _\ \ / /__  _   _    ___(/_ 0 0
-:::intro:::  _  | | | | | '_ \| | | | __/ _ \ '__\ V / _ \| | | | *(     =(_T_)=
-:::intro::: | |_| | |_| | |_) | |_| | ||  __/ |   | | (_) | |_| |   \  )   \"\
-:::intro:::  \___/ \__,_| .__/ \__, |\__\___|_|   |_|\___/ \__,_|    |__>-\_>_>
-:::intro:::             |_|    |___/
+:::intro:::  Begin your life-time journey of Linux, Python, vim & git.
+:::intro:::   ____ _                      __  __      _                /)
+:::intro:::  / ___| |__   __ _ ___  ___  |  \/  | ___| |        /)\_ _//
+:::intro::: | |   | '_ \ / _` / __|/ _ \ | |\/| |/ _ \ |    ___(/_ 0 0
+:::intro::: | |___| | | | (_| \__ \  __/ | |  | |  __/_|  *(     =(_T_)=
+:::intro:::  \____|_| |_|\__,_|___/\___| |_|  |_|\___(_)    \  )   \"\
+:::intro:::                                                  |__>-\_>_>                     
 :::intro::: RUN JUPYTER ON LXD LINUX CONTAINER UNDER WINDOWS SUBSYSTEM FOR LINUX
 
 :: LIFE AFTER WINDOWS STARTS HERE
