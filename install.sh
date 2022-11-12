@@ -89,13 +89,13 @@ lxc exec jupyter -- /home/ubuntu/py310/bin/python3.10 /home/ubuntu/repos/transfe
 # lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/.ssh/id_rsa_lxdwin
 # lxc exec jupyter -- chmod 600 /home/ubuntu/.ssh/id_rsa_lxdwin.pub
 # lxc exec jupyter -- chmod 600 /home/ubuntu/.ssh/id_rsa_lxdwin
-lxc exec jupyter -- su -c 'mv /home/ubuntu/repos/transfer/id_rsa_lxdwin.pub /home/ubuntu/.ssh' root
-lxc exec jupyter -- su -c 'mv /home/ubuntu/repos/transfer/id_rsa_lxdwin /home/ubuntu/.ssh' root
-lxc exec jupyter -- su -c 'mv /home/ubuntu/repos/transfer/configure /home/ubuntu/.ssh' root
-lxc exec jupyter -- su -c 'chown ubuntu:ubuntu /home/ubuntu/.ssh/id_rsa_lxdwin.pub' root
-lxc exec jupyter -- su -c 'chown ubuntu:ubuntu /home/ubuntu/.ssh/id_rsa_lxdwin' root
-lxc exec jupyter -- su -c 'chmod 600 /home/ubuntu/.ssh/id_rsa_lxdwin.pub' root
-lxc exec jupyter -- su -c 'chmod 600 /home/ubuntu/.ssh/id_rsa_lxdwin' root
+mv /home/ubuntu/repos/transfer/id_rsa_lxdwin.pub /home/ubuntu/.ssh
+mv /home/ubuntu/repos/transfer/id_rsa_lxdwin /home/ubuntu/.ssh
+mv /home/ubuntu/repos/transfer/configure /home/ubuntu/.ssh
+chown ubuntu:ubuntu /home/ubuntu/.ssh/id_rsa_lxdwin.pub
+chown ubuntu:ubuntu /home/ubuntu/.ssh/id_rsa_lxdwin
+chmod 600 /home/ubuntu/.ssh/id_rsa_lxdwin.pub
+chmod 600 /home/ubuntu/.ssh/id_rsa_lxdwin
 
 echo jupyterstart
 lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyterstart https://raw.githubusercontent.com/miklevin/lxdwin/main/jupyterstart
