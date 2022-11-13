@@ -78,10 +78,10 @@ lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/repo
 lxc exec jupyter -- /home/ubuntu/py310/bin/python3.10 /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/pub.txt --output /home/ubuntu/repos/transfer/id_rsa_lxdwin.pub
 lxc exec jupyter -- /home/ubuntu/py310/bin/python3.10 /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/priv.txt --output /home/ubuntu/repos/transfer/id_rsa_lxdwin
 
-mv /home/ubuntu/repos/transfer/id_rsa_lxdwin.pub /home/ubuntu/.ssh
-mv /home/ubuntu/repos/transfer/id_rsa_lxdwin /home/ubuntu/.ssh
-mv /home/ubuntu/repos/transfer/known_hosts /home/ubuntu/.ssh
-mv /home/ubuntu/repos/transfer/configure /home/ubuntu/.ssh
+mv -n /home/ubuntu/repos/transfer/id_rsa_lxdwin.pub /home/ubuntu/.ssh
+mv -n /home/ubuntu/repos/transfer/id_rsa_lxdwin /home/ubuntu/.ssh
+mv -n /home/ubuntu/repos/transfer/known_hosts /home/ubuntu/.ssh
+mv -n /home/ubuntu/repos/transfer/configure /home/ubuntu/.ssh
 
 echo jupyterstart
 lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyterstart https://raw.githubusercontent.com/miklevin/lxdwin/main/jupyterstart
