@@ -143,8 +143,8 @@ wsl --distribution Ubuntu-18.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_lx
 wsl --distribution Ubuntu-18.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_lxdwin.pub
 wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/lxdwin/main/git_installs.sh"
 
-wsl --distribution Ubuntu-18.04 -u ubuntu -e lxc start jupyter 
-wsl --distribution Ubuntu-18.04 -u ubuntu -e lxc exec jupyter -- su -c /home/ubuntu/repos/transfer/git_installs.sh ubuntu
+wsl --distribution Ubuntu-18.04 -e bash -lic "lxc start jupyter"
+wsl --distribution Ubuntu-18.04 -e bash -lic "lxc exec jupyter -- su -c /home/ubuntu/repos/transfer/git_installs.sh ubuntu"
 
 :: Clean up after the install, deleting whatever is not intentionally left behind.
 wsl --distribution Ubuntu-18.04 -u root rm /home/ubuntu/install.sh
