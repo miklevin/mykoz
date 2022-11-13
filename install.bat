@@ -131,7 +131,6 @@ wsl --distribution Ubuntu-18.04 -u ubuntu -e lxd init --auto
 
 :: Grab and run second-half of install that runs under WSL and set up Linux graphics.
 wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/install.sh "https://raw.githubusercontent.com/miklevin/lxdwin/main/install.sh"
-:: wsl --distribution Ubuntu-18.04 -u ubuntu -e bash /home/ubuntu/install.sh
 wsl --distribution Ubuntu-18.04 -e bash -lic "bash /home/ubuntu/install.sh && exit"
 wsl --distribution Ubuntu-18.04 -e bash -lic "curl -L -o /home/ubuntu/.bash_profile 'https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_profile-wsl' >nul"
 echo Returning from install.sh, rebooting WSL for updated ACLs (access control list)
@@ -144,8 +143,8 @@ wsl --distribution Ubuntu-18.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_lx
 wsl --distribution Ubuntu-18.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_lxdwin.pub
 wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/lxdwin/main/git_installs.sh"
 
-wsl --distribution Ubuntu-18.04 -u ububtu -e lxc start jupyter 
-wsl --distribution Ubuntu-18.04 -u ububtu -e lxc exec jupyter -- su -c /home/ubuntu/repos/transfer/git_installs.sh ubuntu
+wsl --distribution Ubuntu-18.04 -u ubuntu -e lxc start jupyter 
+wsl --distribution Ubuntu-18.04 -u ubuntu -e lxc exec jupyter -- su -c /home/ubuntu/repos/transfer/git_installs.sh ubuntu
 
 :: Clean up after the install, deleting whatever is not intentionally left behind.
 wsl --distribution Ubuntu-18.04 -u root rm /home/ubuntu/install.sh
