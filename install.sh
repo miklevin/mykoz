@@ -20,6 +20,7 @@ lxc config set jupyter security.privileged true
 lxc config device add jupyter localhost8888 proxy listen=tcp:0.0.0.0:8888 connect=tcp:127.0.0.1:8888
 until [ ! -z "$(lxc ls jupyter -c '4' --format csv)" ]
 do
+  echo "Waiting for lxd to start"
   sleep 2
 done
 
