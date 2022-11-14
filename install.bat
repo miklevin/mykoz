@@ -1,13 +1,13 @@
 @echo off
 cls
 
-:::intro:::  Begin your life-time journey of Linux, Python, vim & git.
-:::intro:::   ____ _                      __  __      _                /)   ._  
-:::intro:::  / ___| |__   __ _ ___  ___  |  \/  | ___| |        /)\_ _//   /  \
-:::intro::: | |   | '_ \ / _` / __|/ _ \ | |\/| |/ _ \ |    ___(/_ 0 0    /    |
-:::intro::: | |___| | | | (_| \__ \  __/ | |  | |  __/_|  *(     =(_T_)= |     |
-:::intro:::  \____|_| |_|\__,_|___/\___| |_|  |_|\___(_)    \  )   \"\   \    /
-:::intro:::                                                  |__>-\_>_>   `__/                     
+:::intro::: Begin your journey to Linux, Python, vim & git!            /)   ._ 
+:::intro:::   ____ _                      __  __      _         /)\_ _//   /  \
+:::intro:::  / ___| |__   __ _ ___  ___  |  \/  | ___| |    ___(/_ 0 0    /    |
+:::intro::: | |   | '_ \ / _` / __|/ _ \ | |\/| |/ _ \ |  *(     =(_T_)= |     |
+:::intro::: | |___| | | | (_| \__ \  __/ | |  | |  __/_|    \  )   \"\   \    /
+:::intro:::  \____|_| |_|\__,_|___/\___| |_|  |_|\___(_)     |__>-\_>_>   `__/  
+:::intro:::                                                                  
 :::intro::: RUN JUPYTER ON LXD LINUX CONTAINER UNDER WINDOWS SUBSYSTEM FOR LINUX
 
 :: LIFE AFTER WINDOWS STARTS HERE
@@ -38,8 +38,9 @@ cls
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::intro:::" "%~f0"') do (echo.%%B)
 echo.
 echo This will uninstall any previous Ubuntu-18.04 and install a new one.
-echo The new Ubutnu 18.04 will then create a new JupyterLab LXD container
-echo which will host Jupyter in Windows browser at http://localhost:8888.
+echo All non-18.04 WSL instances will be left intact, but will be restarted.
+echo The new 18.04 will host an Ubuntu-20.04 LXD container serving JupyterLab
+echo that you'll reach from your Windows browser at http://localhost:8888.
 echo.
 set /p warning=Press [Enter] to jump down Linux rabbit hole or press Ctrl+C escape. %
 echo.
