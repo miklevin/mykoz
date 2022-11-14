@@ -2,12 +2,12 @@
 cls
 
 :::intro:::  Begin your life-time journey of Linux, Python, vim & git.
-:::intro:::   ____ _                      __  __      _                /)
-:::intro:::  / ___| |__   __ _ ___  ___  |  \/  | ___| |        /)\_ _//
-:::intro::: | |   | '_ \ / _` / __|/ _ \ | |\/| |/ _ \ |    ___(/_ 0 0
-:::intro::: | |___| | | | (_| \__ \  __/ | |  | |  __/_|  *(     =(_T_)=
-:::intro:::  \____|_| |_|\__,_|___/\___| |_|  |_|\___(_)    \  )   \"\
-:::intro:::                                                  |__>-\_>_>                     
+:::intro:::   ____ _                      __  __      _                /)   ._  
+:::intro:::  / ___| |__   __ _ ___  ___  |  \/  | ___| |        /)\_ _//   /  \
+:::intro::: | |   | '_ \ / _` / __|/ _ \ | |\/| |/ _ \ |    ___(/_ 0 0    /    |
+:::intro::: | |___| | | | (_| \__ \  __/ | |  | |  __/_|  *(     =(_T_)= |     |
+:::intro:::  \____|_| |_|\__,_|___/\___| |_|  |_|\___(_)    \  )   \"\   \    /
+:::intro:::                                                  |__>-\_>_>   `__/                     
 :::intro::: RUN JUPYTER ON LXD LINUX CONTAINER UNDER WINDOWS SUBSYSTEM FOR LINUX
 
 :: LIFE AFTER WINDOWS STARTS HERE
