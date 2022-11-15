@@ -1,14 +1,20 @@
 @echo off
 cls
 
-:::intro::: Begin your journey to Linux, Python, vim & git!            /)   ._ 
-:::intro:::   ____ _                      __  __      _         /)\_ _//   /  \
-:::intro:::  / ___| |__   __ _ ___  ___  |  \/  | ___| |    ___(/_ 0 0    /    |
-:::intro::: | |   | '_ \ / _` / __|/ _ \ | |\/| |/ _ \ |  *(     =(_T_)= |     |
-:::intro::: | |___| | | | (_| \__ \  __/ | |  | |  __/_|    \  )   \"\   \    /
-:::intro:::  \____|_| |_|\__,_|___/\___| |_|  |_|\___(_)     |__>-\_>_>   `__/  
-:::intro:::                                                                  
-:::intro::: RUN JUPYTER ON LXD LINUX CONTAINER UNDER WINDOWS SUBSYSTEM FOR LINUX
+
+:::intro:::   ____ _                      __  __      _                     _. 
+:::intro:::  / ___| |__   __ _ ___  ___  |  \/  | ___| |               /)  /  \     
+:::intro::: | |   | '_ \ / _` / __|/ _ \ | |\/| |/ _ \ |        /)\_ _//  /    |    
+:::intro::: | |___| | | | (_| \__ \  __/ | |  | |  __/_|    ___(/_ 0 0    |LXD |    
+:::intro:::  \____|_| |_|\__,_|___/\___| |_|  |_|\___(_)  *(     =(_T_)=  | WIN|    
+:::intro:::                                                 \  )   \"\    \    /   
+:::intro:::            Linux, Python, vim & git!             |__>-\_>_>    \__/
+:::intro::: WHY:
+:::intro::: Do you ever get the feeling that the things you're spending your time
+:::intro::: on are not building the CORRECT long-term skills for life? Join me in
+:::intro::: chasing the timeless tools of tech: Linux, Python, vim & git and make
+:::intro::: yourself part of the most literate generation to ever walk the Earth.
+:::intro::: 
 
 :: LIFE AFTER WINDOWS STARTS HERE
 :: Welcome to the most amazing thing you're going to see all day, and perhaps one
@@ -36,13 +42,13 @@ cls
 
 :: Display the above bunny-banner when the script is run as Windows .BAT file.
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::intro:::" "%~f0"') do (echo.%%B)
+echo       WHAT:
+echo       - This will uninstall any previous Ubuntu-18.04 under WSL.
+echo       - All other Linuxes running under WSL will get rebooted.
+echo       - A new Ubuntu 18.04 will host an LXD Linux Container.
+echo       - JupyterLab will be reachable at http://localhost:8888
 echo.
-echo This will uninstall any previous Ubuntu-18.04 and install a new one.
-echo All non-18.04 WSL instances will be left intact, but will be restarted.
-echo The new 18.04 will host an Ubuntu-20.04 LXD container serving JupyterLab
-echo that you'll reach from your Windows browser at http://localhost:8888.
-echo.
-set /p warning=Press [Enter] to jump down Linux rabbit hole or press Ctrl+C escape. %
+set /p warning=Press [Enter] to jump down the Linux rabbit hole or press Ctrl+C escape. %
 echo.
 
 :: If you're runnnig Ubuntu 18.04 under WSL, this is going to delete it!
