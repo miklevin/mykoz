@@ -1,7 +1,5 @@
 @echo off
 cls
-
-
 :::intro:::   ____ _                      __  __      _                        _. 
 :::intro:::  / ___| |__   __ _ ___  ___  |  \/  | ___| |                /)    /  \     
 :::intro::: | |   | '_ \ / _` / __|/ _ \ | |\/| |/ _ \ |         /)\_ _//    /    |    
@@ -9,6 +7,9 @@ cls
 :::intro:::  \____|_| |_|\__,_|___/\___| |_|  |_|\___(_)   *(     =(_T_)=    | WIN|    
 :::intro:::                                                  \  )   \"\      \    /   
 :::intro:::            Linux, Python, vim & git!              |__>-\_>_>      \__/
+
+:: Display the above bunny-banner when the script is run as Windows .BAT file.
+for /f "delims=: tokens=1*" %%A in ('findstr /b ":::intro:::" "%~f0"') do (echo.%%B)
 
 :: LIFE AFTER WINDOWS STARTS HERE
 :: Welcome to the most amazing thing you're going to see all day, and perhaps one
@@ -28,14 +29,6 @@ cls
 :: View / Options / View (tab) / Uncheck "Hide extensions for known types" after
 :: which you will be able to see and delete the .txt extension.
 
-:: WHAT DOES IT DO? (INSTALLS A PORTABLE LINUX)
-:: It will take over your Ubuntu 18.04 "slot" in the Windows Subsysystem for Linux,
-:: (WSL) then install the LXD Linux Container software with an Ubuntu 20.04 hosting
-:: JupyterLab Server reachable on your Windows machine at http://localhost:8888 
-:: This the best way to run Jupyter and eventually free yourself from Windows.
-
-:: Display the above bunny-banner when the script is run as Windows .BAT file.
-for /f "delims=: tokens=1*" %%A in ('findstr /b ":::intro:::" "%~f0"') do (echo.%%B)
 echo.
 echo  Do you ever get the feeling that you spend your time learning the wrong
 echo  tools for developing life-long skills? If so, then join me in chasing
@@ -57,19 +50,20 @@ echo  operating system. This script will install Linux under Windows WSL
 echo  and use it to "invisibly" host JupyterLab, reachable with a browser.
 echo. 
 echo  The Linux you will be using is "containerized" and can exist completely
-echo  separate from Microsoft, so this sets you on a good path. Everything you
-echo  learn is portable across hardware, cloud platforms and the ages.
+echo  independently from Microsoft, so this sets you on a good path. Everything
+echo  you will learn is portable across hardware, cloud platforms and the ages.
 echo. 
 echo  Two copies of Linux will be put on your system: Ubuntu-18.04 to run
 echo  directly on Windows to host LXD containers, and Ubuntu 20.04 as the 
 echo  actual LXD container. You will need a good Internet connection.
 echo. 
-echo  - This will uninstall any previous Ubuntu-18.04 under WSL.
-echo  - Any other Linuxes running under WSL are left untouched.
-echo  - A new Ubuntu 18.04 will be installed to host LXD Containers.
-echo  - JupyterLab will be reachable at http://localhost:8888
+echo      - This will uninstall any previous Ubuntu-18.04 under WSL.
+echo      - A new Ubuntu 18.04 will be installed to host LXD Containers.
+echo      - JupyterLab will be reachable at http://localhost:8888
+echo      - Any other Linuxes running under WSL are left untouched.
 echo.
-echo  Press [Enter] to install Linux, or press Ctrl+C to exit.
+echo                      Press [Enter] to jump down the Linux rabbit hole...
+echo                                (or press Ctrl+C escape.)
 set /p warning= %
 
 wsl --unregister Ubuntu-18.04
