@@ -153,7 +153,8 @@ wsl --distribution Ubuntu-18.04 -e bash -lic "curl -L -o /home/ubuntu/.bash_prof
 echo Returning from install.sh, rebooting WSL for updated ACLs (access control list)
 
 :: Grab post-reboot scripts. ACLs aren't sufficent for git cloning without a wsl --shutdown
-wsl --shutdown
+:: wsl --shutdown
+wsl -t Ubuntu-18.04
 
 wsl --distribution Ubuntu-18.04 -u root -e echo "Back from shutdown"
 wsl --distribution Ubuntu-18.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_lxdwin
