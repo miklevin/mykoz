@@ -57,14 +57,16 @@ echo  Two copies of Linux will be put on your system: Ubuntu-18.04 to run
 echo  directly on Windows to host LXD containers, and Ubuntu 20.04 as the 
 echo  actual LXD container. You will need a good Internet connection.
 echo. 
-echo      - This will uninstall any previous Ubuntu-18.04 under WSL.
-echo      - A new Ubuntu 18.04 will be installed to host LXD Containers.
-echo      - JupyterLab will be reachable at http://localhost:8888
-echo      - Any other Linuxes running under WSL are left untouched.
+echo    WARNING:
+echo    - This will uninstall any previous Ubuntu-18.04 under WSL.
+echo    - A new Ubuntu 18.04 will be installed to host LXD Containers.
+echo    - ALL other Linuxes running under WSL are left untouched.
+echo    - JupyterLab will be reachable at http://localhost:8888
 echo.
 echo                      Press [Enter] to jump down the Linux rabbit hole...
 echo                                (or press Ctrl+C escape.)
 set /p warning= %
+cls
 
 wsl --unregister Ubuntu-18.04
 wsl --set-default-version 2
