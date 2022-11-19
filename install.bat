@@ -68,6 +68,9 @@ echo                                (or press Ctrl+C escape.)
 set /p warning= %
 cls
 
+echo Prepare for A LOT of scrolling (falling down the rabbit-hole).
+echo Installing Ubuntu 18.04 under Windows Subsystem for Linux...
+echo.
 wsl --unregister Ubuntu-18.04
 wsl --set-default-version 2
 
