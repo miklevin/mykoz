@@ -169,7 +169,6 @@ wsl --distribution Ubuntu-18.04 -u root -e echo "Back from shutdown"
 wsl --distribution Ubuntu-18.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_lxdwin
 wsl --distribution Ubuntu-18.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_lxdwin.pub
 wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/lxdwin/main/git_installs.sh"
-
 wsl --distribution Ubuntu-18.04 -u ubuntu -e sh /home/ubuntu/repos/transfer/git_installs.sh
 
 :: Clean up after the install, deleting whatever is not intentionally left behind.
@@ -178,6 +177,17 @@ wsl --distribution Ubuntu-18.04 -u root rm /home/ubuntu/repos/transfer/pub.txt
 wsl --distribution Ubuntu-18.04 -u root rm /home/ubuntu/repos/transfer/priv.txt
 wsl --distribution Ubuntu-18.04 -u root rm /home/ubuntu/repos/transfer/unrot.py
 
+set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
+echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
+echo sLinkFile = "%USERPROFILE%\Desktop\JupyterLab Login.lnk" >> %SCRIPT%
+echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
+echo oLink.TargetPath = "%USERPROFILE%\AppData\Local\Microsoft\WindowsApps\wt.exe" >> %SCRIPT%
+echo olink.Arguments = "-p Ubuntu-18.04" >> %SCRIPT%
+echo oLink.Save >> %SCRIPT%
+
+cscript /nologo %SCRIPT%
+del %SCRIPT%
+
 echo.
 echo You can now reach JupyterLab at http://localhost:8888
 echo From Edge you can make JupyterLab an app from.../Apps/Install
@@ -185,8 +195,8 @@ echo To start JupyterLab after reboot, make Windows Shortcut and set target to:
 echo wt PowerShell -c "wsl -d Ubuntu-18.04"
 echo Learn more at https://mikelev.in/ux
 echo.
-set /p warning=Press [Enter] to release this console window. %
 
+set /p warning=Press [Enter] to release this console window. %
 
 :: See the rest at https://raw.githubusercontent.com/miklevin/jupyme/main/install.sh
 :: but you don't have to do anything because it is downloaded and run from above.
