@@ -123,8 +123,8 @@ if not exist "%USERPROFILE%\repos\transfer\.jupyter" mkdir %USERPROFILE%\repos\t
 
 :: If you're running from a location with these optional second-stage install files, copy them over.
 echo "Copying optional installer files apt_installs.sh and requirements.txt if they exist."
-if exist apt_installs.sh copy apt_installs.sh %USERPROFILE%\repos\transfer else wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/repos/transfer/apt_installs.sh "https://raw.githubusercontent.com/miklevin/lxdwin/main/apt_installs.sh"
-if exist requirements.txt copy requirements.txt %USERPROFILE%\repos\transfer else wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/repos/transfer/requirements.txt "https://raw.githubusercontent.com/miklevin/lxdwin/main/requirements.txt"
+if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer) else (wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/repos/transfer/apt_installs.sh "https://raw.githubusercontent.com/miklevin/lxdwin/main/apt_installs.sh")
+if exist requirements.txt (copy requirements.txt %USERPROFILE%\repos\transfer) else (wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/repos/transfer/requirements.txt "https://raw.githubusercontent.com/miklevin/lxdwin/main/requirements.txt")
 
 :: This makes file permissions under WSL keyed off of your Windows-side.
 wsl --distribution Ubuntu-18.04 -u root -e echo -e "[automount]\n"options = \"metadata\" > wsl.conf
@@ -213,8 +213,6 @@ echo oLink.Save >> %SCRIPT%
 
 cscript /nologo %SCRIPT%
 del %SCRIPT%
-
-wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'ALL DONE!'"
 
 echo.
 echo You can now reach JupyterLab in a Windows browser at http://localhost:8888
