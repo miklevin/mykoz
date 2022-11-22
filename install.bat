@@ -11,16 +11,8 @@ cls
 :: Display the above bunny-banner when the script is run as Windows .BAT file.
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::intro:::" "%~f0"') do (echo.%%B)
 
-:: LIFE AFTER WINDOWS STARTS HERE
-:: Welcome to the most amazing thing you're going to see all day, and perhaps one
-:: that will change your life forever. Enough hype. Let's get on with the process
-:: that Microsoft doesn't want you to see -- and certainly not be able to perform.
-
-:: WHERE To GO TO LEARN MORE
-:: If you found this page from https://mikelev.in/ux and want to learn more, then
-:: please visit the Github project main page at https://github.com/miklevin/lxdwin
-
 :: HOW TO INSTALL (SAVE THIS AND RUN)
+::
 :: Right-click in this window (if you're viewing it from the Github raw view at
 :: https://raw.githubusercontent.com/miklevin/lxdwin/main/install.bat ), select
 :: all, create a file named install.bat on your local Windows 10 or 11 computer
@@ -29,42 +21,75 @@ for /f "delims=: tokens=1*" %%A in ('findstr /b ":::intro:::" "%~f0"') do (echo.
 :: View / Options / View (tab) / Uncheck "Hide extensions for known types" after
 :: which you will be able to see and delete the .txt extension.
 
+:: WHERE To GO TO LEARN MORE
+:: If you found this page from https://mikelev.in/ux and want to learn more, then
+:: please visit the Github project main page at https://github.com/miklevin/lxdwin
+
+echo.
 echo.
 echo  Do you ever get the feeling that you spend your time learning the wrong
 echo  tools for developing life-long skills? If so, then join me in chasing
 echo  the increasingly timeless tools of tech: Linux, Python, vim and git.
 echo.
+echo.
 echo  You stand at the precipice of a great adventure. The next screen will
 echo  tell you what changes this script will do to your system and give you
 echo  another chance to exit. Are you brave enough to continue?
-
+echo.
 echo.
 echo                      Press [Enter] to jump down the Linux rabbit hole...
-echo                                (or press Ctrl+C escape.)
+echo                                (or press Ctrl+C escape.)            1/3
 set /p warning= %
-
 cls
-echo.
-echo  Excellent choice! Contrary to popular belief, Linux is not a desktop
-echo  operating system. This script will install Linux under Windows WSL
-echo  and use it to "invisibly" host JupyterLab, reachable with a browser.
-echo. 
-echo  The Linux you will be using is "containerized" and can exist completely
-echo  independently from Microsoft, so this sets you on a good path. Everything
-echo  you will learn is portable across hardware, cloud platforms and the ages.
-echo. 
-echo  Two copies of Linux will be put on your system: Ubuntu-18.04 to run
-echo  directly on Windows to host LXD containers, and Ubuntu 20.04 as the 
-echo  actual LXD container. You will need a good Internet connection.
-echo. 
-echo    WARNING:
-echo    - This will uninstall any previous Ubuntu-18.04 under WSL.
-echo    - A new Ubuntu 18.04 will be installed to host LXD Containers.
-echo    - ALL other Linuxes running under WSL are left untouched.
-echo    - JupyterLab will be reachable at http://localhost:8888
-echo.
-echo                      Press [Enter] to jump down the Linux rabbit hole...
-echo                                (or press Ctrl+C escape.)
+:::two:::                       _________________________________
+:::two:::                      /                                 \
+:::two:::                      |      Excellent Choice!          |
+:::two:::                      \______________________________ '\
+:::two:::                                                 ()    \\
+:::two:::  This script will install one Linux under the     O    \\  .
+:::two:::  Windows Subsystem for Linux (WSL) and use it to    o  |\\/|
+:::two:::  host ANOTHER Linux under the LXD Container system     / " '\
+:::two:::  that will host JupyterLab, which will be accessible   . .   .
+:::two:::  from your Windows browser at http://localhost:8888   /    ) |
+:::two:::                                                      '  _.'  |
+:::two:::                           HYPERVISOR                 '-'/    \
+:::two:::   ____________________________ ______________________________
+:::two:::  |Windows 10 or 11           | |Windows Subsystem for Linux |
+:::two:::  |         ____ ____         | |Ubuntu 18.04 with LXD       |
+:::two:::  |      ,_/site\____\____.   | | __________________________ |
+:::two:::  |      |                |   | | |Ubuntu 20.04 (non-WSL)  | |
+:::two:::  |      | localhost:8888 -------->JupyterNotebook         | |
+:::two:::  |      |   ( browser )  |   | | |________________________| |
+:::two:::  |______|                |___| |____________________________|
+:::two:::         '----------------'
+:::two:::
+:::two:::                      Press [Enter] to jump down the Linux rabbit hole...
+:::two:::                                (or press Ctrl+C escape.)            2/3
+for /f "delims=: tokens=1*" %%A in ('findstr /b ":::two:::" "%~f0"') do (echo.%%B)
+set /p warning= %
+cls
+
+:::three::: AFTER THE SCRIPT IS DONE:
+:::three:::
+:::three::: - A "JuputerLab Login" icon will be created where you run the script.
+:::three:::
+:::three::: - Double-clicking it will start JupyterLab and open a Terminal window.
+:::three:::
+:::three::: - The Terminal, a.k.a. Shell or command-line CAN be immediately closed
+:::three:::   and you can just use Jupyter as you would with Anaconda or Desktop.
+:::three:::
+:::three::: - But the Jupyter server and the entire Linux system it's running under
+:::three:::   can ALSO be reached through the Terminal using the screen command.
+:::three:::
+:::three::: WARNING:
+:::three::: - This will uninstall any previous Ubuntu-18.04 under WSL.
+:::three::: - A new Ubuntu 18.04 will be installed to host LXD Containers.
+:::three::: - ALL other Linuxes running under WSL are left untouched.
+:::three::: - JupyterLab will be reachable at http://localhost:8888
+:::three:::
+:::three:::                      Press [Enter] to jump down the Linux rabbit hole...
+:::three:::                                (or press Ctrl+C escape.)            3/3
+for /f "delims=: tokens=1*" %%A in ('findstr /b ":::three:::" "%~f0"') do (echo.%%B)
 set /p warning= %
 cls
 
