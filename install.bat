@@ -269,6 +269,7 @@ echo oLink.Save >> %SCRIPT%
 
 cscript /nologo %SCRIPT%
 del %SCRIPT%
+del %USERPROFILE%\repos\transfer\*
 
 echo.
 echo You can now reach JupyterLab in a Windows browser at http://localhost:8888
