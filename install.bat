@@ -148,7 +148,7 @@ set /p warning= %
 :::wee:::                  you to
 :::wee:::               death"
 :::wee:::
-for /f "delims=: tokens=1*" %%A in ('findstr /b ":::wee:::" "%~f0"') do (echo.%%B & sleep .5)
+for /f "delims=: tokens=1*" %%A in ('findstr /b ":::wee:::" "%~f0"') do (echo.%%B)
 
 echo Prepare for A LOT of scrolling (falling down the rabbit-hole).
 echo Installing Ubuntu 18.04 under Windows Subsystem for Linux...
