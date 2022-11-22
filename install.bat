@@ -92,8 +92,8 @@ cls
 :::three:::                                (or press Ctrl+C escape.)      prompt 3/3
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::three:::" "%~f0"') do (echo.%%B)
 set /p warning= %
-cls
 
+:::wee:::
 :::wee:::    'It  is  a long tail, certainly said Alice, looking down
 :::wee:::    with wonder at the Mouse's tail; 'but why do you call it
 :::wee:::    sad?'  And  she  kept  on  puzzling  about  it while the
@@ -147,7 +147,8 @@ cls
 :::wee:::                    demn
 :::wee:::                  you to
 :::wee:::               death"
-for /f "delims=: tokens=1*" %%A in ('findstr /b ":::wee:::" "%~f0"') do (echo.%%B)
+:::wee:::
+for /f "delims=: tokens=1*" %%A in ('findstr /b ":::wee:::" "%~f0"') do (echo.%%B & sleep .5)
 
 echo Prepare for A LOT of scrolling (falling down the rabbit-hole).
 echo Installing Ubuntu 18.04 under Windows Subsystem for Linux...
@@ -178,8 +179,8 @@ if not exist "%USERPROFILE%\repos\transfer\.jupyter" mkdir %USERPROFILE%\repos\t
 
 :: If you're running from a location with these optional second-stage install files, copy them over.
 echo "Copying optional installer files apt_installs.sh and requirements.txt if they exist."
-if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer) else (wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/repos/transfer/apt_installs.sh "https://raw.githubusercontent.com/miklevin/lxdwin/main/apt_installs.sh")
-if exist requirements.txt (copy requirements.txt %USERPROFILE%\repos\transfer) else (wsl --distribution Ubuntu-18.04 -u ubuntu -e curl -L -o /home/ubuntu/repos/transfer/requirements.txt "https://raw.githubusercontent.com/miklevin/lxdwin/main/requirements.txt")
+if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer) else (curl -L -o %USERPROFILE%\repos\transfer\apt_installs.sh "https://raw.githubusercontent.com/miklevin/lxdwin/main/apt_installs.sh")
+if exist requirements.txt (copy requirements.txt %USERPROFILE%\repos\transfer) else (curl -L -o %USERPROFILE%\repos\transfer\requirements.txt "https://raw.githubusercontent.com/miklevin/lxdwin/main/requirements.txt")
 
 :: This makes file permissions under WSL keyed off of your Windows-side.
 wsl --distribution Ubuntu-18.04 -u root -e echo -e "[automount]\n"options = \"metadata\" > wsl.conf
