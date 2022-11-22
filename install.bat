@@ -11,7 +11,7 @@ cls
 :: Display the above bunny-banner when the script is run as Windows .BAT file.
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::intro:::" "%~f0"') do (echo.%%B)
 
-:: HOW TO INSTALL (SAVE THIS AND RUN)
+:: HOW TO INSTALL (SAVE & RUN THIS AS A .bat FILE)
 ::
 :: Right-click in this window (if you're viewing it from the Github raw view at
 :: https://raw.githubusercontent.com/miklevin/lxdwin/main/install.bat ), select
