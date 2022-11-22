@@ -27,23 +27,24 @@ for /f "delims=: tokens=1*" %%A in ('findstr /b ":::intro:::" "%~f0"') do (echo.
 
 echo.
 echo.
-echo  Do you ever get the feeling that you spend your time learning the wrong
-echo  tools for developing life-long skills? If so, then join me in chasing
-echo  the increasingly timeless tools of tech: Linux, Python, vim and git.
-echo.
-echo.
-echo  You stand at the precipice of a great adventure. The next screen will
-echo  tell you what changes this script will do to your system and give you
-echo  another chance to exit. Are you brave enough to continue?
+echo   Do you ever get the feeling that you're learning the wrong tools
+echo   for developing live-long skills? Shouldn't we in tech be able to
+echo   get forever better at our craft as would a musician, athelete or
+echo   any craftsperson without the tools changing every 2 to 10 years?
+echo.  
+echo   You can. You should. Microsoft added Linux to Windows because it
+echo   had to in order to keep credibility as a developer platform, but
+echo   manages to trap you in true Microsoft style. This is your escape
+echo   to Linux, Python, vim and git, cushioning it through JuputerLab.
 echo.
 echo.
 echo                      Press [Enter] to jump down the Linux rabbit hole...
-echo                                (or press Ctrl+C escape.)            1/3
+echo                                (or press Ctrl+C escape.)      prompt 1/3
 set /p warning= %
 cls
 :::two:::                       _________________________________
 :::two:::                      /                                 \
-:::two:::                      |      Excellent Choice!          |
+:::two:::     GENERIC LINUX    |      Excellent Choice!          |
 :::two:::                      \______________________________ '\
 :::two:::                                                 ()    \\
 :::two:::  This script will install one Linux under the     O    \\  .
@@ -64,7 +65,7 @@ cls
 :::two:::         '----------------'
 :::two:::
 :::two:::                      Press [Enter] to jump down the Linux rabbit hole...
-:::two:::                                (or press Ctrl+C escape.)            2/3
+:::two:::                                (or press Ctrl+C escape.)      prompt 2/3
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::two:::" "%~f0"') do (echo.%%B)
 set /p warning= %
 cls
@@ -88,7 +89,7 @@ cls
 :::three::: - JupyterLab will be reachable at http://localhost:8888
 :::three:::
 :::three:::                      Press [Enter] to jump down the Linux rabbit hole...
-:::three:::                                (or press Ctrl+C escape.)            3/3
+:::three:::                                (or press Ctrl+C escape.)      prompt 3/3
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::three:::" "%~f0"') do (echo.%%B)
 set /p warning= %
 cls
