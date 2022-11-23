@@ -34,13 +34,13 @@ lxc exec jupyter -- figlet -t "Upgrading LXD Container"
 lxc exec jupyter -- apt upgrade -y
 # lxc exec jupyter -- apt install build-essential -y
 
-lxc exec jupyter -- figlet -t "Installing Python 3.10"
-lxc exec jupyter -- apt install python3.10 -y
-lxc exec jupyter -- apt install python3.10-venv -y
+lxc exec jupyter -- figlet -t "Installing Python 3.11"
+lxc exec jupyter -- apt install python3.11 -y
+lxc exec jupyter -- apt install python3.11-venv -y
 lxc exec jupyter -- apt autoremove -y
 
 lxc exec jupyter -- figlet -t "Creating Python venv"
-lxc exec jupyter -- su --login ubuntu bash -c "/usr/bin/python3.10 -m venv /home/ubuntu/py310"
+lxc exec jupyter -- su --login ubuntu bash -c "/usr/bin/python3.11 -m venv /home/ubuntu/py311"
 echo "Done"
 lxc exec jupyter -- figlet -t "Adding LXD Devices"
 
@@ -76,8 +76,8 @@ lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/repo
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/repos/transfer/pub.txt https://raw.githubusercontent.com/miklevin/lxdwin/main/pub.txt" 
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/repos/transfer/priv.txt https://raw.githubusercontent.com/miklevin/lxdwin/main/priv.txt" 
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/repos/transfer/known_hosts https://raw.githubusercontent.com/miklevin/lxdwin/main/known_hosts"
-lxc exec jupyter -- /home/ubuntu/py310/bin/python3.10 /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/pub.txt --output /home/ubuntu/repos/transfer/id_rsa_lxdwin.pub
-lxc exec jupyter -- /home/ubuntu/py310/bin/python3.10 /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/priv.txt --output /home/ubuntu/repos/transfer/id_rsa_lxdwin
+lxc exec jupyter -- /home/ubuntu/py311/bin/python3.11 /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/pub.txt --output /home/ubuntu/repos/transfer/id_rsa_lxdwin.pub
+lxc exec jupyter -- /home/ubuntu/py311/bin/python3.11 /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/priv.txt --output /home/ubuntu/repos/transfer/id_rsa_lxdwin
 
 mv -n /home/ubuntu/repos/transfer/id_rsa_lxdwin.pub /home/ubuntu/.ssh
 mv -n /home/ubuntu/repos/transfer/id_rsa_lxdwin /home/ubuntu/.ssh
@@ -98,8 +98,8 @@ lxc exec jupyter -- su --login ubuntu bash -c "postinstall"
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/repos/transfer/git_installs.sh https://raw.githubusercontent.com/miklevin/lxdwin/main/git_installs.sh" 
 
 lxc exec jupyter -- figlet -t "Installing JupyterLab"
-lxc exec jupyter -- su --login ubuntu bash -c "/home/ubuntu/py310/bin/python3.10 -m pip install --upgrade pip"
-lxc exec jupyter -- su --login ubuntu bash -c "/home/ubuntu/py310/bin/python3.10 -m pip install jupyterlab"
+lxc exec jupyter -- su --login ubuntu bash -c "/home/ubuntu/py311/bin/python3.11 -m pip install --upgrade pip"
+lxc exec jupyter -- su --login ubuntu bash -c "/home/ubuntu/py311/bin/python3.11 -m pip install jupyterlab"
 lxc exec jupyter -- figlet -t "jupyter installed"
 lxc alias remove jupyterstart >/dev/null 2>&1
 lxc alias add jupyterstart "exec jupyter -- su --login ubuntu -c /usr/local/sbin/jupyterstart"
