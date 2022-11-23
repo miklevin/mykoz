@@ -29,20 +29,23 @@ lxc exec jupyter -- chown -R ubuntu:ubuntu /home/ubuntu/
 
 lxc exec jupyter -- add-apt-repository ppa:deadsnakes/ppa -y
 lxc exec jupyter -- apt install figlet -y
-sleep 2
 lxc exec jupyter -- figlet -t "Upgrading LXD Container"
+sleep 2
 lxc exec jupyter -- apt upgrade -y
 # lxc exec jupyter -- apt install build-essential -y
 
 lxc exec jupyter -- figlet -t "Installing Python 3.11"
+sleep 2
 lxc exec jupyter -- apt install python3.11 -y
 lxc exec jupyter -- apt install python3.11-venv -y
 lxc exec jupyter -- apt autoremove -y
 
 lxc exec jupyter -- figlet -t "Creating Python venv"
+sleep 2
 lxc exec jupyter -- su --login ubuntu bash -c "/usr/bin/python3.11 -m venv /home/ubuntu/py311"
 echo "Done"
 lxc exec jupyter -- figlet -t "Adding LXD Devices"
+sleep 2
 
 WIN_HOME="$(printenv | grep -m 1 -o '/mnt/c/Users/[a-zA-Z]*/')"
 ACMD="lxc config device add jupyter repos disk source=${WIN_HOME}repos/ path=/home/ubuntu/repos/"
@@ -92,15 +95,18 @@ lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/jupyterscreen https://raw.gi
 lxc exec jupyter -- chmod +x /usr/local/sbin/jupyterscreen
 
 lxc exec jupyter -- figlet -t "Optional Installs"
+sleep 2
 lxc exec jupyter -- sudo curl -L -o /usr/local/sbin/postinstall https://raw.githubusercontent.com/miklevin/lxdwin/main/postinstall
 lxc exec jupyter -- chmod +x /usr/local/sbin/postinstall
 lxc exec jupyter -- su --login ubuntu bash -c "postinstall"
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/repos/transfer/git_installs.sh https://raw.githubusercontent.com/miklevin/lxdwin/main/git_installs.sh" 
 
 lxc exec jupyter -- figlet -t "Installing JupyterLab"
+sleep 2
 lxc exec jupyter -- su --login ubuntu bash -c "/home/ubuntu/py311/bin/python3.11 -m pip install --upgrade pip"
 lxc exec jupyter -- su --login ubuntu bash -c "/home/ubuntu/py311/bin/python3.11 -m pip install jupyterlab"
 lxc exec jupyter -- figlet -t "jupyter installed"
+sleep 2
 lxc alias remove jupyterstart >/dev/null 2>&1
 lxc alias add jupyterstart "exec jupyter -- su --login ubuntu -c /usr/local/sbin/jupyterstart"
 lxc alias remove jupyterscreen >/dev/null 2>&1

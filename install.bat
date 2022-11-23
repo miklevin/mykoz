@@ -93,62 +93,69 @@ cls
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::three:::" "%~f0"') do (echo.%%B)
 set /p warning= %
 
-:::wee:::
-:::wee:::    'It  is  a long tail, certainly said Alice, looking down
-:::wee:::    with wonder at the Mouse's tail; 'but why do you call it
-:::wee:::    sad?'  And  she  kept  on  puzzling  about  it while the
-:::wee:::    Mouse was speaking, so that her idea  of  the  tale  was
-:::wee:::    something like this:- 'Fury said to a
-:::wee:::                       mouse, That
-:::wee:::                         he met in the
-:::wee:::                              house, "Let
-:::wee:::                                  us both go
-:::wee:::                                     to law: I
-:::wee:::                                     will prosec-
-:::wee:::                                      cute you --
-:::wee:::                                    Come, I'll
-:::wee:::                                 take no de-
-:::wee:::                             nial:  We
-:::wee:::                         must  have
-:::wee:::                     the trial;
-:::wee:::                   For really
-:::wee:::                 this morn-
-:::wee:::               ing I've
-:::wee:::              nothing
-:::wee:::             to do."
-:::wee:::              Said the
-:::wee:::               mouse to
-:::wee:::                the cur,
-:::wee:::                 "Such   a
-:::wee:::                   trial, dear
-:::wee:::                       sir, With
-:::wee:::                          no  jury
-:::wee:::                            or judge,
-:::wee:::                                would
-:::wee:::                             be wast-
-:::wee:::                          ing our
-:::wee:::                       breath."
-:::wee:::                     "I'll be
-:::wee:::                   judge,
-:::wee:::                I'll be
-:::wee:::              jury,"
-:::wee:::             said
-:::wee:::            cun-
-:::wee:::            ning
-:::wee:::              old
-:::wee:::               Fury;
-:::wee:::                 "I'll
-:::wee:::                   try
-:::wee:::                     the
-:::wee:::                      whole
-:::wee:::                       cause,
-:::wee:::                        and
-:::wee:::                      con-
-:::wee:::                    demn
-:::wee:::                  you to
-:::wee:::               death"
+timeout /t 2
+:::wee:::          ____       _     _     _ _     _   _       _
+:::wee:::         |  _ \ __ _| |__ | |__ (_) |_  | | | | ___ | | ___
+:::wee:::         | |_) / _` | '_ \| '_ \| | __| | |_| |/ _ \| |/ _ \
+:::wee:::         |  _ < (_| | |_) | |_) | | |_  |  _  | (_) | |  __/
+:::wee:::         |_| \_\__,_|_.__/|_.__/|_|\__| |_| |_|\___/|_|\___|
+:::wee:::     
+:::wee:::      'It  is  a long tail, certainly said Alice, looking down
+:::wee:::      with wonder at the Mouse's tail; 'but why do you call it
+:::wee:::      sad?'  And  she  kept  on  puzzling  about  it while the
+:::wee:::      Mouse was speaking, so that her idea  of  the  tale  was
+:::wee:::      something like this:- 'Fury said to a
+:::wee:::                         mouse, That
+:::wee:::                           he met in the
+:::wee:::                                house, "Let
+:::wee:::                                    us both go
+:::wee:::                                       to law: I
+:::wee:::                                       will prosec-
+:::wee:::                                        cute you --
+:::wee:::                                      Come, I'll
+:::wee:::                                   take no de-
+:::wee:::                               nial:  We
+:::wee:::                           must  have
+:::wee:::                       the trial;
+:::wee:::                     For really
+:::wee:::                   this morn-
+:::wee:::                 ing I've
+:::wee:::                nothing
+:::wee:::               to do."
+:::wee:::                Said the
+:::wee:::                 mouse to
+:::wee:::                  the cur,
+:::wee:::                   "Such   a
+:::wee:::                     trial, dear
+:::wee:::                         sir, With
+:::wee:::                            no  jury
+:::wee:::                              or judge,
+:::wee:::                                  would
+:::wee:::                               be wast-
+:::wee:::                            ing our
+:::wee:::                         breath."
+:::wee:::                       "I'll be
+:::wee:::                     judge,
+:::wee:::                  I'll be
+:::wee:::                jury,"
+:::wee:::               said
+:::wee:::              cun-
+:::wee:::              ning
+:::wee:::                old
+:::wee:::                 Fury;
+:::wee:::                   "I'll
+:::wee:::                     try
+:::wee:::                       the
+:::wee:::                        whole
+:::wee:::                         cause,
+:::wee:::                          and
+:::wee:::                        con-
+:::wee:::                      demn
+:::wee:::                    you to
+:::wee:::                 death"
 :::wee:::
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::wee:::" "%~f0"') do (echo.%%B)
+timeout /t 2
 
 echo Prepare for A LOT of scrolling (falling down the rabbit-hole).
 echo Installing Ubuntu 18.04 under Windows Subsystem for Linux...
@@ -209,10 +216,12 @@ wsl --distribution Ubuntu-18.04 -u root -e sudo apt update
 :: With Figlet installed, I no longer need to embed ASCII art headlines.
 wsl --distribution Ubuntu-18.04 -u root -e sudo apt install figlet
 wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Upgrading WSL Linux'"
+timeout /t 2
 
 :: And now the big upgrading of all the Ubuntu 18.04 software.
 wsl --distribution Ubuntu-18.04 -u root -e sudo apt upgrade -y
 wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Installing systemd'"
+timeout /t 2
 
 :: Grab program that waits for Jupyter to start on Ubuntu 18.04 and put in sbin.
 wsl --distribution Ubuntu-18.04 -u root -e curl -L -o /usr/local/sbin/jupyterlogin "https://raw.githubusercontent.com/miklevin/lxdwin/main/jupyterlogin"
@@ -228,6 +237,7 @@ wsl --distribution Ubuntu-18.04 -u root -e /home/ubuntu/install.sh install
 :: Activate the LXD requirement "systemd" under WSL (previously unvailable).
 wsl --distribution Ubuntu-18.04 -u root -e /opt/distrod/bin/distrod enable
 wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Systemd Installed'"
+timeout /t 2
 
 :: You know what's nice? Not having to type a password every time you sudo a command!
 wsl --distribution Ubuntu-18.04 -u root -- echo "ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL> /etc/sudoers.d/ubuntu"
@@ -235,6 +245,7 @@ wsl --distribution Ubuntu-18.04 -u root -- echo "ubuntu	ALL=(ALL:ALL) NOPASSWD:A
 :: Deep breath... Install the LXD Linux Container system on WSL accepting all defaults.
 timeout /t 2 /nobreak >nul
 wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Installing LXD'"
+timeout /t 2
 wsl --distribution Ubuntu-18.04 -u ubuntu -e lxd init --auto
 
 :: Grab and run second-half of install that runs under WSL and set up Linux graphics.
