@@ -93,7 +93,7 @@ cls
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::three:::" "%~f0"') do (echo.%%B)
 set /p warning= %
 
-timeout /t 2
+timeout /t 2 /nobreak > NUL
 :::wee:::          ____       _     _     _ _     _   _       _
 :::wee:::         |  _ \ __ _| |__ | |__ (_) |_  | | | | ___ | | ___
 :::wee:::         | |_) / _` | '_ \| '_ \| | __| | |_| |/ _ \| |/ _ \
@@ -155,7 +155,7 @@ timeout /t 2
 :::wee:::                 death"
 :::wee:::
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::wee:::" "%~f0"') do (echo.%%B)
-timeout /t 2
+timeout /t 2 /nobreak > NUL
 
 echo Prepare for A LOT of scrolling (falling down the rabbit-hole).
 echo Installing Ubuntu 18.04 under Windows Subsystem for Linux...
@@ -194,13 +194,13 @@ wsl --distribution Ubuntu-18.04 -u root -e echo -e "[automount]\n"options = \"me
 wsl --distribution Ubuntu-18.04 -u root -e mv wsl.conf /etc/
 
 :: This creates the a repos, .ssh and .config folders on WSL by linking to your Windows-side.
-wsl --distribution Ubuntu-18.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh" >nul
-wsl --distribution Ubuntu-18.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos" >nul
-wsl --distribution Ubuntu-18.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.config/ /home/ubuntu/.config" >nul
+wsl --distribution Ubuntu-18.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh" >NUL
+wsl --distribution Ubuntu-18.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos" >NUL
+wsl --distribution Ubuntu-18.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.config/ /home/ubuntu/.config" >NUL
 
 :: If you keep a .vimrc and .gitconfig Windows-side, this copies them over.
-wsl --distribution Ubuntu-18.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/" >nul
-wsl --distribution Ubuntu-18.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitconfig /home/ubuntu/" >nul
+wsl --distribution Ubuntu-18.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/" >NUL
+wsl --distribution Ubuntu-18.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitconfig /home/ubuntu/" >NUL
 
 :::apt:::  _   _           _       _   _              __        ______  _       _     _                  
 :::apt::: | | | |_ __   __| | __ _| |_(_)_ __   __ _  \ \      / / ___|| |     | |   (_)_ __  _   ___  __
@@ -216,12 +216,12 @@ wsl --distribution Ubuntu-18.04 -u root -e sudo apt update
 :: With Figlet installed, I no longer need to embed ASCII art headlines.
 wsl --distribution Ubuntu-18.04 -u root -e sudo apt install figlet
 wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Upgrading WSL Linux'"
-timeout /t 2
+timeout /t 2 /nobreak > NUL
 
 :: And now the big upgrading of all the Ubuntu 18.04 software.
 wsl --distribution Ubuntu-18.04 -u root -e sudo apt upgrade -y
 wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Installing systemd'"
-timeout /t 2
+timeout /t 2 /nobreak > NUL
 
 :: Grab program that waits for Jupyter to start on Ubuntu 18.04 and put in sbin.
 wsl --distribution Ubuntu-18.04 -u root -e curl -L -o /usr/local/sbin/jupyterlogin "https://raw.githubusercontent.com/miklevin/lxdwin/main/jupyterlogin"
@@ -237,7 +237,7 @@ wsl --distribution Ubuntu-18.04 -u root -e /home/ubuntu/install.sh install
 :: Activate the LXD requirement "systemd" under WSL (previously unvailable).
 wsl --distribution Ubuntu-18.04 -u root -e /opt/distrod/bin/distrod enable
 wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Systemd Installed'"
-timeout /t 2
+timeout /t 2 /nobreak > NUL
 
 :: You know what's nice? Not having to type a password every time you sudo a command!
 wsl --distribution Ubuntu-18.04 -u root -- echo "ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL> /etc/sudoers.d/ubuntu"
@@ -245,7 +245,7 @@ wsl --distribution Ubuntu-18.04 -u root -- echo "ubuntu	ALL=(ALL:ALL) NOPASSWD:A
 :: Deep breath... Install the LXD Linux Container system on WSL accepting all defaults.
 timeout /t 2 /nobreak >nul
 wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Installing LXD'"
-timeout /t 2
+timeout /t 2 /nobreak > NUL
 wsl --distribution Ubuntu-18.04 -u ubuntu -e lxd init --auto
 
 :: Grab and run second-half of install that runs under WSL and set up Linux graphics.
