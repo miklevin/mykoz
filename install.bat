@@ -94,12 +94,6 @@ for /f "delims=: tokens=1*" %%A in ('findstr /b ":::three:::" "%~f0"') do (echo.
 set /p warning= %
 
 timeout /t 2 /nobreak > NUL
-:::wee:::          ____       _     _     _ _     _   _       _
-:::wee:::         |  _ \ __ _| |__ | |__ (_) |_  | | | | ___ | | ___
-:::wee:::         | |_) / _` | '_ \| '_ \| | __| | |_| |/ _ \| |/ _ \
-:::wee:::         |  _ < (_| | |_) | |_) | | |_  |  _  | (_) | |  __/
-:::wee:::         |_| \_\__,_|_.__/|_.__/|_|\__| |_| |_|\___/|_|\___|
-:::wee:::     
 :::wee:::      'It  is  a long tail, certainly said Alice, looking down
 :::wee:::      with wonder at the Mouse's tail; 'but why do you call it
 :::wee:::      sad?'  And  she  kept  on  puzzling  about  it while the
@@ -153,13 +147,18 @@ timeout /t 2 /nobreak > NUL
 :::wee:::                      demn
 :::wee:::                    you to
 :::wee:::                 death"
+:::wee:::          ____       _     _     _ _     _   _       _
+:::wee:::         |  _ \ __ _| |__ | |__ (_) |_  | | | | ___ | | ___
+:::wee:::         | |_) / _` | '_ \| '_ \| | __| | |_| |/ _ \| |/ _ \
+:::wee:::         |  _ < (_| | |_) | |_) | | |_  |  _  | (_) | |  __/
+:::wee:::         |_| \_\__,_|_.__/|_.__/|_|\__| |_| |_|\___/|_|\___|
+:::wee:::     
+:::wee:::   Prepare for A LOT of scrolling (falling down the rabbit-hole).
+:::wee:::   Installing Ubuntu 18.04 under Windows Subsystem for Linux...
 :::wee:::
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::wee:::" "%~f0"') do (echo.%%B)
 timeout /t 2 /nobreak > NUL
 
-echo Prepare for A LOT of scrolling (falling down the rabbit-hole).
-echo Installing Ubuntu 18.04 under Windows Subsystem for Linux...
-echo.
 wsl --unregister Ubuntu-18.04
 wsl --set-default-version 2
 
