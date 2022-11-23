@@ -28,7 +28,7 @@ for /f "delims=: tokens=1*" %%A in ('findstr /b ":::intro:::" "%~f0"') do (echo.
 echo.
 echo.
 echo   Do you ever get the feeling that you're learning the wrong tools
-echo   for developing live-long skills? Shouldn't we in tech be able to
+echo   for developing life-long skills? Shouldn't we in tech be able to
 echo   get forever better at our craft as would a musician, athelete or
 echo   any craftsperson without the tools changing every 2 to 10 years?
 echo.  
