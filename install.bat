@@ -189,7 +189,8 @@ if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer) els
 if exist requirements.txt (copy requirements.txt %USERPROFILE%\repos\transfer) else (curl -L -o %USERPROFILE%\repos\transfer\requirements.txt "https://raw.githubusercontent.com/miklevin/lxdwin/main/requirements.txt")
 
 :: This makes file permissions under WSL keyed off of your Windows-side.
-wsl --distribution Ubuntu-18.04 -u root -e echo -e "[automount]\n"options = \"metadata\" > wsl.conf
+wsl --distribution Ubuntu-18.04 -u root -e echo -e "[automount]\n"options=\"metadata\"" > /etc/wsl.conf
+wsl --distribution Ubuntu-18.04 -u root -e echo -e "[boot]\n"systemd=true >> /etc/wsl.conf
 wsl --distribution Ubuntu-18.04 -u root -e mv wsl.conf /etc/
 
 :: This creates the a repos, .ssh and .config folders on WSL by linking to your Windows-side.
