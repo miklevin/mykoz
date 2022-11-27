@@ -229,15 +229,15 @@ wsl --distribution Ubuntu-18.04 -u root -e chown ubuntu:ubuntu /usr/local/sbin/j
 wsl --distribution Ubuntu-18.04 -u root -e chmod +x /usr/local/sbin/jupyterlogin
 
 :: Grab and run distrod's install.sh from Github to turn on systemd (required for LXD).
-wsl --distribution Ubuntu-18.04 -u root -e curl -L -o /home/ubuntu/install.sh "https://raw.githubusercontent.com/nullpo-head/wsl-distrod/main/install.sh"
-wsl --distribution Ubuntu-18.04 -u root -e chmod 777 /home/ubuntu/install.sh
-wsl --distribution Ubuntu-18.04 -u root -e chown ubuntu:ubuntu /home/ubuntu/install.sh
-wsl --distribution Ubuntu-18.04 -u root -e /home/ubuntu/install.sh install
+:: wsl --distribution Ubuntu-18.04 -u root -e curl -L -o /home/ubuntu/install.sh "https://raw.githubusercontent.com/nullpo-head/wsl-distrod/main/install.sh"
+:: wsl --distribution Ubuntu-18.04 -u root -e chmod 777 /home/ubuntu/install.sh
+:: wsl --distribution Ubuntu-18.04 -u root -e chown ubuntu:ubuntu /home/ubuntu/install.sh
+:: wsl --distribution Ubuntu-18.04 -u root -e /home/ubuntu/install.sh install
 
 :: Activate the LXD requirement "systemd" under WSL (previously unvailable).
-wsl --distribution Ubuntu-18.04 -u root -e /opt/distrod/bin/distrod enable
-wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Systemd Installed.'"
-timeout /t 2 /nobreak > NUL
+:: wsl --distribution Ubuntu-18.04 -u root -e /opt/distrod/bin/distrod enable
+:: wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Systemd Installed.'"
+:: timeout /t 2 /nobreak > NUL
 
 :: You know what's nice? Not having to type a password every time you sudo a command!
 wsl --distribution Ubuntu-18.04 -u root -- echo "ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL> /etc/sudoers.d/ubuntu"
