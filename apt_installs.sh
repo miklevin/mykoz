@@ -16,3 +16,5 @@ sudo apt install ./google-chrome*.deb -y
 
 # Install teh default Pypeteer Chromium browser, edited out in favor of Chrome
 # pyppeteer-install
+
+sudo apt install x11-apps
