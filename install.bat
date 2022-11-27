@@ -189,9 +189,10 @@ if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer) els
 if exist requirements.txt (copy requirements.txt %USERPROFILE%\repos\transfer) else (curl -L -o %USERPROFILE%\repos\transfer\requirements.txt "https://raw.githubusercontent.com/miklevin/lxdwin/main/requirements.txt")
 
 :: This makes file permissions under WSL keyed off of your Windows-side.
-wsl --distribution Ubuntu-18.04 -u root -e echo -e "[automount]\n"options=\"metadata\"" > /etc/wsl.conf
-wsl --distribution Ubuntu-18.04 -u root -e echo -e "[boot]\n"systemd=true >> /etc/wsl.conf
+:: wsl --distribution Ubuntu-18.04 -u root -e echo -e [automount]\noptions=\"metadata\" > ./wsl.conf
+wsl --distribution Ubuntu-18.04 -u root -e echo -e [boot]\nsystemd=true >> ./wsl.conf
 wsl --distribution Ubuntu-18.04 -u root -e mv wsl.conf /etc/
+wsl -t Ubuntu-18.04
 
 :: This creates the a repos, .ssh and .config folders on WSL by linking to your Windows-side.
 wsl --distribution Ubuntu-18.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh" >NUL
@@ -221,8 +222,8 @@ timeout /t 2 /nobreak > NUL
 
 :: And now the big upgrading of all the Ubuntu 18.04 software.
 wsl --distribution Ubuntu-18.04 -u root -e sudo apt upgrade -y
-wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Installing systemd...'"
-timeout /t 2 /nobreak > NUL
+:: wsl --distribution Ubuntu-18.04 -e bash -lic "figlet -t 'Installing systemd...'"
+:: timeout /t 2 /nobreak > NUL
 
 :: Grab program that waits for Jupyter to start on Ubuntu 18.04 and put in sbin.
 wsl --distribution Ubuntu-18.04 -u root -e curl -L -o /usr/local/sbin/jupyterlogin "https://raw.githubusercontent.com/miklevin/lxdwin/main/jupyterlogin"
