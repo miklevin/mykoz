@@ -64,10 +64,6 @@ ACMD="lxc config device add jupyter x11 disk source=/tmp/.X11-unix/ path=/tmp/.X
 echo "$ACMD"
 eval "$ACMD"
 
-# lxc config set jupyter environment.WAYLAND_DISPLAY wayland-0
-# lxc config set jupyter environment.XDG_RUNTIME_dir /mnt/wslg/runtime-dir
-# lxc config set jupyter environment.PULSE_SERVER /mnt/wslg/pulseserver
-
 echo .bash_profile
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_profile"
 lxc exec jupyter -- chown ubuntu:ubuntu /home/ubuntu/.bash_profile
