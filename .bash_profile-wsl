@@ -3,7 +3,7 @@
 export DISPLAY=:0
 
 # Put display variable command where Containers can access.
-echo "export DISPLAY=${DISPLAY}" > ~/repos/transfer/.display.sh
+# echo "export DISPLAY=${DISPLAY}" > ~/repos/transfer/.display.sh
 
 # Bypass WSL and immediately log into LXD Linux container.
 jupyterlogin
