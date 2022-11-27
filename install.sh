@@ -60,9 +60,9 @@ eval "$ACMD"
 ACMD="lxc config device add jupyter wslg disk source=/mnt/wslg/ path=/mnt/wslg/"
 echo "$ACMD"
 eval "$ACMD"
-# ACMD="lxc config device add jupyter config disk source=/tmp/.X11-unix/ path=/tmp/.X11-unix/"
-# echo "$ACMD"
-# eval "$ACMD"
+ACMD="lxc config device add jupyter x11 disk source=/tmp/.X11-unix/ path=/tmp/.X11-unix/"
+echo "$ACMD"
+eval "$ACMD"
 
 # lxc config set jupyter environment.WAYLAND_DISPLAY wayland-0
 # lxc config set jupyter environment.XDG_RUNTIME_dir /mnt/wslg/runtime-dir

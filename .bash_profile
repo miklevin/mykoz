@@ -11,6 +11,8 @@ export SCREENDIR=$HOME/.screen
 export JUPYTER_CONFIG_DIR=~/repos/transfer/.jupyter
 
 # Enable WSL Graphics & Auido
+export WSL2_GUI_APPS_ENABLED=1
+export DISPLAY=:0
 export XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir
 export WAYLAND_DISPLAY=wayland-0
 export PULSE_SERVER=/mnt/wslg/pulseserver
