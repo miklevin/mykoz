@@ -60,7 +60,7 @@ eval "$ACMD"
 ACMD="lxc config device add jupyter wslg disk source=/mnt/wslg/ path=/mnt/wslg/"
 echo "$ACMD"
 eval "$ACMD"
-ACMD="lxc config device add jupyter x11 disk source=/tmp/.X11-unix/ path=/tmp/.X11-unix/"
+ACMD="lxc config device add jupyter x11 disk source=/mnt/wslg/.X11-unix/ path=/tmp/.X11-unix/"
 echo "$ACMD"
 eval "$ACMD"
 
