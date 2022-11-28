@@ -17,6 +17,7 @@ fi
 lxc launch ubuntu:20.04 jupyter
 lxc config set jupyter security.privileged true
 
+lxc config device add jupyter X11 proxy listen=unix:/mnt/wslg/.X11-unix/X0 connect:unix/tmp/.X11-unix/X1
 lxc config device add jupyter localhost8888 proxy listen=tcp:0.0.0.0:8888 connect=tcp:127.0.0.1:8888
 until [ ! -z "$(lxc ls jupyter -c '4' --format csv)" ]
 do
@@ -57,12 +58,9 @@ eval "$ACMD"
 ACMD="lxc config device add jupyter config disk source=${WIN_HOME}.config/ path=/home/ubuntu/.config/"
 echo "$ACMD"
 eval "$ACMD"
-ACMD="lxc config device add jupyter wslg disk source=/mnt/wslg/ path=/mnt/wslg/"
-echo "$ACMD"
-eval "$ACMD"
-ACMD="lxc config device add jupyter x11 disk source=/mnt/wslg/.X11-unix/ path=/tmp/.X11-unix/"
-echo "$ACMD"
-eval "$ACMD"
+# ACMD="lxc config device add jupyter x11 disk source=/mnt/wslg/.X11-unix/ path=/tmp/.X11-unix/"
+# echo "$ACMD"
+# eval "$ACMD"
 
 echo .bash_profile
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_profile"
