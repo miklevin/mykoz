@@ -238,7 +238,7 @@ timeout /t 2 /nobreak > NUL
 :: wsl --distribution Ubuntu-20.04 -u ubuntu -e sudo lxd init --auto
 
 :: Grab and run second-half of install that runs under WSL and set up Linux graphics.
-wsl --distribution Ubuntu-20.04 -u ubuntu -e curl -L -o /home/ubuntu/nolxdinstall.sh "https://raw.githubusercontent.com/miklevin/lxdwin/main/install.sh"
+wsl --distribution Ubuntu-20.04 -u ubuntu -e curl -L -o /home/ubuntu/nolxdinstall.sh "https://raw.githubusercontent.com/miklevin/lxdwin/main/nolxdinstall.sh"
 wsl --distribution Ubuntu-20.04 -e bash -lic "bash /home/ubuntu/nolxdinstall.sh"
 exit
 wsl --distribution Ubuntu-20.04 -e bash -lic "curl -L -o /home/ubuntu/.bash_profile 'https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_profile-wsl'"
