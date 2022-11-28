@@ -229,7 +229,7 @@ wsl -d Ubuntu-20.04 -u root /bin/bash -c "echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:AL
 :: Grab and run second-half of install that runs under WSL and set up Linux graphics.
 wsl -d Ubuntu-20.04 -u ubuntu -e curl -L -o /home/ubuntu/nolxdinstall.sh "https://raw.githubusercontent.com/miklevin/lxdwin/main/nolxdinstall.sh"
 wsl -d Ubuntu-20.04 -e bash -lic "bash /home/ubuntu/nolxdinstall.sh"
-wsl -d Ubuntu-20.04 -e bash -lic "curl -L -o /home/ubuntu/.bash_profile 'https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_profile-wsl'"
+wsl -d Ubuntu-20.04 -e bash -lic "curl -L -o /home/ubuntu/.bash_profile 'https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_profile'"
 echo Returning from noinstall.sh, rebooting WSL for updated ACLs (access control list)
 
 :: Grab post-reboot scripts. ACLs aren't sufficent for git cloning without a wsl --shutdown

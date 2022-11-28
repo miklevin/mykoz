@@ -1,27 +1,9 @@
-# Activate py310 virtual environment.
-source ~/py311/bin/activate
+# No longer necessary: Set display environment variable to [IP]:0 for VcXsrv or Xming. 
+# export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
+export DISPLAY=:0
 
-# Color-code prompt.
-source ~/.bash_prompt
+# Put display variable command where Containers can access.
+# echo "export DISPLAY=${DISPLAY}" > ~/repos/transfer/.display.sh
 
-# Make gnu screen show more useful information.
-export SCREENDIR=$HOME/.screen
-
-# Allow all your Jupyter configuration (dark mode) survive reinstalls.
-export JUPYTER_CONFIG_DIR=~/repos/transfer/.jupyter
-
-# Enable WSL Graphics & Auido
-export WSL2_GUI_APPS_ENABLED=1
-export DISPLAY=:1
-export XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir
-export WAYLAND_DISPLAY=wayland-0
-export PULSE_SERVER=/mnt/wslg/pulseserver
-
-# Un-comment the following lines to enable Linux graphics using VcXsrv or Xming.
-# source ~/repos/transfer/.display.sh
-# LIBGL_ALWAYS_INDIRECT=1
-
-# Un-comment the following line if you've set up graphis on WSL host.
-# source ~/repos/transfer/.display.sh
-
-cd ~/repos
+# Bypass WSL and immediately log into LXD Linux container.
+jupyterlogin
