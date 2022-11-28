@@ -41,7 +41,7 @@ echo.
 echo                      Press [Enter] to jump down the Linux rabbit hole...
 echo                                (or press Ctrl+C escape.)      prompt 1/3
 set /p warning= %
-cls
+
 :::two:::                       _________________________________
 :::two:::                      /                                 \
 :::two:::     GENERIC LINUX    |      Excellent Choice!          |
@@ -68,7 +68,6 @@ cls
 :::two:::                                (or press Ctrl+C escape.)      prompt 2/3
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::two:::" "%~f0"') do (echo.%%B)
 set /p warning= %
-cls
 
 :::three::: AFTER THE SCRIPT IS DONE:
 :::three:::
@@ -200,8 +199,8 @@ wsl -d Ubuntu-20.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu
 wsl -d Ubuntu-20.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitconfig /home/ubuntu/" >NUL
 
 :: We update the software reposotory on the Ubuntu 20.04 Machine
+wsl -d Ubuntu-20.04 -u root -e sudo apt update
 sudo add-apt-repository ppa:deadsnakes/ppa -y
-:: wsl -d Ubuntu-20.04 -u root -e sudo apt update
 
 :: With Figlet installed, I no longer need to embed ASCII art headlines.
 wsl -d Ubuntu-20.04 -u root -e sudo apt install figlet
