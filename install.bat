@@ -221,8 +221,7 @@ timeout /t 2 /nobreak > NUL
 
 :: And now the big upgrading of all the Ubuntu 20.04 software.
 wsl --distribution Ubuntu-20.04 -u root -e sudo apt upgrade -y
-:: wsl --distribution Ubuntu-20.04 -e bash -lic "figlet -t 'Installing systemd...'"
-:: timeout /t 2 /nobreak > NUL
+wsl --distribution Ubuntu-20.04 -u root -e sudo apt install x11-apps
 
 :: Grab program that waits for Jupyter to start on Ubuntu 20.04 and put in sbin.
 wsl --distribution Ubuntu-20.04 -u root -e curl -L -o /usr/local/sbin/jupyterlogin "https://raw.githubusercontent.com/miklevin/lxdwin/main/jupyterlogin"
@@ -230,7 +229,6 @@ wsl --distribution Ubuntu-20.04 -u root -e chown ubuntu:ubuntu /usr/local/sbin/j
 wsl --distribution Ubuntu-20.04 -u root -e chmod +x /usr/local/sbin/jupyterlogin
 
 :: You know what's nice? Not having to type a password every time you sudo a command!
-:: wsl --distribution Ubuntu-20.04 -- echo "ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL> /etc/sudoers.d/ubuntu"
 wsl --distribution Ubuntu-20.04 -u root /bin/bash -c "echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL'> /etc/sudoers.d/ubuntu"
 timeout /t 2 /nobreak > NUL
 
