@@ -58,9 +58,7 @@ eval "$ACMD"
 ACMD="lxc config device add jupyter config disk source=${WIN_HOME}.config/ path=/home/ubuntu/.config/"
 echo "$ACMD"
 eval "$ACMD"
-# ACMD="lxc config device add jupyter x11 disk source=/mnt/wslg/.X11-unix/ path=/tmp/.X11-unix/"
-# echo "$ACMD"
-# eval "$ACMD"
+lxc config device add jupyter wslg disk source=/mnt/ path=/mnt/
 
 echo .bash_profile
 lxc exec jupyter -- su --login ubuntu bash -c "sudo curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_profile"
