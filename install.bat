@@ -1,91 +1,89 @@
-@echo off
-cls
-:::intro:::   ____ _                      __  __      _                        _. 
-:::intro:::  / ___| |__   __ _ ___  ___  |  \/  | ___| |                /)    /  \     
-:::intro::: | |   | '_ \ / _` / __|/ _ \ | |\/| |/ _ \ |         /)\_ _//    /    |    
-:::intro::: | |___| | | | (_| \__ \  __/ | |  | |  __/_|     ___(/_ 0 0      |    |    
-:::intro:::  \____|_| |_|\__,_|___/\___| |_|  |_|\___(_)   *(     =(_T_)=    |    |    
-:::intro:::                                                  \  )   \"\      \    /   
-:::intro:::            Linux, Python, vim & git!              |__>-\_>_>      \__/
-
-:: Display the above bunny-banner when the script is run as Windows .BAT file.
-for /f "delims=: tokens=1*" %%A in ('findstr /b ":::intro:::" "%~f0"') do (echo.%%B)
-
-:: HOW TO INSTALL (SAVE & RUN THIS AS A .bat FILE)
+::   ___           _        _ _   __  __      _      
+::  |_ _|_ __  ___| |_ __ _| | | |  \/  | ___| |   - Easily get Linux on Windows
+::   | || '_ \/ __| __/ _` | | | | |\/| |/ _ \ |   - Use the latest Python (3.11)
+::   | || | | \__ \ || (_| | | | | |  | |  __/_|   - Run JupyterLab like a real dev
+::  |___|_| |_|___/\__\__,_|_|_| |_|  |_|\___(_)   - Learn vim (keep a journal)
+::                                                 - Learn git (use Github.com)
+::  Save & Run this as a .bat FILE on your Desktop.
 ::
 :: Right-click in this window (if you're viewing it from the Github raw view at
-:: https://raw.githubusercontent.com/miklevin/lxdwin/main/install.bat ), select
-:: all, create a file named install.bat on your local Windows 10 or 11 computer
-:: and right-click it to Run as administrator. If the icon doesn't look like gears
-:: then you have a hidden .txt extension you can get rid of with File Explorer /
-:: View / Options / View (tab) / Uncheck "Hide extensions for known types" after
-:: which you will be able to see and delete the .txt extension.
-
-:: WHERE To GO TO LEARN MORE
-:: If you found this page from https://mikelev.in/ux and want to learn more, then
-:: please visit the Github project main page at https://github.com/miklevin/lxdwin
-
-echo.
-echo.
-echo   Do you ever get the feeling that you're learning the wrong tools
-echo   for developing life-long skills? Shouldn't we in tech be able to
-echo   get forever better at our craft as would a musician, athelete or
-echo   any craftsperson without the tools changing every 2 to 10 years?
-echo.  
-echo   You can. You should. Microsoft added Linux to Windows because it
-echo   had to in order to keep credibility as a developer platform, but
-echo   manages to trap you in true Microsoft style. This is your escape
-echo   to Linux, Python, vim and git, cushioning it through JuputerLab.
-echo.
-echo.
-echo                      Press [Enter] to jump down the Linux rabbit hole...
-echo                                (or press Ctrl+C escape.)      prompt 1/3
+:: https://raw.githubusercontent.com/miklevin/drinkme/main/install.bat ), select
+:: all, copy, create a file named install.bat on your local Windows 10 or 11
+:: computer and run it. Make sure it reall has a .bat extension!
+@echo off
+cls
+:::rabbit:::                                                                       _. 
+:::rabbit:::                                                                /)    /  \     
+:::rabbit:::      ____ _                      __  __      _          /)\_ _//    /    |    
+:::rabbit:::     / ___| |__   __ _ ___  ___  |  \/  | ___| |     ___(/_ 0 0      |    |    
+:::rabbit:::    | |   | '_ \ / _` / __|/ _ \ | |\/| |/ _ \ |   *(     =(_T_)=    |    |    
+:::rabbit:::    | |___| | | | (_| \__ \  __/ | |  | |  __/_|     \  )   \"\      \    /   
+:::rabbit:::     \____|_| |_|\__,_|___/\___| |_|  |_|\___(_)      |__>-\_>_>      \__/
+:::rabbit:::
+:::rabbit:::                       THEY WANT YOU GOING OBSOLETE
+:::rabbit::: 
+:::rabbit::: Artists, musicians and athletes forever improve because their tools don't
+:::rabbit::: change every 2 to 5 years -- letting them focus on craftsmanship. We in tech
+:::rabbit::: don't have that privilege because of relentless upgrade cycles and forced
+:::rabbit::: obsolescence, because you must re-buy and re-train to feed company profits.
+:::rabbit::: 
+:::rabbit:::                           FUTURE-PROOF YOURSELF
+:::rabbit::: 
+:::rabbit::: There is a better way and Microsoft HAD to include it in order to maintain
+:::rabbit::: credibility as a developer platform. You can now get the best of both worlds.
+:::rabbit::: This can be the beginning of a wonderful journey into the timeless tools of
+:::rabbit::: Linux, Python, vim and git starting with a PROPER install of JupyterLab.
+:::rabbit::: 
+:::rabbit:::                         Press [Enter] to jump down the Linux rabbit hole...
+:::rabbit:::                                   (or press Ctrl+C escape.)      prompt 1/3
+for /f "delims=: tokens=1*" %%A in ('findstr /b ":::rabbit:::" "%~f0"') do (echo.%%B)
 set /p warning= %
-
-:::two:::                       _________________________________
-:::two:::                      /                                 \
-:::two:::     GENERIC LINUX    |      Excellent Choice!          |
-:::two:::                      \______________________________ '\
-:::two:::                                                 ()    \\
-:::two:::  This script will install one Linux under the     O    \\  .
-:::two:::  Windows Subsystem for Linux (WSL) and use it to    o  |\\/|
-:::two:::  host JupterLab accessible through your Windows        / " '\
-:::two:::  browser at http://localhost:8888 It will also         . .   .
-:::two:::  introduce you to Linux, Python, vim and git.         /    ) |
-:::two:::                                                      '  _.'  |
-:::two:::                           HYPERVISOR                 '-'/    \
-:::two:::   ____________________________ ______________________________
-:::two:::  |Windows 10 or 11           | |Windows Subsystem for Linux |
-:::two:::  |         ____ ____         | |Ubuntu 20.04                |
-:::two:::  |      ,_/site\____\____.   | | __________________________ |
-:::two:::  |      |                |   | | |GNU screen terminal     | |
-:::two:::  |      | localhost:8888 -------->JupyterLab Server       | |
-:::two:::  |      |   ( browser )  |   | | |________________________| |
-:::two:::  |______|                |___| |____________________________|
-:::two:::         '----------------'
-:::two:::
-:::two:::                      Press [Enter] to jump down the Linux rabbit hole...
-:::two:::                                (or press Ctrl+C escape.)      prompt 2/3
-for /f "delims=: tokens=1*" %%A in ('findstr /b ":::two:::" "%~f0"') do (echo.%%B)
+cls
+:::unicorn:::                                _________________________________
+:::unicorn:::     THE PATH OF EVENTUAL      /                                 \
+:::unicorn:::     FREEDOM FROM WINDOWS      |      An Excellent Choice!       |
+:::unicorn:::     & PROPRIETARY STUFF!      \_________________________________/
+:::unicorn:::                                                           ()     ,
+:::unicorn:::                                                             O    \\  .
+:::unicorn:::  This script will install Linux under the Windows Subsystem   o  |\\/|
+:::unicorn:::  for Linux (WSL2) and use it to host JupterLab, accessible       / " '\
+:::unicorn:::  through your Windows browser at http://localhost:8888 If       . .   .
+:::unicorn:::  you have to run Jupyter anyway to run Python, why not do      /    ) |
+:::unicorn:::  it in a way that sets you on a better path in life?          '  _.'  |
+:::unicorn:::                                                               '-'/    \
+:::unicorn:::   ____________________________  ______________________________
+:::unicorn:::  |      Windows 10 or 11     |  | Windows Subsystem for Linux |
+:::unicorn:::  |         ____ ____         |  |   Ubuntu 20.04 (invisible)  |
+:::unicorn:::  |      ,_/site\____\____.   |  | ___________________________ |
+:::unicorn:::  |      |                |   |  | | GNU screen terminal     | |
+:::unicorn:::  |      | localhost:8888 ---------->JupyterLab Server       | |
+:::unicorn:::  |      |   ( browser )  |   |  | |_________________________| |
+:::unicorn:::  |______|                |___|  |_____________________________|
+:::unicorn:::         '----------------'
+:::unicorn:::
+:::unicorn:::                      Press [Enter] to jump down the Linux rabbit hole...
+:::unicorn:::                                (or press Ctrl+C escape.)      prompt 2/3
+for /f "delims=: tokens=1*" %%A in ('findstr /b ":::unicorn:::" "%~f0"') do (echo.%%B)
 set /p warning= %
-
-:::three::: AFTER THE SCRIPT IS DONE:
-:::three:::
-:::three::: - A "JuputerLab Login" icon will be created where you run the script.
-:::three:::
-:::three::: - Double-clicking it will start JupyterLab and open a Terminal window.
-:::three:::
-:::three::: - The Terminal, a.k.a. Shell or command-line CAN be immediately closed
-:::three:::   and you can just use Jupyter as you would with Anaconda or Desktop.
-:::three:::
-:::three::: - But the Jupyter server and the entire Linux system it's running under
-:::three:::   can ALSO be reached through the Terminal using the screen command.
-:::three:::
+cls
+:::three:::   _____ _             _  __        __               _             _ 
+:::three:::  |  ___(_)_ __   __ _| | \ \      / /_ _ _ __ _ __ (_)_ __   __ _| |
+:::three:::  | |_  | | '_ \ / _` | |  \ \ /\ / / _` | '__| '_ \| | '_ \ / _` | |
+:::three:::  |  _| | | | | | (_| | |   \ V  V / (_| | |  | | | | | | | | (_| |_|
+:::three:::  |_|   |_|_| |_|\__,_|_|    \_/\_/ \__,_|_|  |_| |_|_|_| |_|\__, (_)
+:::three:::                                                             |___/  
 :::three::: WARNING:
-:::three::: - This will uninstall any previous Ubuntu-20.04 under WSL.
+:::three::: - This will uninstall any previous Ubuntu-20.04 under WSL <-- IMPORTANT
 :::three::: - A new Ubuntu 20.04 will be installed to host LXD Containers.
 :::three::: - ALL other Linuxes running under WSL are left untouched.
 :::three::: - JupyterLab will be reachable at http://localhost:8888
+:::three:::
+:::three::: - A "JuputerLab Login" icon will be created where you run the script.
+:::three::: - Double-clicking it will start JupyterLab and open a Terminal window.
+:::three::: - The Terminal, a.k.a. Shell or command-line CAN be immediately closed
+:::three:::   and you can just use Jupyter as you would with Anaconda or Desktop.
+:::three::: - But the Jupyter server and the entire Linux system it's running under
+:::three:::   can ALSO be reached through the Terminal using the screen command.
 :::three:::
 :::three:::                      Press [Enter] to jump down the Linux rabbit hole...
 :::three:::                                (or press Ctrl+C escape.)      prompt 3/3
@@ -200,7 +198,6 @@ wsl -d Ubuntu-20.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitconfig /home/ub
 
 :: We update the software reposotory on the Ubuntu 20.04 Machine
 wsl -d Ubuntu-20.04 -u root -e sudo apt update
-sudo add-apt-repository ppa:deadsnakes/ppa -y
 
 :: With Figlet installed, I no longer need to embed ASCII art headlines.
 wsl -d Ubuntu-20.04 -u root -e sudo apt install figlet
@@ -208,6 +205,7 @@ wsl -d Ubuntu-20.04 -e bash -lic "figlet -t 'Upgrading Linux...'"
 
 :: And now the big upgrading of all the Ubuntu 20.04 software.
 wsl -d Ubuntu-20.04 -u root -e sudo apt upgrade -y
+wsl -d Ubuntu-20.04 -u root -e sudo add-apt-repository ppa:deadsnakes/ppa -y
 
 :: Grab program that waits for Jupyter to start on Ubuntu 20.04 and put in sbin.
 wsl -d Ubuntu-20.04 -u root -e curl -L -o /usr/local/sbin/jupyterlogin "https://raw.githubusercontent.com/miklevin/lxdwin/main/jupyterlogin"
