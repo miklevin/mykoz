@@ -1,6 +1,7 @@
 #!/bin/bash
 
 figlet -t "Installing Python 3.11"
+sudo add-apt-repository ppa:deadsnakes/ppa -y
 sudo apt install python3.11 -y
 sudo apt install python3.11-venv -y
 sudo apt autoremove -y

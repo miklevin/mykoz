@@ -196,7 +196,7 @@ wsl -d Ubuntu-20.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.config/ /home/u
 wsl -d Ubuntu-20.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/" >NUL
 wsl -d Ubuntu-20.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitconfig /home/ubuntu/" >NUL
 
-:: We update the software reposotory on the Ubuntu 20.04 Machine
+:: We update the software repository on the Ubuntu 20.04 Machine
 wsl -d Ubuntu-20.04 -u root -e sudo apt update
 
 :: With Figlet installed, I no longer need to embed ASCII art headlines.
@@ -205,12 +205,6 @@ wsl -d Ubuntu-20.04 -e bash -lic "figlet -t 'Upgrading Linux...'"
 
 :: And now the big upgrading of all the Ubuntu 20.04 software.
 wsl -d Ubuntu-20.04 -u root -e sudo apt upgrade -y
-wsl -d Ubuntu-20.04 -u root -e sudo add-apt-repository ppa:deadsnakes/ppa -y
-
-:: Grab program that waits for Jupyter to start on Ubuntu 20.04 and put in sbin.
-wsl -d Ubuntu-20.04 -u root -e curl -L -o /usr/local/sbin/jupyterlogin "https://raw.githubusercontent.com/miklevin/lxdwin/main/jupyterlogin"
-wsl -d Ubuntu-20.04 -u root -e chown ubuntu:ubuntu /usr/local/sbin/jupyterlogin
-wsl -d Ubuntu-20.04 -u root -e chmod +x /usr/local/sbin/jupyterlogin
 
 :: You know what's nice? Not having to type a password every time you sudo a command!
 wsl -d Ubuntu-20.04 -u root /bin/bash -c "echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL'> /etc/sudoers.d/ubuntu"
@@ -221,7 +215,7 @@ wsl -d Ubuntu-20.04 -e bash -lic "bash /home/ubuntu/install.sh"
 wsl -d Ubuntu-20.04 -e bash -lic "curl -L -o /home/ubuntu/.bash_profile 'https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_profile'"
 echo Returning from noinstall.sh, rebooting WSL for updated ACLs (access control list)
 
-:: Grab post-reboot scripts. ACLs aren't sufficent for git cloning without a wsl --shutdown
+:: Grab post-reboot scripts. ACLs aren't sufficient for git cloning without a wsl --shutdown
 wsl -t Ubuntu-20.04
 
 wsl -d Ubuntu-20.04 -u root -e echo "Back from shutdown"
