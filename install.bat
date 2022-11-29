@@ -175,7 +175,7 @@ ubuntu2004 config --default-user "%wsluer%"
 if not exist "%USERPROFILE%\repos" mkdir %USERPROFILE%\repos
 if not exist "%USERPROFILE%\repos\transfer" mkdir %USERPROFILE%\repos\transfer
 if not exist "%USERPROFILE%\.config" mkdir %USERPROFILE%\.config
-if not exist "%USERPROFILE%\.config\jupyter" mkdir %USERPROFILE%\.config\jupyter
+if not exist "%USERPROFILE%\.jupyter" mkdir %USERPROFILE%\.jupyter
 
 :: If you're running from a location with these optional second-stage install files, copy them over.
 echo Copying optional installer files apt_installs.sh and requirements.txt if they exist.
@@ -191,6 +191,7 @@ wsl -t Ubuntu-20.04
 wsl -d Ubuntu-20.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh" >NUL
 wsl -d Ubuntu-20.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos" >NUL
 wsl -d Ubuntu-20.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.config/ /home/ubuntu/.config" >NUL
+wsl -d Ubuntu-20.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.jupyter/ /home/ubuntu/.jupyter" >NUL
 
 :: If you keep a .vimrc and .gitconfig Windows-side, this copies them over.
 wsl -d Ubuntu-20.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/" >NUL
