@@ -33,8 +33,8 @@ sudo curl -L -o /usr/local/sbin/jupyterscreen https://raw.githubusercontent.com/
 sudo chmod +x /usr/local/sbin/jupyterscreen
 figlet -t "Optional Installs"
 sudo curl -L -o /home/ubuntu/repos/transfer/postinstall.sh https://raw.githubusercontent.com/miklevin/lxdwin/main/postinstall.sh
-sudo chmod +x /usr/local/sbin/postinstall
-postinstall
+sudo chmod +x /home/ubuntu/repos/transfer/postinstall.sh
+sh /home/ubuntu/repos/transfer/postinstall.sh
 sudo curl -L -o /home/ubuntu/repos/transfer/git_installs.sh https://raw.githubusercontent.com/miklevin/lxdwin/main/git_installs.sh
 figlet -t "Installing JupyterLab"
 /home/ubuntu/py311/bin/python3.11 -m pip install --upgrade pip
