@@ -9,8 +9,6 @@ ohawf
 openpyxl
 pandas
 playwright
-pyppeteer
-pyppeteer-stealth
 python-levenshtein
 python-slugify
 PyYAML
