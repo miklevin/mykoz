@@ -1,4 +1,0 @@
-WIN_HOME="$(printenv | grep -o '/mnt/c/Users/[a-zA-Z]*/')"
-echo "$WIN_HOME"
-lxc config device add jupyter repos disk source="$WIN_HOME"repos/ path=/home/ubuntu/repos/
-lxc config device add jupyter ssh disk source="$WIN_HOME".ssh/ path=/home/ubuntu/.ssh/
