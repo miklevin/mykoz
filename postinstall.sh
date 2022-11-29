@@ -1,7 +1,7 @@
 if [ -f ~/repos/transfer/requirements.txt ]
 then
     figlet -t "Doing Pip Installs"
-    python3.11 -m pip install -r ~/repos/transfer/requirements.txt
+    /home/ubuntu/py311/bin/python3.11 -m pip install -r ~/repos/transfer/requirements.txt
 fi
 
 if [ -f ~/repos/transfer/apt_installs.sh ]
