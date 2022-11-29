@@ -175,7 +175,7 @@ ubuntu2004 config --default-user "%wsluer%"
 if not exist "%USERPROFILE%\repos" mkdir %USERPROFILE%\repos
 if not exist "%USERPROFILE%\repos\transfer" mkdir %USERPROFILE%\repos\transfer
 if not exist "%USERPROFILE%\.config" mkdir %USERPROFILE%\.config
-if not exist "%USERPROFILE%\.config\.jupyter" mkdir %USERPROFILE%\.config\.jupyter
+if not exist "%USERPROFILE%\.config\jupyter" mkdir %USERPROFILE%\.config\jupyter
 
 :: If you're running from a location with these optional second-stage install files, copy them over.
 echo Copying optional installer files apt_installs.sh and requirements.txt if they exist.
@@ -239,9 +239,9 @@ echo oLink.Save >> %SCRIPT%
 
 cscript /nologo %SCRIPT%
 del %SCRIPT%
-:: del /Q %USERPROFILE%\repos\transfer\*
+del /Q %USERPROFILE%\repos\transfer\*
 
-wsl -d Ubuntu-20.04 -u ubuntu -e "figlet -t 'Done!'"
+wsl -d Ubuntu-20.04 -e bash -lic "figlet -t 'Done!'"
 echo.
 echo You can now reach JupyterLab in a Windows browser at http://localhost:8888
 echo From Microsoft Edge, you can make JupyterLab an app from: .../Apps/Install

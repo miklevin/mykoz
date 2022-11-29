@@ -16,7 +16,8 @@ export PULSE_SERVER=/mnt/wslg/pulseserver
 
 cd ~/repos
 
-export JUPYTER_CONFIG_DIR=/home/ubuntu/.config/.jupyter
+# Start JupyterLab and preserve prior configuration
+export JUPYTER_CONFIG_DIR=/home/ubuntu/.config/jupyter
 cd ~/repos
 screen -wipe >/dev/null 2>&1
 if ! screen -list | grep -q "jupyter"; then
