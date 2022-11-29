@@ -241,6 +241,7 @@ cscript /nologo %SCRIPT%
 del %SCRIPT%
 :: del /Q %USERPROFILE%\repos\transfer\*
 
+wsl -d Ubuntu-20.04 -u ubuntu -e "figlet -t 'Done!'"
 echo.
 echo You can now reach JupyterLab in a Windows browser at http://localhost:8888
 echo From Microsoft Edge, you can make JupyterLab an app from: .../Apps/Install
