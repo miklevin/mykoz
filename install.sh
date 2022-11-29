@@ -20,16 +20,16 @@ sudo curl -L -o /home/ubuntu/repos/transfer/git_installs.sh https://raw.githubus
 sudo curl -L -o /usr/local/sbin/all https://raw.githubusercontent.com/miklevin/drinkme/main/all
 sudo curl -L -o /home/ubuntu/repos/transfer/configure https://raw.githubusercontent.com/miklevin/drinkme/main/config
 sudo chmod +x /usr/local/sbin/all
-sudo /home/ubuntu/py311/bin/python3.11 /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/pub.txt --output /home/ubuntu/repos/transfer/id_rsa_lxdwin.pub
-sudo /home/ubuntu/py311/bin/python3.11 /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/priv.txt --output /home/ubuntu/repos/transfer/id_rsa_lxdwin
+sudo /home/ubuntu/py311/bin/python3.11 /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/pub.txt --output /home/ubuntu/repos/transfer/id_rsa_drinkme.pub
+sudo /home/ubuntu/py311/bin/python3.11 /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/priv.txt --output /home/ubuntu/repos/transfer/id_rsa_drinkme
 sudo chmod 777 /home/ubuntu/.bash_profile
 sudo chmod 777 /home/ubuntu/.bash_prompt
 sudo chmod 777 /home/ubuntu/.screenrc
 sudo chown ubuntu:ubuntu /home/ubuntu/.bash_profile
 sudo chown ubuntu:ubuntu /home/ubuntu/.screenrc
 sudo chown ubuntu:ubuntu /home/ubuntu/.bash_prompt
-mv -n /home/ubuntu/repos/transfer/id_rsa_lxdwin.pub /home/ubuntu/.ssh
-mv -n /home/ubuntu/repos/transfer/id_rsa_lxdwin /home/ubuntu/.ssh
+mv -n /home/ubuntu/repos/transfer/id_rsa_drinkme.pub /home/ubuntu/.ssh
+mv -n /home/ubuntu/repos/transfer/id_rsa_drinkme /home/ubuntu/.ssh
 mv -n /home/ubuntu/repos/transfer/known_hosts /home/ubuntu/.ssh
 mv -n /home/ubuntu/repos/transfer/configure /home/ubuntu/.ssh
 /home/ubuntu/py311/bin/python3.11 -m pip install --upgrade pip
