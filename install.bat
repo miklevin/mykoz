@@ -179,8 +179,8 @@ if not exist "%USERPROFILE%\.config\.jupyter" mkdir %USERPROFILE%\.config\.jupyt
 
 :: If you're running from a location with these optional second-stage install files, copy them over.
 echo Copying optional installer files apt_installs.sh and requirements.txt if they exist.
-if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer) else (curl -L -o %USERPROFILE%\repos\transfer\apt_installs.sh "https://raw.githubusercontent.com/miklevin/lxdwin/main/apt_installs.sh")
-if exist requirements.txt (copy requirements.txt %USERPROFILE%\repos\transfer) else (curl -L -o %USERPROFILE%\repos\transfer\requirements.txt "https://raw.githubusercontent.com/miklevin/lxdwin/main/requirements.txt")
+if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer) else (curl -L -o %USERPROFILE%\repos\transfer\apt_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/apt_installs.sh")
+if exist requirements.txt (copy requirements.txt %USERPROFILE%\repos\transfer) else (curl -L -o %USERPROFILE%\repos\transfer\requirements.txt "https://raw.githubusercontent.com/miklevin/drinkme/main/requirements.txt")
 
 :: This makes file permissions under WSL keyed off of your Windows-side.
 wsl -d Ubuntu-20.04 -u root -e echo -e [boot]\nsystemd=true >> ./wsl.conf
@@ -210,9 +210,8 @@ wsl -d Ubuntu-20.04 -u root -e sudo apt upgrade -y
 wsl -d Ubuntu-20.04 -u root /bin/bash -c "echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL'> /etc/sudoers.d/ubuntu"
 
 :: Grab and run second-half of install that runs under WSL and set up Linux graphics.
-wsl -d Ubuntu-20.04 -u ubuntu -e curl -L -o /home/ubuntu/install.sh "https://raw.githubusercontent.com/miklevin/lxdwin/main/install.sh"
+wsl -d Ubuntu-20.04 -u ubuntu -e curl -L -o /home/ubuntu/install.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/install.sh"
 wsl -d Ubuntu-20.04 -e bash -lic "bash /home/ubuntu/install.sh"
-:: wsl -d Ubuntu-20.04 -e bash -lic "curl -L -o /home/ubuntu/.bash_profile 'https://raw.githubusercontent.com/miklevin/lxdwin/main/.bash_profile'"
 echo Returning from noinstall.sh, rebooting WSL for updated ACLs (access control list)
 
 :: Grab post-reboot scripts. ACLs aren't sufficient for git cloning without a wsl --shutdown
@@ -221,7 +220,7 @@ wsl -t Ubuntu-20.04
 wsl -d Ubuntu-20.04 -u root -e echo "Back from shutdown"
 wsl -d Ubuntu-20.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_lxdwin
 wsl -d Ubuntu-20.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_lxdwin.pub
-wsl -d Ubuntu-20.04 -u ubuntu -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/lxdwin/main/git_installs.sh"
+wsl -d Ubuntu-20.04 -u ubuntu -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh"
 wsl -d Ubuntu-20.04 -u ubuntu -e sh /home/ubuntu/repos/transfer/git_installs.sh
 
 :: Clean up after the install, deleting whatever is not intentionally left behind.
