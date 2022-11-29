@@ -33,9 +33,6 @@ sudo chmod +x /usr/local/sbin/jupyterstart
 sudo curl -L -o /usr/local/sbin/jupyterscreen https://raw.githubusercontent.com/miklevin/lxdwin/main/jupyterscreen
 sudo chmod +x /usr/local/sbin/jupyterscreen
 figlet -t "Optional Installs"
-# sudo curl -L -o /home/ubuntu/repos/transfer/postinstall.sh https://raw.githubusercontent.com/miklevin/lxdwin/main/postinstall.sh
-# sudo chmod +x /home/ubuntu/repos/transfer/postinstall.sh
-# sh /home/ubuntu/repos/transfer/postinstall.sh
 if [ -f /home/ubuntu/repos/transfer/requirements.txt ]
 then
     figlet -t "Doing Pip Installs"
