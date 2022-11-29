@@ -8,7 +8,7 @@ source ~/.bash_prompt
 export SCREENDIR=$HOME/.screen
 
 # Allow all your Jupyter configuration (dark mode) survive reinstalls.
-export JUPYTER_CONFIG_DIR=~/repos/transfer/.jupyter
+export JUPYTER_CONFIG_DIR=/home/ubuntu/.config/.jupyter
 
 # Enable WSL Graphics & Auido
 export WSL2_GUI_APPS_ENABLED=1

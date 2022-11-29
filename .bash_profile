@@ -6,4 +6,4 @@ export DISPLAY=:0
 # echo "export DISPLAY=${DISPLAY}" > ~/repos/transfer/.display.sh
 
 # Bypass WSL and immediately log into LXD Linux container.
-jupyterlogin
+# jupyterlogin
