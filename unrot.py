@@ -6,7 +6,7 @@ parser.add_argument('--input')
 parser.add_argument('--output')
 args = parser.parse_args()
 
-print(args.input, args.output)
+# print(args.input, args.output)
 
 with open(args.input, "r") as fh:
     data = fh.readlines()
