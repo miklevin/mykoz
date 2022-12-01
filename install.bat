@@ -174,8 +174,9 @@ ubuntu2004 config --default-user "%wsluer%"
 :: This creates "repos" folder in your Windows HOME for Windows/Linux file sharing.
 if not exist "%USERPROFILE%\repos" mkdir %USERPROFILE%\repos
 if not exist "%USERPROFILE%\repos\transfer" mkdir %USERPROFILE%\repos\transfer
-if not exist "%USERPROFILE%\.config" mkdir %USERPROFILE%\.config
 if not exist "%USERPROFILE%\.jupyter" mkdir %USERPROFILE%\.jupyter
+if not exist "%USERPROFILE%\.config" mkdir %USERPROFILE%\.config
+curl -L -o %USERPROFILE%\.config\bash.ico "https://raw.githubusercontent.com/miklevin/drinkme/main/bash.ico"
 
 :: If you're running from a location with these optional second-stage install files, copy them over.
 echo Copying optional installer files apt_installs.sh and requirements.txt if they exist.
