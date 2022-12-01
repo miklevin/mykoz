@@ -237,7 +237,7 @@ echo sLinkFile = "%USERPROFILE%\Desktop\JupyterLab Login.lnk" >> %SCRIPT%
 echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
 echo oLink.TargetPath = "%USERPROFILE%\AppData\Local\Microsoft\WindowsApps\wt.exe" >> %SCRIPT%
 echo olink.Arguments = "-p Ubuntu-20.04" >> %SCRIPT%
-echo olink.IconLocation = "%USERPROFILE%\.config\bash.ico"
+echo olink.IconLocation = "%USERPROFILE%\.config\bash.ico" >> %SCRIPT%
 echo oLink.Save >> %SCRIPT%
 
 cscript /nologo %SCRIPT%
