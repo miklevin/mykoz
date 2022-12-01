@@ -49,6 +49,6 @@ then
 fi
 figlet -t "Installing JupyterLab..."
 /home/ubuntu/py311/bin/python3.11 -m pip install jupyterlab
-sudo systemctl enable jupyter.service
-sudo systemctl start jupyter.service
+sudo systemctl enable jupyter
+sudo systemctl start jupyter
 figlet -t "jupyter installed!"

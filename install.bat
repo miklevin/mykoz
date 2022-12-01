@@ -66,28 +66,28 @@ cls
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::unicorn:::" "%~f0"') do (echo.%%B)
 set /p warning= %
 cls
-:::three:::   _____ _             _  __        __               _             _ 
-:::three:::  |  ___(_)_ __   __ _| | \ \      / /_ _ _ __ _ __ (_)_ __   __ _| |
-:::three:::  | |_  | | '_ \ / _` | |  \ \ /\ / / _` | '__| '_ \| | '_ \ / _` | |
-:::three:::  |  _| | | | | | (_| | |   \ V  V / (_| | |  | | | | | | | | (_| |_|
-:::three:::  |_|   |_|_| |_|\__,_|_|    \_/\_/ \__,_|_|  |_| |_|_|_| |_|\__, (_)
-:::three:::                                                             |___/  
-:::three::: WARNING:
-:::three::: - This will uninstall any previous Ubuntu-20.04 under WSL <-- IMPORTANT
-:::three::: - A new Ubuntu 20.04 will be installed (replacing the default).
-:::three::: - ALL other Linuxes running under WSL are left untouched.
-:::three::: - JupyterLab will be reachable at http://localhost:8888
-:::three:::
-:::three::: - A "JuputerLab Login" icon will be created where you run the script.
-:::three::: - Double-clicking it will start JupyterLab and open a Terminal window.
-:::three::: - The Terminal, a.k.a. Shell or command-line CAN be immediately closed
-:::three:::   and you can just use Jupyter as you would with Anaconda or Desktop.
-:::three::: - But the Jupyter server and the entire Linux system it's running under
-:::three:::   can ALSO be reached through the Terminal using the screen command.
-:::three:::
-:::three:::                      Press [Enter] to jump down the Linux rabbit hole...
-:::three:::                                (or press Ctrl+C escape.)      prompt 3/3
-for /f "delims=: tokens=1*" %%A in ('findstr /b ":::three:::" "%~f0"') do (echo.%%B)
+:::warn:::   _____ _             _  __        __               _             _ 
+:::warn:::  |  ___(_)_ __   __ _| | \ \      / /_ _ _ __ _ __ (_)_ __   __ _| |
+:::warn:::  | |_  | | '_ \ / _` | |  \ \ /\ / / _` | '__| '_ \| | '_ \ / _` | |
+:::warn:::  |  _| | | | | | (_| | |   \ V  V / (_| | |  | | | | | | | | (_| |_|
+:::warn:::  |_|   |_|_| |_|\__,_|_|    \_/\_/ \__,_|_|  |_| |_|_|_| |_|\__, (_)
+:::warn:::                                                             |___/  
+:::warn::: WARNING:
+:::warn::: - This will uninstall any previous Ubuntu-20.04 under WSL <-- IMPORTANT
+:::warn::: - A new Ubuntu 20.04 will be installed (replacing the default).
+:::warn::: - ALL other Linuxes running under WSL are left untouched.
+:::warn::: - JupyterLab will be reachable at http://localhost:8888
+:::warn:::
+:::warn::: - A "JuputerLab Login" icon will be created where you run the script.
+:::warn::: - Double-clicking it will start JupyterLab and open a Terminal window.
+:::warn::: - The Terminal, a.k.a. Shell or command-line CAN be immediately closed
+:::warn:::   and you can just use Jupyter as you would with Anaconda or Desktop.
+:::warn::: - But the Jupyter server and the entire Linux system it's running under
+:::warn:::   can ALSO be reached through the Terminal using the screen command.
+:::warn:::
+:::warn:::                      Press [Enter] to jump down the Linux rabbit hole...
+:::warn:::                                (or press Ctrl+C escape.)      prompt 3/3
+for /f "delims=: tokens=1*" %%A in ('findstr /b ":::warn:::" "%~f0"') do (echo.%%B)
 set /p warning= %
 
 :::wee:::      'It  is  a long tail, certainly said Alice, looking down
@@ -225,12 +225,6 @@ wsl -d Ubuntu-20.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_lxdwin.pub
 wsl -d Ubuntu-20.04 -u ubuntu -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh"
 wsl -d Ubuntu-20.04 -u ubuntu -e sh /home/ubuntu/repos/transfer/git_installs.sh
 
-:: Clean up after the install, deleting whatever is not intentionally left behind.
-wsl -d Ubuntu-20.04 -u root rm /home/ubuntu/install.sh
-wsl -d Ubuntu-20.04 -u root rm /home/ubuntu/repos/transfer/pub.txt
-wsl -d Ubuntu-20.04 -u root rm /home/ubuntu/repos/transfer/priv.txt
-wsl -d Ubuntu-20.04 -u root rm /home/ubuntu/repos/transfer/unrot.py
-
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
 echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
 echo sLinkFile = "%USERPROFILE%\Desktop\Linux Shell.lnk" >> %SCRIPT%
@@ -244,6 +238,7 @@ cscript /nologo %SCRIPT%
 del %SCRIPT%
 del /Q %USERPROFILE%\repos\transfer\*
 
+wsl -d Ubuntu-20.04 -u ubuntu -e sh /usr/local/sbin/startjupyter
 wsl -d Ubuntu-20.04 -e bash -lic "figlet -t 'Done!'"
 echo.
 echo You can then reach JupyterLab in a Windows browser at http://localhost:8888
