@@ -80,10 +80,10 @@ cls
 :::warn:::
 :::warn::: - A "JuputerLab Login" icon will be created where you run the script.
 :::warn::: - Double-clicking it will start JupyterLab and open a Terminal window.
-:::warn::: - The Terminal, a.k.a. Shell or command-line CAN be immediately closed
-:::warn:::   and you can just use Jupyter as you would with Anaconda or Desktop.
+:::warn::: - The Terminal, a.k.a. Shell or command-line CAN currently MUST be kept
+:::warn:::   open for JupyerLab to continue to be served (WSL systemd shortcoming).
 :::warn::: - But the Jupyter server and the entire Linux system it's running under
-:::warn:::   can ALSO be reached through the Terminal using the screen command.
+:::warn:::   can be reached through the Terminal using the screen command.
 :::warn:::
 :::warn:::                      Press [Enter] to jump down the Linux rabbit hole...
 :::warn:::                                (or press Ctrl+C escape.)      prompt 3/3
@@ -238,12 +238,11 @@ cscript /nologo %SCRIPT%
 del %SCRIPT%
 del /Q %USERPROFILE%\repos\transfer\*
 
-wsl -d Ubuntu-20.04 -u ubuntu -e sudo systemctl start jupyter
 wsl -d Ubuntu-20.04 -e bash -lic "figlet -t 'Done!'"
 echo.
+echo Double-click the icon "Linux Shell" created where you ran the script.
 echo You can then reach JupyterLab in a Windows browser at http://localhost:8888
 echo From Microsoft Edge, you can make JupyterLab an app from: .../Apps/Install
-echo Double-click the icon "Linux Shell" created where you ran the script.
 echo.
 
 set /p warning=Press [Enter] to release this console window. %
