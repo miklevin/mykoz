@@ -238,7 +238,7 @@ cscript /nologo %SCRIPT%
 del %SCRIPT%
 del /Q %USERPROFILE%\repos\transfer\*
 
-wsl -d Ubuntu-20.04 -e bash -lic "/usr/local/sbin/startjupyter &"
+wsl -d Ubuntu-20.04 -u ubuntu -e sudo systemctl start jupyter
 wsl -d Ubuntu-20.04 -e bash -lic "figlet -t 'Done!'"
 echo.
 echo You can then reach JupyterLab in a Windows browser at http://localhost:8888
