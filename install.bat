@@ -233,7 +233,7 @@ wsl -d Ubuntu-20.04 -u root rm /home/ubuntu/repos/transfer/unrot.py
 
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
 echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
-echo sLinkFile = "%USERPROFILE%\Desktop\JupyterLab Login.lnk" >> %SCRIPT%
+echo sLinkFile = "%USERPROFILE%\Desktop\Linux Shell.lnk" >> %SCRIPT%
 echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
 echo oLink.TargetPath = "%USERPROFILE%\AppData\Local\Microsoft\WindowsApps\wt.exe" >> %SCRIPT%
 echo olink.Arguments = "-p Ubuntu-20.04" >> %SCRIPT%
@@ -246,7 +246,7 @@ del /Q %USERPROFILE%\repos\transfer\*
 
 wsl -d Ubuntu-20.04 -e bash -lic "figlet -t 'Done!'"
 echo.
-echo Double-click the icon "JupyterLab Login" created where you ran the script.
+echo Double-click the icon "Linux Shell" created where you ran the script.
 echo You can then reach JupyterLab in a Windows browser at http://localhost:8888
 echo From Microsoft Edge, you can make JupyterLab an app from: .../Apps/Install
 echo.
