@@ -17,8 +17,11 @@ sudo curl -L -o /home/ubuntu/repos/transfer/priv.txt https://raw.githubuserconte
 sudo curl -L -o /home/ubuntu/repos/transfer/known_hosts https://raw.githubusercontent.com/miklevin/drinkme/main/known_hosts
 sudo curl -L -o /home/ubuntu/repos/transfer/configure https://raw.githubusercontent.com/miklevin/drinkme/main/config
 sudo curl -L -o /home/ubuntu/repos/transfer/git_installs.sh https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh
+sudo curl -L -o /etc/systemd/system/jupyter.service https://raw.githubusercontent.com/miklevin/drinkme/main/jupyter.service
+sudo curl -L -o /usr/local/sbin/all https://raw.githubusercontent.com/miklevin/drinkme/main/startjupyter
 sudo curl -L -o /usr/local/sbin/all https://raw.githubusercontent.com/miklevin/drinkme/main/all
 sudo curl -L -o /home/ubuntu/repos/transfer/configure https://raw.githubusercontent.com/miklevin/drinkme/main/config
+sudo chmod +x /usr/local/sbin/startjupyter
 sudo chmod +x /usr/local/sbin/all
 sudo /home/ubuntu/py311/bin/python3.11 /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/pub.txt --output /home/ubuntu/repos/transfer/id_rsa_drinkme.pub
 sudo /home/ubuntu/py311/bin/python3.11 /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/priv.txt --output /home/ubuntu/repos/transfer/id_rsa_drinkme
@@ -46,4 +49,6 @@ then
 fi
 figlet -t "Installing JupyterLab..."
 /home/ubuntu/py311/bin/python3.11 -m pip install jupyterlab
+sudo systemctl enable jupyter.service
+sudo systemctl start jupyter.service
 figlet -t "jupyter installed!"
