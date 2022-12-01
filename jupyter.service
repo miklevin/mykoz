@@ -1,0 +1,17 @@
+[Unit]
+Description=Jupyter
+
+[Service]
+# Client Env Vars
+Environment=JUPYTER_CONFIG_DIR=/home/ubuntu/.jupyter
+Environment=JUPYTER_CONFIG_PATH=/home/ubuntu/.jupyter
+Type=forking
+Restart=always
+RestartSec=5
+User=ubuntu
+Group=ubuntu
+Environment="SCREENDIR=/home/ubuntu/.screen"
+WorkingDirectory=/home/ubuntu/repos/
+ExecStart="/usr/local/sbin/startjupyter"
+[Install]
+WantedBy=multi-user.target

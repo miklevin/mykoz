@@ -16,12 +16,4 @@ export PULSE_SERVER=/mnt/wslg/pulseserver
 
 cd ~/repos
 
-# Start JupyterLab and preserve prior configuration
-export JUPYTER_CONFIG_DIR=/home/ubuntu/.jupyter
-export JUPYTER_CONFIG_PATH=/home/ubuntu/.jupyter
-cd ~/repos
-screen -wipe >/dev/null 2>&1
-if ! screen -list | grep -q "jupyter"; then
-    screen -dmS jupyter /home/ubuntu/py311/bin/jupyter lab --ip 0.0.0.0 --port 8888 --no-browser --ServerApp.password='argon2:$argon2id$v=19$m=10240,t=10,p=8$ijPab+qx2WAOlDKJiRE56Q$wJ5s4RI9dIw36HxHh+0P6eN8SwqTGy0PmnGe7D+oPlc'
-fi
 echo "Visit http://localhost:8888 for JupyterLab, or to see where it's running, type: screen -ls"
