@@ -18,7 +18,7 @@ sudo curl -L -o /home/ubuntu/repos/transfer/known_hosts https://raw.githubuserco
 sudo curl -L -o /home/ubuntu/repos/transfer/configure https://raw.githubusercontent.com/miklevin/drinkme/main/config
 sudo curl -L -o /home/ubuntu/repos/transfer/git_installs.sh https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh
 sudo curl -L -o /etc/systemd/system/jupyter.service https://raw.githubusercontent.com/miklevin/drinkme/main/jupyter.service
-sudo curl -L -o /usr/local/sbin/all https://raw.githubusercontent.com/miklevin/drinkme/main/startjupyter
+sudo curl -L -o /usr/local/sbin/startjupyter https://raw.githubusercontent.com/miklevin/drinkme/main/startjupyter
 sudo curl -L -o /usr/local/sbin/all https://raw.githubusercontent.com/miklevin/drinkme/main/all
 sudo curl -L -o /home/ubuntu/repos/transfer/configure https://raw.githubusercontent.com/miklevin/drinkme/main/config
 sudo chmod +x /usr/local/sbin/startjupyter
