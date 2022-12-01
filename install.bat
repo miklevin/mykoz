@@ -214,7 +214,7 @@ wsl -d Ubuntu-20.04 -u root /bin/bash -c "echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:AL
 :: Grab and run second-half of install that runs under WSL and set up Linux graphics.
 wsl -d Ubuntu-20.04 -u ubuntu -e curl -L -o /home/ubuntu/install.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/install.sh"
 wsl -d Ubuntu-20.04 -e bash -lic "bash /home/ubuntu/install.sh"
-echo Returning from noinstall.sh, rebooting WSL for updated ACLs (access control list)
+echo Returning from install.sh, rebooting WSL for updated ACLs (access control list)
 
 :: Grab post-reboot scripts. ACLs aren't sufficient for git cloning without a wsl --shutdown
 wsl -t Ubuntu-20.04
@@ -238,7 +238,7 @@ cscript /nologo %SCRIPT%
 del %SCRIPT%
 del /Q %USERPROFILE%\repos\transfer\*
 
-wsl -d Ubuntu-20.04 -u ubuntu -e sh /usr/local/sbin/startjupyter
+wsl -d Ubuntu-20.04 -u ubuntu -e /usr/local/sbin/startjupyter
 wsl -d Ubuntu-20.04 -e bash -lic "figlet -t 'Done!'"
 echo.
 echo You can then reach JupyterLab in a Windows browser at http://localhost:8888
