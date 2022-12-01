@@ -246,9 +246,9 @@ del /Q %USERPROFILE%\repos\transfer\*
 
 wsl -d Ubuntu-20.04 -e bash -lic "figlet -t 'Done!'"
 echo.
-echo Double-click the icon "Linux Shell" created where you ran the script.
 echo You can then reach JupyterLab in a Windows browser at http://localhost:8888
 echo From Microsoft Edge, you can make JupyterLab an app from: .../Apps/Install
+echo Double-click the icon "Linux Shell" created where you ran the script.
 echo.
 
 set /p warning=Press [Enter] to release this console window. %
