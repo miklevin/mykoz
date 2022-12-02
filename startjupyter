@@ -1,7 +1,17 @@
 #! /usr/bin/env sh
 
+# To have access to an X-Server under Jupyter
+export WSL2_GUI_APPS_ENABLED=1
+export DISPLAY=:0
+export XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir
+export WAYLAND_DISPLAY=wayland-0
+export PULSE_SERVER=/mnt/wslg/pulseserver
+
+# To make Jupyter configs live in Windows space
 export JUPYTER_CONFIG_DIR=/home/ubuntu/.jupyter
 export JUPYTER_CONFIG_PATH=/home/ubuntu/.jupyter
+
+# To prevent double-running
 cd ~/repos
 screen -wipe >/dev/null 2>&1
 if ! screen -list | grep -q "jupyter"; then
