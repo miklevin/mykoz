@@ -11,6 +11,8 @@ export PULSE_SERVER=/mnt/wslg/pulseserver
 export JUPYTER_CONFIG_DIR=/home/ubuntu/.jupyter
 export JUPYTER_CONFIG_PATH=/home/ubuntu/.jupyter
 
+source /home/ubuntu/py311/bin/activate
+
 # To prevent double-running
 cd ~/repos
 screen -wipe >/dev/null 2>&1
