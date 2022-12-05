@@ -184,7 +184,7 @@ if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer) els
 if exist requirements.txt (copy requirements.txt %USERPROFILE%\repos\transfer) else (curl -L -o %USERPROFILE%\repos\transfer\requirements.txt "https://raw.githubusercontent.com/miklevin/drinkme/main/requirements.txt")
 
 :: This makes file permissions under WSL keyed off of your Windows-side.
-wsl -d Ubuntu-20.04 -u root -e echo -e [boot]\nsystemd=true >> ./wsl.conf
+wsl -d Ubuntu-20.04 -u root -e echo -e [boot]\nsystemd=true\n[automount]\noptions=\"metadata\" >> ./wsl.conf
 wsl -d Ubuntu-20.04 -u root -e mv wsl.conf /etc/
 wsl -t Ubuntu-20.04
 
