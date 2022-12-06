@@ -5,6 +5,7 @@ httpx
 Levenshtein
 nb-black
 nltk
+ohawf
 openpyxl
 pandas
 playwright
