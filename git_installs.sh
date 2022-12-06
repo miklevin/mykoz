@@ -12,6 +12,7 @@ figlet -t "Site Generator..."
 
 figlet -t "Google OAuth2..."
 [ ! -d "/home/ubuntu/repos/ohawf" ] && git clone git@github.com:miklevin/ohawf /home/ubuntu/repos/ohawf
+source /home/py311/bin/activate
 /home/ubuntu/py311/bin/python -m pip install -e /home/ubuntu/repos/ohawf
 
 figlet -t "Done repo cloning."
