@@ -4,6 +4,7 @@ fuzzywuzzy
 httpx
 Levenshtein
 nb-black
+nbdev
 nltk
 ohawf
 openpyxl
