@@ -8,7 +8,5 @@ sudo apt install ./google-chrome*.deb -y
 sudo apt install x11-apps -y
 
 # Install Microsoft Playright browsers, edited out in favor of Chrome
-# playwright install
-# Install teh default Pypeteer Chromium browser, edited out in favor of Chrome
-# pyppeteer-install
+playwright install
 
