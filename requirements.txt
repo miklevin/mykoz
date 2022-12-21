@@ -1,11 +1,16 @@
 art
 dumbquotes
+dotmap
 fuzzywuzzy
 httpx
 Levenshtein
 nb-black
 nbdev
 nltk
+google-analytics-admin
+google-analytics-data
+google-api-python-client
+google-auth-oauthlib
 ohawf
 openpyxl
 pandas
@@ -17,4 +22,5 @@ rapidfuzz
 requests
 sqlitedict
 tldextract
+xmltodict
 yake
