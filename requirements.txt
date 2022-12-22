@@ -2,6 +2,7 @@ art
 dumbquotes
 dotmap
 fuzzywuzzy
+html5lib
 httpx
 lxml
 Levenshtein
