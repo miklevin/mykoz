@@ -3,6 +3,7 @@ dumbquotes
 dotmap
 fuzzywuzzy
 httpx
+lxml
 Levenshtein
 nb-black
 nbdev
