@@ -24,5 +24,6 @@ rapidfuzz
 requests
 sqlitedict
 tldextract
+twine
 xmltodict
 yake

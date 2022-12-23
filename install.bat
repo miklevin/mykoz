@@ -197,6 +197,7 @@ wsl -d Ubuntu-20.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.jupyter/ /home/
 :: If you keep a .vimrc and .gitconfig Windows-side, this copies them over.
 wsl -d Ubuntu-20.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/" >NUL
 wsl -d Ubuntu-20.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitconfig /home/ubuntu/" >NUL
+wsl -d Ubuntu-20.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.pypirc /home/ubuntu/" >NUL
 
 :: We update the software repository on the Ubuntu 20.04 Machine
 wsl -d Ubuntu-20.04 -u root -e sudo apt update
