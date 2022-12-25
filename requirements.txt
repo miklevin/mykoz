@@ -25,6 +25,7 @@ PyYAML
 rapidfuzz
 requests
 rich
+sklearn
 sqlitedict
 tldextract
 twine
