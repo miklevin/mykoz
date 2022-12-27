@@ -19,13 +19,15 @@ ohawf
 openpyxl
 pandas
 playwright
+plotly
 python-levenshtein
 python-slugify
 PyYAML
 rapidfuzz
 requests
 rich
-sklearn
+seaborn
+scikit-learn
 sqlitedict
 tldextract
 twine
