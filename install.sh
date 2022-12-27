@@ -36,20 +36,16 @@ mv -n /home/ubuntu/repos/transfer/id_rsa_drinkme /home/ubuntu/.ssh
 mv -n /home/ubuntu/repos/transfer/known_hosts /home/ubuntu/.ssh
 mv -n /home/ubuntu/repos/transfer/configure /home/ubuntu/.ssh
 /home/ubuntu/py311/bin/python3.11 -m pip install --upgrade pip
-figlet -t "Optional Installs..."
-if [ -f /home/ubuntu/repos/transfer/requirements.txt ]
-then
-    figlet -t "Pip Installs..."
-    /home/ubuntu/py311/bin/python3.11 -m pip install -r /home/ubuntu/repos/transfer/requirements.txt
-fi
 if [ -f /home/ubuntu/repos/transfer/apt_installs.sh ]
 then
     figlet -t "Apt Installs..."
     source /home/ubuntu/repos/transfer/apt_installs.sh
 fi
-figlet -t "Installing JupyterLab..."
-/home/ubuntu/py311/bin/python3.11 -m pip install jupyterlab
-/home/ubuntu/py311/bin/python3.11 -m pip install ipywidgets
+if [ -f /home/ubuntu/repos/transfer/requirements.txt ]
+then
+    figlet -t "Pip Installs..."
+    /home/ubuntu/py311/bin/python3.11 -m pip install -r /home/ubuntu/repos/transfer/requirements.txt
+fi
 sudo systemctl enable jupyter
 sudo systemctl start jupyter
 figlet -t "jupyter installed!"
