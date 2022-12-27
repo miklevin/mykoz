@@ -46,6 +46,11 @@ then
     figlet -t "Pip Installs..."
     /home/ubuntu/py311/bin/python3.11 -m pip install -r /home/ubuntu/repos/transfer/requirements.txt
 fi
+figlet -t "NodeJS install..."
+curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
+sudo bash /tmp/nodesource_setup.sh
+sudo apt install nodejs
+jupyter labextension install jupyterlab-plotly
 sudo systemctl enable jupyter
 sudo systemctl start jupyter
 figlet -t "jupyter installed!"
