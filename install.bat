@@ -5,13 +5,15 @@
 ::  |___|_| |_|___/\__\__,_|_|_| |_|  |_|\___(_)   - Learn vim (keep a journal)
 ::                                                 - Learn git (use Github.com)
 ::  Save & Run this as a .bat FILE on your Desktop.
-::
+
 :: Right-click in this window (if you're viewing it from the Github raw view at
 :: https://raw.githubusercontent.com/miklevin/drinkme/main/install.bat ), select
 :: all, copy, create a file named install.bat on your local Windows 10 or 11
-:: computer and run it. Make sure it reall has a .bat extension!
+:: computer and run it. Make sure it really has a .bat extension! Welcome to Wonderland!
+
 @echo off
 cls
+
 :::rabbit:::                                                                       _. 
 :::rabbit:::                                                                /)    /  \     
 :::rabbit:::      ____ _                      __  __      _          /)\_ _//    /    |    
