@@ -16,6 +16,6 @@ figlet -t "Google OAuth2..."
 figlet -t "Done repo cloning."
 
 figlet -t "Playwright Install..."
-playwright install
+/home/ubuntu/py311/bin/playwright install
 
 
