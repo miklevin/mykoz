@@ -15,14 +15,14 @@
 cls
 
 :::rabbit:::                                                                       _. 
-:::rabbit:::                                                                /)    /  \     
+:::rabbit::: Learn how to use this at https://pipulate.com                  /)    /  \     
 :::rabbit:::      ____ _                      __  __      _          /)\_ _//    /    |    
 :::rabbit:::     / ___| |__   __ _ ___  ___  |  \/  | ___| |     ___(/_ 0 0      |    |    
 :::rabbit:::    | |   | '_ \ / _` / __|/ _ \ | |\/| |/ _ \ |   *(     =(_T_)=    |    |    
 :::rabbit:::    | |___| | | | (_| \__ \  __/ | |  | |  __/_|     \  )   \"\      \    /   
 :::rabbit:::     \____|_| |_|\__,_|___/\___| |_|  |_|\___(_)      |__>-\_>_>      \__/
 :::rabbit:::
-:::rabbit:::                       THEY WANT YOU GOING OBSOLETE
+:::rabbit:::              TECH COMPANIES MAKE MONEY BY YOU GOING OBSOLETE
 :::rabbit::: 
 :::rabbit::: Artists, musicians and athletes forever improve because their tools don't
 :::rabbit::: change every 2 to 5 years -- letting them focus on craftsmanship. We in tech
