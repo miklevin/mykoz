@@ -11,6 +11,7 @@ google-auth-oauthlib
 html5lib
 httpx
 Levenshtein
+nb-clean
 nbdev
 nltk
 ohawf
@@ -28,6 +29,7 @@ twine
 xmltodict
 yake
 jupyterlab
+jupyterlab-spellchecker
 ipywidgets
 plotly
 seaborn
