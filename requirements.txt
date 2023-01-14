@@ -10,12 +10,14 @@ google-api-python-client
 google-auth-oauthlib
 html5lib
 httpx
+ImageHash
 Levenshtein
 nb-clean
 nbdev
 nltk
 ohawf
 openpyxl
+pillow
 python-levenshtein
 python-slugify
 PyYAML
