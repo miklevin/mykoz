@@ -1,5 +1,6 @@
 lxml
 art
+authenticator
 beautifulsoup4
 dotmap
 dumbquotes
