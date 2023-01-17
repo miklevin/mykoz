@@ -5,6 +5,7 @@ beautifulsoup4
 dotmap
 dumbquotes
 fuzzywuzzy
+gensim
 google-analytics-admin
 google-analytics-data
 google-api-python-client
