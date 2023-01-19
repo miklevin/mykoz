@@ -92,6 +92,32 @@ cls
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::warn:::" "%~f0"') do (echo.%%B)
 set /p warning= %
 
+
+
+:::wee:::                              ___
+:::wee:::                             |   |          _____
+:::wee:::                              |_  |         /     \ 
+:::wee:::                                \ |        |       \ 
+:::wee:::                                |  \       |        \_
+:::wee:::                                 \  \_____ \_         \
+:::wee:::                                  \       \_/       __|
+:::wee:::                           __      \__             /
+:::wee:::          .-,             /  \        |           |
+:::wee:::          |  \            |   `------_|           |
+:::wee:::           \  \_________,-`                   /\   \
+:::wee:::           |                                 /  \   \
+:::wee:::           `-----------,                     |   \_  \
+:::wee:::                       |                     /     \  \
+:::wee:::                       |                    |       \  |
+:::wee:::                       /                    |        | \
+:::wee:::                      /   _                 |        \__|
+:::wee:::                     /   / \_                \
+:::wee:::                     |  /    \__        ___--`
+:::wee:::                    _/ /        \______/ 
+:::wee:::                ___/  /
+:::wee:::               /     / 
+:::wee:::               `----` 
+:::wee:::
 :::wee:::      'It  is  a long tail, certainly said Alice, looking down
 :::wee:::      with wonder at the Mouse's tail; 'but why do you call it
 :::wee:::      sad?'  And  she  kept  on  puzzling  about  it while the
