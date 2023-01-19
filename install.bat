@@ -1,15 +1,15 @@
-:: Impassible? Nonsense! Look at this on desktop.
-::   ___           _        _ _   __  __      _  
-::  |_ _|_ __  ___| |_ __ _| | | |  \/  | ___| | 
-::   | || '_ \/ __| __/ _` | | | | |\/| |/ _ \ | 
-::   | || | | \__ \ || (_| | | | | |  | |  __/_| 
-::  |___|_| |_|___/\__\__,_|_|_| |_|  |_|\___(_) 
-::                                               
-::  Save & Run this as a .bat FILE on your Desktop.
+:: Impassible? Nonsense! Look at on desktop.
+::  ___           _        _ _   __  __        
+:: |_ _|_ __  ___| |_ __ _| | | |  \/  | ___ 
+::  | || '_ \/ __| __/ _` | | | | |\/| |/ _ \ 
+::  | || | | \__ \ || (_| | | | | |  | |  __/ 
+:: |___|_| |_|___/\__\__,_|_|_| |_|  |_|\___| 
+::                                              
+:: Save & Run this .bat FILE on your Desktop.
 
 :: - Do you suffer imposter syndrome?
-:: - Are video-games gobbling up your muscle memory?
-:: - Would your be time better spent developing life-long love-worthy skills?
+:: - Are video-games gobbling up your effort?
+:: - Would you like lovable skills for life?
 
 :: If answer "yes" to these questions, you may be a candidate to chase the
 :: rabbit and get your arse on Linux. A new life awaits you in the off-DOS world
