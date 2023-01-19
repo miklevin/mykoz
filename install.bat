@@ -3,13 +3,14 @@
 ::  | || '_ \/ __| __/ _` | | | | |\/| |/ _ \ 
 ::  | || | | \__ \ || (_| | | | | |  | |  __/ 
 :: |___|_| |_|___/\__\__,_|_|_| |_|  |_|\___| 
-:: Impassible? Nonsense! Load this on desktop
+:: Impassible? Nonsense! Load this on desktop.
+:: Save & Run this .bat FILE on your Desktop.
+
+:: ADVENTURE AWAITS!
 
 :: - Do you suffer imposter syndrome?
-:: - Are video-games gobbling up your effort?
+:: - Are video-games gobbling up your efforts?
 :: - Would you like lovable skills for life?
-
-:: Save & Run this .bat FILE on your Desktop.
 
 :: If you answer "yes" to these questions, then
 :: You may be a candidate to chase the rabbit &
