@@ -1,3 +1,4 @@
+:: Impassible? Nonsense! Look at this on desktop.
 ::   ___           _        _ _   __  __      _      
 ::  |_ _|_ __  ___| |_ __ _| | | |  \/  | ___| |   - Easily get Linux on Windows
 ::   | || '_ \/ __| __/ _` | | | | |\/| |/ _ \ |   - Use the latest Python (3.11)
@@ -5,6 +6,14 @@
 ::  |___|_| |_|___/\__\__,_|_|_| |_|  |_|\___(_)   - Learn vim (keep a journal)
 ::                                                 - Learn git (also Github.com)
 ::  Save & Run this as a .bat FILE on your Desktop.
+
+:: - Do you suffer imposter syndrome?
+:: - Are video-games gobbling up your muscle memory?
+:: - Would your be time better spent developing life-long love-worthy skills?
+
+:: If answer "yes" to these questions, you may be a candidate to chase the
+:: rabbit and get your arse on Linux. A new life awaits you in the off-DOS world
+:: where you can begin again in a golden land of opportunity and adventure.
 
 :: Right-click in this window (if you're viewing it from the Github raw view at
 :: https://raw.githubusercontent.com/miklevin/drinkme/main/install.bat ), select
