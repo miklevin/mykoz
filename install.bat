@@ -94,30 +94,6 @@ set /p warning= %
 
 
 
-:::wee:::                              ___
-:::wee:::                             |   |          _____
-:::wee:::                              |_  |         /     \ 
-:::wee:::                                \ |        |       \ 
-:::wee:::                                |  \       |        \_
-:::wee:::                                 \  \_____ \_         \
-:::wee:::                                  \       \_/       __|
-:::wee:::                           __      \__             /
-:::wee:::          .-,             /  \        |           |
-:::wee:::          |  \            |   `------_|           |
-:::wee:::           \  \_________,-`                   /\   \
-:::wee:::           |                                 /  \   \
-:::wee:::           `-----------,                     |   \_  \
-:::wee:::                       |                     /     \  \
-:::wee:::                       |                    |       \  |
-:::wee:::                       /                    |        | \
-:::wee:::                      /   _                 |        \__|
-:::wee:::                     /   / \_                \
-:::wee:::                     |  /    \__        ___--`
-:::wee:::                    _/ /        \______/ 
-:::wee:::                ___/  /
-:::wee:::               /     / 
-:::wee:::               `----` 
-:::wee:::
 :::wee:::      'It  is  a long tail, certainly said Alice, looking down
 :::wee:::      with wonder at the Mouse's tail; 'but why do you call it
 :::wee:::      sad?'  And  she  kept  on  puzzling  about  it while the
@@ -171,12 +147,30 @@ set /p warning= %
 :::wee:::                      demn
 :::wee:::                    you to
 :::wee:::                 death"
-:::wee:::          ____       _     _     _ _     _   _       _
-:::wee:::         |  _ \ __ _| |__ | |__ (_) |_  | | | | ___ | | ___
-:::wee:::         | |_) / _` | '_ \| '_ \| | __| | |_| |/ _ \| |/ _ \
-:::wee:::         |  _ < (_| | |_) | |_) | | |_  |  _  | (_) | |  __/
-:::wee:::         |_| \_\__,_|_.__/|_.__/|_|\__| |_| |_|\___/|_|\___|
-:::wee:::     
+:::wee:::                              ___
+:::wee:::                             |   |          _____
+:::wee:::                              |_  |         /     \ 
+:::wee:::                                \ |        |       \ 
+:::wee:::                                |  \       |        \_
+:::wee:::                                 \  \_____ \_         \
+:::wee:::                                  \       \_/       __|
+:::wee:::                           __      \__             /
+:::wee:::          .-,             /  \        |           |
+:::wee:::          |  \            |   `------_|           |
+:::wee:::           \  \_________,-`                   /\   \
+:::wee:::           |                                 /  \   \
+:::wee:::           `-----------,                     |   \_  \
+:::wee:::                       |                     /     \  \
+:::wee:::                       |                    |       \  |
+:::wee:::                       /                    |        | \
+:::wee:::                      /   _                 |        \__|
+:::wee:::                     /   / \_                \
+:::wee:::                     |  /    \__        ___--`
+:::wee:::                    _/ /        \______/ 
+:::wee:::                ___/  /
+:::wee:::               /     / 
+:::wee:::               `----` 
+:::wee:::
 :::wee:::   Prepare for A LOT of scrolling (falling down the rabbit-hole).
 :::wee:::   Installing Ubuntu 20.04 under Windows Subsystem for Linux...
 :::wee:::
