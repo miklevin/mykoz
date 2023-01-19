@@ -92,63 +92,9 @@ cls
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::warn:::" "%~f0"') do (echo.%%B)
 set /p warning= %
 
-
-
-:::wee:::      'It  is  a long tail, certainly said Alice, looking down
-:::wee:::      with wonder at the Mouse's tail; 'but why do you call it
-:::wee:::      sad?'  And  she  kept  on  puzzling  about  it while the
-:::wee:::      Mouse was speaking, so that her idea  of  the  tale  was
-:::wee:::      something like this:- 'Fury said to a
-:::wee:::                         mouse, That
-:::wee:::                           he met in the
-:::wee:::                                house, "Let
-:::wee:::                                    us both go
-:::wee:::                                       to law: I
-:::wee:::                                       will prosec-
-:::wee:::                                        cute you --
-:::wee:::                                      Come, I'll
-:::wee:::                                   take no de-
-:::wee:::                               nial:  We
-:::wee:::                           must  have
-:::wee:::                       the trial;
-:::wee:::                     For really
-:::wee:::                   this morn-
-:::wee:::                 ing I've
-:::wee:::                nothing
-:::wee:::               to do."
-:::wee:::                Said the
-:::wee:::                 mouse to
-:::wee:::                  the cur,
-:::wee:::                   "Such   a
-:::wee:::                     trial, dear
-:::wee:::                         sir, With
-:::wee:::                            no  jury
-:::wee:::                              or judge,
-:::wee:::                                  would
-:::wee:::                               be wast-
-:::wee:::                            ing our
-:::wee:::                         breath."
-:::wee:::                       "I'll be
-:::wee:::                     judge,
-:::wee:::                  I'll be
-:::wee:::                jury,"
-:::wee:::               said
-:::wee:::              cun-
-:::wee:::              ning
-:::wee:::                old
-:::wee:::                 Fury;
-:::wee:::                   "I'll
-:::wee:::                     try
-:::wee:::                       the
-:::wee:::                        whole
-:::wee:::                         cause,
-:::wee:::                          and
-:::wee:::                        con-
-:::wee:::                      demn
-:::wee:::                    you to
-:::wee:::                 death"
-:::wee:::                              ___
-:::wee:::                             |   |          _____
+cls
+:::wee:::                               ___
+:::wee:::                              |   |          _____
 :::wee:::                              |_  |         /     \ 
 :::wee:::                                \ |        |       \ 
 :::wee:::                                |  \       |        \_
@@ -158,22 +104,21 @@ set /p warning= %
 :::wee:::          .-,             /  \        |           |
 :::wee:::          |  \            |   `------_|           |
 :::wee:::           \  \_________,-`                   /\   \
-:::wee:::           |                                 /  \   \
-:::wee:::           `-----------,                     |   \_  \
-:::wee:::                       |                     /     \  \
+:::wee:::           |                Welcome          /  \   \
+:::wee:::           `-----------,     to a Linux      |   \_  \
+:::wee:::                       |       Wonderland    /     \  \
 :::wee:::                       |                    |       \  |
-:::wee:::                       /                    |        | \
-:::wee:::                      /   _                 |        \__|
-:::wee:::                     /   / \_                \
+:::wee:::                       /    Command-line    |        | \
+:::wee:::                      /   _    Are you      |        \__|
+:::wee:::                     /   / \_   listening?   \
 :::wee:::                     |  /    \__        ___--`
 :::wee:::                    _/ /        \______/ 
 :::wee:::                ___/  /
 :::wee:::               /     / 
 :::wee:::               `----` 
-:::wee:::
 :::wee:::   Prepare for A LOT of scrolling (falling down the rabbit-hole).
 :::wee:::   Installing Ubuntu 20.04 under Windows Subsystem for Linux...
-:::wee:::
+
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::wee:::" "%~f0"') do (echo.%%B)
 
 wsl --unregister Ubuntu-20.04
