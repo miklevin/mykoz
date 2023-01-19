@@ -3,7 +3,7 @@
 ::   | || '_ \/ __| __/ _` | | | | |\/| |/ _ \ |   - Use the latest Python (3.11)
 ::   | || | | \__ \ || (_| | | | | |  | |  __/_|   - Run JupyterLab like a real dev
 ::  |___|_| |_|___/\__\__,_|_|_| |_|  |_|\___(_)   - Learn vim (keep a journal)
-::                                                 - Learn git (use Github.com)
+::                                                 - Learn git (also Github.com)
 ::  Save & Run this as a .bat FILE on your Desktop.
 
 :: Right-click in this window (if you're viewing it from the Github raw view at
