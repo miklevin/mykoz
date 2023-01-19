@@ -1,27 +1,29 @@
-:: Impassible? Nonsense! Look at on desktop.
 ::  ___           _        _ _   __  __        
 :: |_ _|_ __  ___| |_ __ _| | | |  \/  | ___ 
 ::  | || '_ \/ __| __/ _` | | | | |\/| |/ _ \ 
 ::  | || | | \__ \ || (_| | | | | |  | |  __/ 
 :: |___|_| |_|___/\__\__,_|_|_| |_|  |_|\___| 
-::                                              
-:: Save & Run this .bat FILE on your Desktop.
+:: Impassible? Nonsense! Load this on desktop
 
 :: - Do you suffer imposter syndrome?
 :: - Are video-games gobbling up your effort?
 :: - Would you like lovable skills for life?
 
-:: If answer "yes" to these questions, you may be a candidate to chase the
-:: rabbit and get your arse on Linux. A new life awaits you in the off-DOS world
-:: where you can begin again in a golden land of opportunity and adventure.
+:: Save & Run this .bat FILE on your Desktop.
 
-:: IT LOOKS SOMETHING LIKE THIS:
+:: If you answer "yes" to these questions, then
+:: You may be a candidate to chase the rabbit &
+:: Get your arse on Linux. A new life awaits on
+:: The off-DOS world where you can begin again 
+:: In a golden land of opportunity & adventure.
 
-::  - Easily get Linux on Windows
-::  - Use the latest Python (3.11)
-::  - Run JupyterLab like a real dev
-::  - Learn vim (keep a journal)
-::  - Learn git (also Github.com)   
+:: WHAT I PROPOSE IS THIS:
+
+:: - Get Linux on Windows now w/ wsl --install
+:: - Use Python in JupyterLab in your browser.
+:: - Start learning Linux in Jupyter Notebooks.
+:: - Keep journal for life w/ vim text editor.
+:: - Keep code for life w/ git (Github first).
 
 :: Right-click in this window (if you're viewing it from the Github raw view at
 :: https://raw.githubusercontent.com/miklevin/drinkme/main/install.bat ), select
