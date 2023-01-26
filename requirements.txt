@@ -19,6 +19,7 @@ nltk
 ohawf
 openpyxl
 pillow
+pyarrow
 python-levenshtein
 python-slugify
 PyYAML
