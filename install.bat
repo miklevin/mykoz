@@ -26,6 +26,8 @@
 :: - Keep journal for life w/ vim text editor.
 :: - Keep code for life w/ git (Github first).
 
+:: INSTRUCTIONS (SAVE AS .BAT)
+
 :: Right-click in this window (if you're viewing it from the Github raw view at
 :: https://raw.githubusercontent.com/miklevin/drinkme/main/install.bat ), select
 :: all, copy, create a file named install.bat on your local Windows 10 or 11
