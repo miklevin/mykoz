@@ -8,7 +8,7 @@ sudo apt install neovim
 # sudo apt install ./google-chrome*.deb -y
 # sudo apt install x11-apps -y
 # sudo apt install libdbus-glib-1-2 -y 
-# 
-# # Install Microsoft Playright browsers, edited out in favor of Chrome
-# playwright install
+
+# Install Microsoft Playright browsers, edited out in favor of Chrome
+playwright install
 

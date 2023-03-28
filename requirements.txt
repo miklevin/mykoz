@@ -7,6 +7,7 @@ nb-black
 nb-clean
 ohawf
 pandas
+playwright
 python-slugify
 requests
 sqlitedict
@@ -32,7 +33,6 @@ art
 # nltk
 # openpyxl
 # pillow
-# playwright
 # plotly
 # pyarrow
 # python-levenshtein
