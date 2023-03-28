@@ -1,6 +1,7 @@
 # Standard bash file for doing late-stage apt installs
 
 sudo apt install neovim -y
+git clone https://github.com/github/copilot.vim.git /home/ubuntu/.config/nvim/pack/github/start/copilot.vim
 # figlet -t Installing Google Chrome
 # sudo apt-get install libxss1 libappindicator1 libindicator7 -y
 # cd /tmp
