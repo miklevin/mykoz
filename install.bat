@@ -3,28 +3,12 @@
 ::  | || '_ \/ __| __/ _` | | | | |\/| |/ _ \ 
 ::  | || | | \__ \ || (_| | | | | |  | |  __/ 
 :: |___|_| |_|___/\__\__,_|_|_| |_|  |_|\___| 
-:: Impassible? Nonsense! Load this on desktop.
+:: Install Ubuntu 20.04 from the Windows Store
 :: Save & Run this .bat FILE on your Desktop.
+:: JupyterLab will be at http://localhost:8888
 
-:: ADVENTURE AWAITS!
-
-:: - Do you suffer imposter syndrome?
-:: - Are video-games gobbling up your efforts?
-:: - Would you like lovable skills for life?
-
-:: If you answer "yes" to these questions, then
-:: You may be a candidate to chase the rabbit &
-:: Get your arse on Linux. A new life awaits on
-:: The off-DOS world where you can begin again 
-:: In a golden land of opportunity & adventure.
-
-:: WHAT I PROPOSE IS THIS:
-
-:: - Get Linux on Windows now w/ wsl --install
-:: - Use Python in JupyterLab in your browser.
-:: - Start learning Linux in Jupyter Notebooks.
-:: - Keep journal for life w/ vim text editor.
-:: - Keep code for life w/ git (Github first).
+:: This is the best way to run Jupyter for a
+:: bright future in Python, Linux, vim and git.
 
 :: INSTRUCTIONS (SAVE AS .BAT)
 
@@ -149,16 +133,17 @@ wsl --set-default-version 2
 :: These are variables for the automatically created Ubuntu 20.04 user under WSL.
 set wsluer="ubuntu"
 set password="foo"
+set linuxver="Ubuntu-20.04"
 
 :: The big install! If it's your first time, it will make you reboot your machine.
-ubuntu2004 install --root
+ubuntu install --root
 
 :: Once Ubuntu 20.04 is installed, this sets up the default user.
-wsl -d Ubuntu-20.04 -u root useradd -m "%wsluer%"
-wsl -d Ubuntu-20.04 -u root sh -c "echo "%wsluer%:%password%" | chpasswd" 
-wsl -d Ubuntu-20.04 -u root chsh -s /bin/bash "%wsluer%"
-wsl -d Ubuntu-20.04 -u root usermod -aG adm,cdrom,sudo,dip,plugdev,lxd "%wsluer%"
-ubuntu2004 config --default-user "%wsluer%"
+wsl -d %linuxver% -u root useradd -m "%wsluer%"
+wsl -d %linuxver% -u root sh -c "echo "%wsluer%:%password%" | chpasswd" 
+wsl -d %linuxver% -u root chsh -s /bin/bash "%wsluer%"
+wsl -d %linuxver% -u root usermod -aG adm,cdrom,sudo,dip,plugdev,lxd "%wsluer%"
+ubuntu config --default-user "%wsluer%"
 
 :: This creates "repos" folder in your Windows HOME for Windows/Linux file sharing.
 if not exist "%USERPROFILE%\repos" mkdir %USERPROFILE%\repos
@@ -173,47 +158,47 @@ if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer) els
 if exist requirements.txt (copy requirements.txt %USERPROFILE%\repos\transfer) else (curl -L -o %USERPROFILE%\repos\transfer\requirements.txt "https://raw.githubusercontent.com/miklevin/drinkme/main/requirements.txt")
 
 :: This makes file permissions under WSL keyed off of your Windows-side.
-wsl -d Ubuntu-20.04 -u root -e echo -e [boot]\nsystemd=true\n[automount]\noptions=\"metadata\" >> ./wsl.conf
-wsl -d Ubuntu-20.04 -u root -e mv wsl.conf /etc/
-wsl -t Ubuntu-20.04
+wsl -d %linuxver% -u root -e echo -e [boot]\nsystemd=true\n[automount]\noptions=\"metadata\" >> ./wsl.conf
+wsl -d %linuxver% -u root -e mv wsl.conf /etc/
+wsl -t %linuxver%
 
 :: This creates the a repos, .ssh and .config folders on WSL by linking to your Windows-side.
-wsl -d Ubuntu-20.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh" >NUL
-wsl -d Ubuntu-20.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos" >NUL
-wsl -d Ubuntu-20.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.config/ /home/ubuntu/.config" >NUL
-wsl -d Ubuntu-20.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.jupyter/ /home/ubuntu/.jupyter" >NUL
+wsl -d %linuxver% -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh" >NUL
+wsl -d %linuxver% -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos" >NUL
+wsl -d %linuxver% -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.config/ /home/ubuntu/.config" >NUL
+wsl -d %linuxver% -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.jupyter/ /home/ubuntu/.jupyter" >NUL
 
 :: If you keep a .vimrc and .gitconfig Windows-side, this copies them over.
-wsl -d Ubuntu-20.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/" >NUL
-wsl -d Ubuntu-20.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitconfig /home/ubuntu/" >NUL
-wsl -d Ubuntu-20.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.pypirc /home/ubuntu/" >NUL
+wsl -d %linuxver% -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/" >NUL
+wsl -d %linuxver% -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitconfig /home/ubuntu/" >NUL
+wsl -d %linuxver% -e bash -lic "cp /mnt/c/Users/%USERNAME%/.pypirc /home/ubuntu/" >NUL
 
 :: We update the software repository on the Ubuntu 20.04 Machine
-wsl -d Ubuntu-20.04 -u root -e sudo apt update
+wsl -d %linuxver% -u root -e sudo apt update
 
 :: With Figlet installed, I no longer need to embed ASCII art headlines.
-wsl -d Ubuntu-20.04 -u root -e sudo apt install figlet
-wsl -d Ubuntu-20.04 -e bash -lic "figlet -t 'Upgrading Linux...'"
+wsl -d %linuxver% -u root -e sudo apt install figlet
+wsl -d %linuxver% -e bash -lic "figlet -t 'Upgrading Linux...'"
 
 :: And now the big upgrading of all the Ubuntu 20.04 software.
-wsl -d Ubuntu-20.04 -u root -e sudo apt upgrade -y
+wsl -d %linuxver% -u root -e sudo apt upgrade -y
 
 :: You know what's nice? Not having to type a password every time you sudo a command!
-wsl -d Ubuntu-20.04 -u root /bin/bash -c "echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL'> /etc/sudoers.d/ubuntu"
+wsl -d %linuxver% -u root /bin/bash -c "echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL'> /etc/sudoers.d/ubuntu"
 
 :: Grab and run second-half of install that runs under WSL and set up Linux graphics.
-wsl -d Ubuntu-20.04 -u ubuntu -e curl -L -o /home/ubuntu/install.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/install.sh"
-wsl -d Ubuntu-20.04 -e bash -lic "bash /home/ubuntu/install.sh"
+wsl -d %linuxver% -u ubuntu -e curl -L -o /home/ubuntu/install.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/install.sh"
+wsl -d %linuxver% -e bash -lic "bash /home/ubuntu/install.sh"
 echo Returning from install.sh, rebooting WSL for updated ACLs (access control list)
 
 :: Grab post-reboot scripts. ACLs aren't sufficient for git cloning without a wsl --shutdown
 wsl -t Ubuntu-20.04
 
-wsl -d Ubuntu-20.04 -u root -e echo "Back from shutdown"
-wsl -d Ubuntu-20.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme
-wsl -d Ubuntu-20.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme.pub
-wsl -d Ubuntu-20.04 -u ubuntu -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh"
-wsl -d Ubuntu-20.04 -u ubuntu -e sh /home/ubuntu/repos/transfer/git_installs.sh
+wsl -d %linuxver% -u root -e echo "Back from shutdown"
+wsl -d %linuxver% -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme
+wsl -d %linuxver% -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme.pub
+wsl -d %linuxver% -u ubuntu -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh"
+wsl -d %linuxver% -u ubuntu -e sh /home/ubuntu/repos/transfer/git_installs.sh
 
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
 echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
