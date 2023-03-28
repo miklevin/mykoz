@@ -1,5 +1,6 @@
 # Standard bash file for doing late-stage apt installs
 
+sudo apt install neovim
 # figlet -t Installing Google Chrome
 # sudo apt-get install libxss1 libappindicator1 libindicator7 -y
 # cd /tmp
