@@ -15,6 +15,6 @@ export WAYLAND_DISPLAY=wayland-0
 export PULSE_SERVER=/mnt/wslg/pulseserver
 
 cd ~/repos
-alias vi='nvim'
+alias vim='nvim'
 
 echo "Visit http://localhost:8888 for JupyterLab, or to see where it's running, type: screen -ls"
