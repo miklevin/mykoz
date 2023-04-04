@@ -1,14 +1,24 @@
-::  ___           _        _ _   __  __        
-:: |_ _|_ __  ___| |_ __ _| | | |  \/  | ___ 
-::  | || '_ \/ __| __/ _` | | | | |\/| |/ _ \ 
-::  | || | | \__ \ || (_| | | | | |  | |  __/ 
-:: |___|_| |_|___/\__\__,_|_|_| |_|  |_|\___| 
-:: Install Ubuntu 20.04 from the Windows Store
-:: Save & Run this .bat FILE on your Desktop.
-:: JupyterLab will be at http://localhost:8888
+::  ____       _       _      __  __      
+:: |  _ \ _ __(_)_ __ | | __ |  \/  | ___ 
+:: | | | | '__| | '_ \| |/ / | |\/| |/ _ \
+:: | |_| | |  | | | | |   <  | |  | |  __/
+:: |____/|_|  |_|_| |_|_|\_\ |_|  |_|\___|
 
-:: This is the best way to run Jupyter for a
-:: bright future in Python, Linux, vim and git.
+:: This Windows batch script installs Linux
+:: JupyterLab on your Windows 10 or 11 laptop.
+
+:: First Install Ubuntu 20.04 at Windows Store
+:: Then save & Run this .bat on your Desktop.
+:: JupyterLab served at http://localhost:8888
+
+:: This starts your lifetime LINUX ADVANTAGE.
+:: Possible with this type of Jupyter install:
+
+:: - The latest Python (3.11.2)
+:: - The latest JupyterLab (3.6.3)
+:: - Browser automation (not easy in cloud)
+:: - VPN IP cycling (not easy in cloud)
+:: - Learn more at https://pipulate.com
 
 :: INSTRUCTIONS (SAVE AS .BAT)
 

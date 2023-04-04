@@ -3,6 +3,7 @@ httpx
 ipywidgets
 jupyterlab
 jupyterlab-spellchecker
+matplotlib
 nb-black
 nb-clean
 ohawf
@@ -28,7 +29,6 @@ art
 # html5lib
 # lxml
 # markupsafe==2.0.1
-# matplotlib
 # nbdev
 # nltk
 # openpyxl
