@@ -170,14 +170,14 @@ set password="foo"
 set linuxver="Ubuntu-20.04"
 
 :: The big install! If it's your first time, it will make you reboot your machine.
-ubuntu install --root
+ubuntu2004 install --root
 
 :: Once Ubuntu 20.04 is installed, this sets up the default user.
 wsl -d %linuxver% -u root useradd -m "%wsluer%"
 wsl -d %linuxver% -u root sh -c "echo "%wsluer%:%password%" | chpasswd" 
 wsl -d %linuxver% -u root chsh -s /bin/bash "%wsluer%"
 wsl -d %linuxver% -u root usermod -aG adm,cdrom,sudo,dip,plugdev,lxd "%wsluer%"
-ubuntu config --default-user "%wsluer%"
+ubuntu2004 config --default-user "%wsluer%"
 
 :: This creates "repos" folder in your Windows HOME for Windows/Linux file sharing.
 if not exist "%USERPROFILE%\repos" mkdir %USERPROFILE%\repos
