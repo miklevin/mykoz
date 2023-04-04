@@ -41,8 +41,8 @@
 ::            |  /    \__      __--`
 ::           _/ /        \____/
 ::       ___/  /
-::      /     /
-::      `----`
+::      /     /            Your future-proofed
+::      `----`             Wonderland awaits!
 
 :: INSTRUCTIONS (SAVE AS .BAT)
 
