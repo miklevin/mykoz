@@ -20,6 +20,30 @@
 :: - VPN IP cycling (not easy in cloud)
 :: - Learn more at https://pipulate.com
 
+::                     ___
+::                    |   |         ____
+::                    |_  |        /    \
+::                      \ |       |      \
+::                      |  \      |       \
+::                       \  \____ \_      |
+::                        \      \_/     _|
+::                  __     \_           /
+:: .-,             /  \      |          |
+:: |  \            |   `----_|          |
+::  \  \_________,-`                /\   \
+::  |                              /  \_  \
+::  `-----------,                  |    \  \
+::              |                  /     \  |
+::              |                 |       | \
+::              /                 |       \__|
+::             /   _              |
+::            /   / \_             \
+::            |  /    \__      __--`
+::           _/ /        \____/
+::       ___/  /
+::      /     /
+::      `----`
+
 :: INSTRUCTIONS (SAVE AS .BAT)
 
 :: Right-click in this window (if you're viewing it from the Github raw view at
