@@ -21,8 +21,8 @@
 :: - Learn more at https://pipulate.com
 
 ::                     ___
-::                    |   |         ____
-::                    |_  |        /    \
+::        JupyterLab  |   |         ____
+::         on Linux   |_  |        /    \
 ::                      \ |       |      \
 ::                      |  \      |       \
 ::                       \  \____ \_      |
