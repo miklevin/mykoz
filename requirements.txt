@@ -6,6 +6,7 @@ jupyterlab-spellchecker
 matplotlib
 nb-black
 nb-clean
+nest_asyncio
 ohawf
 pandas
 playwright
