@@ -12,6 +12,7 @@ pandas
 playwright
 python-slugify
 requests
+retry
 sqlitedict
 tldextract
 twine
