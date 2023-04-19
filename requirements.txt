@@ -1,5 +1,7 @@
+art
 black
 httpx
+figlet
 ipywidgets
 jupyterlab
 jupyterlab-spellchecker
@@ -8,16 +10,20 @@ nb-black
 nb-clean
 nest_asyncio
 ohawf
+openpyxl
 pandas
 playwright
+pyarrow
 python-slugify
 requests
 retry
+rich
 scikit-learn
 sqlitedict
 tldextract
 twine
-art
+xlsxwriter
+yake
 # ImageHash
 # Levenshtein
 # PyYAML
@@ -34,13 +40,10 @@ art
 # markupsafe==2.0.1
 # nbdev
 # nltk
-# openpyxl
 # pillow
 # plotly
 # pyarrow
 # python-levenshtein
 # rapidfuzz
-# rich
 # seaborn
 # xmltodict
-# yake
