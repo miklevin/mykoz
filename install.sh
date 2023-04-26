@@ -49,7 +49,7 @@ fi
 figlet -t "NodeJS install..."
 curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
 sudo bash /tmp/nodesource_setup.sh
-sudo apt install nodejs
+sudo apt install nodejs -y
 jupyter labextension install jupyterlab-plotly
 sudo systemctl enable jupyter
 sudo systemctl start jupyter
