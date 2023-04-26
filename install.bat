@@ -1,30 +1,50 @@
-::  ___           _        _ _   __  __        
-:: |_ _|_ __  ___| |_ __ _| | | |  \/  | ___ 
-::  | || '_ \/ __| __/ _` | | | | |\/| |/ _ \ 
-::  | || | | \__ \ || (_| | | | | |  | |  __/ 
-:: |___|_| |_|___/\__\__,_|_|_| |_|  |_|\___| 
-:: Impassible? Nonsense! Load this on desktop.
-:: Save & Run this .bat FILE on your Desktop.
+::  ____       _       _      __  __      
+:: |  _ \ _ __(_)_ __ | | __ |  \/  | ___ 
+:: | | | | '__| | '_ \| |/ / | |\/| |/ _ \
+:: | |_| | |  | | | | |   <  | |  | |  __/
+:: |____/|_|  |_|_| |_|_|\_\ |_|  |_|\___|
 
-:: ADVENTURE AWAITS!
+:: This Windows batch script installs Linux
+:: JupyterLab on your Windows 10 or 11 laptop.
 
-:: - Do you suffer imposter syndrome?
-:: - Are video-games gobbling up your efforts?
-:: - Would you like lovable skills for life?
+:: First Install Ubuntu 20.04 at Windows Store
+:: Then save & Run this .bat on your Desktop.
+:: JupyterLab served at http://localhost:8888
 
-:: If you answer "yes" to these questions, then
-:: You may be a candidate to chase the rabbit &
-:: Get your arse on Linux. A new life awaits on
-:: The off-DOS world where you can begin again 
-:: In a golden land of opportunity & adventure.
+:: This starts your lifetime LINUX ADVANTAGE.
+:: Possible with this type of Jupyter install:
 
-:: WHAT I PROPOSE IS THIS:
+:: - The latest Python (3.11.2)
+:: - The latest JupyterLab (3.6.3)
+:: - Browser automation (not easy in cloud)
+:: - VPN IP cycling (not easy in cloud)
+:: - Learn more at https://pipulate.com
 
-:: - Get Linux on Windows now w/ wsl --install
-:: - Use Python in JupyterLab in your browser.
-:: - Start learning Linux in Jupyter Notebooks.
-:: - Keep journal for life w/ vim text editor.
-:: - Keep code for life w/ git (Github first).
+::                     ___
+::        JupyterLab  |   |         ____
+::         on Linux   |_  |        /    \
+::                      \ |       |      \
+::                      |  \      |       \
+::                       \  \____ \_      |
+::                        \      \_/     _|
+::                  __     \_           /
+:: .-,             /  \      |          |
+:: |  \            |   `----_|          |
+::  \  \_________,-`                /\   \
+::  |                              /  \_  \
+::  `-----------,                  |    \  \
+::              |                  /     \  |
+::              |                 |       | \
+::              /                 |       \__|
+::             /   _              |
+::            /   / \_             \
+::            |  /    \__      __--`
+::           _/ /        \____/
+::       ___/  /
+::      /     /            Your future-proofed
+::      `----`             Wonderland awaits!
+
+:: INSTRUCTIONS (SAVE AS .BAT)
 
 :: Right-click in this window (if you're viewing it from the Github raw view at
 :: https://raw.githubusercontent.com/miklevin/drinkme/main/install.bat ), select

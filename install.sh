@@ -2,6 +2,7 @@
 
 figlet -t "Installing Python 3.11..."
 sudo add-apt-repository ppa:deadsnakes/ppa -y
+sudo add-apt-repository ppa:neovim-ppa/stable -y
 sudo apt install python3.11 -y
 sudo apt install python3.11-venv -y
 sudo apt autoremove -y
@@ -36,11 +37,18 @@ mv -n /home/ubuntu/repos/transfer/id_rsa_drinkme /home/ubuntu/.ssh
 mv -n /home/ubuntu/repos/transfer/known_hosts /home/ubuntu/.ssh
 mv -n /home/ubuntu/repos/transfer/configure /home/ubuntu/.ssh
 /home/ubuntu/py311/bin/python3.11 -m pip install --upgrade pip
+
+figlet -t "NodeJS install..."
+curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
+sudo bash /tmp/nodesource_setup.sh
+sudo apt install nodejs
+
 if [ -f /home/ubuntu/repos/transfer/apt_installs.sh ]
 then
     figlet -t "Apt Installs..."
     source /home/ubuntu/repos/transfer/apt_installs.sh
 fi
+sh -c 'curl -fLo /home/ubuntu/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 if [ -f /home/ubuntu/repos/transfer/requirements.txt ]
 then
     figlet -t "Pip Installs..."
@@ -50,6 +58,7 @@ figlet -t "NodeJS install..."
 curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
 sudo bash /tmp/nodesource_setup.sh
 sudo apt install nodejs -y
+
 jupyter labextension install jupyterlab-plotly
 sudo systemctl enable jupyter
 sudo systemctl start jupyter

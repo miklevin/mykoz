@@ -1,43 +1,49 @@
-lxml
 art
-authenticator
-beautifulsoup4
-dotmap
-dumbquotes
-fuzzywuzzy
-google-analytics-admin
-google-analytics-data
-google-api-python-client
-google-auth-oauthlib
-html5lib
+black
 httpx
-ImageHash
-Levenshtein
+figlet
+ipywidgets
+jupyterlab
+jupyterlab-spellchecker
+matplotlib
+nb-black
 nb-clean
-nbdev
-nltk
+nest_asyncio
 ohawf
 openpyxl
-pillow
-python-levenshtein
+pandas
+playwright
+pyarrow
 python-slugify
-PyYAML
-rapidfuzz
 requests
+retry
 rich
 scikit-learn
 sqlitedict
 tldextract
 twine
-xmltodict
+xlsxwriter
 yake
-jupyterlab
-jupyterlab-spellchecker
-ipywidgets
-plotly
-seaborn
-pandas
-matplotlib
-playwright
-nb-black
-markupsafe==2.0.1
+# ImageHash
+# Levenshtein
+# PyYAML
+# authenticator
+# beautifulsoup4
+# dotmap
+# fuzzywuzzy
+# google-analytics-admin
+# google-analytics-data
+# google-api-python-client
+# google-auth-oauthlib
+# html5lib
+# lxml
+# markupsafe==2.0.1
+# nbdev
+# nltk
+# pillow
+# plotly
+# pyarrow
+# python-levenshtein
+# rapidfuzz
+# seaborn
+# xmltodict
