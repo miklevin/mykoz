@@ -51,6 +51,7 @@
 :: all, copy, create a file named install.bat on your local Windows 10 or 11
 :: computer and run it. Make sure it really has a .bat extension! Welcome to Wonderland!
 
+set drinkme=0.1.3
 @echo off
 local
 cls
@@ -133,7 +134,6 @@ cls
 :::warn:::                                (or press Ctrl+C escape.)      prompt 3/3
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::warn:::" "%~f0"') do (echo.%%B)
 set /p warning= %
-cls
 :::down:::                                ___             
 :::down:::                               |   |         _____  
 :::down:::                               |_  |        /     \      
@@ -185,7 +185,7 @@ if not "%1" == "" (
 )
 
 echo.
-echo Python version is: %version% DrinkMe version: 0.1.2
+echo Python version is: %version% DrinkMe version: %drinkme%
 ping 127.0.0.1 -n 2 >nul
 
 wsl --unregister Ubuntu-20.04 >nul
@@ -234,6 +234,7 @@ wsl -d Ubuntu-20.04 -u root -e sudo apt update >nul 2>&1
 
 :: With Figlet installed, I no longer need to embed ASCII art headlines.
 wsl -d Ubuntu-20.04 -u root -e sudo apt install figlet -y >nul 2>&1
+
 wsl -d Ubuntu-20.04 -e bash -lic "figlet -t 'Upgrading Linux...'"
 
 :: And now the big upgrading of all the Ubuntu 20.04 software.
