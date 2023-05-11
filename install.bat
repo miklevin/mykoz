@@ -187,22 +187,22 @@ if not "%1" == "" (
 echo Python version is: %version%
 ping 127.0.0.1 -n 2 >nul
 
-wsl --unregister Ubuntu-20.04
-wsl --set-default-version 2
+wsl --unregister Ubuntu-20.04 >nul 2>&1
+wsl --set-default-version 2 >nul 2>&1
 
 :: These are variables for the automatically created Ubuntu 20.04 user under WSL.
 set wsluer="ubuntu"
 set password="foo"
 
 :: The big install! If it's your first time, it will make you reboot your machine.
-ubuntu2004 install --root
+ubuntu2004 install --root >nul 2>&1
 
 :: Once Ubuntu 20.04 is installed, this sets up the default user.
-wsl -d Ubuntu-20.04 -u root useradd -m "%wsluer%"
-wsl -d Ubuntu-20.04 -u root sh -c "echo "%wsluer%:%password%" | chpasswd" 
-wsl -d Ubuntu-20.04 -u root chsh -s /bin/bash "%wsluer%"
-wsl -d Ubuntu-20.04 -u root usermod -aG adm,cdrom,sudo,dip,plugdev,lxd "%wsluer%"
-ubuntu2004 config --default-user "%wsluer%"
+wsl -d Ubuntu-20.04 -u root useradd -m "%wsluer%" >nul
+wsl -d Ubuntu-20.04 -u root sh -c "echo "%wsluer%:%password%" | chpasswd" >nul
+wsl -d Ubuntu-20.04 -u root chsh -s /bin/bash "%wsluer%" >nul
+wsl -d Ubuntu-20.04 -u root usermod -aG adm,cdrom,sudo,dip,plugdev,lxd "%wsluer%" >nul
+ubuntu2004 config --default-user "%wsluer%" >nul 2>&1
 
 :: This creates "repos" folder in your Windows HOME for Windows/Linux file sharing.
 if not exist "%USERPROFILE%\repos" mkdir %USERPROFILE%\repos >nul 2>&1
@@ -217,12 +217,12 @@ if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer) els
 if exist requirements.txt (copy requirements.txt %USERPROFILE%\repos\transfer) else (curl -L -o %USERPROFILE%\repos\transfer\requirements.txt "https://raw.githubusercontent.com/miklevin/drinkme/main/requirements.txt") >nul 2>&1
 
 :: This makes file permissions under WSL keyed off of your Windows-side.
-wsl -d Ubuntu-20.04 -u root -e echo -e [boot]\nsystemd=true\n[automount]\noptions=\"metadata\" >> ./wsl.conf
-wsl -d Ubuntu-20.04 -u root -e mv wsl.conf /etc/
-wsl -t Ubuntu-20.04
+wsl -d Ubuntu-20.04 -u root -e echo -e [boot]\nsystemd=true\n[automount]\noptions=\"metadata\" >> ./wsl.conf >nul 2>&1
+wsl -d Ubuntu-20.04 -u root -e mv wsl.conf /etc/ >nul 2>&1
+wsl -t Ubuntu-20.04 >nul 2>&1
 
 :: This creates the a repos, .ssh and .config folders on WSL by linking to your Windows-side.
-wsl -d Ubuntu-20.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh && ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos && ln -s /mnt/c/Users/%USERNAME%/.config/ /home/ubuntu/.config && ln -s /mnt/c/Users/%USERNAME%/.jupyter/ /home/ubuntu/.jupyter" >NUL
+wsl -d Ubuntu-20.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh && ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos && ln -s /mnt/c/Users/%USERNAME%/.config/ /home/ubuntu/.config && ln -s /mnt/c/Users/%USERNAME%/.jupyter/ /home/ubuntu/.jupyter" >nul
 
 :: Delete these once tested
 if exist %USERPROFILE%\.vimrc (wsl -d Ubuntu-20.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/") else (curl -L -o %USERPROFILE%\.vimrc "https://raw.githubusercontent.com/miklevin/drinkme/main/.vimrc")
@@ -240,17 +240,17 @@ wsl -d Ubuntu-20.04 -e bash -lic "figlet -t 'Upgrading Linux...'"
 wsl -d Ubuntu-20.04 -u root -e sudo apt upgrade -y >nul 2>&1
 
 :: You know what's nice? Not having to type a password every time you sudo a command!
-wsl -d Ubuntu-20.04 -u root /bin/bash -c "echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL'> /etc/sudoers.d/ubuntu"
+wsl -d Ubuntu-20.04 -u root /bin/bash -c "echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL'> /etc/sudoers.d/ubuntu" >nul 2>&1
 
 :: Grab and run second-half of install that runs under WSL and set up Linux graphics.
-wsl -d Ubuntu-20.04 -u ubuntu -e curl -L -o /home/ubuntu/install.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/install.sh"
-wsl -d Ubuntu-20.04 -e bash -lic "bash /home/ubuntu/install.sh %VAR%"
+wsl -d Ubuntu-20.04 -u ubuntu -e curl -L -o /home/ubuntu/install.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/install.sh" >nul 2>&1
+wsl -d Ubuntu-20.04 -e bash -lic "bash /home/ubuntu/install.sh %VAR%" >nul 2>&1
 echo Returning from install.sh, rebooting WSL for updated ACLs (access control list)
 
 :: Grab post-reboot scripts. ACLs aren't sufficient for git cloning without a wsl --shutdown
 wsl -t Ubuntu-20.04
 
-wsl -d Ubuntu-20.04 -u root -e echo "Back from shutdown"
+wsl -d Ubuntu-20.04 -u root -e echo "Back from shutdown" 
 wsl -d Ubuntu-20.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme
 wsl -d Ubuntu-20.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme.pub
 wsl -d Ubuntu-20.04 -u root -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh"
