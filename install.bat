@@ -204,7 +204,7 @@ wsl -d Ubuntu-20.04 -u root sh -c "echo "%wsluer%:%password%" | chpasswd" >nul
 wsl -d Ubuntu-20.04 -u root chsh -s /bin/bash "%wsluer%" >nul
 wsl -d Ubuntu-20.04 -u root usermod -aG adm,cdrom,sudo,dip,plugdev,lxd "%wsluer%" >nul
 ubuntu2004 config --default-user "%wsluer%" >nul
-
+echo 7
 :: This creates "repos" folder in your Windows HOME for Windows/Linux file sharing.
 if not exist "%USERPROFILE%\repos" mkdir %USERPROFILE%\repos >nul 2>&1
 if not exist "%USERPROFILE%\repos" mkdir %USERPROFILE%\repos >nul 2>&1
@@ -212,26 +212,26 @@ if not exist "%USERPROFILE%\repos\transfer" mkdir %USERPROFILE%\repos\transfer >
 if not exist "%USERPROFILE%\.jupyter" mkdir %USERPROFILE%\.jupyter >nul 2>&1
 if not exist "%USERPROFILE%\.config" mkdir %USERPROFILE%\.config >nul 2>&1
 curl -sL -o %USERPROFILE%\.config\bash.ico "https://raw.githubusercontent.com/miklevin/drinkme/main/icons/bash.ico" >nul 2>&1
-
+echo 6
 :: If you're running from a location with these optional second-stage install files, copy them over.
 if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer > nul 2>&1) else (curl -L -o %USERPROFILE%\repos\transfer\apt_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/apt_installs.sh" > nul 2>&1)
 if exist requirements.txt (copy requirements.txt %USERPROFILE%\repos\transfer > nul 2>&1) else (curl -L -o %USERPROFILE%\repos\transfer\requirements.txt "https://raw.githubusercontent.com/miklevin/drinkme/main/requirements.txt" >nul 2>&1)
-
+echo 5
 :: Set up WSL with systemd and metadata options.
 wsl -d Ubuntu-20.04 -u root -e echo -e [boot]\nsystemd=true\n[automount]\noptions=\"metadata\" >> ./wsl.conf >nul 2>&1
 wsl -d Ubuntu-20.04 -u root -e mv wsl.conf /etc/ >nul 2>&1
 wsl -t Ubuntu-20.04 >nul 2>&1
-
+echo 4
 :: Create symbolic links from Windows paths to WSL paths.
-wsl -d Ubuntu-20.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh >nul 2>&1 && ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos >nul 2>&1 && ln -s /mnt/c/Users/%USERNAME%/.config/ /home/ubuntu/.config >nul 2>&1 && ln -s /mnt/c/Users/%USERNAME%/.jupyter/ /home/ubuntu/.jupyter >nul 2>&1" >nul 2>&1
-
+wsl -d Ubuntu-20.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh && ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos && ln -s /mnt/c/Users/%USERNAME%/.config/ /home/ubuntu/.config && ln -s /mnt/c/Users/%USERNAME%/.jupyter/ /home/ubuntu/.jupyter" >nul 2>&1
+echo 3
 if exist %USERPROFILE%\.vimrc (wsl -d Ubuntu-20.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/" >nul 2>&1) else (curl -L -o %USERPROFILE%\.vimrc "https://raw.githubusercontent.com/miklevin/drinkme/main/.vimrc" >nul 2>&1)
 if exist %USERPROFILE%\.gitconfig (wsl -d Ubuntu-20.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitconfig /home/ubuntu/" >nul 2>&1) else (curl -L -o %USERPROFILE%\.gitconfig "https://raw.githubusercontent.com/miklevin/drinkme/main/.gitconfig" >nul 2>&1)
 if exist %USERPROFILE%\.pypirc (wsl -d Ubuntu-20.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.pypirc /home/ubuntu/" >nul 2>&1) else (curl -L -o %USERPROFILE%\.pypirc "https://raw.githubusercontent.com/miklevin/drinkme/main/.pypirc" >nul 2>&1)
-
+echo 2
 :: We update the software repository on the Ubuntu 20.04 Machine
 wsl -d Ubuntu-20.04 -u root -e sudo apt update >nul 2>&1
-
+echo 1
 :: With Figlet installed, I no longer need to embed ASCII art headlines.
 wsl -d Ubuntu-20.04 -u root -e sudo apt install figlet -y >nul 2>&1
 
