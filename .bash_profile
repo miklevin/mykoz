@@ -1,5 +1,5 @@
 # Activate py310 virtual environment.
-source ~/py311/bin/activate
+source ~/pyenv/bin/activate
 
 # Color-code prompt.
 source ~/.bash_prompt

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 VAR=${1:-3.11}
-figlet -t "Installing Python 3.11..."
+figlet -t "Installing Python %VAR..."
 sudo add-apt-repository ppa:deadsnakes/ppa -y
 sudo add-apt-repository ppa:neovim-ppa/stable -y
 
