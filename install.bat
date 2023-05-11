@@ -51,7 +51,7 @@
 :: all, copy, create a file named install.bat on your local Windows 10 or 11
 :: computer and run it. Make sure it really has a .bat extension! Welcome to Wonderland!
 
-set drinkme=0.1.8
+set drinkme=0.1.9
 @echo off
 local
 cls
@@ -133,6 +133,9 @@ cls
 :::warn:::                      Press [Enter] to jump down the Linux rabbit hole...
 :::warn:::                                (or press Ctrl+C escape.)      prompt 3/3
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::warn:::" "%~f0"') do (echo.%%B)
+
+:: Set the color to blue
+color 9
 set /p warning= %
 :::down:::                                ___             
 :::down:::                               |   |         _____  
@@ -161,6 +164,8 @@ set /p warning= %
 :::down:::  You're falling down the rabbit hole. Have patience and be brave!
 
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
+
+color
 
 REM get full path of current script
 set "script_path=%~dpnx0"
@@ -241,16 +246,14 @@ wsl -d Ubuntu-20.04 -u root /bin/bash -c "echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:AL
 :: Grab and run second-half of install that runs under WSL and set up Linux graphics.
 wsl -d Ubuntu-20.04 -u ubuntu -e curl -L -o /home/ubuntu/install.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/install.sh" >nul 2>&1
 wsl -d Ubuntu-20.04 -e bash -lic "bash /home/ubuntu/install.sh %VAR%" >nul 2>&1
-echo Returning from install.sh, rebooting WSL for updated ACLs (access control list)
 
 :: Grab post-reboot scripts. ACLs aren't sufficient for git cloning without a wsl --shutdown
-wsl -t Ubuntu-20.04
+wsl -t Ubuntu-20.04 >nul 2>&1
 
-wsl -d Ubuntu-20.04 -u root -e echo "Back from shutdown" 
-wsl -d Ubuntu-20.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme
-wsl -d Ubuntu-20.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme.pub
-wsl -d Ubuntu-20.04 -u root -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh"
-wsl -d Ubuntu-20.04 -u root -e sh /home/ubuntu/repos/transfer/git_installs.sh
+wsl -d Ubuntu-20.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme >nul 2>&1
+wsl -d Ubuntu-20.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme.pub >nul 2>&1
+wsl -d Ubuntu-20.04 -u root -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh" >nul 2>&1
+wsl -d Ubuntu-20.04 -u root -e sh /home/ubuntu/repos/transfer/git_installs.sh >nul 2>&1
 
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
 echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
