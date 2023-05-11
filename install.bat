@@ -52,6 +52,7 @@
 :: computer and run it. Make sure it really has a .bat extension! Welcome to Wonderland!
 
 @echo off
+local
 cls
 
 :::rabbit:::                                                                       _. 
@@ -161,10 +162,30 @@ cls
 
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
 
-:: We default the Python version to 3.11, but you can use any version as a parameter.
-SET VAR=%1
-IF "%VAR%"=="" SET VAR=3.11
-SET VAR=%VAR: =%
+REM get full path of current script
+set "script_path=%~dpnx0"
+
+REM get just the filename portion without extension
+for %%I in ("%script_path%") do set "script_name=%%~nI"
+
+REM set default version to 3.11
+set "version=3.11"
+
+REM check for first command line argument
+if not "%1" == "" (
+    REM if argument has period in it, use it as version
+    for %%I in ("%~1") do (
+        if "%%~xI" neq "" set "version=%%~nI%%~xI"
+    )
+) else (
+    REM if no argument, check if script name has period in it
+    for %%I in ("%script_name%") do (
+        if "%%~xI" neq "" set "version=%%~nI%%~xI"
+    )
+)
+
+echo Python version is: %version%
+ping 127.0.0.1 -n 2 >nul
 
 wsl --unregister Ubuntu-20.04
 wsl --set-default-version 2
