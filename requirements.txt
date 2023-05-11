@@ -6,7 +6,6 @@ jupyterlab
 jupyterlab-spellchecker
 matplotlib
 nltk
-nb-black
 nb-clean
 nest_asyncio
 ohawf
