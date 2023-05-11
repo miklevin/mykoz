@@ -223,7 +223,7 @@ wsl -d Ubuntu-20.04 -u root -e mv wsl.conf /etc/ >nul 2>&1
 wsl -t Ubuntu-20.04 >nul 2>&1
 
 :: This creates the a repos, .ssh and .config folders on WSL by linking to your Windows-side.
-wsl -d Ubuntu-20.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh && ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos && ln -s /mnt/c/Users/%USERNAME%/.config/ /home/ubuntu/.config && ln -s /mnt/c/Users/%USERNAME%/.jupyter/ /home/ubuntu/.jupyter" >nul 2>&1
+wsl -d Ubuntu-20.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh >nul 2>&1 && ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos >nul 2>&1 && ln -s /mnt/c/Users/%USERNAME%/.config/ /home/ubuntu/.config >nul 2>&1 && ln -s /mnt/c/Users/%USERNAME%/.jupyter/ /home/ubuntu/.jupyter >nul 2&>1"
 
 :: Delete these once tested
 if exist %USERPROFILE%\.vimrc (wsl -d Ubuntu-20.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/" >nul 2>&1) else (curl -L -o %USERPROFILE%\.vimrc "https://raw.githubusercontent.com/miklevin/drinkme/main/.vimrc" >nul 2>&1)
