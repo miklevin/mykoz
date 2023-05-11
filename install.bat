@@ -185,7 +185,7 @@ if not "%1" == "" (
 )
 
 echo.
-echo Python version is: %version%
+echo Python version is: %version% DrinkMe version: 0.1.0
 ping 127.0.0.1 -n 2 >nul
 
 wsl --unregister Ubuntu-20.04 >nul
