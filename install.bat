@@ -7,17 +7,17 @@
 :: This Windows batch script installs Linux
 :: JupyterLab on your Windows 10 or 11 laptop.
 
-:: First Install Ubuntu 20.04 at Windows Store
+:: It's best to install Ubuntu 20.04 from the
+:: Windows Store first, then run this script.
+
 :: Then save & Run this .bat on your Desktop.
 :: JupyterLab served at http://localhost:8888
 
-:: This starts your lifetime LINUX ADVANTAGE.
-:: Possible with this type of Jupyter install:
-
-:: - The latest Python (3.11.2)
-:: - The latest JupyterLab (3.6.3)
-:: - Browser automation (not easy in cloud)
-:: - VPN IP cycling (not easy in cloud)
+:: - Always get the latest Python (3.11)
+:: - Always get the latest JupyterLab (3.6)
+:: - Do things Cloud Notebooks can't do
+:: - Automate Google Chrome with Playwright
+:: - Cycle your IP with easy Windows VPN
 :: - Learn more at https://pipulate.com
 
 ::                     ___
@@ -131,35 +131,35 @@ cls
 :::warn:::                                (or press Ctrl+C escape.)      prompt 3/3
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::warn:::" "%~f0"') do (echo.%%B)
 set /p warning= %
-
 cls
-:::wee:::                               ___
-:::wee:::                              |   |          _____
-:::wee:::                              |_  |         /     \ 
-:::wee:::                                \ |        | M$ in \ 
-:::wee:::                                |  \       |  your  \_
-:::wee:::                                 \  \_____ \_  head?  \
-:::wee:::                                  \       \_/       __|
-:::wee:::                           __      \__             /
-:::wee:::          .-,             /  \        | WSL is    |
-:::wee:::          |  \            |   `------_|  the cure |
-:::wee:::           \  \_________,-`                   /\   \
-:::wee:::           |                Welcome          /  \   \
-:::wee:::           `-----------,     to a Linux      |   \_  \
-:::wee:::                       |       Wonderland    /     \  \
-:::wee:::                       |                    |       \  |
-:::wee:::                       /    Command-line    |        | \
-:::wee:::                      /   _    Are you      |        \__|
-:::wee:::                     /   / \_   listening?   \
-:::wee:::                     |  /    \__        ___--`
-:::wee:::                    _/ /        \______/ 
-:::wee:::                ___/  /
-:::wee:::               /     / 
-:::wee:::               `----` 
-:::wee:::   Prepare for A LOT of scrolling (falling down the rabbit-hole).
-:::wee:::   Installing Ubuntu 20.04 under Windows Subsystem for Linux...
+:::down:::                                ___             
+:::down:::                               |   |         _____  
+:::down:::                               |_  |        /     \      
+:::down:::                                 \ |       |       \     
+:::down:::                                 |  \      |       /     
+:::down:::                                  \  \____ \_      \     
+:::down:::                                   \      \_/      |     
+:::down:::                             ___.   \_            _/     
+:::down:::            .-,             /    \    |          |       
+:::down:::            |  \          _/      `--_/           \_     
+:::down:::             \  \________/                     /\   \    
+:::down:::             |                                /  \_  \   
+:::down:::             `-----------,                   |     \  \  
+:::down:::                         |                  /       \  | 
+:::down:::                         |                 |         | \ 
+:::down:::                         /                 |         \__|
+:::down:::                        /   _              |             
+:::down:::                       /   / \_             \            
+:::down:::                       |  /    \__      __--`            
+:::down:::                      _/ /        \   _/                 
+:::down:::                  ___/  /          \_/                   
+:::down:::                 /     /                                 
+:::down:::                 `----`                                  
+:::down:::           
+:::down:::   Prepare for A LOT of scrolling (falling down the rabbit-hole).
+:::down:::   Installing Ubuntu 20.04 under Windows Subsystem for Linux...
 
-for /f "delims=: tokens=1*" %%A in ('findstr /b ":::wee:::" "%~f0"') do (echo.%%B)
+for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
 
 :: We default the Python version to 3.11, but you can use any version as a parameter.
 SET VAR=%1
