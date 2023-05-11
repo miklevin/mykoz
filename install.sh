@@ -1,18 +1,18 @@
 #!/bin/bash
 
 VAR=${1:-3.11}
-figlet -t "Installing Python %VAR..."
+figlet -t "Installing Python $VAR..."
 sudo add-apt-repository ppa:deadsnakes/ppa -y
 sudo add-apt-repository ppa:neovim-ppa/stable -y
 
 # We support Python version being passed in as an argument
-sudo apt instal python%VAR -y
-sudo apt install python%VAR-venv -y
+sudo apt install python$VAR -y
+sudo apt install python$VAR-venv -y
 # sudo apt install python3.11 -y
 # sudo apt install python3.11-venv -y
 sudo apt autoremove -y
 
-/usr/bin/python%VAR -m venv /home/ubuntu/pyenv
+/usr/bin/python$VAR -m venv /home/ubuntu/pyenv
 # /usr/bin/python3.11 -m venv /home/ubuntu/py311
 figlet -t "Configuring Linux..."
 sudo curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/drinkme/main/.bash_profile
