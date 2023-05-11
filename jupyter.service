@@ -12,6 +12,6 @@ User=ubuntu
 Group=ubuntu
 Environment="SCREENDIR=/home/ubuntu/.screen"
 WorkingDirectory=/home/ubuntu/repos/
-ExecStart="/usr/local/sbin/startjupyter"
+ExecStart="/home/ubuntu/pyenv/bin/startjupyter"
 [Install]
 WantedBy=multi-user.target

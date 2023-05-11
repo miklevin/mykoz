@@ -8,12 +8,9 @@ sudo add-apt-repository ppa:neovim-ppa/stable -y
 # We support Python version being passed in as an argument
 sudo apt install python$VAR -y
 sudo apt install python$VAR-venv -y
-# sudo apt install python3.11 -y
-# sudo apt install python3.11-venv -y
 sudo apt autoremove -y
 
 /usr/bin/python$VAR -m venv /home/ubuntu/pyenv
-# /usr/bin/python3.11 -m venv /home/ubuntu/py311
 figlet -t "Configuring Linux..."
 sudo curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/drinkme/main/.bash_profile
 sudo curl -L -o /home/ubuntu/.bash_prompt https://raw.githubusercontent.com/miklevin/drinkme/main/.bash_prompt
@@ -26,11 +23,11 @@ sudo curl -L -o /home/ubuntu/repos/transfer/known_hosts https://raw.githubuserco
 sudo curl -L -o /home/ubuntu/repos/transfer/configure https://raw.githubusercontent.com/miklevin/drinkme/main/config
 sudo curl -L -o /home/ubuntu/repos/transfer/git_installs.sh https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh
 sudo curl -L -o /etc/systemd/system/jupyter.service https://raw.githubusercontent.com/miklevin/drinkme/main/jupyter.service
-sudo curl -L -o /usr/local/sbin/startjupyter https://raw.githubusercontent.com/miklevin/drinkme/main/startjupyter
-sudo curl -L -o /usr/local/sbin/all https://raw.githubusercontent.com/miklevin/vim/master/all
+sudo curl -L -o /home/ubuntu/pyenv/startjupyter https://raw.githubusercontent.com/miklevin/drinkme/main/startjupyter
+sudo curl -L -o /home/ubuntu/pyenv/bin/all https://raw.githubusercontent.com/miklevin/vim/master/all
 sudo curl -L -o /home/ubuntu/repos/transfer/configure https://raw.githubusercontent.com/miklevin/drinkme/main/config
-sudo chmod +x /usr/local/sbin/startjupyter
-sudo chmod +x /usr/local/sbin/all
+sudo chmod +x /home/ubuntu/pyenv/bin/startjupyter
+sudo chmod +x /home/ubuntu/pyenv/bin/all
 sudo /home/ubuntu/pyenv/bin/python /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/pub.txt --output /home/ubuntu/repos/transfer/id_rsa_drinkme.pub
 sudo /home/ubuntu/pyenv/bin/python /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/priv.txt --output /home/ubuntu/repos/transfer/id_rsa_drinkme
 sudo chmod 777 /home/ubuntu/.bash_profile
