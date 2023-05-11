@@ -43,7 +43,7 @@ https://raw.githubusercontent.com/miklevin/drinkme/main/jupyter.service -o /etc/
 
 # Then we get everything that needs to be done under the ubuntu user context
 curl -sL https://raw.githubusercontent.com/miklevin/vim/master/all -o /home/ubuntu/pyenv/bin/all \
-https://raw.githubusercontent.com/miklevin/drinkme/main/config -o /home/ubuntu/repos/transfer/configure 
+https://raw.githubusercontent.com/miklevin/drinkme/main/startjupyter -o /home/ubuntu/pyenv/bin/startjupyter 
 
 # Give execution context to the scripts
 sudo chmod +x /home/ubuntu/pyenv/bin/startjupyter
