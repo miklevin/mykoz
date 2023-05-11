@@ -230,14 +230,14 @@ if exist %USERPROFILE%\.gitconfig (wsl -d Ubuntu-20.04 -e bash -lic "cp /mnt/c/U
 if exist %USERPROFILE%\.pypirc (wsl -d Ubuntu-20.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.pypirc /home/ubuntu/") else (curl -L -o %USERPROFILE%\.pypirc "https://raw.githubusercontent.com/miklevin/drinkme/main/.pypirc")
 
 :: We update the software repository on the Ubuntu 20.04 Machine
-wsl -d Ubuntu-20.04 -u root -e sudo apt update
+wsl -d Ubuntu-20.04 -u root -e sudo apt update >nul 2>&1
 
 :: With Figlet installed, I no longer need to embed ASCII art headlines.
-wsl -d Ubuntu-20.04 -u root -e sudo apt install figlet
+wsl -d Ubuntu-20.04 -u root -e sudo apt install figlet -y >nul 2>&1
 wsl -d Ubuntu-20.04 -e bash -lic "figlet -t 'Upgrading Linux...'"
 
 :: And now the big upgrading of all the Ubuntu 20.04 software.
-wsl -d Ubuntu-20.04 -u root -e sudo apt upgrade -y
+wsl -d Ubuntu-20.04 -u root -e sudo apt upgrade -y >nul 2>&1
 
 :: You know what's nice? Not having to type a password every time you sudo a command!
 wsl -d Ubuntu-20.04 -u root /bin/bash -c "echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL'> /etc/sudoers.d/ubuntu"
