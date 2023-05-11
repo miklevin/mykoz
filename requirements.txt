@@ -1,7 +1,6 @@
 art
 black
 httpx
-figlet
 ipywidgets
 jupyterlab
 jupyterlab-spellchecker
@@ -15,6 +14,7 @@ openai
 openpyxl
 pandas
 playwright
+pyfiglet
 pyarrow
 python-slugify
 requests
