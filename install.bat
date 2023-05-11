@@ -56,8 +56,7 @@ set drinkme=0.1.9
 local
 cls
 
-
-:::rabbit:::                                                                       _. 
+echo DrinkMe Script Version %drinkme%
 :::rabbit::: Learn how to use this at https://pipulate.com                  /)    /  \     
 :::rabbit:::      ____ _                      __  __      _          /)\_ _//    /    |    
 :::rabbit:::     / ___| |__   __ _ ___  ___  |  \/  | ___| |     ___(/_ 0 0      |    |    
