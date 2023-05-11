@@ -214,8 +214,8 @@ if not exist "%USERPROFILE%\.config" mkdir %USERPROFILE%\.config >nul
 curl -sL -o %USERPROFILE%\.config\bash.ico "https://raw.githubusercontent.com/miklevin/drinkme/main/icons/bash.ico" >nul
 
 :: If you're running from a location with these optional second-stage install files, copy them over.
-if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer) else (curl -L -o %USERPROFILE%\repos\transfer\apt_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/apt_installs.sh") >nul
-if exist requirements.txt (copy requirements.txt %USERPROFILE%\repos\transfer) else (curl -L -o %USERPROFILE%\repos\transfer\requirements.txt "https://raw.githubusercontent.com/miklevin/drinkme/main/requirements.txt") >nul
+if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer > nul) else (curl -L -o %USERPROFILE%\repos\transfer\apt_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/apt_installs.sh" > nul)
+if exist requirements.txt (copy requirements.txt %USERPROFILE%\repos\transfer > nul) else (curl -L -o %USERPROFILE%\repos\transfer\requirements.txt "https://raw.githubusercontent.com/miklevin/drinkme/main/requirements.txt" >nul)
 
 :: This makes file permissions under WSL keyed off of your Windows-side.
 wsl -d Ubuntu-20.04 -u root -e echo -e [boot]\nsystemd=true\n[automount]\noptions=\"metadata\" >> ./wsl.conf >nul 2>&1
