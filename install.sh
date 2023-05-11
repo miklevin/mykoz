@@ -48,7 +48,7 @@ mv -n /home/ubuntu/repos/transfer/configure /home/ubuntu/.ssh
 figlet -t "NodeJS install..."
 curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
 sudo bash /tmp/nodesource_setup.sh
-sudo apt install nodejs
+sudo apt install nodejs -y
 
 if [ -f /home/ubuntu/repos/transfer/apt_installs.sh ]
 then
