@@ -51,7 +51,7 @@
 :: all, copy, create a file named install.bat on your local Windows 10 or 11
 :: computer and run it. Make sure it really has a .bat extension! Welcome to Wonderland!
 
-set drinkme=0.1.7
+set drinkme=0.1.8
 @echo off
 local
 cls
