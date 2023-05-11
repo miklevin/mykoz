@@ -157,8 +157,7 @@ cls
 :::down:::                 /     /                                 
 :::down:::                 `----`                                  
 :::down:::           
-:::down:::   Prepare for A LOT of scrolling (falling down the rabbit-hole).
-:::down:::   Installing Ubuntu 20.04 under Windows Subsystem for Linux...
+:::down:::  You're going down the rabbit hole. There's gonna be a lot of scroll...
 
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
 
