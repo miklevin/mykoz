@@ -229,11 +229,11 @@ echo Returning from install.sh, rebooting WSL for updated ACLs (access control l
 :: Grab post-reboot scripts. ACLs aren't sufficient for git cloning without a wsl --shutdown
 wsl -t Ubuntu-20.04
 
-wsl -d Ubuntu-20.04 -u root -e 'echo "Back from shutdown";
-    chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme;
-    chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme.pub;
-    curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh";
-    sh /home/ubuntu/repos/transfer/git_installs.sh'
+wsl -d Ubuntu-20.04 -u root -e echo "Back from shutdown"
+wsl -d Ubuntu-20.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme
+wsl -d Ubuntu-20.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme.pub
+wsl -d Ubuntu-20.04 -u root -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh"
+sh /home/ubuntu/repos/transfer/git_installs.sh
 
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
 echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
