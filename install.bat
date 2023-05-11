@@ -161,6 +161,11 @@ cls
 
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::wee:::" "%~f0"') do (echo.%%B)
 
+:: We default the Python version to 3.11, but you can use any version as a parameter.
+SET VAR=%1
+IF "%VAR%"=="" SET VAR=3.11
+SET VAR=%VAR: =%
+
 wsl --unregister Ubuntu-20.04
 wsl --set-default-version 2
 
@@ -221,7 +226,7 @@ wsl -d Ubuntu-20.04 -u root /bin/bash -c "echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:AL
 
 :: Grab and run second-half of install that runs under WSL and set up Linux graphics.
 wsl -d Ubuntu-20.04 -u ubuntu -e curl -L -o /home/ubuntu/install.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/install.sh"
-wsl -d Ubuntu-20.04 -e bash -lic "bash /home/ubuntu/install.sh"
+wsl -d Ubuntu-20.04 -e bash -lic "bash /home/ubuntu/install.sh %VAR%"
 echo Returning from install.sh, rebooting WSL for updated ACLs (access control list)
 
 :: Grab post-reboot scripts. ACLs aren't sufficient for git cloning without a wsl --shutdown

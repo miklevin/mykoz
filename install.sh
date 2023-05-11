@@ -1,12 +1,19 @@
 #!/bin/bash
 
+VAR=${1:-3.11}
 figlet -t "Installing Python 3.11..."
 sudo add-apt-repository ppa:deadsnakes/ppa -y
 sudo add-apt-repository ppa:neovim-ppa/stable -y
-sudo apt install python3.11 -y
-sudo apt install python3.11-venv -y
+
+# We support Python version being passed in as an argument
+sudo apt instal python%VAR -y
+sudo apt install python%VAR-venv -y
+# sudo apt install python3.11 -y
+# sudo apt install python3.11-venv -y
 sudo apt autoremove -y
-/usr/bin/python3.11 -m venv /home/ubuntu/py311
+
+/usr/bin/python%VAR -m venv /home/ubuntu/pyenv
+# /usr/bin/python3.11 -m venv /home/ubuntu/py311
 figlet -t "Configuring Linux..."
 sudo curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/drinkme/main/.bash_profile
 sudo curl -L -o /home/ubuntu/.bash_prompt https://raw.githubusercontent.com/miklevin/drinkme/main/.bash_prompt
@@ -24,8 +31,8 @@ sudo curl -L -o /usr/local/sbin/all https://raw.githubusercontent.com/miklevin/v
 sudo curl -L -o /home/ubuntu/repos/transfer/configure https://raw.githubusercontent.com/miklevin/drinkme/main/config
 sudo chmod +x /usr/local/sbin/startjupyter
 sudo chmod +x /usr/local/sbin/all
-sudo /home/ubuntu/py311/bin/python3.11 /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/pub.txt --output /home/ubuntu/repos/transfer/id_rsa_drinkme.pub
-sudo /home/ubuntu/py311/bin/python3.11 /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/priv.txt --output /home/ubuntu/repos/transfer/id_rsa_drinkme
+sudo /home/ubuntu/pyenv/bin/python /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/pub.txt --output /home/ubuntu/repos/transfer/id_rsa_drinkme.pub
+sudo /home/ubuntu/pyenv/bin/python /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/priv.txt --output /home/ubuntu/repos/transfer/id_rsa_drinkme
 sudo chmod 777 /home/ubuntu/.bash_profile
 sudo chmod 777 /home/ubuntu/.bash_prompt
 sudo chmod 777 /home/ubuntu/.screenrc
@@ -36,7 +43,7 @@ mv -n /home/ubuntu/repos/transfer/id_rsa_drinkme.pub /home/ubuntu/.ssh
 mv -n /home/ubuntu/repos/transfer/id_rsa_drinkme /home/ubuntu/.ssh
 mv -n /home/ubuntu/repos/transfer/known_hosts /home/ubuntu/.ssh
 mv -n /home/ubuntu/repos/transfer/configure /home/ubuntu/.ssh
-/home/ubuntu/py311/bin/python3.11 -m pip install --upgrade pip
+/home/ubuntu/pyenv/bin/python -m pip install --upgrade pip
 
 figlet -t "NodeJS install..."
 curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
@@ -52,7 +59,7 @@ sh -c 'curl -fLo /home/ubuntu/.local/share/nvim/site/autoload/plug.vim --create-
 if [ -f /home/ubuntu/repos/transfer/requirements.txt ]
 then
     figlet -t "Pip Installs..."
-    /home/ubuntu/py311/bin/python3.11 -m pip install -r /home/ubuntu/repos/transfer/requirements.txt
+    /home/ubuntu/pyenv/bin/python -m pip install -r /home/ubuntu/repos/transfer/requirements.txt
 fi
 figlet -t "NodeJS install..."
 curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh

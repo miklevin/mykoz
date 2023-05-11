@@ -6,10 +6,12 @@ ipywidgets
 jupyterlab
 jupyterlab-spellchecker
 matplotlib
+nltk
 nb-black
 nb-clean
 nest_asyncio
 ohawf
+openai
 openpyxl
 pandas
 playwright
@@ -20,6 +22,7 @@ retry
 rich
 scikit-learn
 sqlitedict
+tiktoken
 tldextract
 twine
 xlsxwriter
@@ -39,7 +42,6 @@ yake
 # lxml
 # markupsafe==2.0.1
 # nbdev
-# nltk
 # pillow
 # plotly
 # pyarrow
