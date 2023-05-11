@@ -55,6 +55,7 @@
 local
 cls
 
+
 :::rabbit:::                                                                       _. 
 :::rabbit::: Learn how to use this at https://pipulate.com                  /)    /  \     
 :::rabbit:::      ____ _                      __  __      _          /)\_ _//    /    |    
@@ -157,7 +158,7 @@ cls
 :::down:::                 /     /                                 
 :::down:::                 `----`                                  
 :::down:::           
-:::down:::  You're going down the rabbit hole. There's gonna be a lot of scroll...
+:::down:::  You're falling down the rabbit hole. Have patience and be brave!
 
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
 
@@ -187,34 +188,34 @@ echo.
 echo Python version is: %version%
 ping 127.0.0.1 -n 2 >nul
 
-wsl --unregister Ubuntu-20.04 >nul 2>&1
-wsl --set-default-version 2 >nul 2>&1
+wsl --unregister Ubuntu-20.04 >nul
+wsl --set-default-version 2 >nul
 
 :: These are variables for the automatically created Ubuntu 20.04 user under WSL.
 set wsluer="ubuntu"
 set password="foo"
 
 :: The big install! If it's your first time, it will make you reboot your machine.
-ubuntu2004 install --root >nul 2>&1
+ubuntu2004 install --root >nul
 
 :: Once Ubuntu 20.04 is installed, this sets up the default user.
 wsl -d Ubuntu-20.04 -u root useradd -m "%wsluer%" >nul
 wsl -d Ubuntu-20.04 -u root sh -c "echo "%wsluer%:%password%" | chpasswd" >nul
 wsl -d Ubuntu-20.04 -u root chsh -s /bin/bash "%wsluer%" >nul
 wsl -d Ubuntu-20.04 -u root usermod -aG adm,cdrom,sudo,dip,plugdev,lxd "%wsluer%" >nul
-ubuntu2004 config --default-user "%wsluer%" >nul 2>&1
+ubuntu2004 config --default-user "%wsluer%" >nul
 
 :: This creates "repos" folder in your Windows HOME for Windows/Linux file sharing.
-if not exist "%USERPROFILE%\repos" mkdir %USERPROFILE%\repos >nul 2>&1
-if not exist "%USERPROFILE%\repos" mkdir %USERPROFILE%\repos >nul 2>&1
-if not exist "%USERPROFILE%\repos\transfer" mkdir %USERPROFILE%\repos\transfer >nul 2>&1
-if not exist "%USERPROFILE%\.jupyter" mkdir %USERPROFILE%\.jupyter >nul 2>&1
-if not exist "%USERPROFILE%\.config" mkdir %USERPROFILE%\.config >nul 2>&1
-curl -sL -o %USERPROFILE%\.config\bash.ico "https://raw.githubusercontent.com/miklevin/drinkme/main/icons/bash.ico"
+if not exist "%USERPROFILE%\repos" mkdir %USERPROFILE%\repos >nul
+if not exist "%USERPROFILE%\repos" mkdir %USERPROFILE%\repos >nul
+if not exist "%USERPROFILE%\repos\transfer" mkdir %USERPROFILE%\repos\transfer >nul
+if not exist "%USERPROFILE%\.jupyter" mkdir %USERPROFILE%\.jupyter >nul
+if not exist "%USERPROFILE%\.config" mkdir %USERPROFILE%\.config >nul
+curl -sL -o %USERPROFILE%\.config\bash.ico "https://raw.githubusercontent.com/miklevin/drinkme/main/icons/bash.ico" >nul
 
 :: If you're running from a location with these optional second-stage install files, copy them over.
-if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer) else (curl -L -o %USERPROFILE%\repos\transfer\apt_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/apt_installs.sh") >nul 2>&1
-if exist requirements.txt (copy requirements.txt %USERPROFILE%\repos\transfer) else (curl -L -o %USERPROFILE%\repos\transfer\requirements.txt "https://raw.githubusercontent.com/miklevin/drinkme/main/requirements.txt") >nul 2>&1
+if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer) else (curl -L -o %USERPROFILE%\repos\transfer\apt_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/apt_installs.sh") >nul
+if exist requirements.txt (copy requirements.txt %USERPROFILE%\repos\transfer) else (curl -L -o %USERPROFILE%\repos\transfer\requirements.txt "https://raw.githubusercontent.com/miklevin/drinkme/main/requirements.txt") >nul
 
 :: This makes file permissions under WSL keyed off of your Windows-side.
 wsl -d Ubuntu-20.04 -u root -e echo -e [boot]\nsystemd=true\n[automount]\noptions=\"metadata\" >> ./wsl.conf >nul 2>&1
@@ -222,12 +223,10 @@ wsl -d Ubuntu-20.04 -u root -e mv wsl.conf /etc/ >nul 2>&1
 wsl -t Ubuntu-20.04 >nul 2>&1
 
 :: This creates the a repos, .ssh and .config folders on WSL by linking to your Windows-side.
-wsl -d Ubuntu-20.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh && ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos && ln -s /mnt/c/Users/%USERNAME%/.config/ /home/ubuntu/.config && ln -s /mnt/c/Users/%USERNAME%/.jupyter/ /home/ubuntu/.jupyter" >nul
+wsl -d Ubuntu-20.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh && ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos && ln -s /mnt/c/Users/%USERNAME%/.config/ /home/ubuntu/.config && ln -s /mnt/c/Users/%USERNAME%/.jupyter/ /home/ubuntu/.jupyter" >nul 2>&1
 
 :: Delete these once tested
 if exist %USERPROFILE%\.vimrc (wsl -d Ubuntu-20.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/" >nul 2>&1) else (curl -L -o %USERPROFILE%\.vimrc "https://raw.githubusercontent.com/miklevin/drinkme/main/.vimrc" >nul 2>&1)
-
-
 if exist %USERPROFILE%\.gitconfig (wsl -d Ubuntu-20.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitconfig /home/ubuntu/" >nul 2>&1) else (curl -L -o %USERPROFILE%\.gitconfig "https://raw.githubusercontent.com/miklevin/drinkme/main/.gitconfig" >nul 2>&1)
 if exist %USERPROFILE%\.pypirc (wsl -d Ubuntu-20.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.pypirc /home/ubuntu/" >nul 2>&1) else (curl -L -o %USERPROFILE%\.pypirc "https://raw.githubusercontent.com/miklevin/drinkme/main/.pypirc" >nul 2>&1)
 
