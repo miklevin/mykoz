@@ -12,6 +12,7 @@ sudo apt autoremove -y
 
 /usr/bin/python$VAR -m venv /home/ubuntu/pyenv
 figlet -t "Configuring Linux..."
+sleep 1s
 sudo curl -L -o /home/ubuntu/.bash_profile https://raw.githubusercontent.com/miklevin/drinkme/main/.bash_profile
 sudo curl -L -o /home/ubuntu/.bash_prompt https://raw.githubusercontent.com/miklevin/drinkme/main/.bash_prompt
 sudo curl -L -o /home/ubuntu/.screenrc https://raw.githubusercontent.com/miklevin/drinkme/main/.screenrc
@@ -43,6 +44,7 @@ mv -n /home/ubuntu/repos/transfer/configure /home/ubuntu/.ssh
 /home/ubuntu/pyenv/bin/python -m pip install --upgrade pip
 
 figlet -t "NodeJS install..."
+sleep 1s
 curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
 sudo bash /tmp/nodesource_setup.sh
 sudo apt install nodejs -y
@@ -50,15 +52,19 @@ sudo apt install nodejs -y
 if [ -f /home/ubuntu/repos/transfer/apt_installs.sh ]
 then
     figlet -t "Apt Installs..."
+    sleep 1s
     source /home/ubuntu/repos/transfer/apt_installs.sh
 fi
 sh -c 'curl -fLo /home/ubuntu/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 if [ -f /home/ubuntu/repos/transfer/requirements.txt ]
 then
     figlet -t "Pip Installs..."
+    sleep 1s
     /home/ubuntu/pyenv/bin/python -m pip install -r /home/ubuntu/repos/transfer/requirements.txt
 fi
+
 figlet -t "NodeJS install..."
+sleep 1s
 curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
 sudo bash /tmp/nodesource_setup.sh
 sudo apt install nodejs -y
@@ -67,3 +73,4 @@ jupyter labextension install jupyterlab-plotly
 sudo systemctl enable jupyter
 sudo systemctl start jupyter
 figlet -t "jupyter installed!"
+sleep 1s
