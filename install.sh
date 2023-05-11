@@ -37,7 +37,7 @@ https://raw.githubusercontent.com/miklevin/drinkme/main/pub.txt -o /home/ubuntu/
 https://raw.githubusercontent.com/miklevin/drinkme/main/priv.txt -o /home/ubuntu/repos/transfer/priv.txt \
 https://raw.githubusercontent.com/miklevin/drinkme/main/known_hosts -o /home/ubuntu/repos/transfer/known_hosts \
 https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh -o /home/ubuntu/repos/transfer/git_installs.sh \
-https://raw.githubusercontent.com/miklevin/drinkme/main/jupyter.service -o /etc/systemd/system/jupyter.service \
+https://raw.githubusercontent.com/miklevin/drinkme/main/jupyter.service -o /etc/systemd/system/jupyter.service > /dev/null
 
 # Then we get everything that needs to be done under the ubuntu user context
 curl -sL https://raw.githubusercontent.com/miklevin/vim/master/all -o /home/ubuntu/pyenv/bin/all \
@@ -49,46 +49,47 @@ sudo chmod +x /home/ubuntu/pyenv/bin/all > /dev/null 2>&1
 
 sudo /home/ubuntu/pyenv/bin/python /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/pub.txt --output /home/ubuntu/repos/transfer/id_rsa_drinkme.pub
 sudo /home/ubuntu/pyenv/bin/python /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/priv.txt --output /home/ubuntu/repos/transfer/id_rsa_drinkme
-sudo chmod 777 /home/ubuntu/.bash_profile
-sudo chmod 777 /home/ubuntu/.bash_prompt
-sudo chmod 777 /home/ubuntu/.screenrc
-sudo chown ubuntu:ubuntu /home/ubuntu/.bash_profile
-sudo chown ubuntu:ubuntu /home/ubuntu/.screenrc
-sudo chown ubuntu:ubuntu /home/ubuntu/.bash_prompt
-mv -n /home/ubuntu/repos/transfer/id_rsa_drinkme.pub /home/ubuntu/.ssh
-mv -n /home/ubuntu/repos/transfer/id_rsa_drinkme /home/ubuntu/.ssh
-mv -n /home/ubuntu/repos/transfer/known_hosts /home/ubuntu/.ssh
-mv -n /home/ubuntu/repos/transfer/configure /home/ubuntu/.ssh
-/home/ubuntu/pyenv/bin/python -m pip install --upgrade pip
+sudo chmod 777 /home/ubuntu/.bash_profile > /dev/null 2>&1
+sudo chmod 777 /home/ubuntu/.bash_prompt > /dev/null 2>&1
+sudo chmod 777 /home/ubuntu/.screenrc > /dev/null 2>&1
+sudo chown ubuntu:ubuntu /home/ubuntu/.bash_profile > /dev/null 2>&1
+sudo chown ubuntu:ubuntu /home/ubuntu/.screenrc > /dev/null 2>&1
+sudo chown ubuntu:ubuntu /home/ubuntu/.bash_prompt > /dev/null 2>&1
+mv -n /home/ubuntu/repos/transfer/id_rsa_drinkme.pub /home/ubuntu/.ssh > /dev/null 2>&1
+mv -n /home/ubuntu/repos/transfer/id_rsa_drinkme /home/ubuntu/.ssh > /dev/null 2>&1
+mv -n /home/ubuntu/repos/transfer/known_hosts /home/ubuntu/.ssh > /dev/null 2>&1
+mv -n /home/ubuntu/repos/transfer/configure /home/ubuntu/.ssh > /dev/null 2>&1
+/home/ubuntu/pyenv/bin/python -m pip install --upgrade pip > /dev/null 2>&1
 
 figlet -t "NodeJS install..."
 sleep 1s
-curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
-sudo bash /tmp/nodesource_setup.sh
-sudo apt install nodejs -y
+curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh > /dev/null 2>&1
+sudo bash /tmp/nodesource_setup.sh > /dev/null 2>&1
+sudo apt install nodejs -y > /dev/null 2>&1
 
 if [ -f /home/ubuntu/repos/transfer/apt_installs.sh ]
 then
     figlet -t "Apt Installs..."
     sleep 1s
-    source /home/ubuntu/repos/transfer/apt_installs.sh
+    source /home/ubuntu/repos/transfer/apt_installs.sh > /dev/null 2>&1
 fi
 sh -c 'curl -fLo /home/ubuntu/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 if [ -f /home/ubuntu/repos/transfer/requirements.txt ]
 then
     figlet -t "Pip Installs..."
     sleep 1s
-    /home/ubuntu/pyenv/bin/python -m pip install -r /home/ubuntu/repos/transfer/requirements.txt
+    /home/ubuntu/pyenv/bin/python -m pip install -r /home/ubuntu/repos/transfer/requirements.txt > /dev/null 2>&1
 fi
 
-figlet -t "NodeJS install..."
+figlet -t "Installing NodeJS..."
 sleep 1s
-curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
-sudo bash /tmp/nodesource_setup.sh
-sudo apt install nodejs -y
+curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh > /dev/null 2>&1
+sudo bash /tmp/nodesource_setup.sh > /dev/null 2>&1
+sudo apt install nodejs -y > /dev/null 2>&1
 
-jupyter labextension install jupyterlab-plotly
-sudo systemctl enable jupyter
-sudo systemctl start jupyter
+figlet -t "Installing Jupyter..."
+jupyter labextension install jupyterlab-plotly > /dev/null 2>&1
+sudo systemctl enable jupyter > /dev/null 2>&1
+sudo systemctl start jupyter > /dev/null 2>&1
 figlet -t "jupyter installed!"
 sleep 1s
