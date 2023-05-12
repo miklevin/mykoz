@@ -51,7 +51,7 @@
 :: all, copy, create a file named install.bat on your local Windows 10 or 11
 :: computer and run it. Make sure it really has a .bat extension! Welcome to Wonderland!
 
-set drinkme=0.2.1
+set drinkme=0.2.2
 @echo off
 local
 cls
@@ -263,8 +263,7 @@ cscript /nologo %SCRIPT%
 del %SCRIPT%
 del /Q %USERPROFILE%\repos\transfer\*
 
-wsl -d Ubuntu-20.04 -e bash -lic "figlet -t 'Done!'"
-echo.
+wsl -d Ubuntu-20.04 -u ubuntu -e "figlet -t 'Landed!'"
 echo Double-click the icon "Linux Shell" created where you ran the script.
 echo You can then reach JupyterLab in a Windows browser at http://localhost:8888
 echo From Microsoft Edge, you can make JupyterLab an app from: .../Apps/Install
