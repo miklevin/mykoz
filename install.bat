@@ -76,7 +76,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.3.3
+set drinkme=0.3.4
 set python=3.11
 @echo off
 local
@@ -238,9 +238,7 @@ if not exist "%USERPROFILE%\.config" mkdir %USERPROFILE%\.config >nul 2>&1
 curl -sL -o %USERPROFILE%\.config\bash.ico "https://raw.githubusercontent.com/miklevin/drinkme/main/icons/bash.ico" >nul 2>&1
 
 REM This puts a WSL configuration file in your Windows HOME for very early stage customization.
-if [ ! -f "%USERPROFILE%\.wslconfig" ]; then
-    curl -sL -o %USERPROFILE%\.wslconfig "https://raw.githubusercontent.com/miklevin/drinkme/main/.wslconfig" >nul 2>&1
-fi
+curl -sL -o %USERPROFILE%\.wslconfig "https://raw.githubusercontent.com/miklevin/drinkme/main/.wslconfig" >nul 2>&1
 REM And now we put the per-WSL distro /etc/wsl.conf file in the Ubuntu 20.04 /etc folder. No check is necessary.
 curl -sL -o %USERPROFILE%\repos\transfer\wsl.conf "https://raw.githubusercontent.com/miklevin/drinkme/main/wsl.conf" >nul 2>&1
 wsl -d Ubuntu-20.04 -u root -e cp %USERPROFILE%\repos\transfer\wsl.conf /etc/wsl.conf >nul 2>&1
