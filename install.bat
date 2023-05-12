@@ -51,7 +51,7 @@
 :: all, copy, create a file named install.bat on your local Windows 10 or 11
 :: computer and run it. Make sure it really has a .bat extension! Welcome to Wonderland!
 
-set drinkme=0.2.0
+set drinkme=0.2.1
 @echo off
 local
 cls
@@ -133,8 +133,6 @@ cls
 :::warn:::                                (or press Ctrl+C escape.)      prompt 3/3
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::warn:::" "%~f0"') do (echo.%%B)
 
-:: Set the color to blue
-color 9
 set /p warning= %
 :::down:::                                ___             
 :::down:::                               |   |         _____  
@@ -163,8 +161,6 @@ set /p warning= %
 :::down:::  You're falling down the rabbit hole. Have patience and be brave!
 
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
-
-color
 
 REM get full path of current script
 set "script_path=%~dpnx0"
