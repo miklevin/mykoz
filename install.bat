@@ -76,7 +76,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.3.7
+set drinkme=0.3.8
 set python=3.11
 @echo off
 local
@@ -241,7 +241,7 @@ REM This puts a WSL configuration file in your Windows HOME for very early stage
 if not exist %USERPROFILE%\.wslconfig curl -sL -o %USERPROFILE%\.wslconfig "https://raw.githubusercontent.com/miklevin/drinkme/main/.wslconfig" >nul 2>&1
 REM This puts a WSL configuration file in your Linux /etc for later-stage per-Linux customization.
 curl -sL -o %USERPROFILE%\repos\transfer\wsl.conf "https://raw.githubusercontent.com/miklevin/drinkme/main/wsl.conf" >nul 2>&1
-Ubuntu-20.04 -e bash -lic "cp /home/ubuntu/repos/transfer/wsl.conf /etc/wsl.conf" >nul 2>&1
+wsl -d Ubuntu-20.04 -e bash -lic "cp /home/ubuntu/repos/transfer/wsl.conf /etc/wsl.conf"
 
 REM If you're running from a location with these optional second-stage install files, copy them over.
 if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer > nul 2>&1) else (curl -L -o %USERPROFILE%\repos\transfer\apt_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/apt_installs.sh" > nul 2>&1)
@@ -291,7 +291,7 @@ echo oLink.Save >> %SCRIPT%
 
 cscript /nologo %SCRIPT%
 del %SCRIPT%
-del /Q %USERPROFILE%\repos\transfer\*
+:: del /Q %USERPROFILE%\repos\transfer\*
 
 :::thump:::                                                       .----------------.
 :::thump:::                                                  /)   | Oh, my fur and |                   
