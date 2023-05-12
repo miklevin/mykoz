@@ -76,7 +76,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.4.1
+set drinkme=0.4.2
 set python=3.11
 @echo off
 local
@@ -183,29 +183,29 @@ cls
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::warn:::" "%~f0"') do (echo.%%B)
 
 set /p warning= %
-:::down:::                                ___             
-:::down:::                               |   |         _____  
-:::down:::                               |_  |        /     \      
-:::down:::                                 \ |       |       \     
-:::down:::                                 |  \      |       /     
-:::down:::                                  \  \____ \_      \     
-:::down:::                                   \      \_/      |     
-:::down:::                             ___.   \_            _/     
-:::down:::            .-,             /    \    |          |       
-:::down:::            |  \          _/      `--_/           \_     
-:::down:::             \  \________/                     /\   \    
-:::down:::             |                                /  \_  \   
-:::down:::             `-----------,                   |     \  \  
-:::down:::                         |                  /       \  | 
-:::down:::                         |                 |         | \ 
-:::down:::                         /                 |         \__|
-:::down:::                        /   _              |             
-:::down:::                       /   / \_             \            
-:::down:::                       |  /    \__      __--`            
-:::down:::                      _/ /        \   _/                 
-:::down:::                  ___/  /          \_/                   
-:::down:::                 /     /                                 
-:::down:::                 `----`                                  
+:::down:::                                         ___             
+:::down:::                                        |   |         _____  
+:::down:::                                        |_  |        /     \      
+:::down:::                                          \ |       |       \     
+:::down:::                                          |  \      |       /     
+:::down:::                                           \  \____ \_      \     
+:::down:::                                            \      \_/      |     
+:::down:::                                      ___.   \_            _/     
+:::down:::                     .-,             /    \    |          |       
+:::down:::                     |  \          _/      `--_/           \_     
+:::down:::                      \  \________/                     /\   \    
+:::down:::                      |                                /  \_  \   
+:::down:::                      `-----------,                   |     \  \  
+:::down:::                                  |                  /       \  | 
+:::down:::                                  |                 |         | \ 
+:::down:::                                  /                 |         \__|
+:::down:::                                 /   _              |             
+:::down:::                                /   / \_             \            
+:::down:::                                |  /    \__      __--`            
+:::down:::                               _/ /        \   _/                 
+:::down:::                           ___/  /          \_/                   
+:::down:::                          /     /                                 
+:::down:::                          `----`                                  
 :::down:::           
 :::down::: You're falling down the rabbit hole. Have patience and be brave!
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
@@ -238,7 +238,11 @@ if not exist "%USERPROFILE%\.config" mkdir %USERPROFILE%\.config >nul 2>&1
 curl -sL -o %USERPROFILE%\.config\bash.ico "https://raw.githubusercontent.com/miklevin/drinkme/main/icons/bash.ico" >nul 2>&1
 
 REM Put the WSL config files in place.
-curl -sL -o %USERPROFILE%\etc\wsl.conf "https://raw.githubusercontent.com/miklevin/drinkme/main/wsl.conf" >nul 2>&1
+curl -sL -o %USERPROFILE%\transfer\wsl.conf "https://raw.githubusercontent.com/miklevin/drinkme/main/wsl.conf" >nul 2>&1
+REM Copy the file from above to the /etc folder on the Linux side:
+wsl -d Ubuntu-20.04 -u root cp /mnt/c/Users/%wsluer%/repos/transfer/wsl.conf /etc/wsl.conf >nul 2>&1
+
+
 if not exist %USERPROFILE%\.wslconfig curl -sL -o %USERPROFILE%\.wslconfig "https://raw.githubusercontent.com/miklevin/drinkme/main/.wslconfig" >nul 2>&1
 
 REM If you're running from a location with these optional second-stage install files, copy them over.
