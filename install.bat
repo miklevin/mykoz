@@ -51,7 +51,7 @@
 :: all, copy, create a file named install.bat on your local Windows 10 or 11
 :: computer and run it. Make sure it really has a .bat extension! Welcome to Wonderland!
 
-set drinkme=0.2.4
+set drinkme=0.2.5
 @echo off
 local
 cls
@@ -186,7 +186,7 @@ set /p warning= %
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
 
 echo.
-echo Python version is: %version% DrinkMe version: %drinkme%
+echo  Dropping: Ubuntu 20.04, Python %version%, DrinkMe %drinkme%
 ping 127.0.0.1 -n 2 >nul
 
 wsl --unregister Ubuntu-20.04 >nul
