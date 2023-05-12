@@ -51,12 +51,34 @@
 :: all, copy, create a file named install.bat on your local Windows 10 or 11
 :: computer and run it. Make sure it really has a .bat extension! Welcome to Wonderland!
 
-set drinkme=0.2.2
+set drinkme=0.2.3
 @echo off
 local
 cls
 
-echo DrinkMe Script Version %drinkme%
+REM get full path of current script
+set "script_path=%~dpnx0"
+
+REM get just the filename portion without extension
+for %%I in ("%script_path%") do set "script_name=%%~nI"
+
+REM set default version to 3.11
+set "version=3.11"
+
+REM check for first command line argument
+if not "%1" == "" (
+    REM if argument has period in it, use it as version
+    for %%I in ("%~1") do (
+        if "%%~xI" neq "" set "version=%%~nI%%~xI"
+    )
+) else (
+    REM if no argument, check if script name has period in it
+    for %%I in ("%script_name%") do (
+        if "%%~xI" neq "" set "version=%%~nI%%~xI"
+    )
+)
+
+echo Ubuntu 20.04 Python %version% DrinkMe %drinkme%
 :::rabbit::: Learn how to use this at https://pipulate.com                  /)    /  \     
 :::rabbit:::      ____ _                      __  __      _          /)\_ _//    /    |    
 :::rabbit:::     / ___| |__   __ _ ___  ___  |  \/  | ___| |     ___(/_ 0 0      |    |    
@@ -161,28 +183,6 @@ set /p warning= %
 :::down:::  You're falling down the rabbit hole. Have patience and be brave!
 
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
-
-REM get full path of current script
-set "script_path=%~dpnx0"
-
-REM get just the filename portion without extension
-for %%I in ("%script_path%") do set "script_name=%%~nI"
-
-REM set default version to 3.11
-set "version=3.11"
-
-REM check for first command line argument
-if not "%1" == "" (
-    REM if argument has period in it, use it as version
-    for %%I in ("%~1") do (
-        if "%%~xI" neq "" set "version=%%~nI%%~xI"
-    )
-) else (
-    REM if no argument, check if script name has period in it
-    for %%I in ("%script_name%") do (
-        if "%%~xI" neq "" set "version=%%~nI%%~xI"
-    )
-)
 
 echo.
 echo Python version is: %version% DrinkMe version: %drinkme%
