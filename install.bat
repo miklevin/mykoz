@@ -76,7 +76,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.4.2
+set drinkme=0.4.3
 set python=3.11
 @echo off
 local
@@ -216,34 +216,34 @@ wsl --unregister Ubuntu-20.04 >nul
 wsl --set-default-version 2 >nul
 
 REM These are variables for the automatically created Ubuntu 20.04 user under WSL.
-set wsluer="ubuntu"
+set wsluser="ubuntu"
 set password="foo"
 
 REM The big install! If it's your first time, it will make you reboot your machine.
 ubuntu2004 install --root >nul
 
 REM Once Ubuntu 20.04 is installed, this sets up the default user.
-wsl -d Ubuntu-20.04 -u root useradd -m "%wsluer%" >nul 2>&1
-wsl -d Ubuntu-20.04 -u root sh -c "echo "%wsluer%:%password%" | chpasswd" >nul 2>&1
-wsl -d Ubuntu-20.04 -u root chsh -s /bin/bash "%wsluer%" >nul
-wsl -d Ubuntu-20.04 -u root usermod -aG adm,cdrom,sudo,dip,plugdev,lxd "%wsluer%" >nul 2>&1
-ubuntu2004 config --default-user "%wsluer%" >nul
+wsl -d Ubuntu-20.04 -u root useradd -m "%wsluser%" >nul 2>&1
+wsl -d Ubuntu-20.04 -u root sh -c "echo "%wsluser%:%password%" | chpasswd" >nul 2>&1
+wsl -d Ubuntu-20.04 -u root chsh -s /bin/bash "%wsluser%" >nul
+wsl -d Ubuntu-20.04 -u root usermod -aG adm,cdrom,sudo,dip,plugdev,lxd "%wsluser%" >nul 2>&1
+ubuntu2004 config --default-user "%wsluser%" >nul
 
 REM This creates "repos" folder in your Windows HOME for Windows/Linux file sharing.
 if not exist "%USERPROFILE%\repos" mkdir %USERPROFILE%\repos >nul 2>&1
 if not exist "%USERPROFILE%\repos" mkdir %USERPROFILE%\repos >nul 2>&1
 if not exist "%USERPROFILE%\repos\transfer" mkdir %USERPROFILE%\repos\transfer >nul 2>&1
+if not exist "%USERPROFILE%\.wslconfig" curl -sL -o %USERPROFILE%\.wslconfig "https://raw.githubusercontent.com/miklevin/drinkme/main/.wslconfig" >nul 2>&1
 if not exist "%USERPROFILE%\.jupyter" mkdir %USERPROFILE%\.jupyter >nul 2>&1
 if not exist "%USERPROFILE%\.config" mkdir %USERPROFILE%\.config >nul 2>&1
+curl -sL -o %USERPROFILE%\transfer\wsl.conf "https://raw.githubusercontent.com/miklevin/drinkme/main/wsl.conf"
 curl -sL -o %USERPROFILE%\.config\bash.ico "https://raw.githubusercontent.com/miklevin/drinkme/main/icons/bash.ico" >nul 2>&1
 
 REM Put the WSL config files in place.
-curl -sL -o %USERPROFILE%\transfer\wsl.conf "https://raw.githubusercontent.com/miklevin/drinkme/main/wsl.conf" >nul 2>&1
-REM Copy the file from above to the /etc folder on the Linux side:
-wsl -d Ubuntu-20.04 -u root cp /mnt/c/Users/%wsluer%/repos/transfer/wsl.conf /etc/wsl.conf >nul 2>&1
+wsl -d Ubuntu-20.04 -u root cp /mnt/c/Users/%wsluser%/repos/transfer/wsl.conf /etc/wsl.conf >nul 2>&1
 
-
-if not exist %USERPROFILE%\.wslconfig curl -sL -o %USERPROFILE%\.wslconfig "https://raw.githubusercontent.com/miklevin/drinkme/main/.wslconfig" >nul 2>&1
+REM Stop the script here
+exit
 
 REM If you're running from a location with these optional second-stage install files, copy them over.
 if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer > nul 2>&1) else (curl -L -o %USERPROFILE%\repos\transfer\apt_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/apt_installs.sh" > nul 2>&1)
@@ -270,7 +270,8 @@ wsl -d Ubuntu-20.04 -u root /bin/bash -c "echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:AL
 
 :: Grab and run second-half of install that runs under WSL and set up Linux graphics.
 wsl -d Ubuntu-20.04 -u ubuntu -e curl -L -o /home/ubuntu/install.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/install.sh" >nul 2>&1
-wsl -d Ubuntu-20.04 -e bash -lic "bash /home/ubuntu/install.sh %VAR%"
+:: wsl -d Ubuntu-20.04 -e bash -lic "bash /home/ubuntu/install.sh %VAR%"
+wsl -d Ubuntu-20.04 -e bash -lic "bash /home/ubuntu/install.sh %VAR% 2>&1 | grep -v 'sudo'"
 
 :: Grab post-reboot scripts. ACLs aren't sufficient for git cloning without a wsl --shutdown
 wsl -t Ubuntu-20.04 >nul 2>&1
