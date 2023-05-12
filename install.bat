@@ -241,10 +241,10 @@ REM If you're running from a location with these optional second-stage install f
 if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer > nul 2>&1) else (curl -L -o %USERPROFILE%\repos\transfer\apt_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/apt_installs.sh" > nul 2>&1)
 if exist requirements.txt (copy requirements.txt %USERPROFILE%\repos\transfer > nul 2>&1) else (curl -L -o %USERPROFILE%\repos\transfer\requirements.txt "https://raw.githubusercontent.com/miklevin/drinkme/main/requirements.txt" >nul 2>&1)
 
-REM Set up WSL with systemd and metadata options.
-wsl -d Ubuntu-20.04 -u root -e echo -e [boot]\nsystemd=true\n[automount]\noptions=\"metadata\" >> ./wsl.conf >nul 2>&1
-wsl -d Ubuntu-20.04 -u root -e mv wsl.conf /etc/ >nul 2>&1
-wsl -t Ubuntu-20.04 >nul 2>&1
+REM Set up WSL with systemd and metadata options (don't send to nul)
+wsl -d Ubuntu-20.04 -u root -e echo -e [boot]\nsystemd=true\n[automount]\noptions=\"metadata\" >> ./wsl.conf
+wsl -d Ubuntu-20.04 -u root -e mv wsl.conf /etc/
+wsl -t Ubuntu-20.04
 
 :: Create symbolic links from Windows paths to WSL paths.
 wsl -d Ubuntu-20.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh && ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos && ln -s /mnt/c/Users/%USERNAME%/.config/ /home/ubuntu/.config && ln -s /mnt/c/Users/%USERNAME%/.jupyter/ /home/ubuntu/.jupyter" >nul 2>&1

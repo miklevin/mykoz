@@ -11,7 +11,7 @@ sudo apt install figlet -y > /dev/null 2>&1
 
 # Check if we have a Python version passed in as an argument
 VAR=${1:-3.11}
-figlet -t "Installing Python $VAR..."
+figlet -t "Python $VAR..."
 
 # Add 2 custom PPS's (Personal Package Sources) to repository list
 sudo add-apt-repository ppa:deadsnakes/ppa -y > /dev/null 2>&1
@@ -26,8 +26,6 @@ sudo apt install python$VAR-venv -y > /dev/null 2>&1
 sudo apt autoremove -y > /dev/null 2>&1
 /usr/bin/python$VAR -m venv /home/ubuntu/pyenv > /dev/null 2>&1
 
-figlet -t "Configuring..."
-sleep 1s
 # First we get everything that needs to be done under superuser context
 sudo curl -sL https://raw.githubusercontent.com/miklevin/drinkme/main/.bash_profile -o /home/ubuntu/.bash_profile \
 https://raw.githubusercontent.com/miklevin/drinkme/main/.bash_prompt -o /home/ubuntu/.bash_prompt \
@@ -68,7 +66,7 @@ sudo apt install nodejs -y > /dev/null 2>&1
 
 if [ -f /home/ubuntu/repos/transfer/apt_installs.sh ]
 then
-    figlet -t "dbpkg..."
+    figlet -t "DbPkg..."
     sleep 1s
     source /home/ubuntu/repos/transfer/apt_installs.sh > /dev/null 2>&1
 fi
