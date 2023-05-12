@@ -68,14 +68,14 @@ sudo apt install nodejs -y > /dev/null 2>&1
 
 if [ -f /home/ubuntu/repos/transfer/apt_installs.sh ]
 then
-    figlet -t "Apt Installs..."
+    figlet -t "dbpkg..."
     sleep 1s
     source /home/ubuntu/repos/transfer/apt_installs.sh > /dev/null 2>&1
 fi
 sh -c 'curl -fLo /home/ubuntu/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' > /dev/null 2>&1
 if [ -f /home/ubuntu/repos/transfer/requirements.txt ]
 then
-    figlet -t "Pip Installs..."
+    figlet -t "PyPI..."
     sleep 1s
     /home/ubuntu/pyenv/bin/python -m pip install -r /home/ubuntu/repos/transfer/requirements.txt > /dev/null 2>&1
 fi
@@ -88,7 +88,5 @@ sudo apt install nodejs -y > /dev/null 2>&1
 
 figlet -t "Jupyter..."
 jupyter labextension install jupyterlab-plotly > /dev/null 2>&1
-sudo systemctl enable jupyter > /dev/null 2>&1
-sudo systemctl start jupyter > /dev/null 2>&1
-figlet -t "jupyter installed!"
-sleep 1s
+sudo systemctl enable jupyter > /dev/null
+sudo systemctl start jupyter > /dev/null
