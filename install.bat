@@ -236,14 +236,11 @@ if not exist "%USERPROFILE%\repos\transfer" mkdir %USERPROFILE%\repos\transfer >
 if not exist "%USERPROFILE%\.wslconfig" curl -sL -o %USERPROFILE%\.wslconfig "https://raw.githubusercontent.com/miklevin/drinkme/main/.wslconfig" >nul 2>&1
 if not exist "%USERPROFILE%\.jupyter" mkdir %USERPROFILE%\.jupyter >nul 2>&1
 if not exist "%USERPROFILE%\.config" mkdir %USERPROFILE%\.config >nul 2>&1
-curl -sL -o %USERPROFILE%\transfer\wsl.conf "https://raw.githubusercontent.com/miklevin/drinkme/main/wsl.conf"
+curl -sL -o %USERPROFILE%\transfer\wsl.conf "https://raw.githubusercontent.com/miklevin/drinkme/main/wsl.conf" >nul 2>&1
 curl -sL -o %USERPROFILE%\.config\bash.ico "https://raw.githubusercontent.com/miklevin/drinkme/main/icons/bash.ico" >nul 2>&1
 
 REM Put the WSL config files in place.
-wsl -d Ubuntu-20.04 -u root cp /mnt/c/Users/%wsluser%/repos/transfer/wsl.conf /etc/wsl.conf >nul 2>&1
-
-REM Stop the script here
-exit
+wsl -d Ubuntu-20.04 -u root cp "/mnt/c/Users/%wsluser%/repos/transfer/wsl.conf" "/etc/wsl.conf"
 
 REM If you're running from a location with these optional second-stage install files, copy them over.
 if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer > nul 2>&1) else (curl -L -o %USERPROFILE%\repos\transfer\apt_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/apt_installs.sh" > nul 2>&1)
