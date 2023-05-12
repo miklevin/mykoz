@@ -105,55 +105,56 @@ if not "%1" == "" (
 )
 
 echo  Ubuntu 20.04 Python %version% DrinkMe %drinkme%
-:::rabbit:::                                                                       __
-:::rabbit::: Learn how to use this at https://pipulate.com                  /)    /  \     
-:::rabbit:::      ____ _                      __  __      _          /)\_ _//    /    |    
-:::rabbit:::     / ___| |__   __ _ ___  ___  |  \/  | ___| |     ___(/_ 0 0      |    |    
-:::rabbit:::    | |   | '_ \ / _` / __|/ _ \ | |\/| |/ _ \ |   *(     =(_T_)=    |    |    
-:::rabbit:::    | |___| | | | (_| \__ \  __/ | |  | |  __/_|     \  )   \"\      \    /   
-:::rabbit:::     \____|_| |_|\__,_|___/\___| |_|  |_|\___(_)      |__>-\_>_>      \__/
+:::rabbit:::                                                                        __  
+:::rabbit:::   _     _                 __     ____  __  - Best versions         /) /  \ 
+:::rabbit:::  | |   (_)_ __  _   ___  _\ \   / /  \/  | - Normal paths   /)\___// /    |
+:::rabbit:::  | |   | | '_ \| | | \ \/ /\ \ / /| |\/| | - No cost    ___(/_ 0 0   |    |
+:::rabbit:::  | |___| | | | | |_| |>  <  \ V / | |  | | - Win/Mac  *(     =(_T_)= |    |
+:::rabbit:::  |_____|_|_| |_|\__,_/_/\_\  \_/  |_|  |_| - Mad skilz  \  )   \"\   \    /
+:::rabbit:::  Magic Trick Linux: Always Up Your Sleeve! - Timeless    |__>-\_>_>   \__/ 
+:::rabbit:::                                            
+:::rabbit:::  This script will install Linux under the Windows Subsystem for Linux (WSL2)
+:::rabbit:::  and use it to host JupterLab, accessible through your Windows browser at
+:::rabbit:::  http://localhost:8888 so all your Python code is standard and future-proof.
 :::rabbit:::
-:::rabbit:::              TECH COMPANIES MAKE MONEY BY YOU GOING OBSOLETE
-:::rabbit::: 
-:::rabbit::: Artists, musicians and athletes forever improve because their tools don't
-:::rabbit::: change every 2 to 5 years -- letting them focus on craftsmanship. We in tech
-:::rabbit::: don't have that privilege because of relentless upgrade cycles and forced
-:::rabbit::: obsolescence, because you must re-buy and re-train to feed company profits.
-:::rabbit::: 
-:::rabbit:::                           FUTURE-PROOF YOURSELF
-:::rabbit::: 
-:::rabbit::: There is a better way and Microsoft HAD to include it in order to maintain
-:::rabbit::: credibility as a developer platform. You can now get the best of both worlds.
-:::rabbit::: This can be the beginning of a wonderful journey into the timeless tools of
-:::rabbit::: Linux, Python, vim and git starting with a PROPER install of JupyterLab.
-:::rabbit::: 
-:::rabbit:::                         Press [Enter] to jump down the Linux rabbit hole...
+:::rabbit:::  It's best to install Ubuntu 20.04 from the Windows Store first, then run
+:::rabbit:::  this script. Save & Run this .bat on your Desktop for the ultimate portable
+:::rabbit:::  Linux environment that can float from computer to computer for a lifetime.
+:::rabbit:::
+:::rabbit:::  This script will also install Python 3.11 and JupyterLab 3.6.
+:::rabbit:::
+:::rabbit:::  If you want to install a different version of Python, you can do so by
+:::rabbit:::  renaming the file to 3.8.bat or 3.9.bat or 3.10.bat or 3.11.bat, etc.
+:::rabbit:::
+:::rabbit:::  Mac Version:
+:::rabbit:::  Coming Soon!           Press [Enter] to jump down the Linux rabbit hole...
 :::rabbit:::                                   (or press Ctrl+C escape.)      prompt 1/3
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::rabbit:::" "%~f0"') do (echo.%%B)
 set /p warning= %
 cls
-:::unicorn:::                                _________________________________
-:::unicorn:::     THE PATH OF EVENTUAL      /                                 \
-:::unicorn:::     FREEDOM FROM WINDOWS      |      An Excellent Choice!       |
-:::unicorn:::     & PROPRIETARY STUFF!      \_________________________________/
-:::unicorn:::                                                           ()     ,
-:::unicorn:::                                                             O    \\  .
-:::unicorn:::  This script will install Linux under the Windows Subsystem   o  |\\/|
-:::unicorn:::  for Linux (WSL2) and use it to host JupterLab, accessible       / " '\
-:::unicorn:::  through your Windows browser at http://localhost:8888 If       . .   .
-:::unicorn:::  you have to run Jupyter anyway to run Python, why not do      /    ) |
-:::unicorn:::  it in a way that sets you on a better path in life?          '  _.'  |
-:::unicorn:::                                                               '-'/    \
-:::unicorn:::   ____________________________  ______________________________
-:::unicorn:::  |      Windows 10 or 11     |  | Windows Subsystem for Linux |
-:::unicorn:::  |         ____ ____         |  |   Ubuntu 20.04 (invisible)  |
-:::unicorn:::  |      ,_/site\____\____.   |  | ___________________________ |
-:::unicorn:::  |      |                |   |  | | GNU screen terminal     | |
-:::unicorn:::  |      | localhost:8888 ---------->JupyterLab Server       | |
-:::unicorn:::  |      |   ( browser )  |   |  | |_________________________| |
-:::unicorn:::  |______|                |___|  |_____________________________|
-:::unicorn:::         '----------------'
-:::unicorn:::
+:::unicorn:::  Write once, Run Anywhere without the       THE LINUX CAN BE INVISIBLE
+:::unicorn:::  need to modify your code for platforms     ___________________________ 
+:::unicorn:::  or production environments. You never     /                           \
+:::unicorn:::  actually need to see Linux. Just make     |        Ridiculous!        |
+:::unicorn:::  your Jupyter Notebooks "Linux standard"   |    There's no such thing. |               
+:::unicorn:::                                            \___________________________/               
+:::unicorn:::   Yes there is, Mr. Unicorn!                               ()     ,      
+:::unicorn:::    ________________________     Here's how it works:         O    \\  .  
+:::unicorn:::   |  Windows 10 or 11     |    ________________________       o   |\\/|  
+:::unicorn:::   |     ____ ____         |   | * Magic Trick Linux * |          / " '\ 
+:::unicorn:::   |  ,_/site\____\______. |   | (still your hardware) |  see!   . .   . 
+:::unicorn:::   |  |                  | |   |   __________________  |< - - - /    ) | 
+:::unicorn:::   |  |   WEB BROWSER    | |   |  |  screen sesion  |  |       '  _.'  | 
+:::unicorn:::   |  | localhost:8888 <<---------->>Jupyter Server |  |       '-'/    \ 
+:::unicorn:::   |__|                  |_|   |  |_________________|  |                 
+:::unicorn:::      '------------------'     |_______________________|  No, not Docker
+:::unicorn:::                                                         
+:::unicorn:::   - Better than Jupyter-Desktop for portability    "The time has come to
+:::unicorn:::   - Better than Anaconda for system automation     get on standard tools"
+:::unicorn:::   - Better than Docker for control & persistence   the Walrus never said.
+:::unicorn:::   - Better than the Cloud for privacy, security    
+:::unicorn:::     component availability & browser automation           - The Carpenter
+:::unicorn:::                                                             
 :::unicorn:::                      Press [Enter] to jump down the Linux rabbit hole...
 :::unicorn:::                                (or press Ctrl+C escape.)      prompt 2/3
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::unicorn:::" "%~f0"') do (echo.%%B)
@@ -289,12 +290,13 @@ echo oLink.Save >> %SCRIPT%
 cscript /nologo %SCRIPT%
 del %SCRIPT%
 :: del /Q %USERPROFILE%\repos\transfer\*
-
+                                                                                    
 :::thump:::                                                       .----------------.
-:::thump:::                                                  /)   | Oh, my fur and |                   
-:::thump::: _     Linux has      _          _ _        /)\__//   (  whiskers! It's |                  )
-:::thump:::| |    __ _ _ __   __| | ___  __| | |   ___(/_ 0 0   o | to Jupyer I go!|                   
-:::thump:::| |   / _` | '_ \ / _` |/ _ \/ _` | | *(     =(_T_)=   '----------------' 
+:::thump:::                                                       | Oh, my fur and |
+:::thump:::                                                   /) (  whiskers! It's |                   
+:::thump::: _     Linux has      _          _ _        /)\___// o | to Jupyer I go |                  )
+:::thump:::| |    __ _ _ __   __| | ___  __| | |   ___(/_ 0 0     '----------------'                   
+:::thump:::| |   / _` | '_ \ / _` |/ _ \/ _` | | *(     =(_T_)=  
 :::thump:::| |__| (_| | | | | (_| |  __/ (_| |_|   \  )   \"\      
 :::thump:::|_____\__,_|_| |_|\__,_|\___|\__,_(_)    |__>-\_>_>  
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::thump:::" "%~f0"') do (echo.%%B)
