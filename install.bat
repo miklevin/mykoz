@@ -10,14 +10,16 @@
 :: It's best to install Ubuntu 20.04 from the
 :: Windows Store first, then run this script.
 
-:: Then save & Run this .bat on your Desktop.
+:: Save & Run this .bat on your Desktop for
 :: JupyterLab served at http://localhost:8888
 
 :: - Always get the latest Python (3.11)
+:: - Name installer 3.8.bat for Python 3.8
 :: - Always get the latest JupyterLab (3.6)
-:: - Do things Cloud Notebooks can't do
-:: - Automate Google Chrome with Playwright
-:: - Cycle your IP with easy Windows VPN
+:: - Exceed limits of cloud-host notebooks.
+:: - Run the versions the Linux servers do.
+:: - Automate Web browsers with Playwright.
+:: - Cycle your IP with easy Windows VPN.
 :: - Learn more at https://pipulate.com
 
 ::                     ___
@@ -41,17 +43,41 @@
 ::            |  /    \__      __--`
 ::           _/ /        \____/
 ::       ___/  /
-::      /     /            Your future-proofed
-::      `----`             Wonderland awaits!
+::      /     /            A future-proofed
+::      `----`            Wonderland awaits!
 
 :: INSTRUCTIONS (SAVE AS .BAT)
+:: Name file install.bat and save it to your Desktop.
+:: Alternatively, name it 3.8.bat for Python 3.8
+:: or any other version you want to install.
 
-:: Right-click in this window (if you're viewing it from the Github raw view at
-:: https://raw.githubusercontent.com/miklevin/drinkme/main/install.bat ), select
-:: all, copy, create a file named install.bat on your local Windows 10 or 11
-:: computer and run it. Make sure it really has a .bat extension! Welcome to Wonderland!
+:: This is usually acomplished by visiting the URL:
+:: https://raw.githubusercontent.com/miklevin/drinkme/main/install.bat
+:: Right-clicking on the page and choosing Save As...
+:: Then, in the Save As dialog, change the Save as
+:: type: to All Files (*.*) and name the file install.bat
+:: Then, click Save and you're ready to run it.
+::
+:: There can be challenges such as Windows Defender
+:: SmartScreen blocking the file from running. If so,
+:: you can right-click on the file and choose Run as
+:: Administrator. You may also need to click More Info
+:: and then Run Anyway. If you have any problems, you
+:: can always contact me at https://pipulate.com
+::
+:: The reason for this novel approach is that Linux has
+:: reached the point where you can have a "floating"
+:: Linux environment that is not tied to a particular
+:: computer and has all the advantages of the cloud
+:: versions of Linux, but without the limitations. It
+:: can also last you a lifetime, floating from one
+:: computer to the next, as you upgrade your hardware
+:: and operating systems. Stuff you make with it will
+:: be compatible with the cloud versions, too.
 
-set drinkme=0.2.6
+REM Set up envioronment and parse opitonal arguemnts.
+set drinkme=0.2.7
+set python=3.11
 @echo off
 local
 cls
@@ -62,8 +88,8 @@ set "script_path=%~dpnx0"
 REM get just the filename portion without extension
 for %%I in ("%script_path%") do set "script_name=%%~nI"
 
-REM set default version to 3.11
-set "version=3.11"
+REM set default Python version
+set "version=%python%"
 
 REM check for first command line argument
 if not "%1" == "" (
@@ -181,12 +207,9 @@ set /p warning= %
 :::down:::                 /     /                                 
 :::down:::                 `----`                                  
 :::down:::           
-:::down:::  You're falling down the rabbit hole. Have patience and be brave!
-
+:::down::: You're falling down the rabbit hole. Have patience and be brave!
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
-
-echo.
-echo  Dropping: Ubuntu 20.04, Python %version%, DrinkMe %drinkme%
+echo  Dropping: Ubuntu 20.04, Python %version%, DrinkMe %drinkme%... Wonderland nears!
 ping 127.0.0.1 -n 2 >nul
 
 wsl --unregister Ubuntu-20.04 >nul
@@ -264,10 +287,17 @@ cscript /nologo %SCRIPT%
 del %SCRIPT%
 del /Q %USERPROFILE%\repos\transfer\*
 
-wsl -d Ubuntu-20.04 -u root -e "figlet -t 'Landed!'"
+for /f "delims=: tokens=1*" %%A in ('findstr /b ":::unicorn:::" "%~f0"') do (echo.%%B)
+set /p warning= %
+:::thump:::                                                   /)
+:::thump::: _  Linux has         _          _ _        /)\_ _// 
+:::thump:::| |    __ _ _ __   __| | ___  __| | |   ___(/_ 0 0   
+:::thump:::| |   / _` | '_ \ / _` |/ _ \/ _` | | *(     =(_T_)= 
+:::thump:::| |__| (_| | | | | (_| |  __/ (_| |_|   \  )   \"\   
+:::thump:::|_____\__,_|_| |_|\__,_|\___|\__,_(_)    |__>-\_>_>  
+for /f "delims=: tokens=1*" %%A in ('findstr /b ":::thump:::" "%~f0"') do (echo.%%B)
 echo Double-click the icon "Linux Shell" created where you ran the script.
 echo You can then reach JupyterLab in a Windows browser at http://localhost:8888
 echo From Microsoft Edge, you can make JupyterLab an app from: .../Apps/Install
 echo.
-
 set /p warning=Press [Enter] to release this console window. %
