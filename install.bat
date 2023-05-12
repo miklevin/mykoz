@@ -76,7 +76,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.3.4
+set drinkme=0.3.6
 set python=3.11
 @echo off
 local
@@ -237,11 +237,11 @@ if not exist "%USERPROFILE%\.jupyter" mkdir %USERPROFILE%\.jupyter >nul 2>&1
 if not exist "%USERPROFILE%\.config" mkdir %USERPROFILE%\.config >nul 2>&1
 curl -sL -o %USERPROFILE%\.config\bash.ico "https://raw.githubusercontent.com/miklevin/drinkme/main/icons/bash.ico" >nul 2>&1
 
-REM This puts a WSL configuration file in your Windows HOME for very early stage customization.
-curl -sL -o %USERPROFILE%\.wslconfig "https://raw.githubusercontent.com/miklevin/drinkme/main/.wslconfig" >nul 2>&1
-REM And now we put the per-WSL distro /etc/wsl.conf file in the Ubuntu 20.04 /etc folder. No check is necessary.
+REM This puts a WSL configuration file in your Windows HOME for very early stage global customization.
+if not exist %USERPROFILE%\.wslconfig curl -sL -o %USERPROFILE%\.wslconfig "https://raw.githubusercontent.com/miklevin/drinkme/main/.wslconfig" >nul 2>&1
+REM This puts a WSL configuration file in your Linux /etc for later-stage per-Linux customization.
 curl -sL -o %USERPROFILE%\repos\transfer\wsl.conf "https://raw.githubusercontent.com/miklevin/drinkme/main/wsl.conf" >nul 2>&1
-wsl -d Ubuntu-20.04 -u root -e cp %USERPROFILE%\repos\transfer\wsl.conf /etc/wsl.conf >nul 2>&1
+copy %USERPROFILE%\repos\transfer\wsl.conf /mnt/c/Users/%USERNAME%/etc/wsl.conf >nul 2>&1
 
 REM If you're running from a location with these optional second-stage install files, copy them over.
 if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer > nul 2>&1) else (curl -L -o %USERPROFILE%\repos\transfer\apt_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/apt_installs.sh" > nul 2>&1)
