@@ -39,8 +39,8 @@ https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh -o /home
 https://raw.githubusercontent.com/miklevin/drinkme/main/jupyter.service -o /etc/systemd/system/jupyter.service > /dev/null
 
 # Then we get everything that needs to be done under the ubuntu user context
-curl -sL https://raw.githubusercontent.com/miklevin/vim/master/all -o /home/ubuntu/pyenv/bin/all
-curl -sL https://raw.githubusercontent.com/miklevin/drinkme/main/startjupyter -o /home/ubuntu/pyenv/bin/startjupyter 
+curl -sL https://raw.githubusercontent.com/miklevin/vim/master/all -o /home/ubuntu/pyenv/bin/all > /dev/null 2>&1
+curl -sL https://raw.githubusercontent.com/miklevin/drinkme/main/startjupyter -o /home/ubuntu/pyenv/bin/startjupyter > /dev/null 2>&1
 
 # Give execution context to the scripts
 sudo chmod +x /home/ubuntu/pyenv/bin/startjupyter > /dev/null 2>&1
@@ -86,5 +86,5 @@ sudo apt install nodejs -y > /dev/null 2>&1
 
 figlet -t "Jupyter..."
 jupyter labextension install jupyterlab-plotly > /dev/null 2>&1
-sudo systemctl enable jupyter > /dev/null
-sudo systemctl start jupyter > /dev/null
+sudo systemctl enable jupyter > /dev/null 2>&1
+sudo systemctl start jupyter > /dev/null 2>&1

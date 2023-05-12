@@ -76,7 +76,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.4.7
+set drinkme=0.4.8
 set python=3.11
 @echo off
 local
@@ -207,7 +207,7 @@ set /p warning= %
 :::down:::                          /     /                                 
 :::down:::                          `----`                                  
 :::down:::           
-:::down::: You're falling down the rabbit hole. Have patience and be brave!
+:::down::: You're falling down the rabbit hole. Please have patience and be brave!
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
 echo  Dropping: Ubuntu 20.04, Python %version%, DrinkMe %drinkme%... Wonderland awaits!
 ping 127.0.0.1 -n 2 >nul
@@ -267,8 +267,7 @@ wsl -d Ubuntu-20.04 -u root /bin/bash -c "echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:AL
 
 :: Grab and run second-half of install that runs under WSL and set up Linux graphics.
 wsl -d Ubuntu-20.04 -u ubuntu -e curl -L -o /home/ubuntu/install.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/install.sh" >nul 2>&1
-:: wsl -d Ubuntu-20.04 -e bash -lic "bash /home/ubuntu/install.sh %VAR%"
-wsl -d Ubuntu-20.04 -e bash -lic "bash /home/ubuntu/install.sh %VAR% 2>&1 | grep -v 'sudo'"
+wsl -d Ubuntu-20.04 -e bash -c "bash /home/ubuntu/install.sh %VAR% 2>&1
 
 :: Grab post-reboot scripts. ACLs aren't sufficient for git cloning without a wsl --shutdown
 wsl -t Ubuntu-20.04 >nul 2>&1
