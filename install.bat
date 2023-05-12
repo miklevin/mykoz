@@ -209,7 +209,7 @@ set /p warning= %
 :::down:::           
 :::down::: You're falling down the rabbit hole. Have patience and be brave!
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
-echo  Dropping: Ubuntu 20.04, Python %version%, DrinkMe %drinkme%... Wonderland nears!
+echo  Dropping: Ubuntu 20.04, Python %version%, DrinkMe %drinkme%... Wonderland awaits!
 ping 127.0.0.1 -n 2 >nul
 
 wsl --unregister Ubuntu-20.04 >nul
