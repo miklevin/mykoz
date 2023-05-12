@@ -51,7 +51,7 @@
 :: all, copy, create a file named install.bat on your local Windows 10 or 11
 :: computer and run it. Make sure it really has a .bat extension! Welcome to Wonderland!
 
-set drinkme=0.2.3
+set drinkme=0.2.4
 @echo off
 local
 cls
@@ -78,7 +78,8 @@ if not "%1" == "" (
     )
 )
 
-echo Ubuntu 20.04 Python %version% DrinkMe %drinkme%
+echo  Ubuntu 20.04 Python %version% DrinkMe %drinkme%
+:::rabbit:::                                                                       __
 :::rabbit::: Learn how to use this at https://pipulate.com                  /)    /  \     
 :::rabbit:::      ____ _                      __  __      _          /)\_ _//    /    |    
 :::rabbit:::     / ___| |__   __ _ ___  ___  |  \/  | ___| |     ___(/_ 0 0      |    |    
