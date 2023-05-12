@@ -288,8 +288,8 @@ del %SCRIPT%
 del /Q %USERPROFILE%\repos\transfer\*
 
 :::thump:::                                                       .----------------.
-:::thump:::                                                   /)  | Oh, my fur and |                   
-:::thump::: _     Linux has      _          _ _        /)\_ _//  (  whiskers! It's |                  )
+:::thump:::                                                  /)   | Oh, my fur and |                   
+:::thump::: _     Linux has      _          _ _        /)\__//   (  whiskers! It's |                  )
 :::thump:::| |    __ _ _ __   __| | ___  __| | |   ___(/_ 0 0   o | to Jupyer I go!|                   
 :::thump:::| |   / _` | '_ \ / _` |/ _ \/ _` | | *(     =(_T_)=   '----------------' 
 :::thump:::| |__| (_| | | | | (_| |  __/ (_| |_|   \  )   \"\      
