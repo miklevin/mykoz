@@ -76,7 +76,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.4.0
+set drinkme=0.4.1
 set python=3.11
 @echo off
 local
@@ -223,10 +223,10 @@ REM The big install! If it's your first time, it will make you reboot your machi
 ubuntu2004 install --root >nul
 
 REM Once Ubuntu 20.04 is installed, this sets up the default user.
-wsl -d Ubuntu-20.04 -u root useradd -m "%wsluer%" >nul
-wsl -d Ubuntu-20.04 -u root sh -c "echo "%wsluer%:%password%" | chpasswd" >nul
+wsl -d Ubuntu-20.04 -u root useradd -m "%wsluer%" >nul 2>&1
+wsl -d Ubuntu-20.04 -u root sh -c "echo "%wsluer%:%password%" | chpasswd" >nul 2>&1
 wsl -d Ubuntu-20.04 -u root chsh -s /bin/bash "%wsluer%" >nul
-wsl -d Ubuntu-20.04 -u root usermod -aG adm,cdrom,sudo,dip,plugdev,lxd "%wsluer%" >nul
+wsl -d Ubuntu-20.04 -u root usermod -aG adm,cdrom,sudo,dip,plugdev,lxd "%wsluer%" >nul 2>&1
 ubuntu2004 config --default-user "%wsluer%" >nul
 
 REM This creates "repos" folder in your Windows HOME for Windows/Linux file sharing.
@@ -237,19 +237,16 @@ if not exist "%USERPROFILE%\.jupyter" mkdir %USERPROFILE%\.jupyter >nul 2>&1
 if not exist "%USERPROFILE%\.config" mkdir %USERPROFILE%\.config >nul 2>&1
 curl -sL -o %USERPROFILE%\.config\bash.ico "https://raw.githubusercontent.com/miklevin/drinkme/main/icons/bash.ico" >nul 2>&1
 
-REM This puts a WSL configuration file in your Windows HOME for very early stage global customization.
-if not exist %USERPROFILE%\.wslconfig curl -sL -o %USERPROFILE%\.wslconfig "https://raw.githubusercontent.com/miklevin/drinkme/main/.wslconfig" >nul 2>&1
-REM This puts a WSL configuration file in your Linux /etc for later-stage per-Linux customization.
+REM Put the WSL config files in place.
 curl -sL -o %USERPROFILE%\etc\wsl.conf "https://raw.githubusercontent.com/miklevin/drinkme/main/wsl.conf" >nul 2>&1
+if not exist %USERPROFILE%\.wslconfig curl -sL -o %USERPROFILE%\.wslconfig "https://raw.githubusercontent.com/miklevin/drinkme/main/.wslconfig" >nul 2>&1
 
 REM If you're running from a location with these optional second-stage install files, copy them over.
 if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer > nul 2>&1) else (curl -L -o %USERPROFILE%\repos\transfer\apt_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/apt_installs.sh" > nul 2>&1)
 if exist requirements.txt (copy requirements.txt %USERPROFILE%\repos\transfer > nul 2>&1) else (curl -L -o %USERPROFILE%\repos\transfer\requirements.txt "https://raw.githubusercontent.com/miklevin/drinkme/main/requirements.txt" >nul 2>&1)
 
-REM Set up WSL with systemd and metadata options (don't send to nul)
-:: wsl -d Ubuntu-20.04 -u root -e echo -e [boot]\nsystemd=true\n[automount]\noptions=\"metadata\" >> ./wsl.conf
-:: wsl -d Ubuntu-20.04 -u root -e mv wsl.conf /etc/
-wsl -t Ubuntu-20.04
+REM This stops and restarts like a wsl --shutdown to activate systemd and metadata options.
+wsl -t Ubuntu-20.04 >nul 2>&1
 
 :: Create symbolic links from Windows paths to WSL paths.
 wsl -d Ubuntu-20.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh && ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos && ln -s /mnt/c/Users/%USERNAME%/.config/ /home/ubuntu/.config && ln -s /mnt/c/Users/%USERNAME%/.jupyter/ /home/ubuntu/.jupyter" >nul 2>&1
