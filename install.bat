@@ -76,7 +76,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.2.7
+set drinkme=0.2.8
 set python=3.11
 @echo off
 local
@@ -287,16 +287,15 @@ cscript /nologo %SCRIPT%
 del %SCRIPT%
 del /Q %USERPROFILE%\repos\transfer\*
 
-for /f "delims=: tokens=1*" %%A in ('findstr /b ":::unicorn:::" "%~f0"') do (echo.%%B)
-set /p warning= %
 :::thump:::                                                   /)
-:::thump::: _  Linux has         _          _ _        /)\_ _// 
+:::thump::: _     Linux has      _          _ _        /)\_ _// 
 :::thump:::| |    __ _ _ __   __| | ___  __| | |   ___(/_ 0 0   
 :::thump:::| |   / _` | '_ \ / _` |/ _ \/ _` | | *(     =(_T_)= 
 :::thump:::| |__| (_| | | | | (_| |  __/ (_| |_|   \  )   \"\   
 :::thump:::|_____\__,_|_| |_|\__,_|\___|\__,_(_)    |__>-\_>_>  
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::thump:::" "%~f0"') do (echo.%%B)
 echo Double-click the icon "Linux Shell" created where you ran the script.
+echo.
 echo You can then reach JupyterLab in a Windows browser at http://localhost:8888
 echo From Microsoft Edge, you can make JupyterLab an app from: .../Apps/Install
 echo.
