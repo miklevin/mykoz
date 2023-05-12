@@ -41,8 +41,8 @@ https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh -o /home
 https://raw.githubusercontent.com/miklevin/drinkme/main/jupyter.service -o /etc/systemd/system/jupyter.service > /dev/null
 
 # Then we get everything that needs to be done under the ubuntu user context
-curl -sL https://raw.githubusercontent.com/miklevin/vim/master/all -o /home/ubuntu/pyenv/bin/all \
-https://raw.githubusercontent.com/miklevin/drinkme/main/startjupyter -o /home/ubuntu/pyenv/bin/startjupyter 
+curl -sL https://raw.githubusercontent.com/miklevin/vim/master/all -o /home/ubuntu/pyenv/bin/all
+curl -sL https://raw.githubusercontent.com/miklevin/drinkme/main/startjupyter -o /home/ubuntu/pyenv/bin/startjupyter 
 
 # Give execution context to the scripts
 sudo chmod +x /home/ubuntu/pyenv/bin/startjupyter > /dev/null 2>&1
@@ -62,8 +62,6 @@ mv -n /home/ubuntu/repos/transfer/known_hosts /home/ubuntu/.ssh > /dev/null 2>&1
 mv -n /home/ubuntu/repos/transfer/configure /home/ubuntu/.ssh > /dev/null 2>&1
 /home/ubuntu/pyenv/bin/python -m pip install --upgrade pip > /dev/null 2>&1
 
-figlet -t "NodeJS install..."
-sleep 1s
 curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh > /dev/null 2>&1
 sudo bash /tmp/nodesource_setup.sh > /dev/null 2>&1
 sudo apt install nodejs -y > /dev/null 2>&1
@@ -74,7 +72,7 @@ then
     sleep 1s
     source /home/ubuntu/repos/transfer/apt_installs.sh > /dev/null 2>&1
 fi
-sh -c 'curl -fLo /home/ubuntu/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+sh -c 'curl -fLo /home/ubuntu/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' > /dev/null 2>&1
 if [ -f /home/ubuntu/repos/transfer/requirements.txt ]
 then
     figlet -t "Pip Installs..."
@@ -82,13 +80,13 @@ then
     /home/ubuntu/pyenv/bin/python -m pip install -r /home/ubuntu/repos/transfer/requirements.txt > /dev/null 2>&1
 fi
 
-figlet -t "Installing NodeJS..."
+figlet -t "NodeJS..."
 sleep 1s
 curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh > /dev/null 2>&1
 sudo bash /tmp/nodesource_setup.sh > /dev/null 2>&1
 sudo apt install nodejs -y > /dev/null 2>&1
 
-figlet -t "Installing Jupyter..."
+figlet -t "Jupyter..."
 jupyter labextension install jupyterlab-plotly > /dev/null 2>&1
 sudo systemctl enable jupyter > /dev/null 2>&1
 sudo systemctl start jupyter > /dev/null 2>&1

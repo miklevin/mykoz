@@ -76,7 +76,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.2.9
+set drinkme=0.3.0
 set python=3.11
 @echo off
 local
@@ -264,7 +264,7 @@ wsl -d Ubuntu-20.04 -u root /bin/bash -c "echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:AL
 
 :: Grab and run second-half of install that runs under WSL and set up Linux graphics.
 wsl -d Ubuntu-20.04 -u ubuntu -e curl -L -o /home/ubuntu/install.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/install.sh" >nul 2>&1
-wsl -d Ubuntu-20.04 -e bash -lic "bash /home/ubuntu/install.sh %VAR%" >nul 2>&1
+wsl -d Ubuntu-20.04 -e bash -lic "bash /home/ubuntu/install.sh %VAR%"
 
 :: Grab post-reboot scripts. ACLs aren't sufficient for git cloning without a wsl --shutdown
 wsl -t Ubuntu-20.04 >nul 2>&1
