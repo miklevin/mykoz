@@ -76,7 +76,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.4.4
+set drinkme=0.4.6
 set python=3.11
 @echo off
 local
@@ -240,7 +240,7 @@ curl -sL -o %USERPROFILE%\transfer\wsl.conf "https://raw.githubusercontent.com/m
 curl -sL -o %USERPROFILE%\.config\bash.ico "https://raw.githubusercontent.com/miklevin/drinkme/main/icons/bash.ico" >nul 2>&1
 
 REM Put the WSL config files in place.
-wsl -d Ubuntu-20.04 -u root cp /mnt/c/Users/%USERPROFILE%/repos/transfer/wsl.conf /etc/wsl.conf
+wsl -d Ubuntu-20.04 -u root cp "/mnt/c/Users/%USERPROFILE%/repos/transfer/wsl.conf" /etc/wsl.conf
 
 REM If you're running from a location with these optional second-stage install files, copy them over.
 if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer > nul 2>&1) else (curl -L -o %USERPROFILE%\repos\transfer\apt_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/apt_installs.sh" > nul 2>&1)
