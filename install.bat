@@ -76,7 +76,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.4.8
+set drinkme=0.4.9
 set python=3.11
 @echo off
 local
@@ -171,7 +171,13 @@ cls
 :::warn::: - A new Ubuntu 20.04 will be installed (replacing the default).
 :::warn::: - ALL other Linuxes running under WSL are left untouched.
 :::warn::: - JupyterLab will be reachable at http://localhost:8888
+:::warn::: - The JupyterLab server will be started automatically.
 :::warn:::
+:::warn::: SIDE EFFECTS:
+:::warn::: - Your code will become standard and ready to deploy in many situations.
+:::warn::: - You will become independent of any particular Desktop or Cloud service.
+:::warn:::
+:::warn::: WHAT TO LOOK FOR:
 :::warn::: - A "JuputerLab Login" icon will be created where you run the script.
 :::warn::: - Double-clicking it will start JupyterLab and open a Terminal window.
 :::warn::: - The Terminal, a.k.a. Shell or command-line CAN currently MUST be kept
