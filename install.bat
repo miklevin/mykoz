@@ -76,7 +76,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.5.0
+set drinkme=0.5.1
 set python=3.11
 @echo off
 local
@@ -103,18 +103,16 @@ if not "%1" == "" (
         if "%%~xI" neq "" set "version=%%~nI%%~xI"
     )
 )
-
-echo  Ubuntu 20.04 Python %version% DrinkMe %drinkme%
+echo  This will install Ubuntu 20.04 & Python %version% using DrinkMe %drinkme%
+:::rabbit:::                                                                        __        
+:::rabbit::: Magic Trick Linux: Always Up Your Sleeve! - Use all the best versions/)  \ 
+:::rabbit:::  _     _                 __     ____  __  - Free as in Libre  /)\___//    |
+:::rabbit::: | |   (_)_ __  _   ___  _\ \   / /  \/  | - Normal paths  ___(/_ 0 0 |    |
+:::rabbit::: | |   | | '_ \| | | \ \/ /\ \ / /| |\/| | - On Mac/Win  *(     =(_T_)=    |
+:::rabbit::: | |___| | | | | |_| |>  <  \ V / | |  | | - Timeless      \  )   \"\ \    /
+:::rabbit::: |_____|_|_| |_|\__,_/_/\_\  \_/  |_|  |_| - Mad skillz     |__>-\_>_> \__/ 
+:::rabbit:::                                           
 :::rabbit::: Use a Linux VM like a Java machine or a CSS reset. Normalize your code!
-:::rabbit:::                                                                          __        
-:::rabbit:::  _     _                 __     ____  __   - Use best versions       /) /  \ 
-:::rabbit::: | |   (_)_ __  _   ___  _\ \   / /  \/  |  - Have good paths  /)\___// /    |
-:::rabbit::: | |   | | '_ \| | | \ \/ /\ \ / /| |\/| |  - Libre FREE   ___(/_ 0 0   |    |
-:::rabbit::: | |___| | | | | |_| |>  <  \ V / | |  | |  - Win/Mac    *(     =(_T_)= |    |
-:::rabbit::: |_____|_|_| |_|\__,_/_/\_\  \_/  |_|  |_|  - Timeless     \  )   \"\   \    /
-:::rabbit::: Magic Trick Linux: Always Up Your Sleeve!  - Mad skillz    |__>-\_>_>   \__/ 
-:::rabbit:::                                           
-:::rabbit:::                                           
 :::rabbit::: This script will install Linux under the Windows Subsystem for Linux (WSL2)
 :::rabbit::: and use it to host JupterLab, accessible through your Windows browser at
 :::rabbit::: http://localhost:8888 so all your Python code is standard and future-proof.
@@ -126,10 +124,10 @@ echo  Ubuntu 20.04 Python %version% DrinkMe %drinkme%
 :::rabbit::: This script will also install Python 3.11 and JupyterLab 3.6.
 :::rabbit:::
 :::rabbit::: If you want to install a different version of Python, you can do so by
-:::rabbit::: renaming the file to 3.8.bat or 3.9.bat or 3.10.bat or 3.11.bat, etc.
+:::rabbit::: renaming the install.bat file to 3.8.bat or 3.9.bat or 3.10.bat, etc.
 :::rabbit:::
 :::rabbit::: Mac Version:
-:::rabbit::: Coming Soon!           Press [Enter] to jump down the Linux rabbit hole...
+:::rabbit::: Coming Soon!           Press [Enter] to JUMP DOWN THE LINUX RABBIT HOLE...
 :::rabbit:::                                  (or press Ctrl+C escape.)      prompt 1/3
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::rabbit:::" "%~f0"') do (echo.%%B)
 set /p warning= %
