@@ -76,7 +76,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.4.9
+set drinkme=0.5.0
 set python=3.11
 @echo off
 local
@@ -105,38 +105,42 @@ if not "%1" == "" (
 )
 
 echo  Ubuntu 20.04 Python %version% DrinkMe %drinkme%
-:::rabbit:::                                                                        __  
-:::rabbit:::   _     _                 __     ____  __  - Best versions         /) /  \ 
-:::rabbit:::  | |   (_)_ __  _   ___  _\ \   / /  \/  | - Normal paths   /)\___// /    |
-:::rabbit:::  | |   | | '_ \| | | \ \/ /\ \ / /| |\/| | - No cost    ___(/_ 0 0   |    |
-:::rabbit:::  | |___| | | | | |_| |>  <  \ V / | |  | | - Win/Mac  *(     =(_T_)= |    |
-:::rabbit:::  |_____|_|_| |_|\__,_/_/\_\  \_/  |_|  |_| - Mad skilz  \  )   \"\   \    /
-:::rabbit:::  Magic Trick Linux: Always Up Your Sleeve! - Timeless    |__>-\_>_>   \__/ 
-:::rabbit:::                                            
-:::rabbit:::  This script will install Linux under the Windows Subsystem for Linux (WSL2)
-:::rabbit:::  and use it to host JupterLab, accessible through your Windows browser at
-:::rabbit:::  http://localhost:8888 so all your Python code is standard and future-proof.
+:::rabbit::: Use a Linux VM like a Java machine or a CSS reset. Normalize your code!
+:::rabbit:::                                                                          __        
+:::rabbit:::  _     _                 __     ____  __   - Use best versions       /) /  \ 
+:::rabbit::: | |   (_)_ __  _   ___  _\ \   / /  \/  |  - Have good paths  /)\___// /    |
+:::rabbit::: | |   | | '_ \| | | \ \/ /\ \ / /| |\/| |  - Libre FREE   ___(/_ 0 0   |    |
+:::rabbit::: | |___| | | | | |_| |>  <  \ V / | |  | |  - Win/Mac    *(     =(_T_)= |    |
+:::rabbit::: |_____|_|_| |_|\__,_/_/\_\  \_/  |_|  |_|  - Timeless     \  )   \"\   \    /
+:::rabbit::: Magic Trick Linux: Always Up Your Sleeve!  - Mad skillz    |__>-\_>_>   \__/ 
+:::rabbit:::                                           
+:::rabbit:::                                           
+:::rabbit::: This script will install Linux under the Windows Subsystem for Linux (WSL2)
+:::rabbit::: and use it to host JupterLab, accessible through your Windows browser at
+:::rabbit::: http://localhost:8888 so all your Python code is standard and future-proof.
 :::rabbit:::
-:::rabbit:::  It's best to install Ubuntu 20.04 from the Windows Store first, then run
-:::rabbit:::  this script. Save & Run this .bat on your Desktop for the ultimate portable
-:::rabbit:::  Linux environment that can float from computer to computer for a lifetime.
+:::rabbit::: It's best to install Ubuntu 20.04 from the Windows Store first, then run
+:::rabbit::: this script. Save & Run this .bat on your Desktop for the ultimate portable
+:::rabbit::: Linux environment that can float from computer to computer for a lifetime.
 :::rabbit:::
-:::rabbit:::  This script will also install Python 3.11 and JupyterLab 3.6.
+:::rabbit::: This script will also install Python 3.11 and JupyterLab 3.6.
 :::rabbit:::
-:::rabbit:::  If you want to install a different version of Python, you can do so by
-:::rabbit:::  renaming the file to 3.8.bat or 3.9.bat or 3.10.bat or 3.11.bat, etc.
+:::rabbit::: If you want to install a different version of Python, you can do so by
+:::rabbit::: renaming the file to 3.8.bat or 3.9.bat or 3.10.bat or 3.11.bat, etc.
 :::rabbit:::
-:::rabbit:::  Mac Version:
-:::rabbit:::  Coming Soon!           Press [Enter] to jump down the Linux rabbit hole...
-:::rabbit:::                                   (or press Ctrl+C escape.)      prompt 1/3
+:::rabbit::: Mac Version:
+:::rabbit::: Coming Soon!           Press [Enter] to jump down the Linux rabbit hole...
+:::rabbit:::                                  (or press Ctrl+C escape.)      prompt 1/3
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::rabbit:::" "%~f0"') do (echo.%%B)
 set /p warning= %
 cls
-:::unicorn:::  Write once, Run Anywhere without the       THE LINUX CAN BE INVISIBLE
-:::unicorn:::  need to modify your code for platforms     ___________________________ 
-:::unicorn:::  or production environments. You never     /                           \
-:::unicorn:::  actually need to see Linux. Just make     |        Ridiculous!        |
-:::unicorn:::  your Jupyter Notebooks "Linux standard"   |    There's no such thing. |               
+:::unicorn:::
+:::unicorn:::  Write once, Run Anywhere without the      
+:::unicorn:::  need to modify your code for platforms     THE LINUX CAN BE INVISIBLE
+:::unicorn:::  or production environments. You never      ___________________________ 
+:::unicorn:::  actually need to see Linux. Just make     /                           \
+:::unicorn:::  your Jupyter Notebooks "Linux standard"   |       Ridiculous!         |               
+:::unicorn:::                                            |   There's no such thing.  |
 :::unicorn:::                                            \___________________________/               
 :::unicorn:::   Yes there is, Mr. Unicorn!                               ()     ,      
 :::unicorn:::    ________________________     Here's how it works:         O    \\  .  
@@ -149,41 +153,42 @@ cls
 :::unicorn:::   |__|                  |_|   |  |_________________|  |                 
 :::unicorn:::      '------------------'     |_______________________|  No, not Docker
 :::unicorn:::                                                         
+:::unicorn:::                                                         
 :::unicorn:::   - Better than Jupyter-Desktop for portability    "The time has come to
 :::unicorn:::   - Better than Anaconda for system automation     get on standard tools"
-:::unicorn:::   - Better than Docker for control & persistence   the Walrus never said.
+:::unicorn:::   - Better than Docker for ease & admin-ability    the Walrus never said.
 :::unicorn:::   - Better than the Cloud for privacy, security    
-:::unicorn:::     component availability & browser automation           - The Carpenter
+:::unicorn:::     package availability & browser automation            - The Carpenter
 :::unicorn:::                                                             
 :::unicorn:::                      Press [Enter] to jump down the Linux rabbit hole...
 :::unicorn:::                                (or press Ctrl+C escape.)      prompt 2/3
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::unicorn:::" "%~f0"') do (echo.%%B)
 set /p warning= %
 cls
-:::warn:::   _____ _             _  __        __               _             _ 
-:::warn:::  |  ___(_)_ __   __ _| | \ \      / /_ _ _ __ _ __ (_)_ __   __ _| |
-:::warn:::  | |_  | | '_ \ / _` | |  \ \ /\ / / _` | '__| '_ \| | '_ \ / _` | |
-:::warn:::  |  _| | | | | | (_| | |   \ V  V / (_| | |  | | | | | | | | (_| |_|
-:::warn:::  |_|   |_|_| |_|\__,_|_|    \_/\_/ \__,_|_|  |_| |_|_|_| |_|\__, (_)
-:::warn:::                                                             |___/  
-:::warn::: WARNING:
-:::warn::: - This will uninstall any previous Ubuntu-20.04 under WSL <-- IMPORTANT
-:::warn::: - A new Ubuntu 20.04 will be installed (replacing the default).
-:::warn::: - ALL other Linuxes running under WSL are left untouched.
-:::warn::: - JupyterLab will be reachable at http://localhost:8888
-:::warn::: - The JupyterLab server will be started automatically.
-:::warn:::
-:::warn::: SIDE EFFECTS:
-:::warn::: - Your code will become standard and ready to deploy in many situations.
-:::warn::: - You will become independent of any particular Desktop or Cloud service.
-:::warn:::
-:::warn::: WHAT TO LOOK FOR:
-:::warn::: - A "JuputerLab Login" icon will be created where you run the script.
-:::warn::: - Double-clicking it will start JupyterLab and open a Terminal window.
-:::warn::: - The Terminal, a.k.a. Shell or command-line CAN currently MUST be kept
+
+:::warn::: _   _         _                    _               _                _    
+:::warn:::| \ | | ___   | |_ _   _ _ __ _ __ (_)_ __   __ _  | |__   __ _  ___| | __
+:::warn:::|  \| |/ _ \  | __| | | | '__| '_ \| | '_ \ / _` | | '_ \ / _` |/ __| |/ /
+:::warn:::| |\  | (_) | | |_| |_| | |  | | | | | | | | (_| | | |_) | (_| | (__|   < 
+:::warn:::|_| \_|\___/   \__|\__,_|_|  |_| |_|_|_| |_|\__, | |_.__/ \__,_|\___|_|\_\
+:::warn::: - This will uninstall previous Ubuntu-20.04|___/under WSL   <-- IMPORTANT
+:::warn:::                                                                      __  
+:::warn::: - A new Ubuntu 20.04 will be installed (replacing the default).     /  \ 
+:::warn::: - ALL other Linuxes running under WSL are left untouched.          |/)\_|
+:::warn::: - JupyterLab will be reachable at http://localhost:8888         ___(/_ 0|
+:::warn::: - JupyterLab is active when Linux Terminals are open.         *(     =(_|
+:::warn:::                                                                 \  )   \/
+:::warn::: WHAT TO LOOK FOR:                                                |__>-_/
+:::warn::: - A "Linux Shell" icon will be created where you run the script
+:::warn::: - Double-clicking it will open a Terminal, ensuring Linux is running.   
+:::warn::: - The Terminal, a.k.a. Shell or command-line currently MUST be kept     
 :::warn:::   open for JupyerLab to continue to be served (WSL systemd shortcoming).
-:::warn::: - But the Jupyter server and the entire Linux system it's running under
-:::warn:::   can be reached through the Terminal using the screen command.
+:::warn:::                                                                         
+:::warn::: GETTING A JUPYTER ICON:                                                 
+:::warn::: - You can create a JupyterLab icon on your Desktop through Microsoft    
+:::warn:::   Edge browser by clicking the "..." menu in the upper right corner     
+:::warn:::   and selecting "Apps > Install this site as an app".
+:::warn::: - A pretty icon is in the icons folder of GitHub.com/miklevin/drinkme.
 :::warn:::
 :::warn:::                      Press [Enter] to jump down the Linux rabbit hole...
 :::warn:::                                (or press Ctrl+C escape.)      prompt 3/3

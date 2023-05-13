@@ -66,7 +66,7 @@ sudo apt install nodejs -y > /dev/null 2>&1
 
 if [ -f /home/ubuntu/repos/transfer/apt_installs.sh ]
 then
-    figlet -t "DbPkg..."
+    figlet -t "DbPkg's..."
     sleep 1s
     source /home/ubuntu/repos/transfer/apt_installs.sh > /dev/null 2>&1
 fi
