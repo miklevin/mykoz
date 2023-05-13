@@ -241,7 +241,7 @@ if not exist "%USERPROFILE%\repos\transfer" mkdir %USERPROFILE%\repos\transfer >
 if not exist "%USERPROFILE%\.wslconfig" curl -sL -o %USERPROFILE%\.wslconfig "https://raw.githubusercontent.com/miklevin/drinkme/main/.wslconfig" >nul 2>&1
 if not exist "%USERPROFILE%\.jupyter" mkdir %USERPROFILE%\.jupyter >nul 2>&1
 if not exist "%USERPROFILE%\.config" mkdir %USERPROFILE%\.config >nul 2>&1
-curl -sL -o %USERPROFILE%\transfer\wsl.conf "https://raw.githubusercontent.com/miklevin/drinkme/main/wsl.conf" >nul 2>&1
+curl -sL -o %USERPROFILE%\repos\transfer\wsl.conf "https://raw.githubusercontent.com/miklevin/drinkme/main/wsl.conf" >nul 2>&1
 curl -sL -o %USERPROFILE%\.config\bash.ico "https://raw.githubusercontent.com/miklevin/drinkme/main/icons/bash.ico" >nul 2>&1
 
 REM Put the WSL config files in place.
