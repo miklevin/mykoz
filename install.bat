@@ -21,31 +21,30 @@
 :: - Automate Web browsers with Playwright.
 :: - Cycle your IP with easy Windows VPN.
 :: - Learn more at https://pipulate.com
-
-::                     ___
-::        JupyterLab  |   |         ____
-::         on Linux   |_  |        /    \
-::                      \ |       |      \
-::                      |  \      |       \
-::                       \  \____ \_      |
-::                        \      \_/     _|
-::                  __     \_           /
-:: .-,             /  \      |          |
-:: |  \            |   `----_|          |
-::  \  \_________,-`                /\   \
-::  |                              /  \_  \
-::  `-----------,                  |    \  \
-::              |                  /     \  |
-::              |                 |       | \
-::              /                 |       \__|
-::             /   _              |
-::            /   / \_             \
-::            |  /    \__      __--`
-::           _/ /        \____/
-::       ___/  /
-::      /     /            A future-proofed
-::      `----`            Wonderland awaits!
-
+::                    ___          
+::                   |   |         _____  
+::                   |_  |        /     \      
+::                     \ |       |       \     
+::                     |  \      |       /     
+::                      \  \____ \_      \     
+::                       \      \_/      |     
+::                 ___.   \_            _/     
+::.-,             /    \    |          |       
+::|  \          _/      `--_/           \_     
+:: \  \________/                     /\   \    
+:: |                                /  \_  \   
+:: `-----------,                   |     \  \  
+::             |                  /       \  | 
+::             |                 |         | \ 
+::             /                 |         \__|
+::            /   _              |             
+::           /   / \_             \            
+::           |  /    \__      __--`            
+::          _/ /        \   _/                 
+::      ___/  /          \_/                   
+::     /     /                                 
+::     `----`                                  
+::
 :: INSTRUCTIONS (SAVE AS .BAT)
 :: Name file install.bat and save it to your Desktop.
 :: Alternatively, name it 3.8.bat for Python 3.8
@@ -76,7 +75,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.5.4
+set drinkme=0.5.5
 set python=3.11
 @echo off
 local
