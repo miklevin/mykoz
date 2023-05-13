@@ -165,23 +165,24 @@ set /p warning= %
 :::warn:::| |\  | (_) | | |_| |_| | |  | | | | | | | | (_| | | |_) | (_| | (__|   < 
 :::warn:::|_| \_|\___/   \__|\__,_|_|  |_| |_|_|_| |_|\__, | |_.__/ \__,_|\___|_|\_\
 :::warn::: - This will uninstall previous Ubuntu-20.04|___/under WSL   <-- IMPORTANT
-:::warn:::                                                                      __  
-:::warn::: - A new Ubuntu 20.04 will be installed (replacing the default).     /  \ 
-:::warn::: - ALL other Linuxes running under WSL are left untouched.          |/)\_|
-:::warn::: - JupyterLab will be reachable at http://localhost:8888         ___(/_ 0|
-:::warn::: - JupyterLab is active when Linux Terminals are open.         *(     =(_|
-:::warn:::                                                                 \  )   \/
-:::warn::: WHAT TO LOOK FOR:                                                |__>-_/
-:::warn::: - A "Linux Shell" icon will be created where you run the script
-:::warn::: - Double-clicking it will open a Terminal, ensuring Linux is running.   
-:::warn::: - The Terminal, a.k.a. Shell or command-line currently MUST be kept     
-:::warn:::   open for JupyerLab to continue to be served (WSL systemd shortcoming).
+:::warn:::                                                                       __ 
+:::warn::: - A new Ubuntu 20.04 will be installed REPLACING THE DEFAULT!!!      /  \
+:::warn::: - OTHER LINUXES running under WSL are LEFT UNTOUCHED.               |/)\_|
+:::warn::: - JupyterLab will be reachable at http://localhost:8888          ___(/_ 0|
+:::warn:::                                                                *(     =(_|
+:::warn::: THE RULES OF WONDERLAND:                                         \  )   \/
+:::warn::: - A "Linux Shell" icon will appear where you run the installer.   |__>-_/
+:::warn::: - Double-clicking it will open a Terminal, ensuring Linux is rrrrrunning!
+:::warn::: - The Terminal, a.k.a. Shell or command-line currently MUST be opened
+:::warn:::   AT LEAST ONCE before visiting http://localhost:8888 in a browser.
+:::warn::: - The Linux Terminal CAN BE CLOSED immediately after opening.
+:::warn::: - Enjoy a genuine Linux Python experience in your browser!
 :::warn:::                                                                         
-:::warn::: GETTING A JUPYTER ICON:                                                 
+:::warn::: GETTING A COOL JUPYTER ICON:                                                 
 :::warn::: - You can create a JupyterLab icon on your Desktop through Microsoft    
 :::warn:::   Edge browser by clicking the "..." menu in the upper right corner     
 :::warn:::   and selecting "Apps > Install this site as an app".
-:::warn::: - A pretty icon is in the icons folder of GitHub.com/miklevin/drinkme.
+:::warn::: - Change the icon to jupyter.ico found in the DrinkMe repo.
 :::warn:::
 :::warn:::                      Press [Enter] to jump down the Linux rabbit hole...
 :::warn:::                                (or press Ctrl+C escape.)      prompt 3/3
