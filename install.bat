@@ -298,9 +298,9 @@ del /Q %USERPROFILE%\repos\transfer\*
 :::thump:::                                                       .----------------.
 :::thump:::                                                       | Oh, my fur and |
 :::thump:::                                                   /) (  whiskers! It's |                   
-:::thump::: _     Linux has      _          _ _        /)\___// o | to Jupyer I go |                  )
+:::thump::: _     Linux has      _          _ _        /)\___// o | to Jupyer I go |
 :::thump:::| |    __ _ _ __   __| | ___  __| | |   ___(/_ 0 0     '----------------'                   
-:::thump:::| |   / _` | '_ \ / _` |/ _ \/ _` | | *(     =(_T_)=  
+:::thump:::| |   / _` | '_ \ / _` |/ _ \/ _` | | *(     =(_T_)=  http://localhost:8888
 :::thump:::| |__| (_| | | | | (_| |  __/ (_| |_|   \  )   \"\      
 :::thump:::|_____\__,_|_| |_|\__,_|\___|\__,_(_)    |__>-\_>_>  
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::thump:::" "%~f0"') do (echo.%%B)
