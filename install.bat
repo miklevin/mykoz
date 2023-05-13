@@ -76,7 +76,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.5.2
+set drinkme=0.5.3
 set python=3.11
 @echo off
 local
@@ -294,7 +294,7 @@ echo oLink.Save >> %SCRIPT%
 
 cscript /nologo %SCRIPT%
 del %SCRIPT%
-:: del /Q %USERPROFILE%\repos\transfer\*
+del /Q %USERPROFILE%\repos\transfer\*
                                                                                     
 :::thump:::                                                       .----------------.
 :::thump:::                                                       | Oh, my fur and |
