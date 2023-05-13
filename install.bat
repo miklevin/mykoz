@@ -76,7 +76,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.5.1
+set drinkme=0.5.2
 set python=3.11
 @echo off
 local
@@ -131,7 +131,6 @@ echo  This will install Ubuntu 20.04 and Python %version% using DrinkMe %drinkme
 :::rabbit:::                                  (or press Ctrl+C escape.)      prompt 1/3
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::rabbit:::" "%~f0"') do (echo.%%B)
 set /p warning= %
-cls
 :::unicorn:::
 :::unicorn:::  Write once, Run Anywhere without the      
 :::unicorn:::  need to modify your code for platforms     THE LINUX CAN BE INVISIBLE
@@ -151,7 +150,6 @@ cls
 :::unicorn:::   |__|                  |_|   |  |_________________|  |                 
 :::unicorn:::      '------------------'     |_______________________|  No, not Docker
 :::unicorn:::                                                         
-:::unicorn:::                                                         
 :::unicorn:::   - Better than Jupyter-Desktop for portability    "The time has come to
 :::unicorn:::   - Better than Anaconda for system automation     get on standard tools"
 :::unicorn:::   - Better than Docker for ease & admin-ability    the Walrus never said.
@@ -162,8 +160,6 @@ cls
 :::unicorn:::                                (or press Ctrl+C escape.)      prompt 2/3
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::unicorn:::" "%~f0"') do (echo.%%B)
 set /p warning= %
-cls
-
 :::warn::: _   _         _                    _               _                _    
 :::warn:::| \ | | ___   | |_ _   _ _ __ _ __ (_)_ __   __ _  | |__   __ _  ___| | __
 :::warn:::|  \| |/ _ \  | __| | | | '__| '_ \| | '_ \ / _` | | '_ \ / _` |/ __| |/ /
