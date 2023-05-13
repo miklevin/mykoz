@@ -103,7 +103,7 @@ if not "%1" == "" (
         if "%%~xI" neq "" set "version=%%~nI%%~xI"
     )
 )
-echo  This will install Ubuntu 20.04 & Python %version% using DrinkMe %drinkme%
+echo  This will install Ubuntu 20.04 and Python %version% using DrinkMe %drinkme%
 :::rabbit:::                                                                        __        
 :::rabbit::: Magic Trick Linux: Always Up Your Sleeve! - Use all the best versions/)  \ 
 :::rabbit:::  _     _                 __     ____  __  - Free as in Libre  /)\___//    |
