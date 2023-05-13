@@ -134,7 +134,7 @@ set /p warning= %
 :::unicorn:::
 :::unicorn:::  Write once, Run Anywhere without the      
 :::unicorn:::  need to modify your code for platforms     THE LINUX CAN BE INVISIBLE
-:::unicorn:::  or production environments. You never      ___________________________ 
+:::unicorn:::  or production environments. You rarely     ___________________________ 
 :::unicorn:::  actually need to see Linux. Just make     /                           \
 :::unicorn:::  your Jupyter Notebooks "Linux standard"   |       Ridiculous!         |               
 :::unicorn:::                                            |   There's no such thing.  |
