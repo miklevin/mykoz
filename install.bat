@@ -75,7 +75,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.6.0
+set drinkme=0.6.1
 set python=3.11
 @echo off
 local
@@ -216,7 +216,6 @@ set /p warning= %
 :::down::: You're falling down the rabbit hole. Please have patience and be brave!
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
 echo  Dropping: Ubuntu 20.04, Python %version%, DrinkMe %drinkme%... Wonderland awaits!
-ping 127.0.0.1 -n 2 >nul
 
 wsl --unregister Ubuntu-20.04 >nul
 wsl --set-default-version 2 >nul
@@ -263,11 +262,11 @@ if exist %USERPROFILE%\.gitconfig (wsl -d Ubuntu-20.04 -e bash -lic "cp /mnt/c/U
 if exist %USERPROFILE%\.pypirc (wsl -d Ubuntu-20.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.pypirc /home/ubuntu/" >nul 2>&1) else (curl -L -o %USERPROFILE%\.pypirc "https://raw.githubusercontent.com/miklevin/drinkme/main/.pypirc" >nul 2>&1)
 
 :: We update the software repository on the Ubuntu 20.04 Machine
-echo You have plenty of time to look around and wonder what will happen next.
+echo  You have plenty of time to look around and wonder what will happen next.
 wsl -d Ubuntu-20.04 -u root -e sudo apt update >nul 2>&1
 
 :: And now the big upgrading of all the Ubuntu 20.04 software.
-echo After such a fall as this, you will think nothing of switching hardware.
+echo  After such a fall as this, you will think nothing of switching hardware.
 wsl -d Ubuntu-20.04 -u root -e sudo apt upgrade -y >nul 2>&1
 
 :: You know what's nice? Not having to type a password every time you sudo a command!
@@ -275,11 +274,11 @@ wsl -d Ubuntu-20.04 -u root /bin/bash -c "echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:AL
 
 :: Grab and run second-half of install that runs under WSL and set up Linux graphics.
 wsl -d Ubuntu-20.04 -u ubuntu -e curl -L -o /home/ubuntu/install_wsl.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/install_wsl.sh" >nul 2>&1
-wsl -d Ubuntu-20.04 -e bash -c "bash /home/ubuntu/install_wsl.sh %VAR% 2>&1
+wsl -d Ubuntu-20.04 -e bash -c bash /home/ubuntu/install_wsl.sh %VAR% 2>&1
 
 :: ACLs need a wsl --shutdown for git clone to work. Also keep the WSL session alive.
 wsl -t Ubuntu-20.04 >nul 2>&1
-nohup ping -i 6 172.17.224.1 >/dev/null 2>&1 &
+wsl -d Ubuntu-20.04 -e bash -c nohup ping -i 6 172.17.224.1 >/dev/null 2>&1 &
 echo Rerun this often for the latest. All your Notebooks and settings are safe!
 
 wsl -d Ubuntu-20.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme >nul 2>&1
