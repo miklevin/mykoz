@@ -15,7 +15,10 @@ export WAYLAND_DISPLAY=wayland-0
 export PULSE_SERVER=/mnt/wslg/pulseserver
 
 # Ping the Microsoft WSL-group every 6 seconds to keep systemd alive.
-nohup ping -i 6 172.17.224.1 >/dev/null 2>&1 &
+if ! pgrep -x "ping" > /dev/null
+then
+    nohup ping -i 6 172.17.224.1 >/dev/null 2>&1 &
+fi
 
 cd ~/repos
 alias vim='nvim'
