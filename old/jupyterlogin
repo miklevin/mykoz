@@ -1,6 +1,0 @@
-until
-        lxc jupyterstart 2>/dev/null
-do
-        sleep 1
-done
-lxc exec jupyter -- su --login ubuntu
