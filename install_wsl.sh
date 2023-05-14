@@ -69,7 +69,7 @@ if [ -f /home/ubuntu/repos/transfer/apt_installs.sh ]
 then
     figlet -t "DbPkg's..."
     echo "Falling past 60K+ apt-installable packages. Grabbing a few."
-    source /home/ubuntu/repos/transfer/apt_installs.sh > /dev/null 2>&1
+    source /home/ubuntu/repos/transfer/apt_installs.sh
 fi
 sh -c 'curl -fLo /home/ubuntu/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' > /dev/null 2>&1
 if [ -f /home/ubuntu/repos/transfer/requirements.txt ]
