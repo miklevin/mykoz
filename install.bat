@@ -75,7 +75,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.6.5
+set drinkme=0.6.6
 set python=3.11
 @echo off
 local
@@ -278,8 +278,7 @@ wsl -d Ubuntu-20.04 -e bash -c "bash /home/ubuntu/install_wsl.sh %VAR% 2>&1
 
 :: ACLs need a wsl --shutdown for git clone to work. Also keep the WSL session alive.
 wsl -t Ubuntu-20.04 >nul 2>&1
-wsl -d Ubuntu-20.04 -e bash -c nohup ping -i 6 172.17.224.1 >/dev/null 2>&1 &
-echo  Rerun this often for the latest. All your Notebooks and settings are safe!
+wsl -d Ubuntu-20.04 -e bash -c "nohup ping -i 6 172.17.224.1 >/dev/null 2>&1 &
 
 wsl -d Ubuntu-20.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme >nul 2>&1
 wsl -d Ubuntu-20.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme.pub >nul 2>&1
