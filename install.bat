@@ -5,11 +5,15 @@
 :: |____/|_|  |_|_| |_|_|\_\ |_|  |_|\___|
 
 :: This Windows batch script installs Linux
-:: JupyterLab on your Windows 10 or 11 laptop.
+:: JupyterLab on your Windows 10 or 11 laptop
+:: using the invisible Rabbit Hole Linux VM.
 
 :: It's best to install Ubuntu 20.04 from the
 :: Windows Store first, then run this script.
 
+:: ------------------------------------------
+:: STILL WORKS BUT DEPRECATED FOR drinkme.bat
+:: ------------------------------------------
 :: Save & Run this .bat on your Desktop for
 :: JupyterLab served at http://localhost:8888
 
@@ -75,7 +79,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.6.6
+set drinkme=0.6.9
 set python=3.11
 @echo off
 local
