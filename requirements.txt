@@ -3,7 +3,6 @@ black
 httpx
 ipywidgets
 jupyterlab
-jupyterlab-spellchecker
 matplotlib
 nltk
 nb-clean
