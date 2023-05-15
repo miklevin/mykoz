@@ -280,6 +280,7 @@ wsl -d Ubuntu-20.04 -e bash -c "bash /home/ubuntu/install_wsl.sh %VAR% 2>&1
 :: ACLs need a wsl --shutdown for git clone to work. Also keep the WSL session alive.
 wsl -t Ubuntu-20.04 >nul 2>&1
 nohup ping -i 6 172.17.224.1 >/dev/null 2>&1 &
+echo Rerun this often for the latest. All your Notebooks and settings are safe!
 
 wsl -d Ubuntu-20.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme >nul 2>&1
 wsl -d Ubuntu-20.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme.pub >nul 2>&1
