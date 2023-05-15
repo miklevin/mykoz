@@ -14,11 +14,10 @@ export XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir
 export WAYLAND_DISPLAY=wayland-0
 export PULSE_SERVER=/mnt/wslg/pulseserver
 
-# Replace Microsoft's ping with our own
-if pgrep ping >/dev/null 2>&1;
-then
-    sudo pkill ping > /dev/null 2>&1;
-    nohup ping -i 5 172.17.224.1 >/dev/null 2>&1 &
+# Ping in a screen session to keep systemd alive.
+screen -wipe >/dev/null 2>&1
+if ! screen -list | grep -q "ping"; then
+    screen -dmS ping ping -i 5 172.17.224.1
 fi
 
 cd ~/repos
