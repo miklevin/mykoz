@@ -15,12 +15,11 @@ export WAYLAND_DISPLAY=wayland-0
 export PULSE_SERVER=/mnt/wslg/pulseserver
 
 # Replace Microsoft's ping with our own
-if pgrep ping > /dev/null 2>&1;
+if pgrep ping >/dev/null 2>&1;
 then
     sudo pkill ping > /dev/null 2>&1;
+    nohup ping -i 5 172.17.224.1 >/dev/null 2>&1 &
 fi
-nohup ping -i 5 172.17.224.1 > /dev/null 2>&1 &
-
 
 cd ~/repos
 alias vim='nvim'

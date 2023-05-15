@@ -79,7 +79,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.7.3
+set drinkme=0.7.4
 set python=3.11
 @echo off
 local
@@ -282,8 +282,8 @@ wsl -d Ubuntu-20.04 -e bash -c "bash /home/ubuntu/install_wsl.sh %VAR% 2>&1
 
 :: ACLs need a wsl --shutdown for git clone to work. Also keep the WSL session alive.
 wsl -t Ubuntu-20.04 >nul 2>&1
-REM This ping doesn't seem to work. Relying on .bash_profile one.
-::wsl -d Ubuntu-20.04 -e bash -c "nohup ping -i 4 172.17.224.1 >/dev/null 2>&1 &
+REM a command that will call .bash_profile
+wsl -d Ubuntu-20.04 -u ubuntu -e bash -lic "echo .bash_profile called" >nul 2>&1
 
 wsl -d Ubuntu-20.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme >nul 2>&1
 wsl -d Ubuntu-20.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme.pub >nul 2>&1
