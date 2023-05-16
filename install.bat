@@ -92,7 +92,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.8.1
+set drinkme=0.8.2
 set python=3.11
 @echo off
 local
@@ -125,10 +125,10 @@ echo  This will install Ubuntu 20.04 and Python %version% using DrinkMe %drinkme
 :::rabbit:::                                                                /) ____
 :::rabbit:::  ____       _     _     _ _     _   _       _            /)\__// /    \
 :::rabbit::: |  _ \ __ _| |__ | |__ (_) |_  | | | | ___ | | ___   ___(/_ 0 0  |     |
-:::rabbit::: | |_) / _` | '_ \| '_ \| | __| | |_| |/ _ \| |/ _ \*(     =(_T_)=>Linux|   
-:::rabbit::: |  _ < (_| | |_) | |_) | | |_  |  _  | (_) | |  __/  \  )   \"\  |     | 
-:::rabbit::: |_| \_\__,_|_.__/|_.__/|_|\__| |_| |_|\___/|_|\___|   |__>-\_>_>  \___/  
-:::rabbit::: 
+:::rabbit::: | |_) / _` | '_ \| '_ \| | __| | |_| |/ _ \| |/ _ \*(     =(_T_)=>Linux|
+:::rabbit::: |  _ < (_| | |_) | |_) | | |_  |  _  | (_) | |  __/  \  )   \"\  |     |
+:::rabbit::: |_| \_\__,_|_.__/|_.__/|_|\__| |_| |_|\___/|_|\___|   |__>-\_>_>  \___/
+:::rabbit:::
 :::rabbit::: This script installs Linux under Windows WSL to run JuptyerLab in your
 :::rabbit::: browser at http://localhost:8888. It's a "floating" Linux environment.
 :::rabbit:::
@@ -149,56 +149,53 @@ echo  This will install Ubuntu 20.04 and Python %version% using DrinkMe %drinkme
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::rabbit:::" "%~f0"') do (echo.%%B)
 set /p warning= %
 :::unicorn:::
-:::unicorn:::  Write once, Run Anywhere without the      
+:::unicorn:::  Write once, Run Anywhere without the
 :::unicorn:::  need to modify your code for platforms     THE LINUX CAN BE INVISIBLE
 :::unicorn:::  or production environments. You don't   _______________________________
 :::unicorn:::  even need to see Linux. Just run the   /                               \
-:::unicorn:::  best "Cloud" versions of everything.  |  Local versions as good as the  |               
+:::unicorn:::  best "Cloud" versions of everything.  |  Local versions as good as the  |
 :::unicorn:::                                        |  Cloud? There's no such thing.  |
-:::unicorn:::                                         \________________________________/               
-:::unicorn:::   Yes there is, Mr. Unicorn!                               ()   ,      
-:::unicorn:::    ________________________      (\              /)          O  \\  .  
-:::unicorn:::   |  Windows 10 or 11     |    ___\\____________//__          o |\\/|  
-:::unicorn:::   |     ____ ____         |   == Rabbit Hole Linux ==          / " '\ 
-:::unicorn:::   |  ,_/site\____\______. |   |  ( your hardware )  |  See!   . .   . 
-:::unicorn:::   |  |                  | |   |  __________________ |< - - - /    ) | 
-:::unicorn:::   |  |   WEB BROWSER    | |   | |  screen session | |       '  _.'  | 
-:::unicorn:::   |  | localhost:8888 <<--------->>Jupyter Server | |       '-'/    \ 
-:::unicorn:::   |__|                  |_|   | |_________________| |             
+:::unicorn:::                                         \________________________________/
+:::unicorn:::   Yes there is, Mr. Unicorn!                               ()   ,
+:::unicorn:::    ________________________      (\              /)          O  \\  .
+:::unicorn:::   |  Windows 10 or 11     |    ___\\____________//__          o |\\/|
+:::unicorn:::   |     ____ ____         |   == Rabbit Hole Linux ==          / " '\
+:::unicorn:::   |  ,_/site\____\______. |   |  ( your hardware )  |  See!   . .   .
+:::unicorn:::   |  |                  | |   |  __________________ |< - - - /    ) |
+:::unicorn:::   |  |   WEB BROWSER    | |   | |  screen session | |       '  _.'  |
+:::unicorn:::   |  | localhost:8888 <<--------->>Jupyter Server | |       '-'/    \
+:::unicorn:::   |__|                  |_|   | |_________________| |
 :::unicorn:::      '------------------'     |_____________________|   What, no Docker?
-:::unicorn:::                                                                      
+:::unicorn:::
 :::unicorn:::   - Better than ANACONDA for systems automation.   "The time has come to
 :::unicorn:::   - Better than DOCKER for ease & admin-ability.   get on standard tools"
 :::unicorn:::   - Better than Jupyter-DESKTOP for portable code.  the Walrus never said.
-:::unicorn:::   - Better than the CLOUD for privacy, VPN usage,    
+:::unicorn:::   - Better than the CLOUD for privacy, VPN usage,
 :::unicorn:::     package availability, browser automation, etc.       - The Carpenter
-:::unicorn:::                                                             
+:::unicorn:::
 :::unicorn:::                      Press [Enter] to jump down the Linux rabbit hole...
 :::unicorn:::                                (or press Ctrl+C escape.)      prompt 2/3
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::unicorn:::" "%~f0"') do (echo.%%B)
 set /p warning= %
-:::warn::: _   _         _                    _               _                _    
-:::warn:::| \ | | ___   | |_ _   _ _ __ _ __ (_)_ __   __ _  | |__   __ _  ___| | __
-:::warn:::|  \| |/ _ \  | __| | | | '__| '_ \| | '_ \ / _` | | '_ \ / _` |/ __| |/ /
-:::warn:::| |\  | (_) | | |_| |_| | |  | | | | | | | | (_| | | |_) | (_| | (__|   < 
-:::warn:::|_| \_|\___/   \__|\__,_|_|  |_| |_|_|_| |_|\__, | |_.__/ \__,_|\___|_|\_\
-:::warn::: - This will uninstall previous Ubuntu-20.04|___/under WSL   <-- IMPORTANT
-:::warn:::                                                                       __ 
+:::warn:::  _              _      ____ _
+:::warn::: | |    __ _ ___| |_   / ___| |__   __ _ _ __   ___ ___  "You can escape
+:::warn::: | |   / _` / __| __| | |   | '_ \ / _` | '_ \ / __/ _ \  with Ctrl+C and
+:::warn::: | |__| (_| \__ \ |_  | |___| | | | (_| | | | | (_|  __/  never know vim."
+:::warn::: |_____\__,_|___/\__|  \____|_| |_|\__,_|_| |_|\___\___|             -Neo
+:::warn:::                                                                       __
 :::warn::: - A new Ubuntu 20.04 will be installed REPLACING THE DEFAULT!!!      /  \
 :::warn::: - OTHER LINUXES running under WSL are LEFT UNTOUCHED.               |/)\_|
 :::warn::: - JupyterLab will be reachable at http://localhost:8888          ___(/_ 0|
 :::warn:::                                                                *(     =(_|
 :::warn::: THE RULES OF WONDERLAND:                                         \  )   \/
-:::warn::: - A "Linux Shell" icon will appear where you run the installer.   |__>-_/
-:::warn::: - Double-clicking it will open a Terminal, ensuring Linux is rrrrrunning!
-:::warn::: - The Terminal, a.k.a. Shell or command-line currently MUST be opened
-:::warn:::   AT LEAST ONCE before visiting http://localhost:8888 in a browser.
-:::warn::: - The Linux Terminal CAN BE CLOSED immediately after opening.
+:::warn::: - A "Linux Shell" icon will appear where you ran the installer.   |__>-_/
+:::warn::: - Double-clicking it will open a Linux Terminal, but this is not
+:::warn:::   necessary until you are ready to go deeper into the rabbit hole.
 :::warn::: - Enjoy a genuine Linux Python experience in your browser!
-:::warn:::                                                                         
-:::warn::: GETTING A COOL JUPYTER ICON:                                                 
-:::warn::: - You can create a JupyterLab icon on your Desktop through Microsoft    
-:::warn:::   Edge browser by clicking the "..." menu in the upper right corner     
+:::warn:::
+:::warn::: GETTING A COOL JUPYTER ICON:
+:::warn::: - You can create a JupyterLab icon on your Desktop through Microsoft
+:::warn:::   Edge browser by clicking the "..." menu in the upper right corner
 :::warn:::   and selecting "Apps > Install this site as an app".
 :::warn::: - Change the icon to jupyter.ico found in the DrinkMe repo.
 :::warn:::
@@ -207,30 +204,30 @@ set /p warning= %
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::warn:::" "%~f0"') do (echo.%%B)
 
 set /p warning= %
-:::down:::                                         ___             
-:::down:::                                        |   |         _____  
-:::down:::                                        |_  |        /     \      
-:::down:::                                          \ |       |       \     
-:::down:::                                          |  \      |       /     
-:::down:::                                           \  \____ \_      \     
-:::down:::                                            \      \_/      |     
-:::down:::                                      ___.   \_            _/     
-:::down:::                     .-,             /    \    |          |       
-:::down:::                     |  \          _/      `--_/           \_     
-:::down:::                      \  \________/                     /\   \    
-:::down:::                      |                                /  \_  \   
-:::down:::                      `-----------,                   |     \  \  
-:::down:::                                  |                  /       \  | 
-:::down:::                                  |                 |         | \ 
+:::down:::                                         ___
+:::down:::                                        |   |         _____
+:::down:::                                        |_  |        /     \
+:::down:::                                          \ |       |       \
+:::down:::                                          |  \      |       /
+:::down:::                                           \  \____ \_      \
+:::down:::                                            \      \_/      |
+:::down:::                                      ___.   \_            _/
+:::down:::                     .-,             /    \    |          |
+:::down:::                     |  \          _/      `--_/           \_
+:::down:::                      \  \________/                     /\   \
+:::down:::                      |                                /  \_  \
+:::down:::                      `-----------,                   |     \  \
+:::down:::                                  |                  /       \  |
+:::down:::                                  |                 |         | \
 :::down:::                                  /                 |         \__|
-:::down:::                                 /   _              |             
-:::down:::                                /   / \_             \            
-:::down:::                                |  /    \__      __--`            
-:::down:::                               _/ /        \   _/                 
-:::down:::                           ___/  /          \_/                   
-:::down:::                          /     /                                 
-:::down:::                          `----`                                  
-:::down:::           
+:::down:::                                 /   _              |
+:::down:::                                /   / \_             \
+:::down:::                                |  /    \__      __--`
+:::down:::                               _/ /        \   _/
+:::down:::                           ___/  /          \_/
+:::down:::                          /     /
+:::down:::                          `----`
+:::down:::
 :::down::: You're falling down the rabbit hole. Please have patience, and be brave!
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
 echo  Dropping: Ubuntu 20.04, Python %version%, DrinkMe %drinkme%... Wonderland awaits!
@@ -316,15 +313,15 @@ echo oLink.Save >> %SCRIPT%
 cscript /nologo %SCRIPT%
 del %SCRIPT%
 del /Q %USERPROFILE%\repos\transfer\*
-                                                                                    
+
 :::thump:::                                                       .----------------.
 :::thump:::                                                       | Oh, my fur and |
-:::thump:::                                                   /) (  whiskers! It's |                   
+:::thump:::                                                   /) (  whiskers! It's |
 :::thump::: _     Linux has      _          _ _        /)\___// o | to Jupyer I go |
-:::thump:::| |    __ _ _ __   __| | ___  __| | |   ___(/_ 0 0     '----------------'                   
+:::thump:::| |    __ _ _ __   __| | ___  __| | |   ___(/_ 0 0     '----------------'
 :::thump:::| |   / _` | '_ \ / _` |/ _ \/ _` | | *(     =(_T_)=  http://localhost:8888
-:::thump:::| |__| (_| | | | | (_| |  __/ (_| |_|   \  )   \"\      
-:::thump:::|_____\__,_|_| |_|\__,_|\___|\__,_(_)    |__>-\_>_>  
+:::thump:::| |__| (_| | | | | (_| |  __/ (_| |_|   \  )   \"\
+:::thump:::|_____\__,_|_| |_|\__,_|\___|\__,_(_)    |__>-\_>_>
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::thump:::" "%~f0"') do (echo.%%B)
 echo Double-click the icon "Linux Shell" created where you ran the script.
 echo.
