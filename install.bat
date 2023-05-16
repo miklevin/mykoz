@@ -129,7 +129,7 @@ echo  This will install Ubuntu 20.04 and Python %version% using DrinkMe %drinkme
 :::rabbit::: |  _ < (_| | |_) | |_) | | |_  |  _  | (_) | |  __/  \  )   \"\  |     | 
 :::rabbit::: |_| \_\__,_|_.__/|_.__/|_|\__| |_| |_|\___/|_|\___|   |__>-\_>_>  \___/  
 :::rabbit::: 
-:::rabbit::: This script installs Linux under the Windows to run JuptyerLab in your
+:::rabbit::: This script installs Linux under Windows WSL to run JuptyerLab in your
 :::rabbit::: browser at http://localhost:8888. It's a "floating" Linux environment.
 :::rabbit:::
 :::rabbit::: ------------------------------------------------------------------------
