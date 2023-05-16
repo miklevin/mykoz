@@ -3,28 +3,28 @@
 :: | | | | '__| | '_ \| |/ / | |\/| |/ _ \
 :: | |_| | |  | | | | |   <  | |  | |  __/
 :: |____/|_|  |_|_| |_|_|\_\ |_|  |_|\___|
-
+:: For Rabbit Hole Linux, by Michael Levin
+::
 :: This Windows batch script installs Linux
 :: JupyterLab on your Windows 10 or 11 laptop
 :: using the invisible Rabbit Hole Linux VM.
-
+::
 :: It's best to install Ubuntu 20.04 from the
 :: Windows Store first, then run this script.
-
-:: ------------------------------------------
-:: STILL WORKS BUT DEPRECATED FOR drinkme.bat
-:: ------------------------------------------
-:: Save & Run this .bat on your Desktop for
-:: JupyterLab served at http://localhost:8888
-
-:: - Always get the latest Python (3.11)
-:: - Name installer 3.8.bat for Python 3.8
-:: - Always get the latest JupyterLab (3.6)
-:: - Exceed limits of cloud-host notebooks.
-:: - Run the versions the Linux servers do.
-:: - Automate Web browsers with Playwright.
-:: - Cycle your IP with easy Windows VPN.
-:: - Learn more at https://pipulate.com
+::
+:: Fetch & re-run this script to update your
+:: Linux environment. It's a "floating" Linux
+:: environment that can last you a lifetime.
+::
+:: Your data is stored in your Windows home
+:: directory, so you can upgrade your hardware
+:: and operating systems without losing data.
+::
+:: That also means you can re-run this install
+:: script often without losing your work.
+:: drinkme.bat is a shortcut to this script:
+::
+:: https://raw.githubusercontent.com/miklevin/drinkme/main/drinkme.bat
 ::                    ___          
 ::                   |   |         _____  
 ::                   |_  |        /     \      
@@ -49,6 +49,19 @@
 ::     /     /                                 
 ::     `----`                                  
 ::
+:: - Always get the latest Python (3.11)
+:: - Always get the latest JupyterLab (4)
+:: - Name installer 3.8.bat for Python 3.8
+:: - Use home VPN software to cycle your IP
+:: - Use Playwright to automate Web browsers
+:: - Run the versions the Linux servers do.
+::
+:: ------------------------------------------
+:: STILL WORKS BUT DEPRECATED FOR drinkme.bat
+:: ------------------------------------------
+:: Save & Run this .bat on your Desktop for
+:: JupyterLab served at http://localhost:8888
+
 :: INSTRUCTIONS (SAVE AS .BAT)
 :: Name file install.bat and save it to your Desktop.
 :: Alternatively, name it 3.8.bat for Python 3.8
@@ -107,26 +120,25 @@ if not "%1" == "" (
     )
 )
 echo  This will install Ubuntu 20.04 and Python %version% using DrinkMe %drinkme%
-:::rabbit:::                                                                        __        
-:::rabbit::: Magic Trick Linux: Always Up Your Sleeve! - Use all the best versions/)  \ 
-:::rabbit:::  _     _                 __     ____  __  - Free as in Libre  /)\___//    |
-:::rabbit::: | |   (_)_ __  _   ___  _\ \   / /  \/  | - Normal paths  ___(/_ 0 0 |    |
-:::rabbit::: | |   | | '_ \| | | \ \/ /\ \ / /| |\/| | - On Mac/Win  *(     =(_T_)=    |
-:::rabbit::: | |___| | | | | |_| |>  <  \ V / | |  | | - Timeless      \  )   \"\ \    /
-:::rabbit::: |_____|_|_| |_|\__,_/_/\_\  \_/  |_|  |_| - Mad skillz     |__>-\_>_> \__/ 
-:::rabbit:::                                           
-:::rabbit::: Use a Linux VM like a Java machine or a CSS reset. Normalize your code!
-:::rabbit::: This script will install Linux under the Windows Subsystem for Linux (WSL2)
-:::rabbit::: and use it to host JupterLab, accessible through your Windows browser at
-:::rabbit::: http://localhost:8888 so all your Python code is standard and future-proof.
+
+:::rabbit::: RABBIT HOLE LINUX: Write Once, Run Forever. Future-proof Yourself.
+:::rabbit::: Use Linux like a Java VM or a CSS reset. As Timeless as Wonderland.__
+:::rabbit:::  ____       _     _     _ _     _   _       _            /)\__// /   \
+:::rabbit::: |  _ \ __ _| |__ | |__ (_) |_  | | | | ___ | | ___   ___(/_ 0 0  |    | 
+:::rabbit::: | |_) / _` | '_ \| '_ \| | __| | |_| |/ _ \| |/ _ \*(     =(_T_)=|*NIX|    
+:::rabbit::: |  _ < (_| | |_) | |_) | | |_  |  _  | (_) | |  __/  \  )   \"\  |    | 
+:::rabbit::: |_| \_\__,_|_.__/|_.__/|_|\__| |_| |_|\___/|_|\___|   |__>-\_>_>  \__/  
+:::rabbit::: 
+:::rabbit::: This script installs Linux under the Windows to run JuptyerLab in your
+:::rabbit::: browser at http://localhost:8888. It's a "floating" Linux environment.
 :::rabbit:::
 :::rabbit::: It's best to install Ubuntu 20.04 from the Windows Store first, then run
-:::rabbit::: this script. Save & Run this .bat on your Desktop for the ultimate portable
-:::rabbit::: Linux environment that can float from computer to computer for a lifetime.
+:::rabbit::: this script. Fetch & re-run this script to update your Linux environment.
+:::rabbit::: Updates are frequent, and all your work will be saved Windows-side.
 :::rabbit:::
-:::rabbit::: This script will also install Python 3.11 and JupyterLab 3.6.
-:::rabbit:::
-:::rabbit::: If you want to install a different version of Python, you can do so by
+:::rabbit::: This script will also install Pipulate free & open source SEO software,
+:::rabbit::: and YAMLchop, the 1-text-file for life journaling and blogging system.
+:::rabbit::: If you want to install a specific version of Python, you can do so by
 :::rabbit::: renaming the install.bat file to 3.8.bat or 3.9.bat or 3.10.bat, etc.
 :::rabbit:::
 :::rabbit::: Mac Version:
@@ -137,26 +149,26 @@ set /p warning= %
 :::unicorn:::
 :::unicorn:::  Write once, Run Anywhere without the      
 :::unicorn:::  need to modify your code for platforms     THE LINUX CAN BE INVISIBLE
-:::unicorn:::  or production environments. You rarely     ___________________________ 
-:::unicorn:::  actually need to see Linux. Just make     /                           \
-:::unicorn:::  your Jupyter Notebooks "Linux standard"   |       Ridiculous!         |               
-:::unicorn:::                                            |   There's no such thing.  |
-:::unicorn:::                                            \___________________________/               
-:::unicorn:::   Yes there is, Mr. Unicorn!                               ()     ,      
-:::unicorn:::    ________________________     Here's how it works:         O    \\  .  
-:::unicorn:::   |  Windows 10 or 11     |    ________________________       o   |\\/|  
-:::unicorn:::   |     ____ ____         |   | * Magic Trick Linux * |          / " '\ 
-:::unicorn:::   |  ,_/site\____\______. |   | (still your hardware) |  see!   . .   . 
-:::unicorn:::   |  |                  | |   |   __________________  |< - - - /    ) | 
-:::unicorn:::   |  |   WEB BROWSER    | |   |  |  screen sesion  |  |       '  _.'  | 
-:::unicorn:::   |  | localhost:8888 <<---------->>Jupyter Server |  |       '-'/    \ 
-:::unicorn:::   |__|                  |_|   |  |_________________|  |                 
-:::unicorn:::      '------------------'     |_______________________|  No, not Docker
-:::unicorn:::                                                         
-:::unicorn:::   - Better than Jupyter-Desktop for portability    "The time has come to
-:::unicorn:::   - Better than Anaconda for system automation     get on standard tools"
-:::unicorn:::   - Better than Docker for ease & admin-ability    the Walrus never said.
-:::unicorn:::   - Better than the Cloud for privacy, security    
+:::unicorn:::  or production environments. You don't   _______________________________
+:::unicorn:::  even need to see Linux. Just run the   /                               \
+:::unicorn:::  best "Cloud" versions of everything.   | Versions as good as the cloud  |               
+:::unicorn:::                                         | locally? There's no such thing.|
+:::unicorn:::                                         \________________________________/               
+:::unicorn:::   Yes there is, Mr. Unicorn!                               ()   ,      
+:::unicorn:::    ________________________      (\              /)          O  \\  .  
+:::unicorn:::   |  Windows 10 or 11     |    ___\\____________//__          o |\\/|  
+:::unicorn:::   |     ____ ____         |   == Rabbit Hole Linux ==          / " '\ 
+:::unicorn:::   |  ,_/site\____\______. |   |  ( your hardware )  |  see!   . .   . 
+:::unicorn:::   |  |                  | |   |  __________________ |< - - - /    ) | 
+:::unicorn:::   |  |   WEB BROWSER    | |   | |  screen session | |       '  _.'  | 
+:::unicorn:::   |  | localhost:8888 <<--------->>Jupyter Server | |       '-'/    \ 
+:::unicorn:::   |__|                  |_|   | |_________________| |                 
+:::unicorn:::      '------------------'     |_____________________|  No, not Docker
+:::unicorn:::                                                       
+:::unicorn:::   - Better than ANACONDA for systems automation    "The time has come to
+:::unicorn:::   - Better than DOCKER for ease & admin-ability    get on standard tools"
+:::unicorn:::   - Better than Jupyter-DESKTOP for portability    the Walrus never said.
+:::unicorn:::   - Better than the CLOUD for privacy, security    
 :::unicorn:::     package availability & browser automation            - The Carpenter
 :::unicorn:::                                                             
 :::unicorn:::                      Press [Enter] to jump down the Linux rabbit hole...
