@@ -92,7 +92,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.7.8
+set drinkme=0.7.9
 set python=3.11
 @echo off
 local
@@ -122,19 +122,21 @@ if not "%1" == "" (
 echo  This will install Ubuntu 20.04 and Python %version% using DrinkMe %drinkme%
 
 :::rabbit::: RABBIT HOLE LINUX: Write Once, Run Forever. Future-proof Yourself.
-:::rabbit::: Use Linux like a Java VM or a CSS reset. As Timeless as Wonderland.__
-:::rabbit:::  ____       _     _     _ _     _   _       _            /)\__// /   \
-:::rabbit::: |  _ \ __ _| |__ | |__ (_) |_  | | | | ___ | | ___   ___(/_ 0 0  |    | 
-:::rabbit::: | |_) / _` | '_ \| '_ \| | __| | |_| |/ _ \| |/ _ \*(     =(_T_)=|    |    
-:::rabbit::: |  _ < (_| | |_) | |_) | | |_  |  _  | (_) | |  __/  \  )   \"\  |    | 
-:::rabbit::: |_| \_\__,_|_.__/|_.__/|_|\__| |_| |_|\___/|_|\___|   |__>-\_>_>  \__/  
+:::rabbit:::                                                                /) ____
+:::rabbit:::  ____       _     _     _ _     _   _       _            /)\__// /    \
+:::rabbit::: |  _ \ __ _| |__ | |__ (_) |_  | | | | ___ | | ___   ___(/_ 0 0  |     |
+:::rabbit::: | |_) / _` | '_ \| '_ \| | __| | |_| |/ _ \| |/ _ \*(     =(_T_)=>Linux|   
+:::rabbit::: |  _ < (_| | |_) | |_) | | |_  |  _  | (_) | |  __/  \  )   \"\  |     | 
+:::rabbit::: |_| \_\__,_|_.__/|_.__/|_|\__| |_| |_|\___/|_|\___|   |__>-\_>_>  \___/  
 :::rabbit::: 
 :::rabbit::: This script installs Linux under the Windows to run JuptyerLab in your
 :::rabbit::: browser at http://localhost:8888. It's a "floating" Linux environment.
 :::rabbit:::
+:::rabbit::: ------------------------------------------------------------------------
 :::rabbit::: It's best to install Ubuntu 20.04 from the Windows Store first, then run
 :::rabbit::: this script. Fetch & re-run this script to update your Linux environment.
-:::rabbit::: Updates are frequent, and all your work will be saved Windows-side.
+:::rabbit::: Updates are frequent, and all your repo-work will be saved Windows-side.
+:::rabbit::: ------------------------------------------------------------------------
 :::rabbit:::
 :::rabbit::: This script will also install Pipulate free & open source SEO software,
 :::rabbit::: and YAMLchop, the 1-text-file for life journaling and blogging system.
