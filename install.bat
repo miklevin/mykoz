@@ -92,7 +92,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.7.7
+set drinkme=0.7.8
 set python=3.11
 @echo off
 local
@@ -125,7 +125,7 @@ echo  This will install Ubuntu 20.04 and Python %version% using DrinkMe %drinkme
 :::rabbit::: Use Linux like a Java VM or a CSS reset. As Timeless as Wonderland.__
 :::rabbit:::  ____       _     _     _ _     _   _       _            /)\__// /   \
 :::rabbit::: |  _ \ __ _| |__ | |__ (_) |_  | | | | ___ | | ___   ___(/_ 0 0  |    | 
-:::rabbit::: | |_) / _` | '_ \| '_ \| | __| | |_| |/ _ \| |/ _ \*(     =(_T_)=|*NIX|    
+:::rabbit::: | |_) / _` | '_ \| '_ \| | __| | |_| |/ _ \| |/ _ \*(     =(_T_)=|    |    
 :::rabbit::: |  _ < (_| | |_) | |_) | | |_  |  _  | (_) | |  __/  \  )   \"\  |    | 
 :::rabbit::: |_| \_\__,_|_.__/|_.__/|_|\__| |_| |_|\___/|_|\___|   |__>-\_>_>  \__/  
 :::rabbit::: 
