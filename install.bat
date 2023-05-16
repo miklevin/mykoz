@@ -92,7 +92,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.8.2
+set drinkme=0.8.3
 set python=3.11
 @echo off
 local
@@ -316,16 +316,17 @@ del /Q %USERPROFILE%\repos\transfer\*
 
 :::thump:::                                                       .----------------.
 :::thump:::                                                       | Oh, my fur and |
-:::thump:::                                                   /) (  whiskers! It's |
-:::thump::: _     Linux has      _          _ _        /)\___// o | to Jupyer I go |
+:::thump:::      RABBIT HOLE LINUX HAS...                     /) (  whiskers! It's |
+:::thump::: _                    _          _ _        /)\___// o | to Jupyer I go |
 :::thump:::| |    __ _ _ __   __| | ___  __| | |   ___(/_ 0 0     '----------------'
-:::thump:::| |   / _` | '_ \ / _` |/ _ \/ _` | | *(     =(_T_)=  http://localhost:8888
+:::thump:::| |   / _` | '_ \ / _` |/ _ \/ _` | | *(     =(_T_)=> http://localhost:8888
 :::thump:::| |__| (_| | | | | (_| |  __/ (_| |_|   \  )   \"\
 :::thump:::|_____\__,_|_| |_|\__,_|\___|\__,_(_)    |__>-\_>_>
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::thump:::" "%~f0"') do (echo.%%B)
-echo Double-click the icon "Linux Shell" created where you ran the script.
 echo.
-echo You can then reach JupyterLab in a Windows browser at http://localhost:8888
+echo You can reach JupyterLab in a Windows browser at http://localhost:8888
 echo From Microsoft Edge, you can make JupyterLab an app from: .../Apps/Install
+echo You can get a nice JupyterLab icon here, even though edge won't show it:
+echo https://raw.githubusercontent.com/miklevin/drinkme/main/icons/jupyter.ico
 echo.
 set /p warning=Press [Enter] to release this console window. %
