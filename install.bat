@@ -153,25 +153,25 @@ set /p warning= %
 :::unicorn:::  need to modify your code for platforms     THE LINUX CAN BE INVISIBLE
 :::unicorn:::  or production environments. You don't   _______________________________
 :::unicorn:::  even need to see Linux. Just run the   /                               \
-:::unicorn:::  best "Cloud" versions of everything.   | Versions as good as the cloud  |               
-:::unicorn:::                                         | locally? There's no such thing.|
+:::unicorn:::  best "Cloud" versions of everything.  |  Local versions as good as the  |               
+:::unicorn:::                                        |  Cloud? There's no such thing.  |
 :::unicorn:::                                         \________________________________/               
 :::unicorn:::   Yes there is, Mr. Unicorn!                               ()   ,      
 :::unicorn:::    ________________________      (\              /)          O  \\  .  
 :::unicorn:::   |  Windows 10 or 11     |    ___\\____________//__          o |\\/|  
 :::unicorn:::   |     ____ ____         |   == Rabbit Hole Linux ==          / " '\ 
-:::unicorn:::   |  ,_/site\____\______. |   |  ( your hardware )  |  see!   . .   . 
+:::unicorn:::   |  ,_/site\____\______. |   |  ( your hardware )  |  See!   . .   . 
 :::unicorn:::   |  |                  | |   |  __________________ |< - - - /    ) | 
 :::unicorn:::   |  |   WEB BROWSER    | |   | |  screen session | |       '  _.'  | 
 :::unicorn:::   |  | localhost:8888 <<--------->>Jupyter Server | |       '-'/    \ 
-:::unicorn:::   |__|                  |_|   | |_________________| |                 
-:::unicorn:::      '------------------'     |_____________________|  No, not Docker
-:::unicorn:::                                                       
-:::unicorn:::   - Better than ANACONDA for systems automation    "The time has come to
-:::unicorn:::   - Better than DOCKER for ease & admin-ability    get on standard tools"
-:::unicorn:::   - Better than Jupyter-DESKTOP for portability    the Walrus never said.
-:::unicorn:::   - Better than the CLOUD for privacy, security    
-:::unicorn:::     package availability & browser automation            - The Carpenter
+:::unicorn:::   |__|                  |_|   | |_________________| |             
+:::unicorn:::      '------------------'     |_____________________|   What, no Docker?
+:::unicorn:::                                                                      
+:::unicorn:::   - Better than ANACONDA for systems automation.   "The time has come to
+:::unicorn:::   - Better than DOCKER for ease & admin-ability.   get on standard tools"
+:::unicorn:::   - Better than Jupyter-DESKTOP for portable code.  the Walrus never said.
+:::unicorn:::   - Better than the CLOUD for privacy, VPN usage,    
+:::unicorn:::     package availability, browser automation, etc.       - The Carpenter
 :::unicorn:::                                                             
 :::unicorn:::                      Press [Enter] to jump down the Linux rabbit hole...
 :::unicorn:::                                (or press Ctrl+C escape.)      prompt 2/3
