@@ -92,7 +92,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.8.0
+set drinkme=0.8.1
 set python=3.11
 @echo off
 local
