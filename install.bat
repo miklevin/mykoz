@@ -9,7 +9,7 @@
 :: JupyterLab on your Windows 10 or 11 laptop
 :: using the invisible Rabbit Hole Linux VM.
 ::
-:: It's best to install Ubuntu 20.04 from the
+:: It's best to install Ubuntu 22.04 from the
 :: Windows Store first, then run this script.
 ::
 :: Fetch & re-run this script to update your
@@ -92,7 +92,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.7.9
+set drinkme=0.8.3
 set python=3.11
 @echo off
 local
@@ -119,21 +119,21 @@ if not "%1" == "" (
         if "%%~xI" neq "" set "version=%%~nI%%~xI"
     )
 )
-echo  This will install Ubuntu 20.04 and Python %version% using DrinkMe %drinkme%
+echo  This will install Ubuntu 22.04 and Python %version% using DrinkMe %drinkme%
 
 :::rabbit::: RABBIT HOLE LINUX: Write Once, Run Forever. Future-proof Yourself.
 :::rabbit:::                                                                /) ____
 :::rabbit:::  ____       _     _     _ _     _   _       _            /)\__// /    \
 :::rabbit::: |  _ \ __ _| |__ | |__ (_) |_  | | | | ___ | | ___   ___(/_ 0 0  |     |
-:::rabbit::: | |_) / _` | '_ \| '_ \| | __| | |_| |/ _ \| |/ _ \*(     =(_T_)=>Linux|   
-:::rabbit::: |  _ < (_| | |_) | |_) | | |_  |  _  | (_) | |  __/  \  )   \"\  |     | 
-:::rabbit::: |_| \_\__,_|_.__/|_.__/|_|\__| |_| |_|\___/|_|\___|   |__>-\_>_>  \___/  
-:::rabbit::: 
+:::rabbit::: | |_) / _` | '_ \| '_ \| | __| | |_| |/ _ \| |/ _ \*(     =(_T_)=>Linux|
+:::rabbit::: |  _ < (_| | |_) | |_) | | |_  |  _  | (_) | |  __/  \  )   \"\  |     |
+:::rabbit::: |_| \_\__,_|_.__/|_.__/|_|\__| |_| |_|\___/|_|\___|   |__>-\_>_>  \___/
+:::rabbit:::
 :::rabbit::: This script installs Linux under Windows WSL to run JuptyerLab in your
 :::rabbit::: browser at http://localhost:8888. It's a "floating" Linux environment.
 :::rabbit:::
 :::rabbit::: ------------------------------------------------------------------------
-:::rabbit::: It's best to install Ubuntu 20.04 from the Windows Store first, then run
+:::rabbit::: It's best to install Ubuntu 22.04 from the Windows Store first, then run
 :::rabbit::: this script. Fetch & re-run this script to update your Linux environment.
 :::rabbit::: Updates are frequent, and all your repo-work will be saved Windows-side.
 :::rabbit::: ------------------------------------------------------------------------
@@ -149,56 +149,53 @@ echo  This will install Ubuntu 20.04 and Python %version% using DrinkMe %drinkme
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::rabbit:::" "%~f0"') do (echo.%%B)
 set /p warning= %
 :::unicorn:::
-:::unicorn:::  Write once, Run Anywhere without the      
+:::unicorn:::  Write once, Run Anywhere without the
 :::unicorn:::  need to modify your code for platforms     THE LINUX CAN BE INVISIBLE
 :::unicorn:::  or production environments. You don't   _______________________________
 :::unicorn:::  even need to see Linux. Just run the   /                               \
-:::unicorn:::  best "Cloud" versions of everything.   | Versions as good as the cloud  |               
-:::unicorn:::                                         | locally? There's no such thing.|
-:::unicorn:::                                         \________________________________/               
-:::unicorn:::   Yes there is, Mr. Unicorn!                               ()   ,      
-:::unicorn:::    ________________________      (\              /)          O  \\  .  
-:::unicorn:::   |  Windows 10 or 11     |    ___\\____________//__          o |\\/|  
-:::unicorn:::   |     ____ ____         |   == Rabbit Hole Linux ==          / " '\ 
-:::unicorn:::   |  ,_/site\____\______. |   |  ( your hardware )  |  see!   . .   . 
-:::unicorn:::   |  |                  | |   |  __________________ |< - - - /    ) | 
-:::unicorn:::   |  |   WEB BROWSER    | |   | |  screen session | |       '  _.'  | 
-:::unicorn:::   |  | localhost:8888 <<--------->>Jupyter Server | |       '-'/    \ 
-:::unicorn:::   |__|                  |_|   | |_________________| |                 
-:::unicorn:::      '------------------'     |_____________________|  No, not Docker
-:::unicorn:::                                                       
-:::unicorn:::   - Better than ANACONDA for systems automation    "The time has come to
-:::unicorn:::   - Better than DOCKER for ease & admin-ability    get on standard tools"
-:::unicorn:::   - Better than Jupyter-DESKTOP for portability    the Walrus never said.
-:::unicorn:::   - Better than the CLOUD for privacy, security    
-:::unicorn:::     package availability & browser automation            - The Carpenter
-:::unicorn:::                                                             
+:::unicorn:::  best "Cloud" versions of everything.  |  Local versions as good as the  |
+:::unicorn:::                                        |  Cloud? There's no such thing.  |
+:::unicorn:::                                         \________________________________/
+:::unicorn:::   Yes there is, Mr. Unicorn!                               ()   ,
+:::unicorn:::    ________________________      (\              /)          O  \\  .
+:::unicorn:::   |  Windows 10 or 11     |    ___\\____________//__          o |\\/|
+:::unicorn:::   |     ____ ____         |   == Rabbit Hole Linux ==          / " '\
+:::unicorn:::   |  ,_/site\____\______. |   |  ( your hardware )  |  See!   . .   .
+:::unicorn:::   |  |                  | |   |  __________________ |< - - - /    ) |
+:::unicorn:::   |  |   WEB BROWSER    | |   | |  screen session | |       '  _.'  |
+:::unicorn:::   |  | localhost:8888 <<--------->>Jupyter Server | |       '-'/    \
+:::unicorn:::   |__|                  |_|   | |_________________| |
+:::unicorn:::      '------------------'     |_____________________|   What, no Docker?
+:::unicorn:::
+:::unicorn:::   - Better than ANACONDA for systems automation.   "The time has come to
+:::unicorn:::   - Better than DOCKER for ease & admin-ability.   get on standard tools"
+:::unicorn:::   - Better than Jupyter-DESKTOP for portable code.  the Walrus never said.
+:::unicorn:::   - Better than the CLOUD for privacy, VPN usage,
+:::unicorn:::     package availability, browser automation, etc.       - The Carpenter
+:::unicorn:::
 :::unicorn:::                      Press [Enter] to jump down the Linux rabbit hole...
 :::unicorn:::                                (or press Ctrl+C escape.)      prompt 2/3
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::unicorn:::" "%~f0"') do (echo.%%B)
 set /p warning= %
-:::warn::: _   _         _                    _               _                _    
-:::warn:::| \ | | ___   | |_ _   _ _ __ _ __ (_)_ __   __ _  | |__   __ _  ___| | __
-:::warn:::|  \| |/ _ \  | __| | | | '__| '_ \| | '_ \ / _` | | '_ \ / _` |/ __| |/ /
-:::warn:::| |\  | (_) | | |_| |_| | |  | | | | | | | | (_| | | |_) | (_| | (__|   < 
-:::warn:::|_| \_|\___/   \__|\__,_|_|  |_| |_|_|_| |_|\__, | |_.__/ \__,_|\___|_|\_\
-:::warn::: - This will uninstall previous Ubuntu-20.04|___/under WSL   <-- IMPORTANT
-:::warn:::                                                                       __ 
-:::warn::: - A new Ubuntu 20.04 will be installed REPLACING THE DEFAULT!!!      /  \
+:::warn:::  _              _      ____ _
+:::warn::: | |    __ _ ___| |_   / ___| |__   __ _ _ __   ___ ___  "You can escape
+:::warn::: | |   / _` / __| __| | |   | '_ \ / _` | '_ \ / __/ _ \  with Ctrl+C and
+:::warn::: | |__| (_| \__ \ |_  | |___| | | | (_| | | | | (_|  __/  never know vim."
+:::warn::: |_____\__,_|___/\__|  \____|_| |_|\__,_|_| |_|\___\___|             -Neo
+:::warn:::                                                                       __
+:::warn::: - A new Ubuntu 22.04 will be installed REPLACING THE DEFAULT!!!      /  \
 :::warn::: - OTHER LINUXES running under WSL are LEFT UNTOUCHED.               |/)\_|
 :::warn::: - JupyterLab will be reachable at http://localhost:8888          ___(/_ 0|
 :::warn:::                                                                *(     =(_|
 :::warn::: THE RULES OF WONDERLAND:                                         \  )   \/
-:::warn::: - A "Linux Shell" icon will appear where you run the installer.   |__>-_/
-:::warn::: - Double-clicking it will open a Terminal, ensuring Linux is rrrrrunning!
-:::warn::: - The Terminal, a.k.a. Shell or command-line currently MUST be opened
-:::warn:::   AT LEAST ONCE before visiting http://localhost:8888 in a browser.
-:::warn::: - The Linux Terminal CAN BE CLOSED immediately after opening.
+:::warn::: - A "Linux Shell" icon will appear where you ran the installer.   |__>-_/
+:::warn::: - Double-clicking it will open a Linux Terminal, but this is not
+:::warn:::   necessary until you are ready to go deeper into the rabbit hole.
 :::warn::: - Enjoy a genuine Linux Python experience in your browser!
-:::warn:::                                                                         
-:::warn::: GETTING A COOL JUPYTER ICON:                                                 
-:::warn::: - You can create a JupyterLab icon on your Desktop through Microsoft    
-:::warn:::   Edge browser by clicking the "..." menu in the upper right corner     
+:::warn:::
+:::warn::: GETTING A COOL JUPYTER ICON:
+:::warn::: - You can create a JupyterLab icon on your Desktop through Microsoft
+:::warn:::   Edge browser by clicking the "..." menu in the upper right corner
 :::warn:::   and selecting "Apps > Install this site as an app".
 :::warn::: - Change the icon to jupyter.ico found in the DrinkMe repo.
 :::warn:::
@@ -207,50 +204,50 @@ set /p warning= %
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::warn:::" "%~f0"') do (echo.%%B)
 
 set /p warning= %
-:::down:::                                         ___             
-:::down:::                                        |   |         _____  
-:::down:::                                        |_  |        /     \      
-:::down:::                                          \ |       |       \     
-:::down:::                                          |  \      |       /     
-:::down:::                                           \  \____ \_      \     
-:::down:::                                            \      \_/      |     
-:::down:::                                      ___.   \_            _/     
-:::down:::                     .-,             /    \    |          |       
-:::down:::                     |  \          _/      `--_/           \_     
-:::down:::                      \  \________/                     /\   \    
-:::down:::                      |                                /  \_  \   
-:::down:::                      `-----------,                   |     \  \  
-:::down:::                                  |                  /       \  | 
-:::down:::                                  |                 |         | \ 
+:::down:::                                         ___
+:::down:::                                        |   |         _____
+:::down:::                                        |_  |        /     \
+:::down:::                                          \ |       |       \
+:::down:::                                          |  \      |       /
+:::down:::                                           \  \____ \_      \
+:::down:::                                            \      \_/      |
+:::down:::                                      ___.   \_            _/
+:::down:::                     .-,             /    \    |          |
+:::down:::                     |  \          _/      `--_/           \_
+:::down:::                      \  \________/                     /\   \
+:::down:::                      |                                /  \_  \
+:::down:::                      `-----------,                   |     \  \
+:::down:::                                  |                  /       \  |
+:::down:::                                  |                 |         | \
 :::down:::                                  /                 |         \__|
-:::down:::                                 /   _              |             
-:::down:::                                /   / \_             \            
-:::down:::                                |  /    \__      __--`            
-:::down:::                               _/ /        \   _/                 
-:::down:::                           ___/  /          \_/                   
-:::down:::                          /     /                                 
-:::down:::                          `----`                                  
-:::down:::           
+:::down:::                                 /   _              |
+:::down:::                                /   / \_             \
+:::down:::                                |  /    \__      __--`
+:::down:::                               _/ /        \   _/
+:::down:::                           ___/  /          \_/
+:::down:::                          /     /
+:::down:::                          `----`
+:::down:::
 :::down::: You're falling down the rabbit hole. Please have patience, and be brave!
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
-echo  Dropping: Ubuntu 20.04, Python %version%, DrinkMe %drinkme%... Wonderland awaits!
+echo  Dropping: Ubuntu 22.04, Python %version%, DrinkMe %drinkme%... Wonderland awaits!
 
-wsl --unregister Ubuntu-20.04 >nul
+wsl --unregister Ubuntu >nul
 wsl --set-default-version 2 >nul
 
-REM These are variables for the automatically created Ubuntu 20.04 user under WSL.
+REM These are variables for the automatically created Ubuntu 22.04 user under WSL.
 set wsluser="ubuntu"
 set password="foo"
 
 REM The big install! If it's your first time, it will make you reboot your machine.
-ubuntu2004 install --root >nul
+ubuntu.exe install --root >nul
 
-REM Once Ubuntu 20.04 is installed, this sets up the default user.
-wsl -d Ubuntu-20.04 -u root useradd -m "%wsluser%" >nul 2>&1
-wsl -d Ubuntu-20.04 -u root sh -c "echo "%wsluser%:%password%" | chpasswd" >nul 2>&1
-wsl -d Ubuntu-20.04 -u root chsh -s /bin/bash "%wsluser%" >nul
-wsl -d Ubuntu-20.04 -u root usermod -aG adm,cdrom,sudo,dip,plugdev,lxd "%wsluser%" >nul 2>&1
-ubuntu2004 config --default-user "%wsluser%" >nul
+REM Once Ubuntu 22.04 is installed, this sets up the default user.
+wsl -d Ubuntu -u root useradd -m "%wsluser%" >nul 2>&1
+wsl -d Ubuntu -u root sh -c "echo "%wsluser%:%password%" | chpasswd" >nul 2>&1
+wsl -d Ubuntu -u root chsh -s /bin/bash "%wsluser%" >nul
+wsl -d Ubuntu -u root usermod -aG adm,cdrom,sudo,dip,plugdev,lxd "%wsluser%" >nul 2>&1
+%userprofile%\AppData\Local\Microsoft\WindowsApps\ubuntu.exe config --default-user "%wsluser%" >nul
 
 REM This creates "repos" folder in your Windows HOME for Windows/Linux file sharing.
 if not exist "%USERPROFILE%\repos" mkdir %USERPROFILE%\repos >nul 2>&1
@@ -263,72 +260,73 @@ curl -sL -o %USERPROFILE%\repos\transfer\wsl.conf "https://raw.githubusercontent
 curl -sL -o %USERPROFILE%\.config\bash.ico "https://raw.githubusercontent.com/miklevin/drinkme/main/icons/bash.ico" >nul 2>&1
 
 REM Put the WSL config files in place.
-wsl -d Ubuntu-20.04 -u root cp "/mnt/c/Users/%USERNAME%/repos/transfer/wsl.conf" /etc/wsl.conf
+wsl -d Ubuntu -u root cp "/mnt/c/Users/%USERNAME%/repos/transfer/wsl.conf" /etc/wsl.conf
 
 REM If you're running from a location with these optional second-stage install files, copy them over.
 if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer > nul 2>&1) else (curl -L -o %USERPROFILE%\repos\transfer\apt_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/apt_installs.sh" > nul 2>&1)
 if exist requirements.txt (copy requirements.txt %USERPROFILE%\repos\transfer > nul 2>&1) else (curl -L -o %USERPROFILE%\repos\transfer\requirements.txt "https://raw.githubusercontent.com/miklevin/drinkme/main/requirements.txt" >nul 2>&1)
 
 REM This stops and restarts like a wsl --shutdown to activate systemd and metadata options.
-wsl -t Ubuntu-20.04 >nul 2>&1
+wsl -t Ubuntu >nul 2>&1
 
 :: Create symbolic links from Windows paths to WSL paths.
-wsl -d Ubuntu-20.04 -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh && ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos && ln -s /mnt/c/Users/%USERNAME%/.config/ /home/ubuntu/.config && ln -s /mnt/c/Users/%USERNAME%/.jupyter/ /home/ubuntu/.jupyter" >nul 2>&1
+wsl -d Ubuntu -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh && ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos && ln -s /mnt/c/Users/%USERNAME%/.config/ /home/ubuntu/.config && ln -s /mnt/c/Users/%USERNAME%/.jupyter/ /home/ubuntu/.jupyter" >nul 2>&1
 
-if exist %USERPROFILE%\.vimrc (wsl -d Ubuntu-20.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/" >nul 2>&1) else (curl -L -o %USERPROFILE%\.vimrc "https://raw.githubusercontent.com/miklevin/drinkme/main/.vimrc" >nul 2>&1)
-if exist %USERPROFILE%\.gitconfig (wsl -d Ubuntu-20.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitconfig /home/ubuntu/" >nul 2>&1) else (curl -L -o %USERPROFILE%\.gitconfig "https://raw.githubusercontent.com/miklevin/drinkme/main/.gitconfig" >nul 2>&1)
-if exist %USERPROFILE%\.pypirc (wsl -d Ubuntu-20.04 -e bash -lic "cp /mnt/c/Users/%USERNAME%/.pypirc /home/ubuntu/" >nul 2>&1) else (curl -L -o %USERPROFILE%\.pypirc "https://raw.githubusercontent.com/miklevin/drinkme/main/.pypirc" >nul 2>&1)
+if exist %USERPROFILE%\.vimrc (wsl -d Ubuntu -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/" >nul 2>&1) else (curl -L -o %USERPROFILE%\.vimrc "https://raw.githubusercontent.com/miklevin/drinkme/main/.vimrc" >nul 2>&1)
+if exist %USERPROFILE%\.gitconfig (wsl -d Ubuntu -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitconfig /home/ubuntu/" >nul 2>&1) else (curl -L -o %USERPROFILE%\.gitconfig "https://raw.githubusercontent.com/miklevin/drinkme/main/.gitconfig" >nul 2>&1)
+if exist %USERPROFILE%\.pypirc (wsl -d Ubuntu -e bash -lic "cp /mnt/c/Users/%USERNAME%/.pypirc /home/ubuntu/" >nul 2>&1) else (curl -L -o %USERPROFILE%\.pypirc "https://raw.githubusercontent.com/miklevin/drinkme/main/.pypirc" >nul 2>&1)
 
-:: We update the software repository on the Ubuntu 20.04 Machine
+:: We update the software repository on the Ubuntu 22.04 Machine
 echo  You have plenty of time to look around and wonder what will happen next.
-wsl -d Ubuntu-20.04 -u root -e sudo apt update >nul 2>&1
+wsl -d Ubuntu -u root -e sudo apt update >nul 2>&1
 
-:: And now the big upgrading of all the Ubuntu 20.04 software.
+:: And now the big upgrading of all the Ubuntu 22.04 software.
 echo  After such a fall as this, you will think nothing of switching hardware.
-wsl -d Ubuntu-20.04 -u root -e sudo apt upgrade -y >nul 2>&1
+wsl -d Ubuntu -u root -e sudo apt upgrade -y >nul 2>&1
 
 :: You know what's nice? Not having to type a password every time you sudo a command!
-wsl -d Ubuntu-20.04 -u root /bin/bash -c "echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL'> /etc/sudoers.d/ubuntu" >nul 2>&1
+wsl -d Ubuntu -u root /bin/bash -c "echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL'> /etc/sudoers.d/ubuntu" >nul 2>&1
 
 :: Grab and run second-half of install that runs under WSL and set up Linux graphics.
-wsl -d Ubuntu-20.04 -u ubuntu -e curl -L -o /home/ubuntu/install_wsl.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/install_wsl.sh" >nul 2>&1
-wsl -d Ubuntu-20.04 -e bash -c "bash /home/ubuntu/install_wsl.sh %version% 2>&1
+wsl -d Ubuntu -u ubuntu -e curl -L -o /home/ubuntu/install_wsl.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/install_wsl.sh" >nul 2>&1
+wsl -d Ubuntu -e bash -c "bash /home/ubuntu/install_wsl.sh %version% 2>&1
 
 :: ACLs need a wsl --shutdown for git clone to work. Also keep the WSL session alive.
-wsl -t Ubuntu-20.04 >nul 2>&1
+wsl -t Ubuntu >nul 2>&1
 REM a command that will call .bash_profile
-wsl -d Ubuntu-20.04 -u ubuntu -e bash -lic "echo .bash_profile called" >nul 2>&1
+wsl -d Ubuntu -u ubuntu -e bash -lic "echo .bash_profile called" >nul 2>&1
 
-wsl -d Ubuntu-20.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme >nul 2>&1
-wsl -d Ubuntu-20.04 -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme.pub >nul 2>&1
-wsl -d Ubuntu-20.04 -u root -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh" >nul 2>&1
-wsl -d Ubuntu-20.04 -u root -e sh /home/ubuntu/repos/transfer/git_installs.sh >nul 2>&1
+wsl -d Ubuntu -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme >nul 2>&1
+wsl -d Ubuntu -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme.pub >nul 2>&1
+wsl -d Ubuntu -u root -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh" >nul 2>&1
+wsl -d Ubuntu -u root -e sh /home/ubuntu/repos/transfer/git_installs.sh >nul 2>&1
 
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
 echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
 echo sLinkFile = "%USERPROFILE%\Desktop\Linux Shell.lnk" >> %SCRIPT%
 echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
 echo oLink.TargetPath = "%USERPROFILE%\AppData\Local\Microsoft\WindowsApps\wt.exe" >> %SCRIPT%
-echo olink.Arguments = "-p Ubuntu-20.04" >> %SCRIPT%
+echo olink.Arguments = "-p Ubuntu" >> %SCRIPT%
 echo olink.IconLocation = "%USERPROFILE%\.config\bash.ico" >> %SCRIPT%
 echo oLink.Save >> %SCRIPT%
 
 cscript /nologo %SCRIPT%
 del %SCRIPT%
 del /Q %USERPROFILE%\repos\transfer\*
-                                                                                    
+
 :::thump:::                                                       .----------------.
 :::thump:::                                                       | Oh, my fur and |
-:::thump:::                                                   /) (  whiskers! It's |                   
-:::thump::: _     Linux has      _          _ _        /)\___// o | to Jupyer I go |
-:::thump:::| |    __ _ _ __   __| | ___  __| | |   ___(/_ 0 0     '----------------'                   
-:::thump:::| |   / _` | '_ \ / _` |/ _ \/ _` | | *(     =(_T_)=  http://localhost:8888
-:::thump:::| |__| (_| | | | | (_| |  __/ (_| |_|   \  )   \"\      
-:::thump:::|_____\__,_|_| |_|\__,_|\___|\__,_(_)    |__>-\_>_>  
+:::thump:::      RABBIT HOLE LINUX HAS...                     /) (  whiskers! It's |
+:::thump::: _                    _          _ _        /)\___// o | to Jupyer I go |
+:::thump:::| |    __ _ _ __   __| | ___  __| | |   ___(/_ 0 0     '----------------'
+:::thump:::| |   / _` | '_ \ / _` |/ _ \/ _` | | *(     =(_T_)=> http://localhost:8888
+:::thump:::| |__| (_| | | | | (_| |  __/ (_| |_|   \  )   \"\
+:::thump:::|_____\__,_|_| |_|\__,_|\___|\__,_(_)    |__>-\_>_>
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::thump:::" "%~f0"') do (echo.%%B)
-echo Double-click the icon "Linux Shell" created where you ran the script.
 echo.
-echo You can then reach JupyterLab in a Windows browser at http://localhost:8888
+echo You can reach JupyterLab in a Windows browser at http://localhost:8888
 echo From Microsoft Edge, you can make JupyterLab an app from: .../Apps/Install
+echo You can get a nice JupyterLab icon here, even though edge won't show it:
+echo https://raw.githubusercontent.com/miklevin/drinkme/main/icons/jupyter.ico
 echo.
 set /p warning=Press [Enter] to release this console window. %
