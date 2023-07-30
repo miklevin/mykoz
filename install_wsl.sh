@@ -90,3 +90,4 @@ echo "The lovliest garden you ever saw."
 jupyter labextension install jupyterlab-plotly > /dev/null 2>&1
 sudo systemctl enable jupyter > /dev/null 2>&1
 sudo systemctl start jupyter > /dev/null 2>&1
+exit
