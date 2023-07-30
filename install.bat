@@ -49,7 +49,7 @@
 ::     /     /                                 
 ::     `----`                                  
 ::
-:: - Always get the latest Python (3.11)
+:: - Always get the latest Python (3.12)
 :: - Always get the latest JupyterLab (4)
 :: - Name installer 3.8.bat for Python 3.8
 :: - Use home VPN software to cycle your IP
@@ -92,8 +92,8 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.8.3
-set python=3.11
+set drinkme=0.8.4
+set python=3.12
 @echo off
 local
 cls
@@ -230,7 +230,7 @@ set /p warning= %
 :::down:::
 :::down::: You're falling down the rabbit hole. Please have patience, and be brave!
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
-echo  Dropping: Ubuntu 22.04, Python %version%, DrinkMe %drinkme%... Wonderland awaits!
+echo  Installing: Ubuntu 22.04, Python %version%, DrinkMe %drinkme%... Wonderland awaits!
 
 wsl --unregister Ubuntu >nul
 wsl --set-default-version 2 >nul
@@ -283,7 +283,7 @@ echo  You have plenty of time to look around and wonder what will happen next.
 wsl -d Ubuntu -u root -e sudo apt update >nul 2>&1
 
 :: And now the big upgrading of all the Ubuntu 22.04 software.
-echo This will take a while. Go get a cup of coffee.
+echo  This will take a while. Go get a cup of coffee.
 wsl -d Ubuntu -u root -e sudo apt upgrade -y >nul 2>&1
 
 :: You know what's nice? Not having to type a password every time you sudo a command!
