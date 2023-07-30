@@ -10,7 +10,7 @@ sudo hwclock -systohc --utc > /dev/null 2>&1
 sudo apt install figlet -y > /dev/null 2>&1
 
 # Check if we have a Python version passed in as an argument
-VAR=${1:-3.11}
+VAR=${1:-3.12}
 figlet -t "Python $VAR..."
 echo "Down, down, down, would the fall never come to an end?"
 
