@@ -279,11 +279,10 @@ if exist %USERPROFILE%\.gitconfig (wsl -d Ubuntu -e bash -lic "cp /mnt/c/Users/%
 if exist %USERPROFILE%\.pypirc (wsl -d Ubuntu -e bash -lic "cp /mnt/c/Users/%USERNAME%/.pypirc /home/ubuntu/" >nul 2>&1) else (curl -L -o %USERPROFILE%\.pypirc "https://raw.githubusercontent.com/miklevin/drinkme/main/.pypirc" >nul 2>&1)
 
 :: We update the software repository on the Ubuntu 22.04 Machine
-echo  You have plenty of time to look around and wonder what will happen next.
+echo  This will take awhile. Go get a cup of coffee, tea or a beer.
 wsl -d Ubuntu -u root -e sudo apt update >nul 2>&1
 
 :: And now the big upgrading of all the Ubuntu 22.04 software.
-echo  This will take a while. Go get a cup of coffee.
 wsl -d Ubuntu -u root -e sudo apt upgrade -y >nul 2>&1
 
 :: You know what's nice? Not having to type a password every time you sudo a command!
@@ -293,30 +292,42 @@ wsl -d Ubuntu -u root /bin/bash -c "echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL'> /e
 wsl -d Ubuntu -u ubuntu -e curl -L -o /home/ubuntu/install_wsl.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/install_wsl.sh" >nul 2>&1
 wsl -d Ubuntu -e bash -c "bash /home/ubuntu/install_wsl.sh %version% 2>&1
 
-echo "Back from install_wsl.sh"
-
 :: ACLs need a wsl --shutdown for git clone to work. Also keep the WSL session alive.
 wsl -t Ubuntu >nul 2>&1
 
-echo "Called wsl -t Ubuntu to run bash_profile"
-
+echo 1
 wsl -d Ubuntu -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme >nul 2>&1
+echo 2
 wsl -d Ubuntu -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme.pub >nul 2>&1
+echo 3
 wsl -d Ubuntu -u root -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh" >nul 2>&1
+echo 4
 wsl -d Ubuntu -u root -e sh /home/ubuntu/repos/transfer/git_installs.sh >nul 2>&1
+echo 5
 
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
+echo 6
 echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
+echo 7
 echo sLinkFile = "%USERPROFILE%\Desktop\Linux Shell.lnk" >> %SCRIPT%
+echo 8
 echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
+echo 9
 echo oLink.TargetPath = "%USERPROFILE%\AppData\Local\Microsoft\WindowsApps\wt.exe" >> %SCRIPT%
+echo 10
 echo olink.Arguments = "-p Ubuntu" >> %SCRIPT%
+echo 11
 echo olink.IconLocation = "%USERPROFILE%\.config\bash.ico" >> %SCRIPT%
+echo 12
 echo oLink.Save >> %SCRIPT%
+echo 13
 
 cscript /nologo %SCRIPT%
+echo 14
 del %SCRIPT%
+echo 15
 del /Q %USERPROFILE%\repos\transfer\*
+echo 16
 
 :::thump:::                                                       .----------------.
 :::thump:::                                                       | Oh, my fur and |
