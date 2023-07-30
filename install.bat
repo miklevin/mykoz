@@ -283,7 +283,7 @@ echo  You have plenty of time to look around and wonder what will happen next.
 wsl -d Ubuntu -u root -e sudo apt update >nul 2>&1
 
 :: And now the big upgrading of all the Ubuntu 22.04 software.
-echo  After such a fall as this, you will think nothing of switching hardware.
+echo This will take a while. Go get a cup of coffee.
 wsl -d Ubuntu -u root -e sudo apt upgrade -y >nul 2>&1
 
 :: You know what's nice? Not having to type a password every time you sudo a command!
@@ -293,10 +293,12 @@ wsl -d Ubuntu -u root /bin/bash -c "echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL'> /e
 wsl -d Ubuntu -u ubuntu -e curl -L -o /home/ubuntu/install_wsl.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/install_wsl.sh" >nul 2>&1
 wsl -d Ubuntu -e bash -c "bash /home/ubuntu/install_wsl.sh %version% 2>&1
 
+echo "Back from install_wsl.sh"
+
 :: ACLs need a wsl --shutdown for git clone to work. Also keep the WSL session alive.
 wsl -t Ubuntu >nul 2>&1
-REM a command that will call .bash_profile
-wsl -d Ubuntu -u ubuntu -e bash -lic "echo .bash_profile called" >nul 2>&1
+
+echo "Called wsl -t Ubuntu to run bash_profile"
 
 wsl -d Ubuntu -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme >nul 2>&1
 wsl -d Ubuntu -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme.pub >nul 2>&1
