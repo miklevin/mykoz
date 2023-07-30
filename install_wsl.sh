@@ -86,7 +86,7 @@ sudo bash /tmp/nodesource_setup.sh > /dev/null 2>&1
 sudo apt install nodejs -y > /dev/null 2>&1
 
 figlet -t "Jupyter..."
-echo "The lovliest garden you ever saw."
+echo "Use Linux on Windows with WSL and JupyterLab."
 jupyter labextension install jupyterlab-plotly > /dev/null 2>&1
 sudo systemctl enable jupyter > /dev/null 2>&1
 sudo systemctl start jupyter > /dev/null 2>&1
