@@ -251,13 +251,15 @@ wsl -d Ubuntu -u root usermod -aG adm,cdrom,sudo,dip,plugdev,lxd "%wsluser%" >nu
 
 REM This creates "repos" folder in your Windows HOME for Windows/Linux file sharing.
 if not exist "%USERPROFILE%\repos" mkdir %USERPROFILE%\repos >nul 2>&1
-if not exist "%USERPROFILE%\repos" mkdir %USERPROFILE%\repos >nul 2>&1
 if not exist "%USERPROFILE%\repos\transfer" mkdir %USERPROFILE%\repos\transfer >nul 2>&1
 if not exist "%USERPROFILE%\.wslconfig" curl -sL -o %USERPROFILE%\.wslconfig "https://raw.githubusercontent.com/miklevin/drinkme/main/.wslconfig" >nul 2>&1
 if not exist "%USERPROFILE%\.jupyter" mkdir %USERPROFILE%\.jupyter >nul 2>&1
 if not exist "%USERPROFILE%\.config" mkdir %USERPROFILE%\.config >nul 2>&1
 curl -sL -o %USERPROFILE%\repos\transfer\wsl.conf "https://raw.githubusercontent.com/miklevin/drinkme/main/wsl.conf" >nul 2>&1
 curl -sL -o %USERPROFILE%\.config\bash.ico "https://raw.githubusercontent.com/miklevin/drinkme/main/icons/bash.ico" >nul 2>&1
+
+REM Find the Windows username for the current user.
+for /F "tokens=2 delims=\" %%U in ('whoami') do set "USERNAME=%%U"
 
 REM Put the WSL config files in place.
 wsl -d Ubuntu -u root cp "/mnt/c/Users/%USERNAME%/repos/transfer/wsl.conf" /etc/wsl.conf
