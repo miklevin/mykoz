@@ -90,4 +90,5 @@ echo "The lovliest garden you ever saw."
 jupyter labextension install jupyterlab-plotly > /dev/null 2>&1
 sudo systemctl enable jupyter > /dev/null 2>&1
 sudo systemctl start jupyter > /dev/null 2>&1
-exit
+echo "Jupyter is running on http://localhost:8888"
+echo "Press Ctrl+C if the script gets stuck here."
