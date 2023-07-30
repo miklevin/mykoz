@@ -295,39 +295,23 @@ wsl -d Ubuntu -e bash -c "bash /home/ubuntu/install_wsl.sh %version% 2>&1
 :: ACLs need a wsl --shutdown for git clone to work. Also keep the WSL session alive.
 wsl -t Ubuntu >nul 2>&1
 
-echo 1
 wsl -d Ubuntu -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme >nul 2>&1
-echo 2
 wsl -d Ubuntu -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme.pub >nul 2>&1
-echo 3
 wsl -d Ubuntu -u root -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh" >nul 2>&1
-echo 4
-wsl -d Ubuntu -u root -e sh /home/ubuntu/repos/transfer/git_installs.sh >nul 2>&1
-echo 5
+REM wsl -d Ubuntu -u root -e sh /home/ubuntu/repos/transfer/git_installs.sh >nul 2>&1
 
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
-echo 6
 echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
-echo 7
 echo sLinkFile = "%USERPROFILE%\Desktop\Linux Shell.lnk" >> %SCRIPT%
-echo 8
 echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
-echo 9
 echo oLink.TargetPath = "%USERPROFILE%\AppData\Local\Microsoft\WindowsApps\wt.exe" >> %SCRIPT%
-echo 10
 echo olink.Arguments = "-p Ubuntu" >> %SCRIPT%
-echo 11
 echo olink.IconLocation = "%USERPROFILE%\.config\bash.ico" >> %SCRIPT%
-echo 12
 echo oLink.Save >> %SCRIPT%
-echo 13
 
 cscript /nologo %SCRIPT%
-echo 14
 del %SCRIPT%
-echo 15
 del /Q %USERPROFILE%\repos\transfer\*
-echo 16
 
 :::thump:::                                                       .----------------.
 :::thump:::                                                       | Oh, my fur and |
