@@ -303,7 +303,8 @@ wsl -d Ubuntu -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme.pub >nul 2>&
 wsl -d Ubuntu -u root -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh" >nul 2>&1
 
 :: Install git repos
-wsl -d Ubuntu -u root -e sh /home/ubuntu/repos/transfer/git_installs.sh >nul 2>&1
+wsl -d Ubuntu -u root -e sh /home/ubuntu/repos/transfer/git_installs.sh 
+REM >nul 2>&1
 
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
 echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
