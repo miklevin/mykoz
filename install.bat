@@ -120,7 +120,6 @@ if not "%1" == "" (
         if "%%~xI" neq "" set "version=%%~nI%%~xI"
     )
 )
-echo  This is going to take about 10 minutes. Go get a drink.
 
 :::rabbit::: RABBIT HOLE LINUX: Write Once, Run Forever. Future-proof Yourself.
 :::rabbit:::                                                                /) ____
@@ -137,6 +136,7 @@ echo  This is going to take about 10 minutes. Go get a drink.
 :::rabbit::: Before continuing this script, Install Ubuntu 22.04 from Microsoft Store
 :::rabbit::: or by using the "wsl --install" command. After WSL is installed, run this
 :::rabbit::: script. This script can be re-run often to update your Linux environment.
+:::rabbit::: All your configuration and files will be preserved. You can even upgrade.
 :::rabbit::: ------------------------------------------------------------------------
 :::rabbit:::
 :::rabbit::: While there are many ways to run JupyterLab, this way is best because it
@@ -232,7 +232,7 @@ set /p warning= %
 :::down::: Ease into Linux by using Python in JuputerLab at http://localhost:8888
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
 echo  Installing: Ubuntu 22.04, Python %version% (drinkme %drinkme%)... please have patience.
-echo  Linux DOESN'T mean Desktop! It means improving relevent skills for life.
+echo  Linux DOESN'T mean Desktop! Linux means improving muscle skills for life.
 
 wsl --unregister Ubuntu >nul
 wsl --set-default-version 2 >nul
@@ -284,7 +284,7 @@ if exist %USERPROFILE%\.gitconfig (wsl -d Ubuntu -e bash -lic "cp /mnt/c/Users/%
 if exist %USERPROFILE%\.pypirc (wsl -d Ubuntu -e bash -lic "cp /mnt/c/Users/%USERNAME%/.pypirc /home/ubuntu/" >nul 2>&1) else (curl -L -o %USERPROFILE%\.pypirc "https://raw.githubusercontent.com/miklevin/drinkme/main/.pypirc" >nul 2>&1)
 
 :: We update the software repository on the Ubuntu 22.04 Machine
-echo  This will take awhile. Go get a cup of coffee, tea or a beer.
+echo  This is going to take about 10 minutes. Go get a drink.
 wsl -d Ubuntu -u root -e sudo apt update >nul 2>&1
 
 :: And now the big upgrading of all the Ubuntu 22.04 software.
