@@ -229,7 +229,7 @@ set /p warning= %
 :::down:::                          /     /
 :::down:::                          `----`
 :::down:::
-:::down::: You're falling down the rabbit hole. Please have patience, and be brave!
+:::down::: Welcome to a great adventure! Learn Linux gently on the Host OS you know.
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
 echo  Installing: Ubuntu 22.04, Python %version%, DrinkMe %drinkme%... Wonderland awaits!
 
@@ -263,6 +263,7 @@ if not exist "%USERPROFILE%\.jupyter" mkdir %USERPROFILE%\.jupyter >nul 2>&1
 if not exist "%USERPROFILE%\.config" mkdir %USERPROFILE%\.config >nul 2>&1
 curl -sL -o %USERPROFILE%\repos\transfer\wsl.conf "https://raw.githubusercontent.com/miklevin/drinkme/main/wsl.conf" >nul 2>&1
 curl -sL -o %USERPROFILE%\.config\bash.ico "https://raw.githubusercontent.com/miklevin/drinkme/main/icons/bash.ico" >nul 2>&1
+curl -sL -o %USERPROFILE%\.config\jupyter.ico "https://raw.githubusercontent.com/miklevin/drinkme/main/icons/jupyter.ico" >nul 2>&1
 
 REM Put the WSL config files in place.
 wsl -d Ubuntu -u root cp "/mnt/c/Users/%USERNAME%/repos/transfer/wsl.conf" /etc/wsl.conf

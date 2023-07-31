@@ -31,7 +31,7 @@ sudo apt autoremove -y > /dev/null 2>&1
 sudo curl -sL https://raw.githubusercontent.com/miklevin/drinkme/main/.bash_profile -o /home/ubuntu/.bash_profile \
 https://raw.githubusercontent.com/miklevin/drinkme/main/.bash_prompt -o /home/ubuntu/.bash_prompt \
 https://raw.githubusercontent.com/miklevin/drinkme/main/.screenrc -o /home/ubuntu/.screenrc \
-https://raw.githubusercontent.com/miklevin/drinkme/main/config -o /home/ubuntu/repos/transfer/configure \
+https://raw.githubusercontent.com/miklevin/drinkme/main/config -o /home/ubuntu/repos/transfer/config \
 https://raw.githubusercontent.com/miklevin/drinkme/main/unrot.py -o /home/ubuntu/repos/transfer/unrot.py \
 https://raw.githubusercontent.com/miklevin/drinkme/main/pub.txt -o /home/ubuntu/repos/transfer/pub.txt \
 https://raw.githubusercontent.com/miklevin/drinkme/main/priv.txt -o /home/ubuntu/repos/transfer/priv.txt \
@@ -58,7 +58,8 @@ sudo chown ubuntu:ubuntu /home/ubuntu/.bash_prompt > /dev/null 2>&1
 mv -n /home/ubuntu/repos/transfer/id_rsa_drinkme.pub /home/ubuntu/.ssh > /dev/null 2>&1
 mv -n /home/ubuntu/repos/transfer/id_rsa_drinkme /home/ubuntu/.ssh > /dev/null 2>&1
 # mv -n /home/ubuntu/repos/transfer/known_hosts /home/ubuntu/.ssh > /dev/null 2>&1
-mv -n /home/ubuntu/repos/transfer/configure /home/ubuntu/.ssh > /dev/null 2>&1
+mv -n /home/ubuntu/repos/transfer/config /home/ubuntu/.ssh > /dev/null 2>&1
+sudo chmod 600 ~/.ssh/config
 /home/ubuntu/pyenv/bin/python -m pip install --upgrade pip > /dev/null 2>&1
 
 curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh > /dev/null 2>&1
