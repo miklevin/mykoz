@@ -229,9 +229,9 @@ set /p warning= %
 :::down:::                          /     /
 :::down:::                          `----`
 :::down:::
-:::down::: Welcome to a great adventure! Learn Linux gently on the Host OS you know.
+:::down::: Start learning Linux with Python in JuputerLab at http://localhost:8888
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
-echo  Installing: Ubuntu 22.04, Python %version%, DrinkMe %drinkme%... Wonderland awaits!
+echo  Installing: Ubuntu 22.04, Python %version%, DrinkMe %drinkme%... have patience.
 
 wsl --unregister Ubuntu >nul
 wsl --set-default-version 2 >nul
