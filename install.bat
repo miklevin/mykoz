@@ -9,7 +9,7 @@
 :: JupyterLab on your Windows 10 or 11 laptop
 :: using the invisible Rabbit Hole Linux VM.
 ::
-:: Install Ubuntu 22.04 from the Windows Store
+:: Install Ubuntu 22.04 from Microsoft Store
 :: or by using the "wsl --install" command.
 :: After WSL is installed, run this script.
 ::
@@ -134,7 +134,7 @@ echo  This will install Ubuntu 22.04 and Python %version% using DrinkMe %drinkme
 :::rabbit::: browser at http://localhost:8888. It's a "floating" Linux environment.
 :::rabbit:::
 :::rabbit::: ------------------------------------------------------------------------
-:::rabbit::: Before continuing this script, Install Ubuntu 22.04 from the Windows Store
+:::rabbit::: Before continuing this script, Install Ubuntu 22.04 from Microsoft Store
 :::rabbit::: or by using the "wsl --install" command. After WSL is installed, run this
 :::rabbit::: script. This script can be re-run often to update your Linux environment.
 :::rabbit::: ------------------------------------------------------------------------

@@ -1,5 +1,5 @@
-Host github.com
-    Hostname remote.server.com
+Host gitserv
+    Hostname github.com
     IdentityFile ~/.ssh/id_rsa_drinkme
     IdentitiesOnly yes
     StrictHostKeyChecking no
