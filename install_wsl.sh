@@ -12,7 +12,7 @@ sudo apt install figlet -y > /dev/null 2>&1
 # Check if we have a Python version passed in as an argument
 VAR=${1:-3.12}
 figlet -t "Python $VAR..."
-echo "Down, down, down, would the fall never come to an end?"
+echo "Getting the latest, greatest Python has never been so easy!"
 
 # Add 2 custom PPS's (Personal Package Sources) to repository list
 sudo add-apt-repository ppa:deadsnakes/ppa -y > /dev/null 2>&1
@@ -66,20 +66,20 @@ sudo apt install nodejs -y > /dev/null 2>&1
 
 if [ -f /home/ubuntu/repos/transfer/apt_installs.sh ]
 then
-    figlet -t "DbPkg's..."
-    echo "Falling past 60K+ apt-installable packages. Grabbing a few."
+    figlet -t "Ubuntu Pkg's..."
+    echo "Grabbing a few of the 60K+ Ubuntu packages now at your disposal."
     source /home/ubuntu/repos/transfer/apt_installs.sh
 fi
 sh -c 'curl -fLo /home/ubuntu/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' > /dev/null 2>&1
 if [ -f /home/ubuntu/repos/transfer/requirements.txt ]
 then
     figlet -t "PyPI..."
-    echo "Falling past 300K+ pip-installable packages. Grabbing a few."
+    echo "Grabbing a few of the 300K+ PyPI pip-installable packages."
     /home/ubuntu/pyenv/bin/python -m pip install -r /home/ubuntu/repos/transfer/requirements.txt > /dev/null 2>&1
 fi
 
 figlet -t "NodeJS..."
-    echo "Falling past 1.3 Million npm-installable packages. Weeeee!"
+    echo "NodeJS is only in here for browser automation tricks."
 curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh > /dev/null 2>&1
 sudo bash /tmp/nodesource_setup.sh > /dev/null 2>&1
 sudo apt install nodejs -y > /dev/null 2>&1

@@ -229,9 +229,9 @@ set /p warning= %
 :::down:::                          /     /
 :::down:::                          `----`
 :::down:::
-:::down::: Ease into Linux by using Python in JuputerLab at http://localhost:8888
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
 echo  Installing: Ubuntu 22.04, Python %version% (drinkme %drinkme%)... please have patience.
+echo  Ease into Linux by using Python in JuputerLab. It's a great way to learn.
 echo  Linux DOESN'T mean Desktop! Linux means improving muscle skills for life.
 
 wsl --unregister Ubuntu >nul
