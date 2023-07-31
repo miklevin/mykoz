@@ -134,15 +134,15 @@ echo  This will install Ubuntu 22.04 and Python %version% using DrinkMe %drinkme
 :::rabbit::: browser at http://localhost:8888. It's a "floating" Linux environment.
 :::rabbit:::
 :::rabbit::: ------------------------------------------------------------------------
-:::rabbit::: It's best to install Ubuntu 22.04 from the Windows Store first, then run
-:::rabbit::: this script. Fetch & re-run this script to update your Linux environment.
-:::rabbit::: Updates are frequent, and all your repo-work will be saved Windows-side.
+:::rabbit::: Before continuing this script, Install Ubuntu 22.04 from the Windows Store
+:::rabbit::: or by using the "wsl --install" command. After WSL is installed, run this
+:::rabbit::: script. This script can be re-run often to update your Linux environment.
 :::rabbit::: ------------------------------------------------------------------------
 :::rabbit:::
-:::rabbit::: This script will also install Pipulate free & open source SEO software,
-:::rabbit::: and YAMLchop, the 1-text-file for life journaling and blogging system.
-:::rabbit::: If you want to install a specific version of Python, you can do so by
-:::rabbit::: renaming the install.bat file to 3.8.bat or 3.9.bat or 3.10.bat, etc.
+:::rabbit::: While there are many ways to run JupyterLab, this way is best because it
+:::rabbit::: uses the same versions of Python and JupyterLab that the Linux servers do.
+:::rabbit::: This is a baby-step towards future-proofing yourself. Using this method,
+:::rabbit::: you can start to learn Python automation, vim, and other TIMELESS skills.
 :::rabbit:::
 :::rabbit::: Mac Version:
 :::rabbit::: Coming Soon!           Press [Enter] to JUMP DOWN THE LINUX RABBIT HOLE...
