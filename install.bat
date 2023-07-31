@@ -120,7 +120,7 @@ if not "%1" == "" (
         if "%%~xI" neq "" set "version=%%~nI%%~xI"
     )
 )
-echo  This will install Ubuntu 22.04 and Python %version% using DrinkMe %drinkme%
+echo  This is going to take about 10 minutes. Go get a drink.
 
 :::rabbit::: RABBIT HOLE LINUX: Write Once, Run Forever. Future-proof Yourself.
 :::rabbit:::                                                                /) ____
@@ -232,6 +232,7 @@ set /p warning= %
 :::down::: Ease into Linux by using Python in JuputerLab at http://localhost:8888
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
 echo  Installing: Ubuntu 22.04, Python %version% (drinkme %drinkme%)... please have patience.
+echo  Linux DOESN'T mean Desktop! It means improving relevent skills for life.
 
 wsl --unregister Ubuntu >nul
 wsl --set-default-version 2 >nul
