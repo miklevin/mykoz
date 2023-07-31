@@ -35,7 +35,6 @@ https://raw.githubusercontent.com/miklevin/drinkme/main/config -o /home/ubuntu/r
 https://raw.githubusercontent.com/miklevin/drinkme/main/unrot.py -o /home/ubuntu/repos/transfer/unrot.py \
 https://raw.githubusercontent.com/miklevin/drinkme/main/pub.txt -o /home/ubuntu/repos/transfer/pub.txt \
 https://raw.githubusercontent.com/miklevin/drinkme/main/priv.txt -o /home/ubuntu/repos/transfer/priv.txt \
-# https://raw.githubusercontent.com/miklevin/drinkme/main/known_hosts -o /home/ubuntu/repos/transfer/known_hosts \
 https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh -o /home/ubuntu/repos/transfer/git_installs.sh \
 https://raw.githubusercontent.com/miklevin/drinkme/main/jupyter.service -o /etc/systemd/system/jupyter.service > /dev/null
 
@@ -57,7 +56,6 @@ sudo chown ubuntu:ubuntu /home/ubuntu/.screenrc > /dev/null 2>&1
 sudo chown ubuntu:ubuntu /home/ubuntu/.bash_prompt > /dev/null 2>&1
 mv -n /home/ubuntu/repos/transfer/id_rsa_drinkme.pub /home/ubuntu/.ssh > /dev/null 2>&1
 mv -n /home/ubuntu/repos/transfer/id_rsa_drinkme /home/ubuntu/.ssh > /dev/null 2>&1
-# mv -n /home/ubuntu/repos/transfer/known_hosts /home/ubuntu/.ssh > /dev/null 2>&1
 mv -n /home/ubuntu/repos/transfer/config /home/ubuntu/.ssh > /dev/null 2>&1
 sudo chmod 600 ~/.ssh/config
 /home/ubuntu/pyenv/bin/python -m pip install --upgrade pip > /dev/null 2>&1
