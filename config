@@ -2,3 +2,4 @@ Host gitserv
     Hostname remote.server.com
     IdentityFile ~/.ssh/id_rsa_drinkme
     IdentitiesOnly yes
+    StrictHostKeyChecking no
