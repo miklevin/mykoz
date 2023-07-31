@@ -3,14 +3,15 @@
 :: | | | | '__| | '_ \| |/ / | |\/| |/ _ \
 :: | |_| | |  | | | | |   <  | |  | |  __/
 :: |____/|_|  |_|_| |_|_|\_\ |_|  |_|\___|
-:: For Rabbit Hole Linux, by Michael Levin
+:: For Rabbit Hole Linux, by Mike Levin SEO
 ::
 :: This Windows batch script installs Linux
 :: JupyterLab on your Windows 10 or 11 laptop
 :: using the invisible Rabbit Hole Linux VM.
 ::
-:: It's best to install Ubuntu 22.04 from the
-:: Windows Store first, then run this script.
+:: Install Ubuntu 22.04 from the Windows Store
+:: or by using the "wsl --install" command.
+:: After WSL is installed, run this script.
 ::
 :: Fetch & re-run this script to update your
 :: Linux environment. It's a "floating" Linux
@@ -247,9 +248,14 @@ wsl -d Ubuntu -u root useradd -m "%wsluser%" >nul 2>&1
 wsl -d Ubuntu -u root sh -c "echo "%wsluser%:%password%" | chpasswd" >nul 2>&1
 wsl -d Ubuntu -u root chsh -s /bin/bash "%wsluser%" >nul
 wsl -d Ubuntu -u root usermod -aG adm,cdrom,sudo,dip,plugdev,lxd "%wsluser%" >nul 2>&1
-%userprofile%\AppData\Local\Microsoft\WindowsApps\ubuntu.exe config --default-user "%wsluser%" >nul
+
+REM Find the Windows username for the current user.
+for /F "tokens=2 delims=\" %%U in ('whoami') do set "USERNAME=%%U"
+
+%USERPROFILE%\AppData\Local\Microsoft\WindowsApps\ubuntu.exe config --default-user "%wsluser%" >nul
 
 REM This creates "repos" folder in your Windows HOME for Windows/Linux file sharing.
+if not exist "%USERPROFILE%\.ssh" mkdir %USERPROFILE%\.ssh >nul 2>&1
 if not exist "%USERPROFILE%\repos" mkdir %USERPROFILE%\repos >nul 2>&1
 if not exist "%USERPROFILE%\repos\transfer" mkdir %USERPROFILE%\repos\transfer >nul 2>&1
 if not exist "%USERPROFILE%\.wslconfig" curl -sL -o %USERPROFILE%\.wslconfig "https://raw.githubusercontent.com/miklevin/drinkme/main/.wslconfig" >nul 2>&1
@@ -257,9 +263,6 @@ if not exist "%USERPROFILE%\.jupyter" mkdir %USERPROFILE%\.jupyter >nul 2>&1
 if not exist "%USERPROFILE%\.config" mkdir %USERPROFILE%\.config >nul 2>&1
 curl -sL -o %USERPROFILE%\repos\transfer\wsl.conf "https://raw.githubusercontent.com/miklevin/drinkme/main/wsl.conf" >nul 2>&1
 curl -sL -o %USERPROFILE%\.config\bash.ico "https://raw.githubusercontent.com/miklevin/drinkme/main/icons/bash.ico" >nul 2>&1
-
-REM Find the Windows username for the current user.
-for /F "tokens=2 delims=\" %%U in ('whoami') do set "USERNAME=%%U"
 
 REM Put the WSL config files in place.
 wsl -d Ubuntu -u root cp "/mnt/c/Users/%USERNAME%/repos/transfer/wsl.conf" /etc/wsl.conf
@@ -298,7 +301,9 @@ wsl -t Ubuntu >nul 2>&1
 wsl -d Ubuntu -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme >nul 2>&1
 wsl -d Ubuntu -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme.pub >nul 2>&1
 wsl -d Ubuntu -u root -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh" >nul 2>&1
-REM wsl -d Ubuntu -u root -e sh /home/ubuntu/repos/transfer/git_installs.sh >nul 2>&1
+
+:: Install git repos
+wsl -d Ubuntu -u root -e sh /home/ubuntu/repos/transfer/git_installs.sh >nul 2>&1
 
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
 echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
