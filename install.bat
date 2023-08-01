@@ -277,35 +277,36 @@ if exist requirements.txt (copy requirements.txt %USERPROFILE%\repos\transfer > 
 REM This stops and restarts like a wsl --shutdown to activate systemd and metadata options.
 wsl -t Ubuntu >nul 2>&1
 
-:: Create symbolic links from Windows paths to WSL paths.
+REM Create symbolic links from Windows paths to WSL paths.
 wsl -d Ubuntu -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh && ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos && ln -s /mnt/c/Users/%USERNAME%/.config/ /home/ubuntu/.config && ln -s /mnt/c/Users/%USERNAME%/.jupyter/ /home/ubuntu/.jupyter" >nul 2>&1
 
-if exist %USERPROFILE%\.vimrc (wsl -d Ubuntu -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/" >nul 2>&1) else (curl -L -o %USERPROFILE%\.vimrc "https://raw.githubusercontent.com/miklevin/drinkme/main/.vimrc" >nul 2>&1)
-if exist %USERPROFILE%\.gitconfig (wsl -d Ubuntu -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitconfig /home/ubuntu/" >nul 2>&1) else (curl -L -o %USERPROFILE%\.gitconfig "https://raw.githubusercontent.com/miklevin/drinkme/main/.gitconfig" >nul 2>&1)
-if exist %USERPROFILE%\.pypirc (wsl -d Ubuntu -e bash -lic "cp /mnt/c/Users/%USERNAME%/.pypirc /home/ubuntu/" >nul 2>&1) else (curl -L -o %USERPROFILE%\.pypirc "https://raw.githubusercontent.com/miklevin/drinkme/main/.pypirc" >nul 2>&1)
+REM Put the Windows config files Linux-side if they exist, otherwise download them.
+if exist %USERPROFILE%\.gitconfig (wsl -d Ubuntu -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitconfig /home/ubuntu/" >nul 2>&1) else (wsl -d Ubuntu -u ubuntu -e curl -L -o /home/ubuntu/.github "https://raw.githubusercontent.com/miklevin/drinkme/main/.gitconfig")
+if exist %USERPROFILE%\.vimrc (wsl -d Ubuntu -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/" >nul 2>&1) else (wsl -d ubuntu -u ubuntu -e curl -l -o /home/ubuntu/.vimrc "https://raw.githubusercontent.com/miklevin/drinkme/main/.vimrc" >nul 2>&1)
+if exist %USERPROFILE%\.pypirc (wsl -d Ubuntu -e bash -lic "cp /mnt/c/Users/%USERNAME%/.pypirc /home/ubuntu/" >nul 2>&1) else (wsl -d ubuntu -u ubuntu -e curl -l -o /home/ubuntu/.pypirc "https://raw.githubusercontent.com/miklevin/drinkme/main/.pypirc" >nul 2>&1)
 
-:: We update the software repository on the Ubuntu 22.04 Machine
+REM We update the software repository on the Ubuntu 22.04 Machine
 echo  This is going to take about 10 minutes. Relax. Go get a drink.
 wsl -d Ubuntu -u root -e sudo apt update >nul 2>&1
 
-:: And now the big upgrading of all the Ubuntu 22.04 software.
+REM And now the big upgrading of all the Ubuntu 22.04 software.
 wsl -d Ubuntu -u root -e sudo apt upgrade -y >nul 2>&1
 
-:: You know what's nice? Not having to type a password every time you sudo a command!
+REM You know what's nice? Not having to type a password every time you sudo a command!
 wsl -d Ubuntu -u root /bin/bash -c "echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL'> /etc/sudoers.d/ubuntu" >nul 2>&1
 
-:: Grab and run second-half of install that runs under WSL and set up Linux graphics.
+REM Grab and run second-half of install that runs under WSL and set up Linux graphics.
 wsl -d Ubuntu -u ubuntu -e curl -L -o /home/ubuntu/install_wsl.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/install_wsl.sh" >nul 2>&1
 wsl -d Ubuntu -e bash -c "bash /home/ubuntu/install_wsl.sh %version% 2>&1
 
-:: ACLs need a wsl --shutdown for git clone to work. Also keep the WSL session alive.
+REM ACLs need a wsl --shutdown for git clone to work. Also keep the WSL session alive.
 wsl -t Ubuntu >nul 2>&1
 
 wsl -d Ubuntu -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme >nul 2>&1
 wsl -d Ubuntu -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme.pub >nul 2>&1
 wsl -d Ubuntu -u root -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh" >nul 2>&1
 
-:: Install git repos
+REM Install git repos
 wsl -d Ubuntu -u root -e sh /home/ubuntu/repos/transfer/git_installs.sh 
 REM >nul 2>&1
 
