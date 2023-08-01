@@ -129,6 +129,7 @@ if not "%1" == "" (
 :::rabbit::: |_| \_\__,_|_.__/|_.__/|_|\__| |_| |_|\___/|_|\___|   |__>-\_>_>  \___/
 :::rabbit:::
 :::rabbit::: RABBIT HOLE LINUX: WRITE ONCE, RUN FOREVER. FUTURE-PROOF YOURSELF!
+:::rabbit:::
 :::rabbit::: This script installs Linux under Windows WSL to run JuptyerLab in your
 :::rabbit::: browser at http://localhost:8888. It's a "floating" Linux environment.
 :::rabbit:::
@@ -231,8 +232,8 @@ set /p warning= %
 :::down:::
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
 echo  Installing: Ubuntu 22.04, Python %version% (drinkme %drinkme%)... please have patience.
-echo  Ease into Linux by using Python in JuputerLab. It's a great way to learn.
-echo  Linux DOESN'T mean Desktop! Linux means improving muscle-memory skills for life.
+echo  Run JupyterLab back-ended with genuine Linux Python, front-ended with Windows.
+echo  Linux DOESN'T mean Desktop! Imporove your muscle-memory tech skills for life.
 
 wsl --unregister Ubuntu >nul
 wsl --set-default-version 2 >nul
