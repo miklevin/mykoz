@@ -281,7 +281,7 @@ REM Create symbolic links from Windows paths to WSL paths.
 wsl -d Ubuntu -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh && ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos && ln -s /mnt/c/Users/%USERNAME%/.config/ /home/ubuntu/.config && ln -s /mnt/c/Users/%USERNAME%/.jupyter/ /home/ubuntu/.jupyter" >nul 2>&1
 
 REM Put the Windows config files Linux-side if they exist, otherwise download them.
-if exist %USERPROFILE%\.gitconfig (wsl -d Ubuntu -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitconfig /home/ubuntu/" >nul 2>&1) else (wsl -d Ubuntu -u ubuntu -e curl -L -o /home/ubuntu/.github "https://raw.githubusercontent.com/miklevin/drinkme/main/.gitconfig") >nul 2>&1)
+if exist %USERPROFILE%\.gitconfig (wsl -d Ubuntu -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitconfig /home/ubuntu/" >nul 2>&1) else (wsl -d Ubuntu -u ubuntu -e curl -L -o /home/ubuntu/.github "https://raw.githubusercontent.com/miklevin/drinkme/main/.gitconfig" >nul 2>&1)
 if exist %USERPROFILE%\.vimrc (wsl -d Ubuntu -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/" >nul 2>&1) else (wsl -d ubuntu -u ubuntu -e curl -l -o /home/ubuntu/.vimrc "https://raw.githubusercontent.com/miklevin/drinkme/main/.vimrc" >nul 2>&1)
 if exist %USERPROFILE%\.pypirc (wsl -d Ubuntu -e bash -lic "cp /mnt/c/Users/%USERNAME%/.pypirc /home/ubuntu/" >nul 2>&1) else (wsl -d ubuntu -u ubuntu -e curl -l -o /home/ubuntu/.pypirc "https://raw.githubusercontent.com/miklevin/drinkme/main/.pypirc" >nul 2>&1)
 
