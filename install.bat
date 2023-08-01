@@ -347,7 +347,7 @@ echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
 echo sLinkFile = "%USERPROFILE%\Desktop\Linux Shell.lnk" >> %SCRIPT%
 echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
 echo oLink.TargetPath = "%USERPROFILE%\AppData\Local\Microsoft\WindowsApps\wt.exe" >> %SCRIPT%
-echo olink.Arguments = "-p %Ubuntu%" >> %SCRIPT%
+echo olink.Arguments = "-p Ubuntu" >> %SCRIPT%
 echo olink.IconLocation = "%USERPROFILE%\.config\bash.ico" >> %SCRIPT%
 echo oLink.Save >> %SCRIPT%
 
