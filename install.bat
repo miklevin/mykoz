@@ -50,7 +50,7 @@
 ::     /     /                                 
 ::     `----`                                  
 ::
-:: - Always get the latest Python (3.12)
+:: - Always get the latest Python (3.11)
 :: - Always get the latest JupyterLab (4)
 :: - Name installer 3.8.bat for Python 3.8
 :: - Use home VPN software to cycle your IP
@@ -93,8 +93,8 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.8.4
-set python=3.12
+set drinkme=0.8.5
+set python=3.11
 @echo off
 local
 cls
