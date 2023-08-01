@@ -66,14 +66,14 @@ sudo apt install nodejs -y > /dev/null 2>&1
 
 if [ -f /home/ubuntu/repos/transfer/apt_installs.sh ]
 then
-    figlet -t "Ubuntu Pkg's..."
+    figlet -t "apt get's..."
     echo "Grabbing a few of the 60K+ Ubuntu packages now at your disposal."
     source /home/ubuntu/repos/transfer/apt_installs.sh
 fi
 sh -c 'curl -fLo /home/ubuntu/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' > /dev/null 2>&1
 if [ -f /home/ubuntu/repos/transfer/requirements.txt ]
 then
-    figlet -t "PyPI..."
+    figlet -t "pip installs..."
     echo "Grabbing a few of the 300K+ PyPI pip-installable packages."
     /home/ubuntu/pyenv/bin/python -m pip install -r /home/ubuntu/repos/transfer/requirements.txt > /dev/null 2>&1
 fi
