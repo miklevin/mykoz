@@ -302,8 +302,11 @@ wsl -d Ubuntu -e bash -c "bash /home/ubuntu/install_wsl.sh %version% 2>&1
 REM ACLs need a wsl --shutdown for git clone to work. Also keep the WSL session alive.
 wsl -t Ubuntu >nul 2>&1
 
-wsl -d Ubuntu -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme >nul 2>&1
-wsl -d Ubuntu -u root -e chmod 600 /home/ubuntu/.ssh/id_rsa_drinkme.pub >nul 2>&1
+REM Finessing permissions so that git clone works.
+wsl -d Ubuntu -u root -e chown ubuntu:ubuntu /home/ubuntu/.ssh/* >nul 2>&1
+wsl -d Ubuntu -u root -e chmod 700 /home/ubuntu/.ssh >nul 2>&1
+wsl -d Ubuntu -u root -e chmod 600 /home/ubuntu/.ssh/* >nul 2>&1
+wsl -d Ubuntu -u root -e chmod 700 /home/ubuntu/.ssh/config >nul 2>&1
 wsl -d Ubuntu -u root -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh" >nul 2>&1
 
 REM Install git repos
