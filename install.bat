@@ -321,7 +321,7 @@ echo oLink.Save >> %SCRIPT%
 
 cscript /nologo %SCRIPT%
 del %SCRIPT%
-del /Q %USERPROFILE%\repos\transfer\*
+:: del /Q %USERPROFILE%\repos\transfer\*
 
 :::thump:::                                                       .----------------.
 :::thump:::                                                       | Oh, my fur and |
