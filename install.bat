@@ -233,9 +233,35 @@ set /p warning= %
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
 echo  Installing: Ubuntu 22.04, Python %version% (drinkme %drinkme%)... please have patience.
 echo  Run JupyterLab back-ended with genuine Linux Python, front-ended with Windows.
-echo  Linux DOESN'T mean Desktop! Imporove your muscle-memory tech skills for life.
+echo  Linux DOESN'T mean Desktop! Improve your muscle-memory tech skills for life.
 
-wsl --unregister Ubuntu >nul
+set "windows_apps_path=%USERPROFILE%\AppData\Local\Microsoft\WindowsApps"
+set "install_command="
+set "config_command="
+
+rem Check if ubuntu.exe is present in the location
+if exist "%windows_apps_path%\ubuntu.exe" (
+    set "install_command=ubuntu.exe install --root >nul"
+    set "config_command=ubuntu.exe config --default-user "%%wsluser%%" >nul"
+    set "Ubuntu=Ubuntu"
+)
+
+rem If ubuntu.exe is not present, check if ubuntu2204.exe is present
+if not defined install_command (
+    if exist "%windows_apps_path%\ubuntu2204.exe" (
+        set "install_command=ubuntu2204.exe install --root >nul"
+        set "config_command=ubuntu2204.exe config --default-user "%%wsluser%%" >nul"
+        set "Ubuntu=Ubuntu-22.04"
+    )
+)
+
+rem If both ubuntu.exe and ubuntu2204.exe are not present, show an error message
+if not defined install_command (
+    echo "Error: Neither ubuntu.exe nor ubuntu2204.exe found in %windows_apps_path%"
+    exit /b 1
+)
+
+wsl --unregister %Ubuntu% >nul
 wsl --set-default-version 2 >nul
 
 REM These are variables for the automatically created Ubuntu 22.04 user under WSL.
@@ -243,18 +269,21 @@ set wsluser="ubuntu"
 set password="foo"
 
 REM The big install! If it's your first time, it will make you reboot your machine.
-ubuntu.exe install --root >nul
+REM ubuntu.exe install --root >nul
+call %install_command%
+
 
 REM Once Ubuntu 22.04 is installed, this sets up the default user.
-wsl -d Ubuntu -u root useradd -m "%wsluser%" >nul 2>&1
-wsl -d Ubuntu -u root sh -c "echo "%wsluser%:%password%" | chpasswd" >nul 2>&1
-wsl -d Ubuntu -u root chsh -s /bin/bash "%wsluser%" >nul
-wsl -d Ubuntu -u root usermod -aG adm,cdrom,sudo,dip,plugdev,lxd "%wsluser%" >nul 2>&1
+wsl -d %Ubuntu% -u root useradd -m "%wsluser%" >nul 2>&1
+wsl -d %Ubuntu% -u root sh -c "echo "%wsluser%:%password%" | chpasswd" >nul 2>&1
+wsl -d %Ubuntu% -u root chsh -s /bin/bash "%wsluser%" >nul
+wsl -d %Ubuntu% -u root usermod -aG adm,cdrom,sudo,dip,plugdev,lxd "%wsluser%" >nul 2>&1
 
 REM Find the Windows username for the current user.
 for /F "tokens=2 delims=\" %%U in ('whoami') do set "USERNAME=%%U"
 
-%USERPROFILE%\AppData\Local\Microsoft\WindowsApps\ubuntu.exe config --default-user "%wsluser%" >nul
+REM %USERPROFILE%\AppData\Local\Microsoft\WindowsApps\ubuntu.exe config --default-user "%wsluser%" >nul
+call %config_command%
 
 REM This creates "repos" folder in your Windows HOME for Windows/Linux file sharing.
 if not exist "%USERPROFILE%\.ssh" mkdir %USERPROFILE%\.ssh >nul 2>&1
@@ -268,49 +297,49 @@ curl -sL -o %USERPROFILE%\.config\bash.ico "https://raw.githubusercontent.com/mi
 curl -sL -o %USERPROFILE%\.config\jupyter.ico "https://raw.githubusercontent.com/miklevin/drinkme/main/icons/jupyter.ico" >nul 2>&1
 
 REM Put the WSL config files in place.
-wsl -d Ubuntu -u root cp "/mnt/c/Users/%USERNAME%/repos/transfer/wsl.conf" /etc/wsl.conf
+wsl -d %Ubuntu% -u root cp "/mnt/c/Users/%USERNAME%/repos/transfer/wsl.conf" /etc/wsl.conf
 
 REM If you're running from a location with these optional second-stage install files, copy them over.
 if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer > nul 2>&1) else (curl -L -o %USERPROFILE%\repos\transfer\apt_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/apt_installs.sh" > nul 2>&1)
 if exist requirements.txt (copy requirements.txt %USERPROFILE%\repos\transfer > nul 2>&1) else (curl -L -o %USERPROFILE%\repos\transfer\requirements.txt "https://raw.githubusercontent.com/miklevin/drinkme/main/requirements.txt" >nul 2>&1)
 
 REM This stops and restarts like a wsl --shutdown to activate systemd and metadata options.
-wsl -t Ubuntu >nul 2>&1
+wsl -t %Ubuntu% >nul 2>&1
 
 REM Create symbolic links from Windows paths to WSL paths.
-wsl -d Ubuntu -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh && ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos && ln -s /mnt/c/Users/%USERNAME%/.config/ /home/ubuntu/.config && ln -s /mnt/c/Users/%USERNAME%/.jupyter/ /home/ubuntu/.jupyter" >nul 2>&1
+wsl -d %Ubuntu% -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh && ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos && ln -s /mnt/c/Users/%USERNAME%/.config/ /home/ubuntu/.config && ln -s /mnt/c/Users/%USERNAME%/.jupyter/ /home/ubuntu/.jupyter" >nul 2>&1
 
 REM Put the Windows config files Linux-side if they exist, otherwise download them.
-if exist %USERPROFILE%\.gitconfig (wsl -d Ubuntu -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitconfig /home/ubuntu/" >nul 2>&1) else (wsl -d Ubuntu -u ubuntu -e curl -L -o /home/ubuntu/.gitconfig "https://raw.githubusercontent.com/miklevin/drinkme/main/.gitconfig" >nul 2>&1)
-if exist %USERPROFILE%\.vimrc (wsl -d Ubuntu -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/" >nul 2>&1) else (wsl -d ubuntu -u ubuntu -e curl -l -o /home/ubuntu/.vimrc "https://raw.githubusercontent.com/miklevin/drinkme/main/.vimrc" >nul 2>&1)
-if exist %USERPROFILE%\.pypirc (wsl -d Ubuntu -e bash -lic "cp /mnt/c/Users/%USERNAME%/.pypirc /home/ubuntu/" >nul 2>&1) else (wsl -d ubuntu -u ubuntu -e curl -l -o /home/ubuntu/.pypirc "https://raw.githubusercontent.com/miklevin/drinkme/main/.pypirc" >nul 2>&1)
+if exist %USERPROFILE%\.gitconfig (wsl -d %Ubuntu% -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitconfig /home/ubuntu/" >nul 2>&1) else (wsl -d %Ubuntu% -u ubuntu -e curl -L -o /home/ubuntu/.gitconfig "https://raw.githubusercontent.com/miklevin/drinkme/main/.gitconfig" >nul 2>&1)
+if exist %USERPROFILE%\.vimrc (wsl -d %Ubuntu% -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/" >nul 2>&1) else (wsl -d ubuntu -u ubuntu -e curl -l -o /home/ubuntu/.vimrc "https://raw.githubusercontent.com/miklevin/drinkme/main/.vimrc" >nul 2>&1)
+if exist %USERPROFILE%\.pypirc (wsl -d %Ubuntu% -e bash -lic "cp /mnt/c/Users/%USERNAME%/.pypirc /home/ubuntu/" >nul 2>&1) else (wsl -d ubuntu -u ubuntu -e curl -l -o /home/ubuntu/.pypirc "https://raw.githubusercontent.com/miklevin/drinkme/main/.pypirc" >nul 2>&1)
 
 REM We update the software repository on the Ubuntu 22.04 Machine
 echo  This is going to take about 10 minutes. Relax. Go get a drink.
-wsl -d Ubuntu -u root -e sudo apt update >nul 2>&1
+wsl -d %Ubuntu% -u root -e sudo apt update >nul 2>&1
 
 REM And now the big upgrading of all the Ubuntu 22.04 software.
-wsl -d Ubuntu -u root -e sudo apt upgrade -y >nul 2>&1
+wsl -d %Ubuntu% -u root -e sudo apt upgrade -y >nul 2>&1
 
 REM You know what's nice? Not having to type a password every time you sudo a command!
-wsl -d Ubuntu -u root /bin/bash -c "echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL'> /etc/sudoers.d/ubuntu" >nul 2>&1
+wsl -d %Ubuntu% -u root /bin/bash -c "echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL'> /etc/sudoers.d/ubuntu" >nul 2>&1
 
 REM Grab and run second-half of install that runs under WSL and set up Linux graphics.
-wsl -d Ubuntu -u ubuntu -e curl -L -o /home/ubuntu/install_wsl.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/install_wsl.sh" >nul 2>&1
-wsl -d Ubuntu -e bash -c "bash /home/ubuntu/install_wsl.sh %version% 2>&1
+wsl -d %Ubuntu% -u ubuntu -e curl -L -o /home/ubuntu/install_wsl.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/install_wsl.sh" >nul 2>&1
+wsl -d %Ubuntu% -e bash -c "bash /home/ubuntu/install_wsl.sh %version% 2>&1
 
 REM ACLs need a wsl --shutdown for git clone to work. Also keep the WSL session alive.
-wsl -t Ubuntu >nul 2>&1
+wsl -t %Ubuntu% >nul 2>&1
 
 REM Finessing permissions so that git clone works.
-wsl -d Ubuntu -u root -e chown ubuntu:ubuntu /mnt/c/Users/%USERNAME%/.ssh/id_rsa_drinkme >nul 2>&1
-wsl -d Ubuntu -u root -e chown ubuntu:ubuntu /mnt/c/Users/%USERNAME%/.ssh/id_rsa_drinkme.pub >nul 2>&1
-wsl -d Ubuntu -u root -e chown ubuntu:ubuntu /mnt/c/Users/%USERNAME%/.ssh/config >nul 2>&1
-wsl -d Ubuntu -u root -e chmod 600 /mnt/c/Users/%USERNAME%/.ssh/id_rsa_drinkme >nul 2>&1
-wsl -d Ubuntu -u root -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh" >nul 2>&1
+wsl -d %Ubuntu% -u root -e chown ubuntu:ubuntu /mnt/c/Users/%USERNAME%/.ssh/id_rsa_drinkme >nul 2>&1
+wsl -d %Ubuntu% -u root -e chown ubuntu:ubuntu /mnt/c/Users/%USERNAME%/.ssh/id_rsa_drinkme.pub >nul 2>&1
+wsl -d %Ubuntu% -u root -e chown ubuntu:ubuntu /mnt/c/Users/%USERNAME%/.ssh/config >nul 2>&1
+wsl -d %Ubuntu% -u root -e chmod 600 /mnt/c/Users/%USERNAME%/.ssh/id_rsa_drinkme >nul 2>&1
+wsl -d %Ubuntu% -u root -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh" >nul 2>&1
 
 REM Install git repos
-wsl -d Ubuntu -e bash -lic "sh /home/ubuntu/repos/transfer/git_installs.sh"
+wsl -d %Ubuntu% -e bash -lic "sh /home/ubuntu/repos/transfer/git_installs.sh"
 REM >nul 2>&1
 
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
@@ -318,7 +347,7 @@ echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
 echo sLinkFile = "%USERPROFILE%\Desktop\Linux Shell.lnk" >> %SCRIPT%
 echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
 echo oLink.TargetPath = "%USERPROFILE%\AppData\Local\Microsoft\WindowsApps\wt.exe" >> %SCRIPT%
-echo olink.Arguments = "-p Ubuntu" >> %SCRIPT%
+echo olink.Arguments = "-p %Ubuntu%" >> %SCRIPT%
 echo olink.IconLocation = "%USERPROFILE%\.config\bash.ico" >> %SCRIPT%
 echo oLink.Save >> %SCRIPT%
 
@@ -342,3 +371,4 @@ echo You can get a nice JupyterLab icon here, even though edge won't show it:
 echo https://raw.githubusercontent.com/miklevin/drinkme/main/icons/jupyter.ico
 echo.
 set /p warning=Press [Enter] to release this console window. %
+
