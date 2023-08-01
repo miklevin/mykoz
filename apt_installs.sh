@@ -1,7 +1,7 @@
 # Standard bash file for doing late-stage apt installs
 
 figlet -t NeoVim
-echo  You will type with a sign in ages hence: NeoVim made all the difference.
+echo  The last text editor you will ever need. It will outlive VSCode by ages.
 sudo apt install neovim -y > /dev/null 2>&1
 git clone https://github.com/github/copilot.vim.git /home/ubuntu/.config/nvim/pack/github/start/copilot.vim > /dev/null 2>&1
 
