@@ -56,8 +56,10 @@ sudo chown ubuntu:ubuntu /home/ubuntu/.screenrc > /dev/null 2>&1
 sudo chown ubuntu:ubuntu /home/ubuntu/.bash_prompt > /dev/null 2>&1
 mv -n /home/ubuntu/repos/transfer/id_rsa_drinkme.pub /home/ubuntu/.ssh > /dev/null 2>&1
 mv -n /home/ubuntu/repos/transfer/id_rsa_drinkme /home/ubuntu/.ssh > /dev/null 2>&1
-mv -n /home/ubuntu/repos/transfer/config /home/ubuntu/.ssh > /dev/null 2>&1
-sudo chmod 600 ~/.ssh/config
+if [ ! -f "/home/ubuntu/.ssh/config" ]; then
+    mv -n /home/ubuntu/repos/transfer/config /home/ubuntu/.ssh > /dev/null 2>&1
+    sudo chmod 600 ~/.ssh/config
+fi
 /home/ubuntu/pyenv/bin/python -m pip install --upgrade pip > /dev/null 2>&1
 
 curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh > /dev/null 2>&1
