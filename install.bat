@@ -93,7 +93,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.9.4
+set drinkme=0.9.5
 set python=3.11
 @echo off
 local
@@ -355,30 +355,13 @@ cscript /nologo %SCRIPT%
 del %SCRIPT%
 
 REM Create the JupyterLab URL shortcut
+echo. > JupyterLab.url
 echo [InternetShortcut] >> JupyterLab.url
 echo URL=http://localhost:8888/ >> JupyterLab.url
 echo IconFile="%USERPROFILE%\.config\jupyter.ico" >> JupyterLab.url
 echo IconIndex=0 >> JupyterLab.url
 
 del /Q %USERPROFILE%\repos\transfer\*
-
-pause 1 >nul 2>&1
-
-REM Force the Windows desktop to refresh
-if defined PSModulePath (
-    Rundll32.exe user32.dll,UpdatePerUserSystemParameters
-) else (
-    RUNDLL32.EXE USER32.DLL,UpdatePerUserSystemParameters ,1 ,True
-)
-
-REM Creating and executing the embedded VBS script to simulate F5 key press
-(
-  echo Set WshShell = WScript.CreateObject^("WScript.Shell"^)
-  echo WshShell.SendKeys "{F5}"
-) > "%TEMP%\RefreshDesktop.vbs"
-cscript //nologo "%TEMP%\RefreshDesktop.vbs" >nul 2>&1
-del /f /q "%TEMP%\RefreshDesktop.vbs"
-
 
 :::thump:::                                                       .----------------.                     
 :::thump:::                                                       | Oh, my fur and |
