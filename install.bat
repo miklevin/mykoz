@@ -99,6 +99,8 @@ set python=3.11
 local
 cls
 
+del %TEMP%\drinkme-* >nul 2>&1 
+
 REM get full path of current script
 set "script_path=%~dpnx0"
 
@@ -129,12 +131,14 @@ if not "%1" == "" (
 :::rabbit::: ------------------------------------------------------------------------
 :::rabbit:::
 :::rabbit:::   <== Comfort Zone       Who do you want to be?        Your Future ==>  
+:::rabbit:::
 :::rabbit:::                                                               /) ____
 :::rabbit:::      ____ _                      __  __      _          /)\__// /    \
 :::rabbit:::     / ___| |__   __ _ ___  ___  |  \/  | ___| |     ___(/_ 0 0  |     |
 :::rabbit:::    | |   | '_ \ / _` / __|/ _ \ | |\/| |/ _ \ |   *(     =(_T_)=>Linux|
 :::rabbit:::    | |___| | | | (_| \__ \  __/ | |  | |  __/_|     \  )   \"\  |     |
 :::rabbit:::     \____|_| |_|\__,_|___/\___| |_|  |_|\___(_)      |__>-\_>_>  \___/
+:::rabbit:::
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::rabbit:::" "%~f0"') do (echo.%%B)
 call:type "                                          WOULD YOU LIKE TO PLAY A GAME?"
 echo.
@@ -148,7 +152,7 @@ call:type " keeping a 1-text-file Journal in vim for the rest of your life."
 echo.
 echo.
 echo                       Press [Enter] to continue (or Ctrl+C to escape)...
-echo                                                               prompt 1/3
+echo                                                               prompt 1/4
 
 set /p warning= %
 cls
@@ -159,6 +163,7 @@ call:type " tools. Marcus Aurelius gave us Stoicism, a philosophy for finding me
 call:type " resilience in a chaotic world. MyKos: AReal/OS offers Tow-it-ism, a modern"
 call:type " approach to finding value in life by focusing on mastering a few simple,"
 call:type " lasting skills that can be carried with us from one context to the next."
+timeout /t 2 >nul
 :::unicorn:::  
 :::unicorn:::                                  _______________________________   
 :::unicorn:::                                 /                               \
@@ -179,35 +184,39 @@ call:type " lasting skills that can be carried with us from one context to the n
 :::unicorn:::  
 :::unicorn:::  
 :::unicorn:::                        Press [Enter] to jump down the Linux rabbit hole...
-:::unicorn:::                                  (or press Ctrl+C escape.)      prompt 2/3
+:::unicorn:::                                  (or press Ctrl+C escape.)      prompt 2/4
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::unicorn:::" "%~f0"') do (echo.%%B)
 set /p warning= %
 cls
-:::warn:::  _              _      ____ _
-:::warn::: | |    __ _ ___| |_   / ___| |__   __ _ _ __   ___ ___  "You can escape
-:::warn::: | |   / _` / __| __| | |   | '_ \ / _` | '_ \ / __/ _ \  with Ctrl+C and
-:::warn::: | |__| (_| \__ \ |_  | |___| | | | (_| | | | | (_|  __/  never know vim."
-:::warn::: |_____\__,_|___/\__|  \____|_| |_|\__,_|_| |_|\___\___|             -Neo
-:::warn:::                                                                       __
-:::warn::: - A new Ubuntu 22.04 will be installed REPLACING THE DEFAULT!!!      /  \
-:::warn::: - OTHER LINUXES running under WSL are LEFT UNTOUCHED.               |/)\_|
-:::warn::: - JupyterLab will be reachable at http://localhost:8888          ___(/_ 0|
-:::warn:::                                                                *(     =(_|
-:::warn::: THE RULES OF WONDERLAND:                                         \  )   \/
-:::warn::: - A "Linux Shell" icon will appear where you ran the installer.   |__>-_/
-:::warn::: - Double-clicking it will open a Linux Terminal, but this is not
-:::warn:::   necessary until you are ready to go deeper into the rabbit hole.
-:::warn::: - Enjoy a genuine Linux Python experience in your browser!
+:::warn:::  __  __       _  __               _    ____            _    _____  ____  
+:::warn::: |  \/  |_   _| |/ /___ _____     / \  |  _ \ ___  __ _| |  / / _ \/ ___| 
+:::warn::: | |\/| | | | | ' // _ \_  (_)   / _ \ | |_) / _ \/ _` | | / / | | \___ \ 
+:::warn::: | |  | | |_| | . \ (_) / / _   / ___ \|  _ <  __/ (_| | |/ /| |_| |___) |
+:::warn::: |_|  |_|\__, |_|\_\___/___(_) /_/   \_\_| \_\___|\__,_|_/_/  \___/|____/ 
+:::warn:::         |___/ MyKoz: A Real OS on Windows (Linux) teaching Tow-it-izm
 :::warn:::
-:::warn::: GETTING A COOL JUPYTER ICON:
-:::warn::: - You can create a JupyterLab icon on your Desktop through Microsoft
-:::warn:::   Edge browser by clicking the "..." menu in the upper right corner
-:::warn:::   and selecting "Apps > Install this site as an app".
-:::warn::: - Change the icon to jupyter.ico found in the DrinkMe repo.
-:::warn:::
-:::warn:::                      Press [Enter] to jump down the Linux rabbit hole...
-:::warn:::                                (or press Ctrl+C escape.)      prompt 3/3
+:::warn::: My Cause is to help people find meaning in life by mastering a few simple,
+:::warn::: creative, soul-feeding skills that can't be rendered obsolete anytime soon.
+:::warn:::                                                                      
+:::warn:::      (\              /)     ___                     ___             ,     
+:::warn:::    ___\\____________//__   /   \                   /   \            \\  . 
+:::warn:::   |   MyKoz: AReal/OS   | /     V      /)   ____  /     V           |\\/| 
+:::warn:::   |   ===============   |        /)\__//   /    \                  / " '\ 
+:::warn:::   | - Linux server      |    ___(/_ 0 0    |     |   The Future   . .   . 
+:::warn:::   | - Python coding     |  *(     =(_T_)= Anythin|   And Still   /    ) | 
+:::warn:::   | - vim text editor   |    \  )   \"\    |     |   Relevant:  '  _.'  | 
+:::warn:::   | - git code control  |     |__>-\_>_>    \___/    AI? NP!    '-'/    \ 
+:::warn:::   |_____________________| 
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::warn:::" "%~f0"') do (echo.%%B)
+timeout /t 2 >nul
+call:type "Running JupyterLab on Linux Python in Window opens the door to unparalleled"
+call:type "compatibility with a wide range of hardware and software systems, from the cloud"
+call:type "to small-footprint devices, starting your career as a lifetime tech powerhouse."
+call:type "Yet the amazing thing is this is an experience you will find nowhere else."
+echo.
+echo.
+echo                      Press [Enter] to jump down the Linux rabbit hole...
+echo                                (or press Ctrl+C escape.)      prompt 3/4
 
 set /p warning= %
 :::down:::                                         ___
@@ -346,7 +355,7 @@ REM Install git repos
 wsl -d %Ubuntu% -e bash -lic "sh /home/ubuntu/repos/transfer/git_installs.sh" >nul 2>&1
 
 REM Create the Bash on Ubuntu on Windows shortcut
-set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
+set SCRIPT="%TEMP%\drinkme-%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
 echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
 echo sLinkFile = "%~dp0Linux Shell.lnk" >> %SCRIPT%
 echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
@@ -394,8 +403,8 @@ echo   strTempText = Mid(strText,x,1^)
 echo   WScript.StdOut.Write strTempText
 echo   WScript.Sleep intPause
 echo Next
-)>"%TEMP%\typewriter.vbs"
-@cscript //nologo "%TEMP%\typewriter.vbs" "%~1"
+)>"%TEMP%\drinkme-typewriter.vbs"
+@cscript //nologo "%TEMP%\drinkme-typewriter.vbs" "%~1"
 goto :eof
 
 :type
@@ -404,6 +413,6 @@ set "cp="
 >nul chcp 65001
 (
   echo.%~1
-)>"%TEMP%\typewriter.txt"
-@for /f "delims=" %%a in ('Type "%TEMP%\typewriter.txt"') do ( Call :Typewriter "%%~a" )
+)>"%TEMP%\drinkme-typewriter.txt"
+@for /f "delims=" %%a in ('Type "%TEMP%\drinkme-typewriter.txt"') do ( Call :Typewriter "%%~a" )
 >nul chcp %cp%
