@@ -93,7 +93,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.8.7
+set drinkme=0.8.9
 set python=3.11
 @echo off
 local
@@ -343,24 +343,24 @@ wsl -d %Ubuntu% -e bash -lic "sh /home/ubuntu/repos/transfer/git_installs.sh" >n
 
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
 echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
-echo sLinkFile = "%USERPROFILE%\Desktop\Linux Shell.lnk" >> %SCRIPT%
+echo sLinkFile = "%~dp0Linux Shell.lnk" >> %SCRIPT%
 echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
-echo oLink.TargetPath = "%USERPROFILE%\AppData\Local\Microsoft\WindowsApps\wt.exe" >> %SCRIPT%
+echo oLink.TargetPath = "%~dp0wt.exe" >> %SCRIPT%
 echo olink.Arguments = "-p Ubuntu" >> %SCRIPT%
-echo olink.IconLocation = "%USERPROFILE%\.config\bash.ico" >> %SCRIPT%
+echo olink.IconLocation = "%~dp0bash.ico" >> %SCRIPT%
 echo oLink.Save >> %SCRIPT%
-
 cscript /nologo %SCRIPT%
-del %SCRIPT%
-:: del /Q %USERPROFILE%\repos\transfer\*
 
+%SCRIPT%
+del /Q %USERPROFILE%\repos\transfer\*
+
+:::thump:::                                                     http://localhost:8888
 :::thump:::                                                       .----------------.
-:::thump:::                                                       | Oh, my fur and |
-:::thump:::      RABBIT HOLE LINUX HAS...                     /) (  whiskers! It's |
-:::thump::: _                    _          _ _        /)\___// o | to Jupyer I go |
-:::thump:::| |    __ _ _ __   __| | ___  __| | |   ___(/_ 0 0     '----------------'
-:::thump:::| |   / _` | '_ \ / _` |/ _ \/ _` | | *(     =(_T_)=> http://localhost:8888
-:::thump:::| |__| (_| | | | | (_| |  __/ (_| |_|   \  )   \"\
+:::thump:::      RABBIT HOLE LINUX HAS...                     /)  | Oh, my fur and |
+:::thump::: _                    _          _ _        /)\___//  (  whiskers! It's |
+:::thump:::| |    __ _ _ __   __| | ___  __| | |   ___(/_ 0 0   o | to Jupyer I go |
+:::thump:::| |   / _` | '_ \ / _` |/ _ \/ _` | | *(     =(_T_)=>  '----------------'
+:::thump:::| |__| (_| | | | | (_| |  __/ (_| |_|   \  )   \"\    
 :::thump:::|_____\__,_|_| |_|\__,_|\___|\__,_(_)    |__>-\_>_>
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::thump:::" "%~f0"') do (echo.%%B)
 echo.
