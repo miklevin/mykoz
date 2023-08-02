@@ -121,18 +121,6 @@ if not "%1" == "" (
     )
 )
 
-:::rabbit:::                                                                /) ____
-:::rabbit:::  ____       _     _     _ _     _   _       _            /)\__// /    \
-:::rabbit::: |  _ \ __ _| |__ | |__ (_) |_  | | | | ___ | | ___   ___(/_ 0 0  |     |
-:::rabbit::: | |_) / _` | '_ \| '_ \| | __| | |_| |/ _ \| |/ _ \*(     =(_T_)=>Linux|
-:::rabbit::: |  _ < (_| | |_) | |_) | | |_  |  _  | (_) | |  __/  \  )   \"\  |     |
-:::rabbit::: |_| \_\__,_|_.__/|_.__/|_|\__| |_| |_|\___/|_|\___|   |__>-\_>_>  \___/
-:::rabbit:::
-:::rabbit::: RABBIT HOLE LINUX: WRITE ONCE, RUN FOREVER. FUTURE-PROOF YOURSELF!
-:::rabbit:::
-:::rabbit::: This script installs Linux under Windows WSL to run JuptyerLab in your
-:::rabbit::: browser at http://localhost:8888. It's a "floating" Linux environment.
-:::rabbit:::
 :::rabbit::: ------------------------------------------------------------------------
 :::rabbit::: Before continuing this script, Install Ubuntu 22.04 from Microsoft Store
 :::rabbit::: or by using the "wsl --install" command. After WSL is installed, run this
@@ -140,15 +128,28 @@ if not "%1" == "" (
 :::rabbit::: All your configuration and files will be preserved. You can even upgrade.
 :::rabbit::: ------------------------------------------------------------------------
 :::rabbit:::
-:::rabbit::: While there are many ways to run JupyterLab, this way is best because it
-:::rabbit::: uses the same versions of Python and JupyterLab that the Linux servers do.
-:::rabbit::: This is a baby-step towards future-proofing yourself. Using this method,
-:::rabbit::: you can start to learn Python automation, vim, and other TIMELESS skills.
-:::rabbit:::
-:::rabbit::: Mac Version:
-:::rabbit::: Coming Soon!           Press [Enter] to JUMP DOWN THE LINUX RABBIT HOLE...
-:::rabbit:::                                  (or press Ctrl+C escape.)      prompt 1/3
+:::rabbit:::   <== Comfort Zone       Who do you want to be?        Your Future ==>  
+:::rabbit:::                                                               /) ____
+:::rabbit:::      ____ _                      __  __      _          /)\__// /    \
+:::rabbit:::     / ___| |__   __ _ ___  ___  |  \/  | ___| |     ___(/_ 0 0  |     |
+:::rabbit:::    | |   | '_ \ / _` / __|/ _ \ | |\/| |/ _ \ |   *(     =(_T_)=>Linux|
+:::rabbit:::    | |___| | | | (_| \__ \  __/ | |  | |  __/_|     \  )   \"\  |     |
+:::rabbit:::     \____|_| |_|\__,_|___/\___| |_|  |_|\___(_)      |__>-\_>_>  \___/
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::rabbit:::" "%~f0"') do (echo.%%B)
+call:type "                                          WOULD YOU LIKE TO PLAY A GAME?"
+echo.
+timeout /t 3 >nul
+
+call:type " There are many paths in life that will lead to dead ends. This isn't one."
+call:type " By installing the Linux version of JupyterLab on Windows, you are running"
+call:type " the same code on your computer as you can on the Linux servers. From there"
+call:type " you ease your way into a lifetime of mindfulness and timeless skills by"
+call:type " keeping a 1-text-file Journal (in vim) for the rest of your life."
+echo.
+echo.
+echo                       Press [Enter] to continue (or Ctrl+C to escape)...
+echo                                                               prompt 1/3
+
 set /p warning= %
 :::unicorn:::
 :::unicorn:::  Write once, Run Anywhere without the
@@ -361,6 +362,9 @@ echo IconIndex=0 >> JupyterLab.url
 
 del /Q %USERPROFILE%\repos\transfer\*
 
+REM Force the Windows desktop to refresh
+RUNDLL32.EXE user32.dll, UpdatePerUserSystemParameters
+
 :::thump:::                                                       .----------------.                     
 :::thump:::                                                       | Oh, my fur and |
 :::thump:::      RABBIT HOLE LINUX HAS...                     /) (  whiskers! It's |
@@ -375,3 +379,28 @@ echo You can reach JupyterLab in a Windows browser at http://localhost:8888
 echo.
 set /p warning=Press [Enter] to release this console window. %
 
+:TypeWriter
+echo(
+(
+echo strText=wscript.arguments(0^)
+echo intTextLen = Len(strText^)
+echo Set WS = CreateObject("wscript.shell"^)
+echo intPause = 18
+echo For x = 1 to intTextLen
+echo   strTempText = Mid(strText,x,1^)
+echo   WScript.StdOut.Write strTempText
+echo   WScript.Sleep intPause
+echo Next
+)>"%TEMP%\typewriter.vbs"
+@cscript //nologo "%TEMP%\typewriter.vbs" "%~1"
+goto :eof
+
+:type
+set "cp="
+@for /F "tokens=2 delims=:." %%a in ('chcp') do set "cp=%%~a"
+>nul chcp 65001
+(
+  echo.%~1
+)>"%TEMP%\typewriter.txt"
+@for /f "delims=" %%a in ('Type "%TEMP%\typewriter.txt"') do ( Call :Typewriter "%%~a" )
+>nul chcp %cp%
