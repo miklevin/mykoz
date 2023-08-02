@@ -394,6 +394,8 @@ echo You can reach JupyterLab in a Windows browser at http://localhost:8888
 echo.
 set /p warning=Press [Enter] to release this console window. %
 
+REM Reverting
+
 :TypeWriter
 echo(
 (
