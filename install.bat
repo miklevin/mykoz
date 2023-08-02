@@ -354,20 +354,17 @@ cscript /nologo %SCRIPT%
 del %SCRIPT%
 del /Q %USERPROFILE%\repos\transfer\*
 
-:::thump:::                                                     http://localhost:8888
-:::thump:::                                                       .----------------.
-:::thump:::      RABBIT HOLE LINUX HAS...                     /)  | Oh, my fur and |
-:::thump::: _                    _          _ _        /)\___//  (  whiskers! It's |
-:::thump:::| |    __ _ _ __   __| | ___  __| | |   ___(/_ 0 0   o | to Jupyer I go |
-:::thump:::| |   / _` | '_ \ / _` |/ _ \/ _` | | *(     =(_T_)=>  '----------------'
+:::thump:::                                                       .----------------.                     
+:::thump:::                                                       | Oh, my fur and |
+:::thump:::      RABBIT HOLE LINUX HAS...                     /) (  whiskers! It's |
+:::thump::: _                    _          _ _        /)\___// o | to Jupyer I go |
+:::thump:::| |    __ _ _ __   __| | ___  __| | |   ___(/_ 0 0     '----------------'
+:::thump:::| |   / _` | '_ \ / _` |/ _ \/ _` | | *(     =(_T_)=>
 :::thump:::| |__| (_| | | | | (_| |  __/ (_| |_|   \  )   \"\    
 :::thump:::|_____\__,_|_| |_|\__,_|\___|\__,_(_)    |__>-\_>_>
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::thump:::" "%~f0"') do (echo.%%B)
 echo.
 echo You can reach JupyterLab in a Windows browser at http://localhost:8888
-echo From Microsoft Edge, you can make JupyterLab an app from: .../Apps/Install
-echo You can get a nice JupyterLab icon here, even though edge won't show it:
-echo https://raw.githubusercontent.com/miklevin/drinkme/main/icons/jupyter.ico
 echo.
 set /p warning=Press [Enter] to release this console window. %
 
