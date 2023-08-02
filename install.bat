@@ -345,13 +345,13 @@ set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
 echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
 echo sLinkFile = "%~dp0Linux Shell.lnk" >> %SCRIPT%
 echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
-echo oLink.TargetPath = "%~dp0wt.exe" >> %SCRIPT%
+echo oLink.TargetPath = "%USERPROFILE%\AppData\Local\Microsoft\WindowsApps\wt.exe" >> %SCRIPT%
 echo olink.Arguments = "-p Ubuntu" >> %SCRIPT%
-echo olink.IconLocation = "%~dp0bash.ico" >> %SCRIPT%
+echo olink.IconLocation = "%USERPROFILE%\.config\bash.ico" >> %SCRIPT%
 echo oLink.Save >> %SCRIPT%
 cscript /nologo %SCRIPT%
 
-%SCRIPT%
+del %SCRIPT%
 del /Q %USERPROFILE%\repos\transfer\*
 
 :::thump:::                                                     http://localhost:8888
