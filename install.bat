@@ -159,26 +159,27 @@ call:type " tools. Marcus Aurelius gave us Stoicism, a philosophy for finding me
 call:type " resilience in a chaotic world. MyKos: AReal/OS offers Tow-it-ism, a modern"
 call:type " approach to finding value in life by focusing on mastering a few simple,"
 call:type " lasting skills that can be carried with us from one context to the next."
-:::unicorn:::
-:::unicorn:::                            _______________________________
-:::unicorn:::                           /                               \
-:::unicorn:::                          |  Local versions as good as the  |
-:::unicorn:::     Yes there is, Mr.    |  Cloud? There's no such thing.  |
-:::unicorn:::     Unicorn! Here's       \_______________________________/
-:::unicorn:::     how it works...                                        ()   ,
-:::unicorn:::  ________________________        (\              /)          O  \\  .
-:::unicorn::: |    Windows 10 or 11   |      ___\\____________//__          o |\\/|
-:::unicorn::: |     ____ ____         |     |   MyKoz: AReal/OS   |          / " '\
-:::unicorn::: |  ,_/site\____\______. |     |  on your hardware!  |  See!   . .   .
-:::unicorn::: |  |                  | |     |  __________________ |< - - - /    ) |
-:::unicorn::: |  |   WEB BROWSER    | |     | |  screen session | |       '  _.'  |
-:::unicorn::: |  | localhost:8888 <<----------->>Jupyter Server | |       '-'/    \
-:::unicorn::: |__|                  |_|     | |_________________| |
-:::unicorn:::    '------------------'       |_____________________|   What, no Docker?
-:::unicorn:::
-:::unicorn:::
-:::unicorn:::                      Press [Enter] to jump down the Linux rabbit hole...
-:::unicorn:::                                (or press Ctrl+C escape.)      prompt 2/3
+:::unicorn:::  
+:::unicorn:::                                  _______________________________   
+:::unicorn:::                                 /                               \
+:::unicorn:::                                |  Local versions as good as the  |
+:::unicorn:::                                |  Cloud? There's no such thing.  |
+:::unicorn:::       Yes there is, Mr.         \_______________________________/
+:::unicorn:::       Unicorn! Here's                                           ()  
+:::unicorn:::       how it works...                                             O   ,
+:::unicorn:::    ________________________         (\              /)             o  \\  .
+:::unicorn:::   |    Windows 10 or 11   |       ___\\____________//__               |\\/|
+:::unicorn:::   |     ____ ____         |      |   MyKoz: AReal/OS   |             / " '\
+:::unicorn:::   |  ,_/site\____\______. |      |  on your hardware!  |    See!    . .   .
+:::unicorn:::   |  |                  | |      |  __________________ |<< - - - - /    ) |
+:::unicorn:::   |  |   WEB BROWSER    | |      | |  screen session | |          '  _.'  |
+:::unicorn:::   |  | localhost:8888 <<------------>>Jupyter Server | |          '-'/    \
+:::unicorn:::   |__|                  |_|      | |_________________| | 
+:::unicorn:::      '------------------'        |_____________________|      What, no Docker?
+:::unicorn:::  
+:::unicorn:::  
+:::unicorn:::                        Press [Enter] to jump down the Linux rabbit hole...
+:::unicorn:::                                  (or press Ctrl+C escape.)      prompt 2/3
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::unicorn:::" "%~f0"') do (echo.%%B)
 set /p warning= %
 cls
