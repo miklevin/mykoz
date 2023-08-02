@@ -149,6 +149,7 @@ echo.
 echo.
 echo                       Press [Enter] to continue (or Ctrl+C to escape)...
 echo                                                               prompt 1/3
+set /p warning= %
 cls
 
 call:type " As we live, we are always getting closer to the end of our lives, and there is"
@@ -157,7 +158,6 @@ call:type " tools. Marcus Aurelius gave us Stoicism, a philosophy for finding me
 call:type " resilience in a chaotic world. MyKos AReal/OS offers us Tow-it-ism, a modern"
 call:type " approach to finding value in life by focusing on mastering a few simple,"
 call:type " lasting skills that can be carried with us from one context to the next."
-set /p warning= %
 :::unicorn:::                                          _______________________________
 :::unicorn:::                                         /                               \
 :::unicorn:::                                        |  Local versions as good as the  |
