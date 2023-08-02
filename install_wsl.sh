@@ -6,8 +6,8 @@
 # |_____|_| |_|\__,_| |____/ \__\__,_|\__, |\___| |___|_| |_|___/\__\__,_|_|_|
 #                                     |___/                                   
 # Set this variable to control the quiet mode
-# quiet_mode=true
-quiet_mode=false
+
+quiet_mode=true
 
 # Function to silence output based on the quiet_mode
 quiet() {
@@ -104,7 +104,5 @@ quiet sudo apt install nodejs -y
 
 figlet -t "Jupyter..."
 echo "Use Linux on Windows with WSL and JupyterLab."
-quiet jupyter labextension install jupyterlab-plotly
 quiet sudo systemctl enable jupyter
 quiet sudo systemctl start jupyter
-echo "Jupyter is running on http://localhost:8888"
