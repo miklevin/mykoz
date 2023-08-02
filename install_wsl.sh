@@ -6,7 +6,8 @@
 # |_____|_| |_|\__,_| |____/ \__\__,_|\__, |\___| |___|_| |_|___/\__\__,_|_|_|
 #                                     |___/                                   
 # Set this variable to control the quiet mode
-quiet_mode=true
+# quiet_mode=true
+quiet_mode=false
 
 # Function to silence output based on the quiet_mode
 quiet() {
