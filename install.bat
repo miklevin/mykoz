@@ -354,11 +354,10 @@ cscript /nologo %SCRIPT%
 del %SCRIPT%
 
 REM Create the JupyterLab URL shortcut
-set URL=http://localhost:8888
-set ICON="%USERPROFILE%\.config\bash.ico"
-echo [InternetShortcut] > JupyterLab.url
-echo URL=%URL% >> JupyterLab.url
-echo IconFile=%USERPROFILE%\.config\jupyter.ico >> JupyterLab.url
+echo [InternetShortcut] >> JupyterLab.url
+echo URL=http://localhost:8888/ >> JupyterLab.url
+echo IconFile=%USERPROFILE\.config\jupyter.ico >> JupyterLab.url
+echo IconIndex=0 >> JupyterLab.url
 
 del /Q %USERPROFILE%\repos\transfer\*
 
