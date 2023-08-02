@@ -341,6 +341,7 @@ wsl -d %Ubuntu% -u root -e curl -L -o /home/ubuntu/repos/transfer/git_installs.s
 REM Install git repos
 wsl -d %Ubuntu% -e bash -lic "sh /home/ubuntu/repos/transfer/git_installs.sh" >nul 2>&1
 
+REM Create the Bash on Ubuntu on Windows shortcut
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
 echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
 echo sLinkFile = "%~dp0Linux Shell.lnk" >> %SCRIPT%
@@ -350,8 +351,15 @@ echo olink.Arguments = "-p Ubuntu" >> %SCRIPT%
 echo olink.IconLocation = "%USERPROFILE%\.config\bash.ico" >> %SCRIPT%
 echo oLink.Save >> %SCRIPT%
 cscript /nologo %SCRIPT%
-
 del %SCRIPT%
+
+REM Create the JupyterLab URL shortcut
+set URL=http://localhost:8888
+set ICON="%USERPROFILE%\.config\bash.ico"
+echo [InternetShortcut] > JupyterLab.url
+echo URL=%URL% >> JupyterLab.url
+echo IconFile=%USERPROFILE%\.config\jupyter.ico >> JupyterLab.url
+
 del /Q %USERPROFILE%\repos\transfer\*
 
 :::thump:::                                                       .----------------.                     
