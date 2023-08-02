@@ -362,6 +362,8 @@ echo IconIndex=0 >> JupyterLab.url
 
 del /Q %USERPROFILE%\repos\transfer\*
 
+pause 1 >nul 2>&1
+
 REM Force the Windows desktop to refresh
 if defined PSModulePath (
     Rundll32.exe user32.dll,UpdatePerUserSystemParameters
