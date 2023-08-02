@@ -93,7 +93,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.9.5
+set drinkme=0.9.51
 set python=3.11
 @echo off
 local
@@ -138,7 +138,7 @@ if not "%1" == "" (
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::rabbit:::" "%~f0"') do (echo.%%B)
 call:type "                                          WOULD YOU LIKE TO PLAY A GAME?"
 echo.
-timeout /t 3 >nul
+timeout /t 2 >nul
 
 call:type " There are many paths in life that will lead to dead ends. This isn't one."
 call:type " By installing the Linux version of JupyterLab on Windows, you are running"
@@ -149,14 +149,18 @@ echo.
 echo.
 echo                       Press [Enter] to continue (or Ctrl+C to escape)...
 echo                                                               prompt 1/3
+cls
 
+call:type " As we live, we are always getting closer to the end of our lives, and there is"
+call:type " precious little time to get sidetracked by short-lived trends and superficial"
+call:type " tools. Marcus Aurelius gave us Stoicism, a philosophy for finding meaning and"
+call:type " resilience in a chaotic world. MyKos AReal/OS offers us Tow-it-ism, a modern"
+call:type " approach to finding value in life by focusing on mastering a few simple,"
+call:type " lasting skills that can be carried with us from one context to the next."
 set /p warning= %
-:::unicorn:::
-:::unicorn:::  Write once, Run Anywhere without the
-:::unicorn:::  need to modify your code for platforms     THE LINUX CAN BE INVISIBLE
-:::unicorn:::  or production environments. You don't   _______________________________
-:::unicorn:::  even need to see Linux. Just run the   /                               \
-:::unicorn:::  best "Cloud" versions of everything.  |  Local versions as good as the  |
+:::unicorn:::                                          _______________________________
+:::unicorn:::                                         /                               \
+:::unicorn:::                                        |  Local versions as good as the  |
 :::unicorn:::                                        |  Cloud? There's no such thing.  |
 :::unicorn:::                                         \________________________________/
 :::unicorn:::   Yes there is, Mr. Unicorn!                               ()   ,
@@ -170,11 +174,6 @@ set /p warning= %
 :::unicorn:::   |__|                  |_|   | |_________________| |
 :::unicorn:::      '------------------'     |_____________________|   What, no Docker?
 :::unicorn:::
-:::unicorn:::   - Better than ANACONDA for systems automation.   "The time has come to
-:::unicorn:::   - Better than DOCKER for ease & admin-ability.   get on standard tools"
-:::unicorn:::   - Better than Jupyter-DESKTOP for portable code.  the Walrus never said.
-:::unicorn:::   - Better than the CLOUD for privacy, VPN usage,
-:::unicorn:::     package availability, browser automation, etc.       - The Carpenter
 :::unicorn:::
 :::unicorn:::                      Press [Enter] to jump down the Linux rabbit hole...
 :::unicorn:::                                (or press Ctrl+C escape.)      prompt 2/3
