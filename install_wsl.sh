@@ -5,6 +5,21 @@
 #  / __/| | | | (_| |  ___) | || (_| | (_| |  __/  | || | | \__ \ || (_| | | |
 # |_____|_| |_|\__,_| |____/ \__\__,_|\__, |\___| |___|_| |_|___/\__\__,_|_|_|
 #                                     |___/                                   
+# Set this variable to control the quiet mode
+quiet_mode=true
+
+# Function to silence output based on the quiet_mode
+quiet() {
+  if [ "$quiet_mode" = true ]; then
+    "$@" >/dev/null 2>&1
+  else
+    "$@"
+  fi
+}
+
+# Save the original file descriptors 1 and 2 to variables
+exec 3>&1 4>&2
+
 # Make sure Clock is in sync with Windows hardware clock
 sudo hwclock -systohc --utc > /dev/null 2>&1
 sudo apt install figlet -y > /dev/null 2>&1
