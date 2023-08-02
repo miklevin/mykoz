@@ -93,7 +93,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.9.3
+set drinkme=0.9.4
 set python=3.11
 @echo off
 local
@@ -363,7 +363,20 @@ echo IconIndex=0 >> JupyterLab.url
 del /Q %USERPROFILE%\repos\transfer\*
 
 REM Force the Windows desktop to refresh
-RUNDLL32.EXE user32.dll, UpdatePerUserSystemParameters
+if defined PSModulePath (
+    Rundll32.exe user32.dll,UpdatePerUserSystemParameters
+) else (
+    RUNDLL32.EXE USER32.DLL,UpdatePerUserSystemParameters ,1 ,True
+)
+
+REM Creating and executing the embedded VBS script to simulate F5 key press
+(
+  echo Set WshShell = WScript.CreateObject^("WScript.Shell"^)
+  echo WshShell.SendKeys "{F5}"
+) > "%TEMP%\RefreshDesktop.vbs"
+cscript //nologo "%TEMP%\RefreshDesktop.vbs" >nul 2>&1
+del /f /q "%TEMP%\RefreshDesktop.vbs"
+
 
 :::thump:::                                                       .----------------.                     
 :::thump:::                                                       | Oh, my fur and |
