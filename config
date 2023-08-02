@@ -1,4 +1,5 @@
 Host *
     IdentityFile ~/.ssh/id_rsa_drinkme
+    IdentityFile ~/.ssh/id_rsa
     IdentitiesOnly yes
     StrictHostKeyChecking no
