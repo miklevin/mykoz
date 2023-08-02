@@ -142,7 +142,7 @@ timeout /t 3 >nul
 
 call:type " There are many paths in life that will lead to dead ends. This isn't one."
 call:type " By installing the Linux version of JupyterLab on Windows, you are running"
-call:type " the same code on your computer as you can on the Linux servers. From there"
+call:type " the same code on your computer as you can on all Linux servers. From there"
 call:type " you ease your way into a lifetime of mindfulness and timeless skills by"
 call:type " keeping a 1-text-file Journal in vim for the rest of your life."
 echo.
