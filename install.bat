@@ -99,13 +99,20 @@ set python=3.11
 local
 cls
 
-del %TEMP%\drinkme-* >nul 2>&1 
-
-REM get full path of current script
-set "script_path=%~dpnx0"
-
-REM get just the filename portion without extension
-for %%I in ("%script_path%") do set "script_name=%%~nI"
+REM Write out the TypeWriter script to a temp file
+echo(
+(
+echo strText=wscript.arguments(0^)
+echo intTextLen = Len(strText^)
+echo Set WS = CreateObject("wscript.shell"^)
+echo intPause = 12
+echo For x = 1 to intTextLen
+echo   strTempText = Mid(strText,x,1^)
+echo   WScript.StdOut.Write strTempText
+echo   WScript.Sleep intPause
+echo Next
+del "%TEMP%\tt.vbs" >nul 2>&1
+)>"%TEMP%\tt.vbs"
 
 REM set default Python version
 set "version=%python%"
@@ -140,29 +147,40 @@ if not "%1" == "" (
 :::rabbit:::     \____|_| |_|\__,_|___/\___| |_|  |_|\___(_)      |__>-\_>_>  \___/
 :::rabbit:::
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::rabbit:::" "%~f0"') do (echo.%%B)
-call:type "                                          WOULD YOU LIKE TO PLAY A GAME?"
+@cscript //nologo "%TEMP%\tt.vbs" "                                          WOULD YOU LIKE TO PLAY A GAME?"
+echo.
 echo.
 timeout /t 2 >nul
 
-call:type " There are many paths in life that will lead to dead ends. This isn't one."
-call:type " By installing the Linux version of JupyterLab on Windows, you are running"
-call:type " the same code on your computer as you can on all Linux servers. From there"
-call:type " you ease your way into a lifetime of mindfulness and timeless skills by"
-call:type " keeping a 1-text-file Journal in vim for the rest of your life."
+@cscript //nologo "%TEMP%\tt.vbs" " There are many paths in life that will lead to dead ends. This isn't one."
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " By installing the Linux version of JupyterLab on Windows, you are running"
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " the same code on your computer as you can on all Linux servers. From there"
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " you ease your way into a lifetime of mindfulness and timeless skills by"
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " keeping a one text file Journal in vim for the rest of your life."
 echo.
 echo.
-echo                       Press [Enter] to continue (or Ctrl+C to escape)...
+echo                       press [enter] to continue (or ctrl+c to escape)...
 echo                                                               prompt 1/4
 
 set /p warning= %
 cls
 
-call:type " As we live, we are always getting closer to the end of our lives, and there is"
-call:type " precious little time to get sidetracked by short-lived trends and superficial"
-call:type " tools. Marcus Aurelius gave us Stoicism, a philosophy for finding meaning and"
-call:type " resilience in a chaotic world. MyKos: AReal/OS offers Tow-it-ism, a modern"
-call:type " approach to finding value in life by focusing on mastering a few simple,"
-call:type " lasting skills that can be carried with us from one context to the next."
+@cscript //nologo "%TEMP%\tt.vbs" " As we live, we are always getting closer to the end of our lives, and there is"
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " precious little time to get sidetracked by short-lived trends and superficial"
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " tools. Marcus Aurelius gave us Stoicism, a philosophy for finding meaning and"
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " resilience in a chaotic world. MyKos: AReal/OS offers Tow-it-ism, a modern"
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " approach to finding value in life by focusing on mastering a few simple,"
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " lasting skills that can be carried with us from one context to the next."
+echo.
 timeout /t 2 >nul
 :::unicorn:::  
 :::unicorn:::                                  _______________________________   
@@ -183,40 +201,49 @@ timeout /t 2 >nul
 :::unicorn:::      '------------------'        |_____________________|      What, no Docker?
 :::unicorn:::  
 :::unicorn:::  
-:::unicorn:::                        Press [Enter] to jump down the Linux rabbit hole...
-:::unicorn:::                                  (or press Ctrl+C escape.)      prompt 2/4
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::unicorn:::" "%~f0"') do (echo.%%B)
+echo                       press [enter] to continue (or ctrl+c to escape)...
+echo                                                               prompt 2/4
 set /p warning= %
 cls
-:::warn:::  __  __       _  __               _    ____            _    _____  ____  
-:::warn::: |  \/  |_   _| |/ /___ _____     / \  |  _ \ ___  __ _| |  / / _ \/ ___| 
-:::warn::: | |\/| | | | | ' // _ \_  (_)   / _ \ | |_) / _ \/ _` | | / / | | \___ \ 
-:::warn::: | |  | | |_| | . \ (_) / / _   / ___ \|  _ <  __/ (_| | |/ /| |_| |___) |
-:::warn::: |_|  |_|\__, |_|\_\___/___(_) /_/   \_\_| \_\___|\__,_|_/_/  \___/|____/ 
-:::warn:::         |___/ MyKoz: A Real OS on Windows (Linux) teaching Tow-it-izm
-:::warn:::
-:::warn::: My Cause is to help people find meaning in life by mastering a few simple,
-:::warn::: creative, soul-feeding skills that can't be rendered obsolete anytime soon.
-:::warn:::                                                                      
-:::warn:::      (\              /)     ___                     ___             ,     
-:::warn:::    ___\\____________//__   /   \                   /   \            \\  . 
-:::warn:::   |   MyKoz: AReal/OS   | /     V      /)   ____  /     V           |\\/| 
-:::warn:::   |   ===============   |        /)\__//   /    \                  / " '\ 
-:::warn:::   | - Linux server      |    ___(/_ 0 0    |     |   The Future   . .   . 
-:::warn:::   | - Python coding     |  *(     =(_T_)= Anythin|   And Still   /    ) | 
-:::warn:::   | - vim text editor   |    \  )   \"\    |     |   Relevant:  '  _.'  | 
-:::warn:::   | - git code control  |     |__>-\_>_>    \___/    AI? NP!    '-'/    \ 
-:::warn:::   |_____________________| 
-for /f "delims=: tokens=1*" %%A in ('findstr /b ":::warn:::" "%~f0"') do (echo.%%B)
+:::mykoz:::  __  __       _  __               _    ____            _    _____  ____  
+:::mykoz::: |  \/  |_   _| |/ /___ _____     / \  |  _ \ ___  __ _| |  / / _ \/ ___| 
+:::mykoz::: | |\/| | | | | ' // _ \_  (_)   / _ \ | |_) / _ \/ _` | | / / | | \___ \ 
+:::mykoz::: | |  | | |_| | . \ (_) / / _   / ___ \|  _ <  __/ (_| | |/ /| |_| |___) |
+:::mykoz::: |_|  |_|\__, |_|\_\___/___(_) /_/   \_\_| \_\___|\__,_|_/_/  \___/|____/ 
+:::mykoz:::         |___/ MyKoz: A Real OS on Windows (Linux) teaching Tow-it-izm
+:::mykoz:::
+for /f "delims=: tokens=1*" %%A in ('findstr /b ":::mykoz:::" "%~f0"') do (echo.%%B)
 timeout /t 2 >nul
-call:type "Running JupyterLab on Linux Python in Window opens the door to unparalleled"
-call:type "compatibility with a wide range of hardware and software systems, from the cloud"
-call:type "to small-footprint devices, starting your career as a lifetime tech powerhouse."
-call:type "Yet the amazing thing is this is an experience you will find nowhere else."
+@cscript //nologo "%TEMP%\tt.vbs" " My Cause is to help people find meaning in life by mastering a few simple,"
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " creative, soul-feeding skills that can't be rendered obsolete anytime soon."
+echo.
+timeout /t 1 >nul
+:::future:::                                                                      
+:::future:::      (\              /)     ___                     ___             ,     
+:::future:::    ___\\____________//__   /   \                   /   \            \\  . 
+:::future:::   |   MyKoz: AReal/OS   | /     V      /)   ____  /     V           |\\/| 
+:::future:::   |   ===============   |        /)\__//   /    \                  / " '\ 
+:::future:::   | - Linux server      |    ___(/_ 0 0    |     |   The Future   . .   . 
+:::future:::   | - Python coding     |  *(     =(_T_)= Anythin|   And Still   /    ) | 
+:::future:::   | - vim text editor   |    \  )   \"\    |     |   Relevant:  '  _.'  | 
+:::future:::   | - git code control  |     |__>-\_>_>    \___/    AI? NP!    '-'/    \ 
+:::future:::   |_____________________| 
+for /f "delims=: tokens=1*" %%A in ('findstr /b ":::future:::" "%~f0"') do (echo.%%B)
+timeout /t 2 >nul
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " Running JupyterLab on Linux Python in Window opens the door to unparalleled"
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " compatibility with a wide range of hardware and software systems, from the cloud"
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " to small-footprint devices, starting your career as a lifetime tech powerhouse."
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " Yet the amazing thing is this is an experience you will find nowhere else."
 echo.
 echo.
-echo                      Press [Enter] to jump down the Linux rabbit hole...
-echo                                (or press Ctrl+C escape.)      prompt 3/4
+echo                       press [enter] to continue (or ctrl+c to escape)...
+echo                                                               prompt 3/4
 
 set /p warning= %
 :::down:::                                         ___
@@ -389,30 +416,4 @@ echo You can reach JupyterLab in a Windows browser at http://localhost:8888
 echo.
 set /p warning=Press [Enter] to release this console window. %
 
-REM Reverting
 
-:TypeWriter
-echo(
-(
-echo strText=wscript.arguments(0^)
-echo intTextLen = Len(strText^)
-echo Set WS = CreateObject("wscript.shell"^)
-echo intPause = 18
-echo For x = 1 to intTextLen
-echo   strTempText = Mid(strText,x,1^)
-echo   WScript.StdOut.Write strTempText
-echo   WScript.Sleep intPause
-echo Next
-)>"%TEMP%\drinkme-typewriter.vbs"
-@cscript //nologo "%TEMP%\drinkme-typewriter.vbs" "%~1"
-goto :eof
-
-:type
-set "cp="
-@for /F "tokens=2 delims=:." %%a in ('chcp') do set "cp=%%~a"
->nul chcp 65001
-(
-  echo.%~1
-)>"%TEMP%\drinkme-typewriter.txt"
-@for /f "delims=" %%a in ('Type "%TEMP%\drinkme-typewriter.txt"') do ( Call :Typewriter "%%~a" )
->nul chcp %cp%
