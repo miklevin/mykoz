@@ -156,20 +156,20 @@ cls
 call:type " As we live, we are always getting closer to the end of our lives, and there is"
 call:type " precious little time to get sidetracked by short-lived trends and superficial"
 call:type " tools. Marcus Aurelius gave us Stoicism, a philosophy for finding meaning and"
-call:type " resilience in a chaotic world. MyKos (A Real/OS) offers Tow-it-ism, a modern"
+call:type " resilience in a chaotic world. MyKos: AReal/OS offers Tow-it-ism, a modern"
 call:type " approach to finding value in life by focusing on mastering a few simple,"
 call:type " lasting skills that can be carried with us from one context to the next."
 :::unicorn:::
 :::unicorn:::                            _______________________________
 :::unicorn:::                           /                               \
 :::unicorn:::                          |  Local versions as good as the  |
-:::unicorn:::    Yes there is, Mr.     |  Cloud? There's no such thing.  |
-:::unicorn:::    Unicorn! Here's        \_______________________________/
-:::unicorn:::    how it works...                                         ()   ,
+:::unicorn:::     Yes there is, Mr.    |  Cloud? There's no such thing.  |
+:::unicorn:::     Unicorn! Here's       \_______________________________/
+:::unicorn:::     how it works...                                        ()   ,
 :::unicorn:::  ________________________        (\              /)          O  \\  .
-:::unicorn::: |  Windows 10 or 11     |      ___\\____________//__          o |\\/|
-:::unicorn::: |     ____ ____         |     |  MyKoz: A Real OS!  "          / " '\
-:::unicorn::: |  ,_/site\____\______. |     | (on your hardware ) |  See!   . .   .
+:::unicorn::: |    Windows 10 or 11   |      ___\\____________//__          o |\\/|
+:::unicorn::: |     ____ ____         |     |   MyKoz: AReal/OS   |          / " '\
+:::unicorn::: |  ,_/site\____\______. |     |  on your hardware!  |  See!   . .   .
 :::unicorn::: |  |                  | |     |  __________________ |< - - - /    ) |
 :::unicorn::: |  |   WEB BROWSER    | |     | |  screen session | |       '  _.'  |
 :::unicorn::: |  | localhost:8888 <<----------->>Jupyter Server | |       '-'/    \
