@@ -93,7 +93,7 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.9.2
+set drinkme=0.9.3
 set python=3.11
 @echo off
 local
@@ -144,7 +144,7 @@ call:type " There are many paths in life that will lead to dead ends. This isn't
 call:type " By installing the Linux version of JupyterLab on Windows, you are running"
 call:type " the same code on your computer as you can on the Linux servers. From there"
 call:type " you ease your way into a lifetime of mindfulness and timeless skills by"
-call:type " keeping a 1-text-file Journal (in vim) for the rest of your life."
+call:type " keeping a 1-text-file Journal in vim for the rest of your life."
 echo.
 echo.
 echo                       Press [Enter] to continue (or Ctrl+C to escape)...
