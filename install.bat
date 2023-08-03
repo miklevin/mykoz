@@ -160,10 +160,10 @@ timeout /t 2 >nul
 :::future:::    ___\\____________//__   /     V      /)         /     V          \\  .
 :::future:::   |   MyKoz: AReal/OS   |         /)\__//     ____                  |\\/|
 :::future:::   |   ===============   |     ___(/_ 0 0     /    \   Far into      / " '\
-:::future:::   | - Linux server      |   *(    ==(_T_)== | Mac  |  The Future   . .   .
-:::future:::   | - Python coding     |     \  )   \"\   Anything|  And Still   /    ) |
-:::future:::   | - vim text editor   |      |__>-\_>_>   |  PCs |  Relevant!  '  _.'  |
-:::future:::   | - git code control  |  Linux Subsystem   \____/   AIs? NP!   '-'/    \
+:::future:::   | * Linux server      |   *(    ==(_T_)== | Mac  |  The Future   . .   .
+:::future:::   | * Python coding     |     \  )   \"\   Anything|  And Still   /    ) |
+:::future:::   | * vim text editor   |      |__>-\_>_>   |  PCs |  Relevant!  '  _.'  |
+:::future:::   | * git code control  |  Linux Subsystem   \____/   AIs? NP!   '-'/    \
 :::future:::   |_____________________|
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::future:::" "%~f0"') do (echo.%%B)
 timeout /t 2 >nul
@@ -229,6 +229,7 @@ echo.
 echo                         Press [Enter] to continue (or ctrl+c to escape)...
 echo                                                                 prompt 4/4
 set /p warning= %
+:::down:::
 :::down:::                                         ___
 :::down:::                                        |   |         _____
 :::down:::                                        |_  |        /     \
@@ -265,14 +266,14 @@ set "windows_apps_path=%USERPROFILE%\AppData\Local\Microsoft\WindowsApps"
 set "install_command="
 set "config_command="
 
-rem Check if ubuntu.exe is present in the location
+REM Check if ubuntu.exe is present in the location
 if exist "%windows_apps_path%\ubuntu.exe" (
     set "install_command=ubuntu.exe install --root >nul"
     set "config_command=ubuntu.exe config --default-user "%%wsluser%%" >nul"
     set "Ubuntu=Ubuntu"
 )
 
-rem If ubuntu.exe is not present, check if ubuntu2204.exe is present
+REM If ubuntu.exe is not present, check if ubuntu2204.exe is present
 if not defined install_command (
     if exist "%windows_apps_path%\ubuntu2204.exe" (
         set "install_command=ubuntu2204.exe install --root >nul"
@@ -281,7 +282,7 @@ if not defined install_command (
     )
 )
 
-rem If both ubuntu.exe and ubuntu2204.exe are not present, show an error message
+REM If both ubuntu.exe and ubuntu2204.exe are not present, show an error message
 if not defined install_command (
     echo "Error: Neither ubuntu.exe nor ubuntu2204.exe found in %windows_apps_path%"
     exit /b 1
@@ -341,6 +342,7 @@ if exist %USERPROFILE%\.vimrc (wsl -d %Ubuntu% -e bash -lic "cp /mnt/c/Users/%US
 if exist %USERPROFILE%\.pypirc (wsl -d %Ubuntu% -e bash -lic "cp /mnt/c/Users/%USERNAME%/.pypirc /home/ubuntu/" >nul 2>&1) else (wsl -d ubuntu -u ubuntu -e curl -l -o /home/ubuntu/.pypirc "https://raw.githubusercontent.com/miklevin/drinkme/main/.pypirc" >nul 2>&1)
 
 REM We update the software repository on the Ubuntu 22.04 Machine
+echo.
 @cscript //nologo "%TEMP%\tt.vbs" " Hold tight. I'll start typing to you again as it gets good..."
 echo.
 wsl -d %Ubuntu% -u root -e sudo apt update >nul 2>&1
@@ -399,7 +401,7 @@ del /Q %USERPROFILE%\repos\transfer\*
 :::thump:::|_____\__,_|_| |_|\__,_|\___|\__,_(_)    |__>-\_>_>
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::thump:::" "%~f0"') do (echo.%%B)
 echo.
-echo
+echo.
 @cscript //nologo "%TEMP%\tt.vbs" "Congratulations! You have a working Ubuntu 22.04 system with Python %python%"
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" "and JupyterLab installed. You can reach JupyterLab in a Windows browser at"
@@ -419,5 +421,4 @@ echo.
 echo.
 echo.
 set /p warning=Press [Enter] to release this console window. %
-
 

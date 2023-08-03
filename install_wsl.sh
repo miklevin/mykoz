@@ -23,12 +23,14 @@ exec 3>&1 4>&2
 
 # Make sure Clock is in sync with Windows hardware clock
 quiet sudo hwclock -systohc --utc
-quiet sudo apt install figlet -y
+quiet sudo apt install figlet pv -y
 
 # Check if we have a Python version passed in as an argument
 VAR=${1:-3.12}
 figlet -t "Python $VAR..."
-echo "Getting the latest, greatest Python has never been so easy!"
+echo "Have you ever had difficulty getting the latest Python or controlling" | pv -qL 10
+echo "which one you're using? Getting the latest, greatest Python has never" | pv -qL 10
+echo "been so easy! Just run this script again when a new Python is released!" | pv -qL 10
 
 # Add 2 custom PPS's (Personal Package Sources) to repository list
 quiet sudo add-apt-repository ppa:deadsnakes/ppa -y
