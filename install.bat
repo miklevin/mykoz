@@ -1,27 +1,33 @@
-::  __  __       _  __          
-:: |  \/  |_   _| |/ /___ _____ 
+::  __  __       _  __
+:: |  \/  |_   _| |/ /___ _____
 :: | |\/| | | | | ' // _ \_  (_)
-:: | |  | | |_| | . \ (_) / / _ 
+:: | |  | | |_| | . \ (_) / / _
 :: |_|  |_|\__, |_|\_\___/___(_)
 ::         |___/ MyKoz: AReal/OS
-::
-:: You've heard of Stoicism? Well,
-:: this is Tow-It-Ism. It's a way
+
+:: You've heard of Marcus Aurelius
+:: and Stoicism? This is MyKoz:
+:: AReal/OS and Tow-it-ism; a way
 :: of using a Linux Subsystem on
 :: Windows for a minimalistic and
 :: portalbe approach to computing.
-::
-:: This script replaces the default
-:: Windows 10 or 11 Linux Subsystem
-:: Ubuntu 22.04 with a new one that
-:: has JupyterLab installed along
-:: with the latest Python, NeoVim,
-:: and a few other goodies to get
-:: you started on your journey.
-::
-:: Start with the "drinkme.bat"
-:: script to install the latest
-:: version of this script.
+
+:: This .bat script replaces the
+:: default Windows 10 or 11 Linux
+:: Subsystem Ubuntu 22.04 with a
+:: new one that has JupyterLab
+:: installed along with the
+:: latest Python, NeoVim, and a
+:: few other goodies to get you
+:: started on your journey.
+
+:: If you've been thinking of
+:: taking up skills that will
+:: last a lifetime in the areas
+:: of programming, data science,
+:: and machine learning, this
+:: URL is the place to start:
+
 :: https://mikelev.in/drinkme
 
 @echo off
@@ -31,7 +37,7 @@ REM Set up envioronment
 set drinkme=0.9.55
 set python=3.11
 
-REM check for first command line argument
+REM Check if a different version of Python was requested
 if not "%1" == "" (
     REM if argument has period in it, use it as version
     for %%I in ("%~1") do (
@@ -44,6 +50,8 @@ if not "%1" == "" (
     )
 )
 
+REM Start displaying feedback to user.
+
 :::rabbit::: ------------------------------------------------------------------------
 :::rabbit::: Before continuing this script, Install Ubuntu 22.04 from Microsoft Store
 :::rabbit::: or by using the "wsl --install" command. After WSL is installed run this
@@ -51,7 +59,7 @@ if not "%1" == "" (
 :::rabbit::: All your configuration and files will be preserved. You can even upgrade
 :::rabbit::: ------------------------------------------------------------------------
 :::rabbit:::
-:::rabbit::: <== Comfort Zone         Who do you want to be?          Your Future ==>  
+:::rabbit::: <== Comfort Zone         Who do you want to be?          Your Future ==>
 :::rabbit:::
 :::rabbit:::                                                               /)  ____
 :::rabbit:::     ____ _                      __  __      _           /)\__//  /    \
@@ -60,6 +68,7 @@ if not "%1" == "" (
 :::rabbit:::   | |___| | | | (_| \__ \  __/ | |  | |  __/_|      \  )   \"\  | LOVE |
 :::rabbit:::    \____|_| |_|\__,_|___/\___| |_|  |_|\___(_)       |__>-\_>_>  \____/
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::rabbit:::" "%~f0"') do (echo.%%B)
+
 REM Write out the TypeWriter script to a temp file
 echo(
 (
@@ -108,35 +117,35 @@ echo.
 @cscript //nologo "%TEMP%\tt.vbs" " lasting skills that can be carried with us from one context to the next."
 echo.
 timeout /t 3 >nul
-:::unicorn:::                               
-:::unicorn:::          TOW-IT-ISM?             _______________________________   
-:::unicorn:::                                 /                               \
-:::unicorn:::                                |  Local versions as good as the  |
-:::unicorn:::                                |  Cloud? There's no such thing.  |
-:::unicorn:::        Yes there is, Mr.        \_______________________________/
-:::unicorn:::        Unicorn! Here's                                          ()  
+:::unicorn:::
+:::unicorn:::          TOW-IT-ISM?           _________________________________
+:::unicorn:::                               /                                 \
+:::unicorn:::                              |   Local versions as good as the   |
+:::unicorn:::                              |   Cloud? There's no such thing!   |
+:::unicorn:::        Yes there is, Mr.      \_________________________________/
+:::unicorn:::        Unicorn! Here's                                          ()
 :::unicorn:::        how it works...                                Tow it      O   ,
-:::unicorn:::    ________________________         (\              /)             o  \\  .
+:::unicorn:::    _______________________          (\              /)             o  \\  .
 :::unicorn:::   |    Windows 10 or 11   |       ___\\____________//__               |\\/|
 :::unicorn:::   |     ____ ____         |      |   MyKoz: AReal/OS   |             / " '\
 :::unicorn:::   |  ,_/site\____\______. |      |   Linux Subsystem   |    See!    . .   .
 :::unicorn:::   |  |                  | |      |  _________________  |<- - - - - /    ) |
 :::unicorn:::   |  |    WEB BROWSER   | |      | |  screen session | |          '  _.'  |
 :::unicorn:::   |  |  localhost:8888 <------------> Jupyter Server | |          '-'/    \
-:::unicorn:::   |__|                  |_|      | |_________________| | 
+:::unicorn:::   |__|                  |_|      | |_________________| |
 :::unicorn:::      '------------------'        |_____________________|      What, no Docker?
-:::unicorn:::                                                          
-:::unicorn:::  
+:::unicorn:::
+:::unicorn:::
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::unicorn:::" "%~f0"') do (echo.%%B)
 echo                         Press [Enter] to continue (or ctrl+c to escape)...
 echo                                                                 prompt 2/4
 set /p warning= %
 cls
-:::mykoz:::  __  __       _  __               _    ____            _    _____  ____  
-:::mykoz::: |  \/  |_   _| |/ /___ _____     / \  |  _ \ ___  __ _| |  / / _ \/ ___| 
-:::mykoz::: | |\/| | | | | ' // _ \_  (_)   / _ \ | |_) / _ \/ _` | | / / | | \___ \ 
+:::mykoz:::  __  __       _  __               _    ____            _    _____  ____
+:::mykoz::: |  \/  |_   _| |/ /___ _____     / \  |  _ \ ___  __ _| |  / / _ \/ ___|
+:::mykoz::: | |\/| | | | | ' // _ \_  (_)   / _ \ | |_) / _ \/ _` | | / / | | \___ \
 :::mykoz::: | |  | | |_| | . \ (_) / / _   / ___ \|  _ <  __/ (_| | |/ /| |_| |___) |
-:::mykoz::: |_|  |_|\__, |_|\_\___/___(_) /_/   \_\_| \_\___|\__,_|_/_/  \___/|____/ 
+:::mykoz::: |_|  |_|\__, |_|\_\___/___(_) /_/   \_\_| \_\___|\__,_|_/_/  \___/|____/
 :::mykoz:::         |___/ MyKoz: A Real OS on Windows (Linux) teaching Tow-it-izm
 :::mykoz:::
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::mykoz:::" "%~f0"') do (echo.%%B)
@@ -147,15 +156,15 @@ echo.
 echo.
 timeout /t 2 >nul
 :::future:::                              ___                     ___
-:::future:::      (\              /)     /   \                   /   \           ,     
-:::future:::    ___\\____________//__   /     V      /)         /     V          \\  . 
-:::future:::   |   MyKoz: AReal/OS   |         /)\__//     ____                  |\\/| 
-:::future:::   |   ===============   |     ___(/_ 0 0     /    \   Far into      / " '\ 
-:::future:::   | - Linux server      |   *(    ==(_T_)== | Mac  |  The Future   . .   . 
-:::future:::   | - Python coding     |     \  )   \"\   Anything|  And Still   /    ) | 
-:::future:::   | - vim text editor   |      |__>-\_>_>   |  PCs |  Relevant!  '  _.'  | 
-:::future:::   | - git code control  |  Linux Subsystem   \____/   AIs? NP!   '-'/    \ 
-:::future:::   |_____________________| 
+:::future:::      (\  Tow-it-ism  /)     /   \ Tow it            /   \ Tow it    ,
+:::future:::    ___\\____________//__   /     V      /)         /     V          \\  .
+:::future:::   |   MyKoz: AReal/OS   |         /)\__//     ____                  |\\/|
+:::future:::   |   ===============   |     ___(/_ 0 0     /    \   Far into      / " '\
+:::future:::   | - Linux server      |   *(    ==(_T_)== | Mac  |  The Future   . .   .
+:::future:::   | - Python coding     |     \  )   \"\   Anything|  And Still   /    ) |
+:::future:::   | - vim text editor   |      |__>-\_>_>   |  PCs |  Relevant!  '  _.'  |
+:::future:::   | - git code control  |  Linux Subsystem   \____/   AIs? NP!   '-'/    \
+:::future:::   |_____________________|
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::future:::" "%~f0"') do (echo.%%B)
 timeout /t 2 >nul
 echo.
@@ -172,12 +181,13 @@ echo                         Press [Enter] to continue (or ctrl+c to escape)...
 echo                                                                 prompt 3/4
 set /p warning= %
 cls
-:::hole:::                                                                 ____  
-:::hole:::    _              _      ____ _                          _     /    \ 
-:::hole:::   | |    __ _ ___| |_   / ___| |__   __ _ _ __   ___ ___| |   |      |
-:::hole:::   | |   / _` / __| __| | |   | '_ \ / _` | '_ \ / __/ _ \ |   |      |
-:::hole:::   | |__| (_| \__ \ |_  | |___| | | | (_| | | | | (_|  __/_|   |      |
-:::hole:::   |_____\__,_|___/\__|  \____|_| |_|\__,_|_| |_|\___\___(_)    \____/ 
+
+:::hole:::   <<== Comfort Zone             Replaces WSL's Ubuntu 22.04 ==> ____
+:::hole:::    _              _      ____ _                          _     /    \
+:::hole:::   | |    __ _ ___| |_   / ___| |__   __ _ _ __   ___ ___| |   7_O_/  |
+:::hole:::   | |   / _` / __| __| | |   | '_ \ / _` | '_ \ / __/ _ \ |   |(/    |
+:::hole:::   | |__| (_| \__ \ |_  | |___| | | | (_| | | | | (_|  __/_|   |/\/'  |
+:::hole:::   |_____\__,_|___/\__|  \____|_| |_|\__,_|_| |_|\___\___(_)    \____/
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::hole:::" "%~f0"') do (echo.%%B)
 timeout /t 2 >nul
 echo.
@@ -379,17 +389,34 @@ echo IconIndex=0 >> JupyterLab.url
 
 del /Q %USERPROFILE%\repos\transfer\*
 
-:::thump:::                                                       .----------------.                     
+:::thump:::                                                       .----------------.
 :::thump:::                                                       | Oh, my fur and |
-:::thump:::      RABBIT HOLE LINUX HAS...                     /) (  whiskers! It's |
+:::thump:::        MyKoz: AReal/OS HAS...                     /) (  whiskers! It's |
 :::thump::: _                    _          _ _        /)\___// o | to Jupyer I go |
 :::thump:::| |    __ _ _ __   __| | ___  __| | |   ___(/_ 0 0     '----------------'
-:::thump:::| |   / _` | '_ \ / _` |/ _ \/ _` | | *(     =(_T_)=>
-:::thump:::| |__| (_| | | | | (_| |  __/ (_| |_|   \  )   \"\    
+:::thump:::| |   / _` | '_ \ / _` |/ _ \/ _` | | *(    ==(_T_)==
+:::thump:::| |__| (_| | | | | (_| |  __/ (_| |_|   \  )   \"\
 :::thump:::|_____\__,_|_| |_|\__,_|\___|\__,_(_)    |__>-\_>_>
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::thump:::" "%~f0"') do (echo.%%B)
 echo.
-echo You can reach JupyterLab in a Windows browser at http://localhost:8888
+echo
+@cscript //nologo "%TEMP%\tt.vbs" "Congratulations! You have a working Ubuntu 22.04 system with Python %python%"
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" "and JupyterLab installed. You can reach JupyterLab in a Windows browser at"
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" "http://localhost:8888 or with the shortcut on your desktop (hit F5 to refresh"
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" "if you don't see it). This is where you should start: Python in the browser."
+echo.
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" "There is also a Linux Shell shortcut on your desktop. Windows 10 users should"
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" "install Windows Terminal from the Microsoft Store to make it work. The Linux"
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" "Shell is what we will use to teach you the vim text editor. If you're feeling"
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" "brave, you can try it out now by typing vimtutor at the Linux Shell prompt."
+echo.
 echo.
 set /p warning=Press [Enter] to release this console window. %
 
