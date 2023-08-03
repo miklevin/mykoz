@@ -41,10 +41,11 @@ quiet sudo add-apt-repository ppa:deadsnakes/ppa -y
 quiet sudo add-apt-repository ppa:neovim-ppa/stable -y
 # Update the package list (now that all PPAs are added)
 quiet sudo apt update -y
+quiet sudo apt upgrade -y
 # Install Python and create the virtual environment
 quiet sudo apt install python$VAR python$VAR-venv python$VAR-dev -y
 quiet /usr/bin/python$VAR -m venv /home/ubuntu/pyenv
-sudo /home/ubuntu/pyenv/bin/python -m ensurepip --upgrade
+quiet sudo /home/ubuntu/pyenv/bin/python -m ensurepip --upgrade
 quiet sudo apt autoremove -y
 echo ""
 echo " Done Python install!" | pv -qL 100
