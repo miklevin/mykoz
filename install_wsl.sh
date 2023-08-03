@@ -50,8 +50,6 @@ quiet figlet -t "Installing virtualenv..."
 quiet /usr/bin/python$VAR -m pip install virtualenv
 quiet figlet -t "Creating virtualenv..."
 quiet /usr/bin/python$VAR -m virtualenv /home/ubuntu/pyenv
-echo ""
-echo " Done Python install!" | pv -qL 100
 
 # First we get everything that needs to be done under superuser context
 quiet sudo curl -sL https://raw.githubusercontent.com/miklevin/drinkme/main/.bash_profile -o /home/ubuntu/.bash_profile \
@@ -90,6 +88,9 @@ fi
 quiet curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
 quiet sudo bash /tmp/nodesource_setup.sh
 quiet sudo apt install nodejs -y
+
+echo ""
+echo " Done Python install!" | pv -qL 100
 
 # DO THE APT GET INSTALLS
 if [ -f /home/ubuntu/repos/transfer/apt_installs.sh ]
