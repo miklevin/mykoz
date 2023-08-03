@@ -26,7 +26,7 @@ quiet sudo hwclock -systohc --utc
 quiet sudo apt install figlet pv -y
 
 # Check if we have a Python version passed in as an argument
-VAR=${1:-3.12}
+VAR=${1:-3.11}
 echo " ------------------------------------------------------------------------------"
 figlet -t "Python $VAR..."
 echo " Have you ever had difficulty getting the latest Python or controlling which"| pv -qL 100
@@ -34,8 +34,8 @@ echo " version Python you're using? Just re-run this script to upgrade to the la
 echo " You'll be using the genuine Linux Python running on cloud servers around the" | pv -qL 100
 echo " world. No more DOS backslashes or pathing issues. Just Python bliss." | pv -qL 100
 # Add 2 custom PPS's (Personal Package Sources) to repository list
-quiet sudo add-apt-repository ppa:deadsnakes/ppa -y
-quiet sudo add-apt-repository ppa:neovim-ppa/stable -y
+# quiet sudo add-apt-repository ppa:deadsnakes/ppa -y
+# quiet sudo add-apt-repository ppa:neovim-ppa/stable -y
 # Update the package list (now that all PPAs are added)
 quiet sudo apt update -y
 # Install Python and create the virtual environment
