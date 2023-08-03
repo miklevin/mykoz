@@ -255,7 +255,7 @@ set /p warning= %
 :::down:::                          `----`
 :::down:::
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
-@cscript //nologo "%TEMP%\tt.vbs" " Installing: Ubuntu 22.04, Python %python% (drinkme %drinkme%)... please have patience."
+@cscript //nologo "%TEMP%\tt.vbs" " Installing: Ubuntu 22.04, Python %python% (drinkme %drinkme%). Please have patience."
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" " If you haven't read the opening chapter to Alice's Adventures in Wonderland, this would"
 echo.
