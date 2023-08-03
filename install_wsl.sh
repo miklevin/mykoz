@@ -48,11 +48,11 @@ quiet figlet -t "Updating..."
 quiet sudo apt update -y
 quiet sudo apt upgrade -y
 quiet figlet -t "Installing Python $VAR..."
-quiet sudo apt install python$VAR
+quiet sudo apt install python$VAR -y
 quiet figlet -t "curl'ing pip..."
-quiet curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
+quiet curl https://bootstrap.pypa.io/get-pip.py --output /home/ubuntu/get-pip.py
 quiet figlet -t "Installing pip..."
-quiet sudo python$var get-pip.py
+quiet sudo python$var /home/ubuntu/get-pip.py
 quiet figlet -t "Installing virtualenv..."
 quiet python$VAR -m pip install virtualenv
 quiet figlet -t "Creating virtualenv..."
