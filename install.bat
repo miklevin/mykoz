@@ -89,7 +89,7 @@ echo.
 @cscript //nologo "%TEMP%\tt.vbs" " keeping a 1-text-file Journal in vim for the rest of your life."
 echo.
 echo.
-echo                         Press [enter] to continue (or ctrl+c to escape)...
+echo                         Press [Enter] to continue (or ctrl+c to escape)...
 echo                                                                 prompt 1/4
 
 set /p warning= %
@@ -128,7 +128,7 @@ timeout /t 3 >nul
 :::unicorn:::                                                          
 :::unicorn:::  
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::unicorn:::" "%~f0"') do (echo.%%B)
-echo                         Press [enter] to continue (or ctrl+c to escape)...
+echo                         Press [Enter] to continue (or ctrl+c to escape)...
 echo                                                                 prompt 2/4
 set /p warning= %
 cls
@@ -168,7 +168,7 @@ echo.
 @cscript //nologo "%TEMP%\tt.vbs" " Yet the amazing thing is this is an experience you will find nowhere else."
 echo.
 echo.
-echo                         Press [enter] to continue (or ctrl+c to escape)...
+echo                         Press [Enter] to continue (or ctrl+c to escape)...
 echo                                                                 prompt 3/4
 set /p warning= %
 cls
@@ -216,7 +216,7 @@ echo.
 @cscript //nologo "%TEMP%\tt.vbs" " 22.04 installation and replace it with one configured for JupyterLab."
 echo.
 echo.
-echo                         Press [enter] to continue (or ctrl+c to escape)...
+echo                         Press [Enter] to continue (or ctrl+c to escape)...
 echo                                                                 prompt 4/4
 set /p warning= %
 :::down:::                                         ___
