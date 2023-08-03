@@ -93,26 +93,10 @@
 :: be compatible with the cloud versions, too.
 
 REM Set up envioronment and parse opitonal arguemnts.
-set drinkme=0.9.54
+set drinkme=0.9.55
 set python=3.11
 @echo off
-local
 cls
-
-REM Write out the TypeWriter script to a temp file
-echo(
-(
-echo strText=wscript.arguments(0^)
-echo intTextLen = Len(strText^)
-echo Set WS = CreateObject("wscript.shell"^)
-echo intPause = 12
-echo For x = 1 to intTextLen
-echo   strTempText = Mid(strText,x,1^)
-echo   WScript.StdOut.Write strTempText
-echo   WScript.Sleep intPause
-echo Next
-del "%TEMP%\tt.vbs" >nul 2>&1
-)>"%TEMP%\tt.vbs"
 
 REM set default Python version
 set "version=%python%"
@@ -132,22 +116,34 @@ if not "%1" == "" (
 
 :::rabbit::: ------------------------------------------------------------------------
 :::rabbit::: Before continuing this script, Install Ubuntu 22.04 from Microsoft Store
-:::rabbit::: or by using the "wsl --install" command. After WSL is installed, run this
-:::rabbit::: script. This script can be re-run often to update your Linux environment.
-:::rabbit::: All your configuration and files will be preserved. You can even upgrade.
+:::rabbit::: or by using the "wsl --install" command. After WSL is installed run this
+:::rabbit::: script. This script can be re-run often to update your Linux environment
+:::rabbit::: All your configuration and files will be preserved. You can even upgrade
 :::rabbit::: ------------------------------------------------------------------------
 :::rabbit:::
-:::rabbit:::   <== Comfort Zone       Who do you want to be?        Your Future ==>  
+:::rabbit::: <== Comfort Zone         Who do you want to be?          Your Future ==>  
 :::rabbit:::
-:::rabbit:::                                                               /) ____
-:::rabbit:::      ____ _                      __  __      _          /)\__// /    \
-:::rabbit:::     / ___| |__   __ _ ___  ___  |  \/  | ___| |     ___(/_ 0 0  |     |
-:::rabbit:::    | |   | '_ \ / _` / __|/ _ \ | |\/| |/ _ \ |   *(     =(_T_)=>Linux|
-:::rabbit:::    | |___| | | | (_| \__ \  __/ | |  | |  __/_|     \  )   \"\  |     |
-:::rabbit:::     \____|_| |_|\__,_|___/\___| |_|  |_|\___(_)      |__>-\_>_>  \___/
-:::rabbit:::
+:::rabbit:::                                                               /)  ____
+:::rabbit:::     ____ _                      __  __      _           /)\__//  /    \
+:::rabbit:::    / ___| |__   __ _ ___  ___  |  \/  | ___| |      ___(/_ 0 0  | LIFE |
+:::rabbit:::   | |   | '_ \ / _` / __|/ _ \ | |\/| |/ _ \ |    *(    ==(_T_)== LONG |
+:::rabbit:::   | |___| | | | (_| \__ \  __/ | |  | |  __/_|      \  )   \"\  | LOVE |
+:::rabbit:::    \____|_| |_|\__,_|___/\___| |_|  |_|\___(_)       |__>-\_>_>  \____/
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::rabbit:::" "%~f0"') do (echo.%%B)
-@cscript //nologo "%TEMP%\tt.vbs" "                                          WOULD YOU LIKE TO PLAY A GAME?"
+REM Write out the TypeWriter script to a temp file
+echo(
+(
+echo strText=wscript.arguments(0^)
+echo intTextLen = Len(strText^)
+echo Set WS = CreateObject("wscript.shell"^)
+echo intPause = 12
+echo For x = 1 to intTextLen
+echo   strTempText = Mid(strText,x,1^)
+echo   WScript.StdOut.Write strTempText
+echo   WScript.Sleep intPause
+echo Next
+)>"%TEMP%\tt.vbs"
+@cscript //nologo "%TEMP%\tt.vbs" "                                           WOULD YOU LIKE TO PLAY A GAME?"
 echo.
 echo.
 timeout /t 2 >nul
@@ -160,11 +156,11 @@ echo.
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" " you ease your way into a lifetime of mindfulness and timeless skills by"
 echo.
-@cscript //nologo "%TEMP%\tt.vbs" " keeping a one text file Journal in vim for the rest of your life."
+@cscript //nologo "%TEMP%\tt.vbs" " keeping a 1-text-file Journal in vim for the rest of your life."
 echo.
 echo.
-echo                       press [enter] to continue (or ctrl+c to escape)...
-echo                                                               prompt 1/4
+echo                         Press [enter] to continue (or ctrl+c to escape)...
+echo                                                                 prompt 1/4
 
 set /p warning= %
 cls
@@ -173,37 +169,37 @@ cls
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" " precious little time to get sidetracked by short-lived trends and superficial"
 echo.
-@cscript //nologo "%TEMP%\tt.vbs" " tools. Marcus Aurelius gave us Stoicism, a philosophy for finding meaning and"
+@cscript //nologo "%TEMP%\tt.vbs" " tools. Marcus Aurelius gave us STOICISM, a philosophy for finding meaning and"
 echo.
-@cscript //nologo "%TEMP%\tt.vbs" " resilience in a chaotic world. MyKos: AReal/OS offers Tow-it-ism, a modern"
+@cscript //nologo "%TEMP%\tt.vbs" " resilience in a chaotic world. MyKos: AReal/OS offers TOW-IT-ISM, a modern"
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" " approach to finding value in life by focusing on mastering a few simple,"
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" " lasting skills that can be carried with us from one context to the next."
 echo.
-timeout /t 2 >nul
-:::unicorn:::  
-:::unicorn:::                                  _______________________________   
+timeout /t 3 >nul
+:::unicorn:::                               
+:::unicorn:::          TOW-IT-ISM?             _______________________________   
 :::unicorn:::                                 /                               \
 :::unicorn:::                                |  Local versions as good as the  |
 :::unicorn:::                                |  Cloud? There's no such thing.  |
-:::unicorn:::       Yes there is, Mr.         \_______________________________/
-:::unicorn:::       Unicorn! Here's                                           ()  
-:::unicorn:::       how it works...                                             O   ,
+:::unicorn:::        Yes there is, Mr.        \_______________________________/
+:::unicorn:::        Unicorn! Here's                                          ()  
+:::unicorn:::        how it works...                                Tow it      O   ,
 :::unicorn:::    ________________________         (\              /)             o  \\  .
 :::unicorn:::   |    Windows 10 or 11   |       ___\\____________//__               |\\/|
 :::unicorn:::   |     ____ ____         |      |   MyKoz: AReal/OS   |             / " '\
-:::unicorn:::   |  ,_/site\____\______. |      |  on your hardware!  |    See!    . .   .
-:::unicorn:::   |  |                  | |      |  __________________ |<< - - - - /    ) |
-:::unicorn:::   |  |   WEB BROWSER    | |      | |  screen session | |          '  _.'  |
-:::unicorn:::   |  | localhost:8888 <<------------>>Jupyter Server | |          '-'/    \
+:::unicorn:::   |  ,_/site\____\______. |      |   Linux Subsystem   |    See!    . .   .
+:::unicorn:::   |  |                  | |      |  _________________  |<- - - - - /    ) |
+:::unicorn:::   |  |    WEB BROWSER   | |      | |  screen session | |          '  _.'  |
+:::unicorn:::   |  |  localhost:8888 <------------> Jupyter Server | |          '-'/    \
 :::unicorn:::   |__|                  |_|      | |_________________| | 
 :::unicorn:::      '------------------'        |_____________________|      What, no Docker?
-:::unicorn:::  
+:::unicorn:::                                                          
 :::unicorn:::  
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::unicorn:::" "%~f0"') do (echo.%%B)
-echo                       press [enter] to continue (or ctrl+c to escape)...
-echo                                                               prompt 2/4
+echo                         Press [enter] to continue (or ctrl+c to escape)...
+echo                                                                 prompt 2/4
 set /p warning= %
 cls
 :::mykoz:::  __  __       _  __               _    ____            _    _____  ____  
@@ -214,21 +210,21 @@ cls
 :::mykoz:::         |___/ MyKoz: A Real OS on Windows (Linux) teaching Tow-it-izm
 :::mykoz:::
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::mykoz:::" "%~f0"') do (echo.%%B)
-timeout /t 2 >nul
+timeout /t 3 >nul
 @cscript //nologo "%TEMP%\tt.vbs" " My Cause is to help people find meaning in life by mastering a few simple,"
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" " creative, soul-feeding skills that can't be rendered obsolete anytime soon."
 echo.
-timeout /t 1 >nul
-:::future:::                                                                      
-:::future:::      (\              /)     ___                     ___             ,     
-:::future:::    ___\\____________//__   /   \                   /   \            \\  . 
-:::future:::   |   MyKoz: AReal/OS   | /     V      /)   ____  /     V           |\\/| 
-:::future:::   |   ===============   |        /)\__//   /    \                  / " '\ 
-:::future:::   | - Linux server      |    ___(/_ 0 0    |     |   The Future   . .   . 
-:::future:::   | - Python coding     |  *(     =(_T_)= Anythin|   And Still   /    ) | 
-:::future:::   | - vim text editor   |    \  )   \"\    |     |   Relevant:  '  _.'  | 
-:::future:::   | - git code control  |     |__>-\_>_>    \___/    AI? NP!    '-'/    \ 
+timeout /t 2 >nul
+:::future:::                              ___                     ___                                    
+:::future:::      (\              /)     /   \                   /   \           ,     
+:::future:::    ___\\____________//__   /     V      /)         /     V          \\  . 
+:::future:::   |   MyKoz: AReal/OS   |         /)\__//     ____                  |\\/| 
+:::future:::   |   ===============   |     ___(/_ 0 0     /    \   Far into      / " '\ 
+:::future:::   | - Linux server      |   *(    ==(_T_)== | Mac  |  The Future   . .   . 
+:::future:::   | - Python coding     |     \  )   \"\   Anything|  And Still   /    ) | 
+:::future:::   | - vim text editor   |      |__>-\_>_>   |  PCs |  Relevant!  '  _.'  | 
+:::future:::   | - git code control  |  Linux Subsystem   \____/   AIs? NP!   '-'/    \ 
 :::future:::   |_____________________| 
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::future:::" "%~f0"') do (echo.%%B)
 timeout /t 2 >nul
@@ -242,9 +238,56 @@ echo.
 @cscript //nologo "%TEMP%\tt.vbs" " Yet the amazing thing is this is an experience you will find nowhere else."
 echo.
 echo.
-echo                       press [enter] to continue (or ctrl+c to escape)...
-echo                                                               prompt 3/4
-
+echo                         Press [enter] to continue (or ctrl+c to escape)...
+echo                                                                 prompt 3/4
+set /p warning= %
+cls
+:::hole:::                                                                 ____  
+:::hole:::    _              _      ____ _                          _     /    \ 
+:::hole:::   | |    __ _ ___| |_   / ___| |__   __ _ _ __   ___ ___| |   |      |
+:::hole:::   | |   / _` / __| __| | |   | '_ \ / _` | '_ \ / __/ _ \ |   |      |
+:::hole:::   | |__| (_| \__ \ |_  | |___| | | | (_| | | | | (_|  __/_|   |      |
+:::hole:::   |_____\__,_|___/\__|  \____|_| |_|\__,_|_| |_|\___\___(_)    \____/ 
+for /f "delims=: tokens=1*" %%A in ('findstr /b ":::hole:::" "%~f0"') do (echo.%%B)
+timeout /t 2 >nul
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " Look, you could be using VSCode and be doing everything exactly the same "
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " way as everyone else, beholden to a vendor's vision of what your future"
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " should be. What I propose here is very threatening to the status quo,"
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " and I'm not going to lie to you, it's going to be a lot of work."
+echo.
+echo.
+timeout /t 5 >nul
+@cscript //nologo "%TEMP%\tt.vbs" " But the approach I propose is devistatingly clever and simple. Merely by"
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " making your JupyterLab powered by real Linux, coming from the Microsoft"
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " Subsystem for Linux, you will be able to do things that no one else can;"
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " specifically that step from a Lost button-pusher to real automation."
+echo.
+echo.
+timeout /t 5 >nul
+@cscript //nologo "%TEMP%\tt.vbs" " Following that, you will be able to venture into the Linux Terminal and the"
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " vim text editor. I'll get you set up for daily journaling in a text file."
+echo.
+echo.
+timeout /t 5 >nul
+@cscript //nologo "%TEMP%\tt.vbs" " And the final warning, if you have Ubuntu 22.04 already installed under"
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " WSL, THIS WILL DELETE IT! So if you have any data you want to keep, you"
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " need to back it up now. I'm not kidding, this will delete your Ubuntu"
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " 22.04 installation and replace it with one configured for JupyterLab."
+echo.
+echo.
+echo                         Press [enter] to continue (or ctrl+c to escape)...
+echo                                                                 prompt 4/4
 set /p warning= %
 :::down:::                                         ___
 :::down:::                                        |   |         _____
@@ -271,9 +314,12 @@ set /p warning= %
 :::down:::                          `----`
 :::down:::
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
-echo  Installing: Ubuntu 22.04, Python %version% (drinkme %drinkme%)... please have patience.
-echo  Run JupyterLab back-ended with genuine Linux Python, front-ended with Windows.
-echo  Linux DOESN'T mean Desktop! Improve your muscle-memory tech skills for life.
+@cscript //nologo "%TEMP%\tt.vbs" " Installing: Ubuntu 22.04, Python %version% (drinkme %drinkme%)... please have patience."
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " If you haven't read the opening chapter to Alice's Adventures in Wonderland, this would"
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " be an excellent time to do so, because this process takes about 10 minutes, ha ha ha!"
+echo.
 
 set "windows_apps_path=%USERPROFILE%\AppData\Local\Microsoft\WindowsApps"
 set "install_command="
@@ -355,7 +401,8 @@ if exist %USERPROFILE%\.vimrc (wsl -d %Ubuntu% -e bash -lic "cp /mnt/c/Users/%US
 if exist %USERPROFILE%\.pypirc (wsl -d %Ubuntu% -e bash -lic "cp /mnt/c/Users/%USERNAME%/.pypirc /home/ubuntu/" >nul 2>&1) else (wsl -d ubuntu -u ubuntu -e curl -l -o /home/ubuntu/.pypirc "https://raw.githubusercontent.com/miklevin/drinkme/main/.pypirc" >nul 2>&1)
 
 REM We update the software repository on the Ubuntu 22.04 Machine
-echo  This is going to take about 10 minutes. Relax. Go get a drink.
+@cscript //nologo "%TEMP%\tt.vbs" " Hold tight. I'll start typing to you again as it gets good..."
+echo.
 wsl -d %Ubuntu% -u root -e sudo apt update >nul 2>&1
 
 REM And now the big upgrading of all the Ubuntu 22.04 software.
