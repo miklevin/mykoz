@@ -24,7 +24,6 @@ exec 3>&1 4>&2
 # Make sure Clock is in sync with Windows hardware clock
 quiet sudo hwclock -systohc --utc
 quiet sudo apt install figlet pv -y
-quiet sudo apt update -y
 
 # Check if we have a Python version passed in as an argument
 VAR=${1:-3.12}
@@ -34,11 +33,11 @@ echo " Have you ever had difficulty getting the latest Python or controlling whi
 echo " version Python you're using? Just re-run this script to upgrade to the latest!" | pv -qL 100
 echo " You'll be using the genuine Linux Python running on cloud servers around the" | pv -qL 100
 echo " world. No more DOS backslashes or pathing issues. Just Python bliss." | pv -qL 100
-# May not be necessary
 # Add 2 custom PPS's (Personal Package Sources) to repository list
-# quiet sudo add-apt-repository ppa:deadsnakes/ppa -y
-# quiet sudo add-apt-repository ppa:neovim-ppa/stable -y
+quiet sudo add-apt-repository ppa:deadsnakes/ppa -y
+quiet sudo add-apt-repository ppa:neovim-ppa/stable -y
 # Update the package list (now that all PPAs are added)
+quiet sudo apt update -y
 # Install Python and create the virtual environment
 quiet sudo apt install python$VAR python$VAR-venv python$VAR-dev -y
 quiet /usr/bin/python$VAR -m venv /home/ubuntu/pyenv
