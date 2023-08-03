@@ -28,9 +28,10 @@ quiet sudo apt install figlet pv -y
 # Check if we have a Python version passed in as an argument
 VAR=${1:-3.12}
 figlet -t "Python $VAR..."
-echo "Have you ever had difficulty getting the latest Python or controlling" | pv -qL 10
-echo "which one you're using? Getting the latest, greatest Python has never" | pv -qL 10
-echo "been so easy! Just run this script again when a new Python is released!" | pv -qL 10
+echo "Have you ever had difficulty getting the latest Python or controlling which"| pv -qL 100
+echo "version Python you're using? Just re-run this script to upgrade to the latest!" | pv -qL 100
+echo "You'll be using the genuine Linux Python running on cloud servers around the" | pv -qL 100
+echo "world. No more DOS backslashes or pathing issues. Just Python bliss." | pv -qL 100
 
 # Add 2 custom PPS's (Personal Package Sources) to repository list
 quiet sudo add-apt-repository ppa:deadsnakes/ppa -y
@@ -87,7 +88,9 @@ quiet sudo apt install nodejs -y
 if [ -f /home/ubuntu/repos/transfer/apt_installs.sh ]
 then
     figlet -t "apt get's..."
-    echo "Grabbing a few of the 60K+ Ubuntu packages now at your disposal."
+    echo "Grabbing a few of the 60K+ Ubuntu packages which are now at your disposal." | pv -qL 100
+    echo "Debian-derivative distros like Ubuntu have a package manager called apt." | pv -qL 100
+    echo "It's like the Windows Store, but automatable in server install scripts." | pv -qL 100
     source /home/ubuntu/repos/transfer/apt_installs.sh
 fi
 sh -c 'curl -fLo /home/ubuntu/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' > /dev/null 2>&1
