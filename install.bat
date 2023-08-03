@@ -1,105 +1,33 @@
-::  ____       _       _      __  __      
-:: |  _ \ _ __(_)_ __ | | __ |  \/  | ___ 
-:: | | | | '__| | '_ \| |/ / | |\/| |/ _ \
-:: | |_| | |  | | | | |   <  | |  | |  __/
-:: |____/|_|  |_|_| |_|_|\_\ |_|  |_|\___|
-:: For Rabbit Hole Linux, by Mike Levin SEO
+::  __  __       _  __          
+:: |  \/  |_   _| |/ /___ _____ 
+:: | |\/| | | | | ' // _ \_  (_)
+:: | |  | | |_| | . \ (_) / / _ 
+:: |_|  |_|\__, |_|\_\___/___(_)
+::         |___/ MyKoz: AReal/OS
 ::
-:: This Windows batch script installs Linux
-:: JupyterLab on your Windows 10 or 11 laptop
-:: using the invisible Rabbit Hole Linux VM.
+:: You've heard of Stoicism? Well,
+:: this is Tow-It-Ism. It's a way
+:: of using a Linux Subsystem on
+:: Windows for a minimalistic and
+:: portalbe approach to computing.
 ::
-:: Install Ubuntu 22.04 from Microsoft Store
-:: or by using the "wsl --install" command.
-:: After WSL is installed, run this script.
+:: This script replaces the default
+:: Windows 10 or 11 Linux Subsystem
+:: Ubuntu 22.04 with a new one that
+:: has JupyterLab installed along
+:: with the latest Python, NeoVim,
+:: and a few other goodies to get
+:: you started on your journey.
 ::
-:: Fetch & re-run this script to update your
-:: Linux environment. It's a "floating" Linux
-:: environment that can last you a lifetime.
-::
-:: Your data is stored in your Windows home
-:: directory, so you can upgrade your hardware
-:: and operating systems without losing data.
-::
-:: That also means you can re-run this install
-:: script often without losing your work.
-:: drinkme.bat is a shortcut to this script:
-::
-:: https://raw.githubusercontent.com/miklevin/drinkme/main/drinkme.bat
-::                    ___          
-::                   |   |         _____  
-::                   |_  |        /     \      
-::                     \ |       |       \     
-::                     |  \      |       /     
-::                      \  \____ \_      \     
-::                       \      \_/      |     
-::                 ___.   \_            _/     
-::.-,             /    \    |          |       
-::|  \          _/      `--_/           \_     
-:: \  \________/                     /\   \    
-:: |                                /  \_  \   
-:: `-----------,                   |     \  \  
-::             |                  /       \  | 
-::             |                 |         | \ 
-::             /                 |         \__|
-::            /   _              |             
-::           /   / \_             \            
-::           |  /    \__      __--`            
-::          _/ /        \   _/                 
-::      ___/  /          \_/                   
-::     /     /                                 
-::     `----`                                  
-::
-:: - Always get the latest Python (3.11)
-:: - Always get the latest JupyterLab (4)
-:: - Name installer 3.8.bat for Python 3.8
-:: - Use home VPN software to cycle your IP
-:: - Use Playwright to automate Web browsers
-:: - Run the versions the Linux servers do.
-::
-:: ------------------------------------------
-:: STILL WORKS BUT DEPRECATED FOR drinkme.bat
-:: ------------------------------------------
-:: Save & Run this .bat on your Desktop for
-:: JupyterLab served at http://localhost:8888
+:: Start with the "drinkme.bat"
+:: script to install the latest
+:: version of this script.
+:: https://mikelev.in/drinkme
 
-:: INSTRUCTIONS (SAVE AS .BAT)
-:: Name file install.bat and save it to your Desktop.
-:: Alternatively, name it 3.8.bat for Python 3.8
-:: or any other version you want to install.
-
-:: This is usually acomplished by visiting the URL:
-:: https://raw.githubusercontent.com/miklevin/drinkme/main/install.bat
-:: Right-clicking on the page and choosing Save As...
-:: Then, in the Save As dialog, change the Save as
-:: type: to All Files (*.*) and name the file install.bat
-:: Then, click Save and you're ready to run it.
-::
-:: There can be challenges such as Windows Defender
-:: SmartScreen blocking the file from running. If so,
-:: you can right-click on the file and choose Run as
-:: Administrator. You may also need to click More Info
-:: and then Run Anyway. If you have any problems, you
-:: can always contact me at https://pipulate.com
-::
-:: The reason for this novel approach is that Linux has
-:: reached the point where you can have a "floating"
-:: Linux environment that is not tied to a particular
-:: computer and has all the advantages of the cloud
-:: versions of Linux, but without the limitations. It
-:: can also last you a lifetime, floating from one
-:: computer to the next, as you upgrade your hardware
-:: and operating systems. Stuff you make with it will
-:: be compatible with the cloud versions, too.
-
-REM Set up envioronment and parse opitonal arguemnts.
+REM Set up envioronment
 set drinkme=0.9.55
 set python=3.11
 @echo off
-cls
-
-REM set default Python version
-set "version=%python%"
 
 REM check for first command line argument
 if not "%1" == "" (
@@ -216,7 +144,7 @@ echo.
 @cscript //nologo "%TEMP%\tt.vbs" " creative, soul-feeding skills that can't be rendered obsolete anytime soon."
 echo.
 timeout /t 2 >nul
-:::future:::                              ___                     ___                                    
+:::future:::                              ___                     ___
 :::future:::      (\              /)     /   \                   /   \           ,     
 :::future:::    ___\\____________//__   /     V      /)         /     V          \\  . 
 :::future:::   |   MyKoz: AReal/OS   |         /)\__//     ____                  |\\/| 
@@ -314,7 +242,7 @@ set /p warning= %
 :::down:::                          `----`
 :::down:::
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
-@cscript //nologo "%TEMP%\tt.vbs" " Installing: Ubuntu 22.04, Python %version% (drinkme %drinkme%)... please have patience."
+@cscript //nologo "%TEMP%\tt.vbs" " Installing: Ubuntu 22.04, Python %python% (drinkme %drinkme%)... please have patience."
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" " If you haven't read the opening chapter to Alice's Adventures in Wonderland, this would"
 echo.
@@ -413,7 +341,7 @@ wsl -d %Ubuntu% -u root /bin/bash -c "echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL'> 
 
 REM Grab and run second-half of install that runs under WSL and set up Linux graphics.
 wsl -d %Ubuntu% -u ubuntu -e curl -L -o /home/ubuntu/install_wsl.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/install_wsl.sh" >nul 2>&1
-wsl -d %Ubuntu% -e bash -c "bash /home/ubuntu/install_wsl.sh %version% 2>&1
+wsl -d %Ubuntu% -e bash -c "bash /home/ubuntu/install_wsl.sh %python% 2>&1
 
 REM ACLs need a wsl --shutdown for git clone to work. Also keep the WSL session alive.
 wsl -t %Ubuntu% >nul 2>&1
