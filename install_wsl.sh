@@ -7,7 +7,7 @@
 #                                     |___/                                   
 # Set this variable to control the quiet mode
 
-quiet_mode=true
+quiet_mode=false
 
 # Function to silence output based on the quiet_mode
 quiet() {
@@ -33,7 +33,6 @@ echo " Have you ever had difficulty getting the latest Python or controlling whi
 echo " version Python you're using? Just re-run this script to upgrade to the latest!" | pv -qL 100
 echo " You'll be using the genuine Linux Python running on cloud servers around the" | pv -qL 100
 echo " world. No more DOS backslashes or pathing issues. Just Python bliss." | pv -qL 100
-echo ""
 # Add 2 custom PPS's (Personal Package Sources) to repository list
 quiet sudo add-apt-repository ppa:deadsnakes/ppa -y
 quiet sudo add-apt-repository ppa:neovim-ppa/stable -y
@@ -136,3 +135,4 @@ quiet sudo systemctl enable jupyter
 quiet sudo systemctl start jupyter
 echo ""
 echo " Done JupyterLab install!"
+echo " ------------------------------------------------------------------------------"
