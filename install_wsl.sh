@@ -1,19 +1,15 @@
 #!/bin/bash
+
 #  ____            _   ____  _                     ___           _        _ _ 
 # |___ \ _ __   __| | / ___|| |_ __ _  __ _  ___  |_ _|_ __  ___| |_ __ _| | |
 #   __) | '_ \ / _` | \___ \| __/ _` |/ _` |/ _ \  | || '_ \/ __| __/ _` | | |
 #  / __/| | | | (_| |  ___) | || (_| | (_| |  __/  | || | | \__ \ || (_| | | |
 # |_____|_| |_|\__,_| |____/ \__\__,_|\__, |\___| |___|_| |_|___/\__\__,_|_|_|
 #                                     |___/                                   
+
 # Set this variable to control the quiet mode
-
-quiet_mode=false
-
-VAR=${1:-3.11}
-# Check if we have a Python version passed in as an argument
-# ${1} refers to the first argument passed to the script.
-# :- is a special operator that sets a default value for the variable if it is not already set.
-# 3.11 is the default value that will be used if the first argument is not provided or is empty.
+quiet_mode=true
+VAR=${1:-3.11} # If no version is specified, use 3.11
 
 # Function to silence output based on the quiet_mode
 quiet() {
@@ -26,9 +22,6 @@ quiet() {
 
 # Save the original file descriptors 1 and 2 to variables
 exec 3>&1 4>&2
-
-# quiet sudo apt update -y
-# quiet sudo apt upgrade -y
 
 # Make sure Clock is in sync with Windows hardware clock
 quiet sudo hwclock -systohc --utc
