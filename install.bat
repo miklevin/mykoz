@@ -391,13 +391,13 @@ echo IconIndex=0 >> JupyterLab.url
 
 del /Q %USERPROFILE%\repos\transfer\*
 
-:::thump:::                                                       .----------------.
+:::thump:::                                                       .----------------. 
 :::thump:::                                                       | Oh, my fur and |
 :::thump:::        MyKoz: AReal/OS HAS...                     /) (  whiskers! It's |
-:::thump::: _                    _          _ _        /)\___// o | to Jupyer I go |
-:::thump:::| |    __ _ _ __   __| | ___  __| | |   ___(/_ 0 0     '----------------'
+:::thump::: _                    _          _ _        /)\___// O | to Jupyer I go |
+:::thump:::| |    __ _ _ __   __| | ___  __| | |   ___(/_ 0 0  o  '----------------'
 :::thump:::| |   / _` | '_ \ / _` |/ _ \/ _` | | *(    ==(_T_)==
-:::thump:::| |__| (_| | | | | (_| |  __/ (_| |_|   \  )   \"\
+:::thump:::| |__| (_| | | | | (_| |  __/ (_| |_|   \  )   \"\     * Find the "Intro"   
 :::thump:::|_____\__,_|_| |_|\__,_|\___|\__,_(_)    |__>-\_>_>
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::thump:::" "%~f0"') do (echo.%%B)
 echo.
