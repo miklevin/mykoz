@@ -171,7 +171,7 @@ echo.
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" " tools. Marcus Aurelius gave us STOICISM, a philosophy for finding meaning and"
 echo.
-@cscript //nologo "%TEMP%\tt.vbs" " resilience in a chaotic world. MyKos: AReal/OS offers TOW-IT-ISM, a modern"
+@cscript //nologo "%TEMP%\tt.vbs" " resilience in a chaotic world. MyKoz: AReal/OS offers TOW-IT-ISM, a modern"
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" " approach to finding value in life by focusing on mastering a few simple,"
 echo.
