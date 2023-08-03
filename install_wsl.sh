@@ -26,6 +26,9 @@ quiet sudo hwclock -systohc --utc
 quiet sudo apt install figlet pv -y
 
 # Check if we have a Python version passed in as an argument
+# ${1} refers to the first argument passed to the script.
+# :- is a special operator that sets a default value for the variable if it is not already set.
+# 3.11 is the default value that will be used if the first argument is not provided or is empty.
 VAR=${1:-3.11}
 echo " ------------------------------------------------------------------------------"
 figlet -t "Python $VAR..."
@@ -34,8 +37,8 @@ echo " version Python you're using? Just re-run this script to upgrade to the la
 echo " You'll be using the genuine Linux Python running on cloud servers around the" | pv -qL 100
 echo " world. No more DOS backslashes or pathing issues. Just Python bliss." | pv -qL 100
 # Add 2 custom PPS's (Personal Package Sources) to repository list
-# quiet sudo add-apt-repository ppa:deadsnakes/ppa -y
-# quiet sudo add-apt-repository ppa:neovim-ppa/stable -y
+quiet sudo add-apt-repository ppa:deadsnakes/ppa -y
+quiet sudo add-apt-repository ppa:neovim-ppa/stable -y
 # Update the package list (now that all PPAs are added)
 quiet sudo apt update -y
 # Install Python and create the virtual environment
