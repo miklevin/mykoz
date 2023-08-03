@@ -259,7 +259,7 @@ for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" " If you haven't read the opening chapter to Alice's Adventures in Wonderland," 
 echo.
-@cscript //nologo "%TEMP%\tt.vbs" " this would be an excellent time to do so, because this process takes about 10 minutes."
+@cscript //nologo "%TEMP%\tt.vbs" " this would be an excellent time to do so, because this takes about 10 minutes."
 echo.
 
 set "windows_apps_path=%USERPROFILE%\AppData\Local\Microsoft\WindowsApps"
