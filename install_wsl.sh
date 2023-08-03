@@ -52,7 +52,7 @@ quiet sudo apt install python$VAR -y
 quiet figlet -t "curl'ing pip..."
 quiet curl https://bootstrap.pypa.io/get-pip.py --output /home/ubuntu/get-pip.py
 quiet figlet -t "Installing pip..."
-quiet sudo /usr/bin/python$var /home/ubuntu/get-pip.py
+quiet /usr/bin/python$VAR /home/ubuntu/get-pip.py
 quiet figlet -t "Installing virtualenv..."
 quiet usr/bin/python$VAR -m pip install virtualenv
 quiet figlet -t "Creating virtualenv..."
