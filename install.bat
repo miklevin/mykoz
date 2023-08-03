@@ -35,7 +35,7 @@ cls
 
 REM Set up envioronment
 set drinkme=0.9.56
-set python=3.10
+set python=3.11
 
 REM Check if a different version of Python was requested
 if not "%1" == "" (
@@ -150,9 +150,9 @@ cls
 :::mykoz:::
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::mykoz:::" "%~f0"') do (echo.%%B)
 timeout /t 3 >nul
-@cscript //nologo "%TEMP%\tt.vbs" " My Cause is to help people find meaning in life by mastering a few simple,"
+@cscript //nologo "%TEMP%\tt.vbs" " You've heard of Marcus Aurelius and Stoicism? This is MyKoz: AReal/OS and "
 echo.
-@cscript //nologo "%TEMP%\tt.vbs" " creative, soul-feeding skills that can't be rendered obsolete anytime soon."
+@cscript //nologo "%TEMP%\tt.vbs" " Tow-it-ism; a way of using a Linux Subsystem for timeless computing."
 echo.
 timeout /t 2 >nul
 :::future:::                              ___                     ___

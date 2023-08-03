@@ -41,14 +41,21 @@ echo " version Python you're using? Just re-run this script to upgrade to the la
 echo " You'll be using the genuine Linux Python running on cloud servers around the" | pv -qL 100
 echo " world. No more DOS backslashes or pathing issues. Just Python bliss." | pv -qL 100
 # Add 2 custom PPS's (Personal Package Sources) to repository list
+quiet figlet -t "Adding PPA's..."
 quiet sudo add-apt-repository ppa:deadsnakes/ppa -y
 quiet sudo add-apt-repository ppa:neovim-ppa/stable -y
+quiet figlet -t "Updating..."
 quiet sudo apt update -y
 quiet sudo apt upgrade -y
+quiet figlet -t "Installing Python $VAR..."
 quiet sudo apt install python$VAR
+quiet figlet -t "curl'ing pip..."
 quiet curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
+quiet figlet -t "Installing pip..."
 quiet sudo python$var get-pip.py
+quiet figlet -t "Installing virtualenv..."
 quiet python$VAR -m pip install virtualenv
+quiet figlet -t "Creating virtualenv..."
 quiet python$VAR -m virtualenv /home/ubuntu/pyenv
 echo ""
 echo " Done Python install!" | pv -qL 100
