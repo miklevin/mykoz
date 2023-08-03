@@ -9,7 +9,7 @@
 
 quiet_mode=false
 
-VAR=${1:-3.10}
+VAR=${1:-3.11}
 # Check if we have a Python version passed in as an argument
 # ${1} refers to the first argument passed to the script.
 # :- is a special operator that sets a default value for the variable if it is not already set.
@@ -48,7 +48,7 @@ quiet sudo apt upgrade -y
 quiet sudo apt install python$VAR
 quiet curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
 quiet sudo python$var get-pip.py
-quiet python3.11 -m pip install virtualenv
+quiet python$VAR -m pip install virtualenv
 quiet python$VAR -m virtualenv /home/ubuntu/pyenv
 echo ""
 echo " Done Python install!" | pv -qL 100
