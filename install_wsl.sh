@@ -40,11 +40,10 @@ quiet sudo add-apt-repository ppa:neovim-ppa/stable -y
 quiet sudo apt update -y
 # Install Python and create the virtual environment
 quiet sudo apt install python$VAR -y
-quiet sudo apt install python3-pip -y
 quiet sudo apt install python$VAR-venv -y
-quiet /home/ubuntu/pyenv/bin/python -m pip install --upgrade pip
 quiet sudo apt autoremove -y
 quiet /usr/bin/python$VAR -m venv /home/ubuntu/pyenv
+quiet /home/ubuntu/pyenv/bin/python -m ensurepip --default-pip
 echo ""
 echo " Done Python install!" | pv -qL 100
 
