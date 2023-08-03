@@ -9,6 +9,12 @@
 
 quiet_mode=false
 
+VAR=${1:-3.10}
+# Check if we have a Python version passed in as an argument
+# ${1} refers to the first argument passed to the script.
+# :- is a special operator that sets a default value for the variable if it is not already set.
+# 3.11 is the default value that will be used if the first argument is not provided or is empty.
+
 # Function to silence output based on the quiet_mode
 quiet() {
   if [ "$quiet_mode" = true ]; then
@@ -21,15 +27,13 @@ quiet() {
 # Save the original file descriptors 1 and 2 to variables
 exec 3>&1 4>&2
 
+# quiet sudo apt update -y
+# quiet sudo apt upgrade -y
+
 # Make sure Clock is in sync with Windows hardware clock
 quiet sudo hwclock -systohc --utc
 quiet sudo apt install figlet pv -y
 
-# Check if we have a Python version passed in as an argument
-# ${1} refers to the first argument passed to the script.
-# :- is a special operator that sets a default value for the variable if it is not already set.
-# 3.11 is the default value that will be used if the first argument is not provided or is empty.
-VAR=${1:-3.11}
 echo " ------------------------------------------------------------------------------"
 figlet -t "Python $VAR..."
 echo " Have you ever had difficulty getting the latest Python or controlling which"| pv -qL 100
@@ -37,13 +41,13 @@ echo " version Python you're using? Just re-run this script to upgrade to the la
 echo " You'll be using the genuine Linux Python running on cloud servers around the" | pv -qL 100
 echo " world. No more DOS backslashes or pathing issues. Just Python bliss." | pv -qL 100
 # Add 2 custom PPS's (Personal Package Sources) to repository list
-quiet sudo add-apt-repository ppa:deadsnakes/ppa -y
-quiet sudo add-apt-repository ppa:neovim-ppa/stable -y
+# quiet sudo add-apt-repository ppa:deadsnakes/ppa -y
+# quiet sudo add-apt-repository ppa:neovim-ppa/stable -y
 # Update the package list (now that all PPAs are added)
-quiet sudo apt update -y
-quiet sudo apt upgrade -y
+# quiet sudo apt update -y
+# quiet sudo apt upgrade -y
 # Install Python and create the virtual environment
-quiet sudo apt install python$VAR python$VAR-venv python$VAR-dev -y
+quiet sudo apt install python$VAR -y
 quiet /usr/bin/python$VAR -m venv /home/ubuntu/pyenv
 quiet sudo /home/ubuntu/pyenv/bin/python -m ensurepip --upgrade
 quiet sudo apt autoremove -y

@@ -34,8 +34,8 @@
 cls
 
 REM Set up envioronment
-set drinkme=0.9.55
-set python=3.11
+set drinkme=0.9.56
+set python=3.10
 
 REM Check if a different version of Python was requested
 if not "%1" == "" (
