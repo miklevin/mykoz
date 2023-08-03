@@ -54,7 +54,7 @@ quiet curl https://bootstrap.pypa.io/get-pip.py --output /home/ubuntu/get-pip.py
 quiet figlet -t "Installing pip..."
 quiet /usr/bin/python$VAR /home/ubuntu/get-pip.py
 quiet figlet -t "Installing virtualenv..."
-quiet usr/bin/python$VAR -m pip install virtualenv
+quiet /usr/bin/python$VAR -m pip install virtualenv
 quiet figlet -t "Creating virtualenv..."
 quiet /usr/bin/python$VAR -m virtualenv /home/ubuntu/pyenv
 echo ""
