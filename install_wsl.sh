@@ -40,8 +40,9 @@ quiet sudo add-apt-repository ppa:neovim-ppa/stable -y
 quiet sudo apt update -y
 # Install Python and create the virtual environment
 quiet sudo apt install python$VAR -y
-quiet sudo apt install python$VAR-pip -y
+quiet sudo apt install python3-pip -y
 quiet sudo apt install python$VAR-venv -y
+quiet /home/ubuntu/pyenv/bin/python -m pip install --upgrade pip
 quiet sudo apt autoremove -y
 quiet /usr/bin/python$VAR -m venv /home/ubuntu/pyenv
 echo ""
@@ -80,7 +81,6 @@ if [ ! -f "/home/ubuntu/.ssh/config" ]; then
     quiet mv -n /home/ubuntu/repos/transfer/config /home/ubuntu/.ssh
     sudo chmod 600 ~/.ssh/config
 fi
-quiet /home/ubuntu/pyenv/bin/python -m pip install --upgrade pip
 
 quiet curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
 quiet sudo bash /tmp/nodesource_setup.sh
