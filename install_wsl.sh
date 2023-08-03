@@ -27,11 +27,13 @@ quiet sudo apt install figlet pv -y
 
 # Check if we have a Python version passed in as an argument
 VAR=${1:-3.12}
+echo "------------------------------------------------------------------------------"
 echo "Have you ever had difficulty getting the latest Python or controlling which"| pv -qL 100
 echo "version Python you're using? Just re-run this script to upgrade to the latest!" | pv -qL 100
 echo "You'll be using the genuine Linux Python running on cloud servers around the" | pv -qL 100
 echo "world. No more DOS backslashes or pathing issues. Just Python bliss." | pv -qL 100
 figlet -t "Python $VAR..."
+echo ""
 
 # Add 2 custom PPS's (Personal Package Sources) to repository list
 quiet sudo add-apt-repository ppa:deadsnakes/ppa -y
@@ -88,10 +90,12 @@ quiet sudo apt install nodejs -y
 # DO THE APT GET INSTALLS
 if [ -f /home/ubuntu/repos/transfer/apt_installs.sh ]
 then
+    echo "------------------------------------------------------------------------------"
     echo "Grabbing a few of the 60K+ Ubuntu packages which are now at your disposal." | pv -qL 100
     echo "Debian-derivative distros like Ubuntu have a package manager called apt." | pv -qL 100
     echo "It's like the Windows Store, but automatable in server install scripts." | pv -qL 100
     figlet -t "apt get's..."
+    echo ""
     source /home/ubuntu/repos/transfer/apt_installs.sh
 fi
 sh -c 'curl -fLo /home/ubuntu/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' > /dev/null 2>&1
@@ -99,10 +103,12 @@ sh -c 'curl -fLo /home/ubuntu/.local/share/nvim/site/autoload/plug.vim --create-
 # DO THE PIP INSTALLS
 if [ -f /home/ubuntu/repos/transfer/requirements.txt ]
 then
+    echo "------------------------------------------------------------------------------"
     echo "Grabbing a few of the 300K+ Python Packaging Index (PyPI or pip) packages." | pv -qL 100
     echo "Python is the most popular programming language in the world, and pip is how." | pv -qL 100
     echo "non-standard libraries get installed. It's like the Python Store." | pv -qL 100
     figlet -t "pip installs..."
+    echo ""
     quiet /home/ubuntu/pyenv/bin/python -m pip install -r /home/ubuntu/repos/transfer/requirements.txt
 fi
 
