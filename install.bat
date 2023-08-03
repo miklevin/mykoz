@@ -24,10 +24,12 @@
 :: version of this script.
 :: https://mikelev.in/drinkme
 
+@echo off
+cls
+
 REM Set up envioronment
 set drinkme=0.9.55
 set python=3.11
-@echo off
 
 REM check for first command line argument
 if not "%1" == "" (
