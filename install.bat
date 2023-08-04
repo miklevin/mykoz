@@ -10,7 +10,7 @@
 :: AReal/OS and Tow-it-ism; a way
 :: of using a Linux Subsystem on
 :: Windows for a minimalistic and
-:: portalbe approach to computing.
+:: portable approach to computing.
 
 :: This .bat script replaces the
 :: default Windows 10 or 11 Linux
@@ -28,7 +28,7 @@
 :: and machine learning, this
 :: URL is the place to start:
 
-:: https://mikelev.in/drinkme
+:: https://mikelev.in/mykoz/
 
 @echo off
 cls
@@ -255,7 +255,7 @@ set /p warning= %
 :::down:::                          `----`
 :::down:::
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
-@cscript //nologo "%TEMP%\tt.vbs" " Installing: Ubuntu 22.04, Python %python% (drinkme %drinkme%). Please have patience."
+@cscript //nologo "%TEMP%\tt.vbs" " Installing: Ubuntu 22.04, Python %python% (MyKoz %drinkme%). Please have patience."
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" " If you haven't read the opening chapter to Alice's Adventures in Wonderland," 
 echo.
