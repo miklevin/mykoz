@@ -149,7 +149,7 @@ cls
 :::mykoz::: |_|  |_|\__, |_|\_\___/___(_)_/   \_\___|  |_| \_\___|\__,_|_/_/  \___/|____/ 
 :::mykoz:::         |___/ MyKoz.AI Real/OS Tow-It-Ism: Small Portable Lifelong Linux Tech
 :::mykoz:::
-for /f "delims=: tokens=1*" %%A in ('findstr /b ":::mykoz:::" "%~f0"') do (echo.%%B)
+
 timeout /t 3 >nul
 @cscript //nologo "%TEMP%\tt.vbs" " You've heard of Marcus Aurelius and Stoicism? This is MyKoz: AReal/OS and "
 echo.
@@ -394,8 +394,8 @@ del /Q %USERPROFILE%\repos\transfer\*
 
 :::thump:::                                                       .----------------. 
 :::thump:::                                                       | Oh, my fur and |
-:::thump:::        MyKoz: AReal/OS HAS...                     /) (  whiskers! It's |
-:::thump::: _                    _          _ _        /)\___// O | to Jupyer I go |
+:::thump:::        MyKoz.AI Real/OS HAS...                    /) (  whiskers! It's |
+:::thump::: _                    _          _ _        /)\___// O | 2 Jupyter I go |
 :::thump:::| |    __ _ _ __   __| | ___  __| | |   ___(/_ 0 0  o  '----------------'
 :::thump:::| |   / _` | '_ \ / _` |/ _ \/ _` | | *(    ==(_T_)==
 :::thump:::| |__| (_| | | | | (_| |  __/ (_| |_|   \  )   \"\     * Find the "Intro"   
