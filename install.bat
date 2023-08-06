@@ -141,12 +141,13 @@ echo                         Press [Enter] to continue (or ctrl+c to escape)...
 echo                                                                 prompt 2/4
 set /p warning= %
 cls
-:::mykoz:::  __  __       _  __               _    ____            _    _____  ____
-:::mykoz::: |  \/  |_   _| |/ /___ _____     / \  |  _ \ ___  __ _| |  / / _ \/ ___|
-:::mykoz::: | |\/| | | | | ' // _ \_  (_)   / _ \ | |_) / _ \/ _` | | / / | | \___ \
-:::mykoz::: | |  | | |_| | . \ (_) / / _   / ___ \|  _ <  __/ (_| | |/ /| |_| |___) |
-:::mykoz::: |_|  |_|\__, |_|\_\___/___(_) /_/   \_\_| \_\___|\__,_|_/_/  \___/|____/
-:::mykoz:::         |___/ MyKoz: A Real OS on Windows (Linux) teaching Tow-it-izm
+
+:::mykoz:::  __  __       _  __             _    ___    ____            _    _____  ____  
+:::mykoz::: |  \/  |_   _| |/ /___ ____    / \  |_ _|  |  _ \ ___  __ _| |  / / _ \/ ___| 
+:::mykoz::: | |\/| | | | | ' // _ \_  /   / _ \  | |   | |_) / _ \/ _` | | / / | | \___ \ 
+:::mykoz::: | |  | | |_| | . \ (_) / / _ / ___ \ | |   |  _ <  __/ (_| | |/ /| |_| |___) |
+:::mykoz::: |_|  |_|\__, |_|\_\___/___(_)_/   \_\___|  |_| \_\___|\__,_|_/_/  \___/|____/ 
+:::mykoz:::         |___/ MyKoz.AI Real/OS Tow-It-Ism: Small Portable Lifelong Linux Tech
 :::mykoz:::
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::mykoz:::" "%~f0"') do (echo.%%B)
 timeout /t 3 >nul
