@@ -218,9 +218,9 @@ echo.
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" " way as everyone else, beholden to a vendor's vision of what your future"
 echo.
-@cscript //nologo "%TEMP%\tt.vbs" " should be. What I propose here is very threatening to the status quo,"
+@cscript //nologo "%TEMP%\tt.vbs" " should be. What I propose here is in opposition to the status quo, and"
 echo.
-@cscript //nologo "%TEMP%\tt.vbs" " and I'm not going to lie to you, it's going to be a lot of work."
+@cscript //nologo "%TEMP%\tt.vbs" " it's going to be a lot of work."
 echo.
 echo.
 timeout /t 5 >nul
