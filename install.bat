@@ -30,22 +30,30 @@
 
 :: https://mikelev.in/mykoz/
 
-@echo off
 cls
+@echo off
 
 set "wsl_status="
 
 REM CHECK IF WSL IS INSTALLED
 for /f "delims=" %%i in ('wsl --status 2^>nul') do set "wsl_status=%%i"
 if "%wsl_status%" == "" (
-    echo WSL is not installed. Please run this Command: 'wsl --install' 
-    echo from PowerShell or Command Prompt to set up Windows Subsystem 
-    echo for Linux. Your system will reboot after WSL is installed.
-    echo.
-    echo After WSL is installed, please run this script again.
-    set /p warning= %
-    exit
+    echo WSL is not installed. Do you want to install it now? (Y/N)
+    set /p choice=
+    if /i "%choice%"=="Y" (
+        wsl --install
+        echo.
+        echo WSL is being installed. Your system will reboot after installation.
+        echo After WSL is installed, please run this script again.
+        set /p warning= %
+        exit
+    ) else (
+        echo WSL installation was skipped. Please install WSL using 'wsl --install' from PowerShell or Command Prompt to set up Windows Subsystem for Linux.
+        set /p warning= %
+        exit
+    )
 )
+
 
 REM SET UP ENVIRONMENT VARIABLES
 set giturl=https://raw.githubusercontent.com/miklevin/mykoz/main/
@@ -416,7 +424,7 @@ del %SCRIPT%
 
 REM Create the JupyterLab URL shortcut
 curl -s -o "JupyterLab.url" "https://raw.githubusercontent.com/miklevin/mykoz/main/icons/JupyterLab.url"
-echo IconFile="%USERPROFILE%\.config\jupyter.ico" >> JupyterLab.url
+echo "%USERPROFILE%\.config\jupyter.ico" >> JupyterLab.url
 
 del /Q %USERPROFILE%\repos\transfer\*
 
