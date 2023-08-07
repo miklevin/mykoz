@@ -52,7 +52,7 @@ if "%wsl_status%" == "" (
     ) else (
         echo WSL installation was skipped. Please install WSL using 
         echo 'wsl --install' from Powershell or Command Prompt to set 
-        echo up Windows Subsystem for Linux.
+        echo up Windows Subsystem for Linux. Press [Enter] to close.
         set /p warning= %
         exit
     )
