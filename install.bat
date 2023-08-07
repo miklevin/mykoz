@@ -61,14 +61,14 @@ REM THIS IS THE FIRST SCREEN OF THE INSTALLER.
 :::rabbit::: All your configuration and files will be preserved. You can even upgrade
 :::rabbit::: ------------------------------------------------------------------------
 :::rabbit:::
-:::rabbit::: <== Comfort Zone         Who do you want to be?          Your Future ==>
-:::rabbit:::
-:::rabbit:::                                                               /)  ____
-:::rabbit:::     ____ _                      __  __      _           /)\__//  /    \
-:::rabbit:::    / ___| |__   __ _ ___  ___  |  \/  | ___| |      ___(/_ 0 0  | LIFE |
-:::rabbit:::   | |   | '_ \ / _` / __|/ _ \ | |\/| |/ _ \ |    *(    ==(_T_)== LONG |
-:::rabbit:::   | |___| | | | (_| \__ \  __/ | |  | |  __/_|      \  )   \"\  | LOVE |
-:::rabbit:::    \____|_| |_|\__,_|___/\___| |_|  |_|\___(_)       |__>-\_>_>  \____/
+:::rabbit::: <== Comfort Zone      WHO DO YOU WANT TO BE?             Your Future ==>
+:::rabbit::                        A) A newb every 2 to 5 years
+:::rabbit:::                       B) Forever improving                    /)  ___
+:::rabbit:::     ____ _                      __  __      _           /)\__//  /   \
+:::rabbit:::    / ___| |__   __ _ ___  ___  |  \/  | ___| |      ___(/_ 0 0  |     |
+:::rabbit:::   | |   | '_ \ / _` / __|/ _ \ | |\/| |/ _ \ |    *(    ==(_T_)==LINUX|
+:::rabbit:::   | |___| | | | (_| \__ \  __/ | |  | |  __/_|      \  )   \"\  |     |
+:::rabbit:::    \____|_| |_|\__,_|___/\___| |_|  |_|\___(_)       |__>-\_>_>  \___/
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::rabbit:::" "%~f0"') do (echo.%%B)
 
 REM WRITE OUT THE TYPEWRITER SCRIPT TO A TEMP FILE.
