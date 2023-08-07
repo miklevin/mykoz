@@ -35,7 +35,7 @@ cls
 
 REM SET UP ENVIRONMENT VARIABLES
 set giturl=https://raw.githubusercontent.com/miklevin/mykoz/main/
-set mykoz=0.9.56
+set mykoz=0.9.57
 set python=3.11
 
 REM Check if a different version of Python was requested by
@@ -213,9 +213,9 @@ timeout /t 5 >nul
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" " making your JupyterLab powered by real Linux, coming from the Microsoft"
 echo.
-@cscript //nologo "%TEMP%\tt.vbs" " Subsystem for Linux, you will be able to do things that no one else can;"
+@cscript //nologo "%TEMP%\tt.vbs" " Subsystem for Linux, you will be able to do things that few others can;"
 echo.
-@cscript //nologo "%TEMP%\tt.vbs" " specifically that step from a Lost button-pusher to real automation."
+@cscript //nologo "%TEMP%\tt.vbs" " specifically that step from a Lost button-pusher to REAL AUTOMATION."
 echo.
 echo.
 timeout /t 5 >nul
@@ -337,15 +337,15 @@ REM KEY LOCATIONS SUCH AS REPOS, SSH, ETC. ARE SET UP WINDOWS SIDE
 if not exist "%USERPROFILE%\.ssh" mkdir %USERPROFILE%\.ssh >nul 2>&1
 if not exist "%USERPROFILE%\repos" mkdir %USERPROFILE%\repos >nul 2>&1
 if not exist "%USERPROFILE%\repos\transfer" mkdir %USERPROFILE%\repos\transfer >nul 2>&1
-if not exist "%USERPROFILE%\.wslconfig" curl -sL -o %USERPROFILE%\.wslconfig "https://raw.githubusercontent.com/miklevin/mykoz/main/.wslconfig" >nul 2>&1
+if not exist "%USERPROFILE%\.wslconfig" curl -sL -o %USERPROFILE%\.wslconfig "%giturl%.wslconfig" >nul 2>&1
 if not exist "%USERPROFILE%\.jupyter" mkdir %USERPROFILE%\.jupyter >nul 2>&1
 if not exist "%USERPROFILE%\.config" mkdir %USERPROFILE%\.config >nul 2>&1
-curl -sL -o %USERPROFILE%\repos\transfer\wsl.conf "https://raw.githubusercontent.com/miklevin/mykoz/main/wsl.conf" >nul 2>&1
-curl -sL -o %USERPROFILE%\.config\bash.ico "https://raw.githubusercontent.com/miklevin/mykoz/main/icons/bash.ico" >nul 2>&1
-curl -sL -o %USERPROFILE%\.config\jupyter.ico "https://raw.githubusercontent.com/miklevin/mykoz/main/icons/jupyter.ico" >nul 2>&1
+curl -sL -o %USERPROFILE%\repos\transfer\wsl.conf "%giturl%wsl.conf" >nul 2>&1
+curl -sL -o %USERPROFILE%\.config\bash.ico "%giturl%icons/bash.ico" >nul 2>&1
+curl -sL -o %USERPROFILE%\.config\jupyter.ico "%giturl%icons/jupyter.ico" >nul 2>&1
 wsl -d %Ubuntu% -u root cp "/mnt/c/Users/%USERNAME%/repos/transfer/wsl.conf" /etc/wsl.conf
-if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer > nul 2>&1) else (curl -L -o %USERPROFILE%\repos\transfer\apt_installs.sh "https://raw.githubusercontent.com/miklevin/mykoz/main/apt_installs.sh" > nul 2>&1)
-if exist requirements.txt (copy requirements.txt %USERPROFILE%\repos\transfer > nul 2>&1) else (curl -L -o %USERPROFILE%\repos\transfer\requirements.txt "https://raw.githubusercontent.com/miklevin/mykoz/main/requirements.txt" >nul 2>&1)
+if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer > nul 2>&1) else (curl -L -o %USERPROFILE%\repos\transfer\apt_installs.sh "%giturl%apt_installs.sh" > nul 2>&1)
+if exist requirements.txt (copy requirements.txt %USERPROFILE%\repos\transfer > nul 2>&1) else (curl -L -o %USERPROFILE%\repos\transfer\requirements.txt "%giturl%requirements.txt" >nul 2>&1)
 
 REM This stops and restarts like a wsl --shutdown to activate systemd and metadata options.
 wsl -t %Ubuntu% >nul 2>&1
@@ -354,9 +354,9 @@ REM Create symbolic links from Windows paths to WSL paths.
 wsl -d %Ubuntu% -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh && ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos && ln -s /mnt/c/Users/%USERNAME%/.config/ /home/ubuntu/.config && ln -s /mnt/c/Users/%USERNAME%/.jupyter/ /home/ubuntu/.jupyter" >nul 2>&1
 
 REM Put the Windows config files Linux-side if they exist, otherwise download them.
-if exist %USERPROFILE%\.gitconfig (wsl -d %Ubuntu% -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitconfig /home/ubuntu/" >nul 2>&1) else (wsl -d %Ubuntu% -u ubuntu -e curl -L -o /home/ubuntu/.gitconfig "https://raw.githubusercontent.com/miklevin/mykoz/main/.gitconfig" >nul 2>&1)
-if exist %USERPROFILE%\.vimrc (wsl -d %Ubuntu% -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/" >nul 2>&1) else (wsl -d ubuntu -u ubuntu -e curl -l -o /home/ubuntu/.vimrc "https://raw.githubusercontent.com/miklevin/mykoz/main/.vimrc" >nul 2>&1)
-if exist %USERPROFILE%\.pypirc (wsl -d %Ubuntu% -e bash -lic "cp /mnt/c/Users/%USERNAME%/.pypirc /home/ubuntu/" >nul 2>&1) else (wsl -d ubuntu -u ubuntu -e curl -l -o /home/ubuntu/.pypirc "https://raw.githubusercontent.com/miklevin/mykoz/main/.pypirc" >nul 2>&1)
+if exist %USERPROFILE%\.gitconfig (wsl -d %Ubuntu% -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitconfig /home/ubuntu/" >nul 2>&1) else (wsl -d %Ubuntu% -u ubuntu -e curl -L -o /home/ubuntu/.gitconfig "%giturl%.gitconfig" >nul 2>&1)
+if exist %USERPROFILE%\.vimrc (wsl -d %Ubuntu% -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/" >nul 2>&1) else (wsl -d ubuntu -u ubuntu -e curl -l -o /home/ubuntu/.vimrc "%giturl%.vimrc" >nul 2>&1)
+if exist %USERPROFILE%\.pypirc (wsl -d %Ubuntu% -e bash -lic "cp /mnt/c/Users/%USERNAME%/.pypirc /home/ubuntu/" >nul 2>&1) else (wsl -d ubuntu -u ubuntu -e curl -l -o /home/ubuntu/.pypirc "%giturl%.pypirc" >nul 2>&1)
 
 REM We update the software repository on the Ubuntu 22.04 Machine
 echo.
@@ -371,7 +371,7 @@ REM You know what's nice? Not having to type a password every time you sudo a co
 wsl -d %Ubuntu% -u root /bin/bash -c "echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL'> /etc/sudoers.d/ubuntu" >nul 2>&1
 
 REM Grab and run second-half of install that runs under WSL and set up Linux graphics.
-wsl -d %Ubuntu% -u ubuntu -e curl -L -o /home/ubuntu/install_wsl.sh "https://raw.githubusercontent.com/miklevin/mykoz/main/install_wsl.sh" >nul 2>&1
+wsl -d %Ubuntu% -u ubuntu -e curl -L -o /home/ubuntu/install_wsl.sh "%giturl%install_wsl.sh" >nul 2>&1
 wsl -d %Ubuntu% -e bash -c "bash /home/ubuntu/install_wsl.sh %python% 2>&1
 
 REM ACLs need a wsl --shutdown for git clone to work. Also keep the WSL session alive.
@@ -382,7 +382,7 @@ wsl -d %Ubuntu% -u root -e chown ubuntu:ubuntu /mnt/c/Users/%USERNAME%/.ssh/id_r
 wsl -d %Ubuntu% -u root -e chown ubuntu:ubuntu /mnt/c/Users/%USERNAME%/.ssh/id_rsa_mykoz.pub >nul 2>&1
 wsl -d %Ubuntu% -u root -e chown ubuntu:ubuntu /mnt/c/Users/%USERNAME%/.ssh/config >nul 2>&1
 wsl -d %Ubuntu% -u root -e chmod 600 /mnt/c/Users/%USERNAME%/.ssh/id_rsa_mykoz >nul 2>&1
-wsl -d %Ubuntu% -u root -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/mykoz/main/git_installs.sh" >nul 2>&1
+wsl -d %Ubuntu% -u root -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "%giturl%git_installs.sh" >nul 2>&1
 
 REM Install git repos
 wsl -d %Ubuntu% -e bash -lic "sh /home/ubuntu/repos/transfer/git_installs.sh" >nul 2>&1
@@ -437,5 +437,16 @@ echo.
 @cscript //nologo "%TEMP%\tt.vbs" "brave, you can try it out now by typing vimtutor at the Linux Shell prompt."
 echo.
 echo.
+
+REM GET README.TXT FROM GITHUB
+set "URL=https://raw.githubusercontent.com/miklevin/mykoz/main/README.txt?cache=%T%"
+set "FILENAME=Jupyter Ubuntu.bat"
+curl -s -o "README.txt" "%URL%" ^
+    -H "Cache-Control: no-cache, no-store, must-revalidate" ^
+    -H "Pragma: no-cache" ^
+    -H "Expires: 0" ^
+    --proxy-header "Cache-Control: no-cache" ^
+    --proxy-header "Cache-Control: no-store"
+
 set /p warning=Press [Enter] to release this console window. %
 

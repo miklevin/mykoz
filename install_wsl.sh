@@ -99,7 +99,8 @@ then
     figlet -t "apt installs..."
     echo " Grabbing a few of the 60K+ Ubuntu packages which are now at your disposal." | pv -qL 100
     echo " Debian-derivative distros like Ubuntu have a package manager called apt." | pv -qL 100
-    echo " It's like the Windows Store, but automatable in server install scripts..." | pv -qL 100
+    echo " It's like the Windows Store, but automatable in server install scripts." | pv -qL 100
+    echo " We're mainly installing NeoVim, Chrome and enough to do Linux graphics..." | pv -qL 100
     source /home/ubuntu/repos/transfer/apt_installs.sh > /dev/null 2>&1
     echo ""
     echo " Done apt get's!"
@@ -113,7 +114,8 @@ then
     figlet -t "pip installs..."
     echo " Grabbing a few of the 300K+ Python Packaging Index (PyPI or pip) packages." | pv -qL 100
     echo " Python is the most popular programming language in the world, and pip is how." | pv -qL 100
-    echo " non-standard libraries get installed. It's like the Python Store..." | pv -qL 100
+    echo " non-standard libraries get installed. It's like Python Store but it's all free." | pv -qL 100
+    echo " We're installing Pandas and the minimum for data science and machine learning..." | pv -qL 100
     quiet /home/ubuntu/pyenv/bin/python -m pip install -r /home/ubuntu/repos/transfer/requirements.txt
     echo ""
     echo " Done pip installs!"
@@ -123,8 +125,9 @@ fi
 echo " ------------------------------------------------------------------------------"
 figlet -t "NodeJS..."
 echo " NodeJS has taken the world by storm, but it's completely the opposite of STOIC." | pv -qL 100
-echo " You would call it BLOATIC. So why is it here? Because one essential thing we're" | pv -qL 100
-echo " doing here is browser-automation for Web data collection, and that needs node..."
+echo " You might call it BLOATIC. So why is it here? Because one essential thing we're" | pv -qL 100
+echo " doing here is browser-automation for Web data collection, and that needs node." | pv -qL 100
+echo " Use the right tool for the job. Just be aware of 'the deal' with each tool..." | pv -qL 100
 quiet curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
 quiet sudo bash /tmp/nodesource_setup.sh
 quiet sudo apt install nodejs -y
@@ -136,7 +139,8 @@ echo " -------------------------------------------------------------------------
 figlet -t "JupyterLab..."
 echo " And finally, we're going to install JupyterLab, which is a browser-based IDE." | pv -qL 100
 echo " It's a great way to get started with Python, and it's also a great way to get" | pv -qL 100
-echo " started with Linux. You can use it to gently get familair with Linux..." | pv -qL 100
+echo " started with Linux. This is the most radical proposal of the MyKoz.AI project." | pv -qL 100
+echo " We start by using JupyterLab as our primary IDE for Python coding projects..." | pv -qL 100
 quiet sudo systemctl enable jupyter
 quiet sudo systemctl start jupyter
 echo ""
