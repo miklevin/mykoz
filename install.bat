@@ -38,7 +38,13 @@ set "wsl_status="
 REM CHECK IF WSL IS INSTALLED
 for /f "delims=" %%i in ('wsl --status 2^>nul') do set "wsl_status=%%i"
 if "%wsl_status%" == "" (
-    echo WSL is not installed. Please run 'wsl --install' to set up Windows Subsystem for Linux.
+    echo WSL is not installed. Please run this Command: 'wsl --install' 
+    echo to set up Windows Subsystem for Linux.
+    echo.
+    echo Alternatively, you can go to the Microsoft Store and install 
+    echo any Ubuntu 22.04. It will be replaced by this script.
+    echo.
+    echo After WSL is installed, please run this script again.
     set /p warning= %
     exit
 )
