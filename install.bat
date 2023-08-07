@@ -415,11 +415,7 @@ cscript /nologo %SCRIPT%
 del %SCRIPT%
 
 REM Create the JupyterLab URL shortcut
-echo. > JupyterLab.url
-echo [InternetShortcut] >> JupyterLab.url
-echo URL=http://localhost:8888/ >> JupyterLab.url
-echo IconFile="%USERPROFILE%\.config\jupyter.ico" >> JupyterLab.url
-echo IconIndex=0 >> JupyterLab.url
+curl -s -o "JupyterLab.url" "https://raw.githubusercontent.com/miklevin/mykoz/main/icons/JupyterLab.url"
 
 del /Q %USERPROFILE%\repos\transfer\*
 
@@ -455,7 +451,6 @@ echo.
 
 REM GET README.TXT FROM GITHUB
 set "URL=https://raw.githubusercontent.com/miklevin/mykoz/main/README.txt?cache=%T%"
-set "FILENAME=Jupyter Ubuntu.bat"
 curl -s -o "README.txt" "%URL%" ^
     -H "Cache-Control: no-cache, no-store, must-revalidate" ^
     -H "Pragma: no-cache" ^
