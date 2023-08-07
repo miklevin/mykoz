@@ -215,7 +215,7 @@ echo.
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" " Subsystem for Linux, you will be able to do things that few others can;"
 echo.
-@cscript //nologo "%TEMP%\tt.vbs" " specifically that step from a Lost button-pusher to REAL AUTOMATION."
+@cscript //nologo "%TEMP%\tt.vbs" " specifically that step from a LOST button-pusher to REAL AUTOMATION."
 echo.
 echo.
 timeout /t 5 >nul
