@@ -41,10 +41,10 @@ if "%wsl_status%" == "" (
     echo WSL is not installed. Do you want to install it now?
     echo Your system will be rebooted after the installation.
     echo After reboot, please run this script again.
-    echo .
+    echo.
     echo Proceed with WSL install? Y/N
-    set /p choice=
-    if /i "%choice%"=="y" (
+    set /p choice="y/n"
+    if "%choice%"=="y" (
         wsl --install
         echo.
         echo WSL is being installed. Your system will reboot after installation.
