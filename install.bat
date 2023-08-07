@@ -3,11 +3,11 @@
 :: | |\/| | | | | ' // _ \_  (_)
 :: | |  | | |_| | . \ (_) / / _
 :: |_|  |_|\__, |_|\_\___/___(_)
-::         |___/ MyKoz: AReal/OS
+::         |___/MyKoz.AI Real/OS
 
 :: You've heard of Marcus Aurelius
-:: and Stoicism? This is MyKoz:
-:: AReal/OS and Tow-it-ism; a way
+:: and Stoicism? This is MyKoz.AI
+:: Real/OS and Tow-it-ism; a way
 :: of using a Linux Subsystem on
 :: Windows for a minimalistic and
 :: portable approach to computing.
@@ -33,11 +33,13 @@
 @echo off
 cls
 
-REM Set up envioronment
-set drinkme=0.9.56
+REM SET UP ENVIRONMENT VARIABLES
+set giturl=https://raw.githubusercontent.com/miklevin/mykoz/main/
+set mykoz=0.9.56
 set python=3.11
 
-REM Check if a different version of Python was requested
+REM Check if a different version of Python was requested by
+REM passing a version number as an argument to this script.
 if not "%1" == "" (
     REM if argument has period in it, use it as version
     for %%I in ("%~1") do (
@@ -50,7 +52,7 @@ if not "%1" == "" (
     )
 )
 
-REM Start displaying feedback to user.
+REM THIS IS THE FIRST SCREEN OF THE INSTALLER.
 
 :::rabbit::: ------------------------------------------------------------------------
 :::rabbit::: Before continuing this script, Install Ubuntu 22.04 from Microsoft Store
@@ -69,7 +71,7 @@ REM Start displaying feedback to user.
 :::rabbit:::    \____|_| |_|\__,_|___/\___| |_|  |_|\___(_)       |__>-\_>_>  \____/
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::rabbit:::" "%~f0"') do (echo.%%B)
 
-REM Write out the TypeWriter script to a temp file
+REM WRITE OUT THE TYPEWRITER SCRIPT TO A TEMP FILE.
 echo(
 (
 echo strText=wscript.arguments(0^)
@@ -100,9 +102,10 @@ echo.
 echo.
 echo                         Press [Enter] to continue (or ctrl+c to escape)...
 echo                                                                 prompt 1/4
-
 set /p warning= %
 cls
+
+REM THIS IS THE SECOND SCREEN OF THE INSTALLER.
 
 @cscript //nologo "%TEMP%\tt.vbs" " As we live, we are always getting closer to the end of our lives, and there is"
 echo.
@@ -110,7 +113,7 @@ echo.
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" " tools. Marcus Aurelius gave us STOICISM, a philosophy for finding meaning and"
 echo.
-@cscript //nologo "%TEMP%\tt.vbs" " resilience in a chaotic world. MyKoz: AReal/OS offers TOW-IT-ISM, a modern"
+@cscript //nologo "%TEMP%\tt.vbs" " resilience in a chaotic world. MyKoz.AI Real/OS offers TOW-IT-ISM, a modern"
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" " approach to finding value in life by focusing on mastering a few simple,"
 echo.
@@ -127,8 +130,8 @@ timeout /t 3 >nul
 :::unicorn:::        how it works...                                Tow it      O   ,
 :::unicorn:::    _______________________          (\              /)             o  \\  .
 :::unicorn:::   |    Windows 10 or 11   |       ___\\____________//__               |\\/|
-:::unicorn:::   |     ____ ____         |      |   MyKoz: AReal/OS   |             / " '\
-:::unicorn:::   |  ,_/site\____\______. |      |   Linux Subsystem   |    See!    . .   .
+:::unicorn:::   |     ____ ____         |      |   MyKoz.AI Real/OS  |             / " '\
+:::unicorn:::   |  ,_/site\____\______. |      |   Linux Subsystem!  |    See!    . .   .
 :::unicorn:::   |  |                  | |      |  _________________  |<- - - - - /    ) |
 :::unicorn:::   |  |    WEB BROWSER   | |      | |  screen session | |          '  _.'  |
 :::unicorn:::   |  |  localhost:8888 <------------> Jupyter Server | |          '-'/    \
@@ -141,6 +144,8 @@ echo                         Press [Enter] to continue (or ctrl+c to escape)...
 echo                                                                 prompt 2/4
 set /p warning= %
 cls
+
+REM THIS IS THE THIRD SCREEN OF THE INSTALLER.
 
 :::mykoz:::  __  __       _  __             _    ___    ____            _    _____  ____  
 :::mykoz::: |  \/  |_   _| |/ /___ ____    / \  |_ _|  |  _ \ ___  __ _| |  / / _ \/ ___| 
@@ -159,8 +164,8 @@ timeout /t 2 >nul
 :::future:::                              ___                     ___
 :::future:::      (\  Tow-it-ism  /)     /   \ Tow it            /   \ Tow it    ,
 :::future:::    ___\\____________//__   /     V      /)         /     V          \\  .
-:::future:::   |   MyKoz: AReal/OS   |         /)\__//     ____                  |\\/|
-:::future:::   |   ===============   |     ___(/_ 0 0     /    \   Far into      / " '\
+:::future:::   |   MyKoz.AI Real/OS  |         /)\__//     ____                  |\\/|
+:::future:::   |   ================  |     ___(/_ 0 0     /    \   Far into      / " '\
 :::future:::   | * Linux server      |   *(    ==(_T_)== | Mac  |  The Future   . .   .
 :::future:::   | * Python coding     |     \  )   \"\   Anything|  And Still   /    ) |
 :::future:::   | * vim text editor   |      |__>-\_>_>   |  PCs |  Relevant!  '  _.'  |
@@ -182,6 +187,8 @@ echo                         Press [Enter] to continue (or ctrl+c to escape)...
 echo                                                                 prompt 3/4
 set /p warning= %
 cls
+
+REM THIS IS THE FOURTH SCREEN OF THE INSTALLER.
 
 :::hole:::   <<== Comfort Zone             Replaces WSL's Ubuntu 22.04 ==> ____
 :::hole:::    _              _      ____ _                          _     / Ahhhhh
@@ -230,6 +237,9 @@ echo.
 echo                         Press [Enter] to continue (or ctrl+c to escape)...
 echo                                                                 prompt 4/4
 set /p warning= %
+
+REM THE INSTALL HAS BEEN APPROVED, LET'S DO THIS!
+
 :::down:::
 :::down:::                                         ___
 :::down:::                                        |   |         _____
@@ -256,25 +266,28 @@ set /p warning= %
 :::down:::                          `----`
 :::down:::
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::down:::" "%~f0"') do (echo.%%B)
-@cscript //nologo "%TEMP%\tt.vbs" " Installing: Ubuntu 22.04, Python %python% (MyKoz %drinkme%). Please have patience."
+@cscript //nologo "%TEMP%\tt.vbs" " Installing: Ubuntu 22.04, Python %python% (MyKoz %mykoz%). Please have patience."
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" " If you haven't read the opening chapter to Alice's Adventures in Wonderland," 
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" " this would be an excellent time to do so, because this takes about 10 minutes."
 echo.
 
+REM There are subtle differences between Windows 10 and Windows 11, 
+REM so we need to check which one we're on based on ubuntu.exe.
+
 set "windows_apps_path=%USERPROFILE%\AppData\Local\Microsoft\WindowsApps"
 set "install_command="
 set "config_command="
 
-REM Check if ubuntu.exe is present in the location
+REM In Windows 11 we Ubuntu distro name to just plain "Ubuntu".
 if exist "%windows_apps_path%\ubuntu.exe" (
     set "install_command=ubuntu.exe install --root >nul"
     set "config_command=ubuntu.exe config --default-user "%%wsluser%%" >nul"
     set "Ubuntu=Ubuntu"
 )
 
-REM If ubuntu.exe is not present, check if ubuntu2204.exe is present
+REM In Windows 10 the Ubuntu distro name is "Ubuntu-22.04".
 if not defined install_command (
     if exist "%windows_apps_path%\ubuntu2204.exe" (
         set "install_command=ubuntu2204.exe install --root >nul"
@@ -283,53 +296,56 @@ if not defined install_command (
     )
 )
 
-REM If both ubuntu.exe and ubuntu2204.exe are not present, show an error message
+REM If both ubuntu.exe and ubuntu2204.exe are not present, show an error message.
+REM I must update this script from time to time to keep in sync with Microsoft.
 if not defined install_command (
     echo "Error: Neither ubuntu.exe nor ubuntu2204.exe found in %windows_apps_path%"
     exit /b 1
 )
 
+::  _   _ _                 _           ___           _        _ _ 
+:: | | | | |__  _   _ _ __ | |_ _   _  |_ _|_ __  ___| |_ __ _| | |
+:: | | | | '_ \| | | | '_ \| __| | | |  | || '_ \/ __| __/ _` | | |
+:: | |_| | |_) | |_| | | | | |_| |_| |  | || | | \__ \ || (_| | | |
+::  \___/|_.__/ \__,_|_| |_|\__|\__,_| |___|_| |_|___/\__\__,_|_|_|
+REM THIS IS A BIG DEAL! THIS DELETES EXISTING UBUNTU 22.04 INSTALL!
+
 wsl --unregister %Ubuntu% >nul
 wsl --set-default-version 2 >nul
-
-REM These are variables for the automatically created Ubuntu 22.04 user under WSL.
 set wsluser="ubuntu"
 set password="foo"
-
-REM The big install! If it's your first time, it will make you reboot your machine.
-REM ubuntu.exe install --root >nul
 call %install_command%
 
-
-REM Once Ubuntu 22.04 is installed, this sets up the default user.
+REM SET UP DEFAULT UBUNTU USER
 wsl -d %Ubuntu% -u root useradd -m "%wsluser%" >nul 2>&1
 wsl -d %Ubuntu% -u root sh -c "echo "%wsluser%:%password%" | chpasswd" >nul 2>&1
 wsl -d %Ubuntu% -u root chsh -s /bin/bash "%wsluser%" >nul
 wsl -d %Ubuntu% -u root usermod -aG adm,cdrom,sudo,dip,plugdev,lxd "%wsluser%" >nul 2>&1
 
-REM Find the Windows username for the current user.
+REM BE VERY SURE WE'RE IN THE RIGHT PLACE
 for /F "tokens=2 delims=\" %%U in ('whoami') do set "USERNAME=%%U"
-
-REM %USERPROFILE%\AppData\Local\Microsoft\WindowsApps\ubuntu.exe config --default-user "%wsluser%" >nul
 call %config_command%
 
-REM This creates "repos" folder in your Windows HOME for Windows/Linux file sharing.
+::  ____                  _           _ _        _     _       _        
+:: / ___| _   _ _ __ ___ | |__   ___ | (_) ___  | |   (_)_ __ | | _____ 
+:: \___ \| | | | '_ ` _ \| '_ \ / _ \| | |/ __| | |   | | '_ \| |/ / __|
+::  ___) | |_| | | | | | | |_) | (_) | | | (__  | |___| | | | |   <\__ \
+:: |____/ \__, |_| |_| |_|_.__/ \___/|_|_|\___| |_____|_|_| |_|_|\_\___/
+::        |___/                                                         
+REM KEY LOCATIONS SUCH AS REPOS, SSH, ETC. ARE SET UP WINDOWS SIDE
+
 if not exist "%USERPROFILE%\.ssh" mkdir %USERPROFILE%\.ssh >nul 2>&1
 if not exist "%USERPROFILE%\repos" mkdir %USERPROFILE%\repos >nul 2>&1
 if not exist "%USERPROFILE%\repos\transfer" mkdir %USERPROFILE%\repos\transfer >nul 2>&1
-if not exist "%USERPROFILE%\.wslconfig" curl -sL -o %USERPROFILE%\.wslconfig "https://raw.githubusercontent.com/miklevin/drinkme/main/.wslconfig" >nul 2>&1
+if not exist "%USERPROFILE%\.wslconfig" curl -sL -o %USERPROFILE%\.wslconfig "https://raw.githubusercontent.com/miklevin/mykoz/main/.wslconfig" >nul 2>&1
 if not exist "%USERPROFILE%\.jupyter" mkdir %USERPROFILE%\.jupyter >nul 2>&1
 if not exist "%USERPROFILE%\.config" mkdir %USERPROFILE%\.config >nul 2>&1
-curl -sL -o %USERPROFILE%\repos\transfer\wsl.conf "https://raw.githubusercontent.com/miklevin/drinkme/main/wsl.conf" >nul 2>&1
-curl -sL -o %USERPROFILE%\.config\bash.ico "https://raw.githubusercontent.com/miklevin/drinkme/main/icons/bash.ico" >nul 2>&1
-curl -sL -o %USERPROFILE%\.config\jupyter.ico "https://raw.githubusercontent.com/miklevin/drinkme/main/icons/jupyter.ico" >nul 2>&1
-
-REM Put the WSL config files in place.
+curl -sL -o %USERPROFILE%\repos\transfer\wsl.conf "https://raw.githubusercontent.com/miklevin/mykoz/main/wsl.conf" >nul 2>&1
+curl -sL -o %USERPROFILE%\.config\bash.ico "https://raw.githubusercontent.com/miklevin/mykoz/main/icons/bash.ico" >nul 2>&1
+curl -sL -o %USERPROFILE%\.config\jupyter.ico "https://raw.githubusercontent.com/miklevin/mykoz/main/icons/jupyter.ico" >nul 2>&1
 wsl -d %Ubuntu% -u root cp "/mnt/c/Users/%USERNAME%/repos/transfer/wsl.conf" /etc/wsl.conf
-
-REM If you're running from a location with these optional second-stage install files, copy them over.
-if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer > nul 2>&1) else (curl -L -o %USERPROFILE%\repos\transfer\apt_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/apt_installs.sh" > nul 2>&1)
-if exist requirements.txt (copy requirements.txt %USERPROFILE%\repos\transfer > nul 2>&1) else (curl -L -o %USERPROFILE%\repos\transfer\requirements.txt "https://raw.githubusercontent.com/miklevin/drinkme/main/requirements.txt" >nul 2>&1)
+if exist apt_installs.sh (copy apt_installs.sh %USERPROFILE%\repos\transfer > nul 2>&1) else (curl -L -o %USERPROFILE%\repos\transfer\apt_installs.sh "https://raw.githubusercontent.com/miklevin/mykoz/main/apt_installs.sh" > nul 2>&1)
+if exist requirements.txt (copy requirements.txt %USERPROFILE%\repos\transfer > nul 2>&1) else (curl -L -o %USERPROFILE%\repos\transfer\requirements.txt "https://raw.githubusercontent.com/miklevin/mykoz/main/requirements.txt" >nul 2>&1)
 
 REM This stops and restarts like a wsl --shutdown to activate systemd and metadata options.
 wsl -t %Ubuntu% >nul 2>&1
@@ -338,9 +354,9 @@ REM Create symbolic links from Windows paths to WSL paths.
 wsl -d %Ubuntu% -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh && ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos && ln -s /mnt/c/Users/%USERNAME%/.config/ /home/ubuntu/.config && ln -s /mnt/c/Users/%USERNAME%/.jupyter/ /home/ubuntu/.jupyter" >nul 2>&1
 
 REM Put the Windows config files Linux-side if they exist, otherwise download them.
-if exist %USERPROFILE%\.gitconfig (wsl -d %Ubuntu% -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitconfig /home/ubuntu/" >nul 2>&1) else (wsl -d %Ubuntu% -u ubuntu -e curl -L -o /home/ubuntu/.gitconfig "https://raw.githubusercontent.com/miklevin/drinkme/main/.gitconfig" >nul 2>&1)
-if exist %USERPROFILE%\.vimrc (wsl -d %Ubuntu% -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/" >nul 2>&1) else (wsl -d ubuntu -u ubuntu -e curl -l -o /home/ubuntu/.vimrc "https://raw.githubusercontent.com/miklevin/drinkme/main/.vimrc" >nul 2>&1)
-if exist %USERPROFILE%\.pypirc (wsl -d %Ubuntu% -e bash -lic "cp /mnt/c/Users/%USERNAME%/.pypirc /home/ubuntu/" >nul 2>&1) else (wsl -d ubuntu -u ubuntu -e curl -l -o /home/ubuntu/.pypirc "https://raw.githubusercontent.com/miklevin/drinkme/main/.pypirc" >nul 2>&1)
+if exist %USERPROFILE%\.gitconfig (wsl -d %Ubuntu% -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitconfig /home/ubuntu/" >nul 2>&1) else (wsl -d %Ubuntu% -u ubuntu -e curl -L -o /home/ubuntu/.gitconfig "https://raw.githubusercontent.com/miklevin/mykoz/main/.gitconfig" >nul 2>&1)
+if exist %USERPROFILE%\.vimrc (wsl -d %Ubuntu% -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/" >nul 2>&1) else (wsl -d ubuntu -u ubuntu -e curl -l -o /home/ubuntu/.vimrc "https://raw.githubusercontent.com/miklevin/mykoz/main/.vimrc" >nul 2>&1)
+if exist %USERPROFILE%\.pypirc (wsl -d %Ubuntu% -e bash -lic "cp /mnt/c/Users/%USERNAME%/.pypirc /home/ubuntu/" >nul 2>&1) else (wsl -d ubuntu -u ubuntu -e curl -l -o /home/ubuntu/.pypirc "https://raw.githubusercontent.com/miklevin/mykoz/main/.pypirc" >nul 2>&1)
 
 REM We update the software repository on the Ubuntu 22.04 Machine
 echo.
@@ -355,24 +371,24 @@ REM You know what's nice? Not having to type a password every time you sudo a co
 wsl -d %Ubuntu% -u root /bin/bash -c "echo 'ubuntu	ALL=(ALL:ALL) NOPASSWD:ALL'> /etc/sudoers.d/ubuntu" >nul 2>&1
 
 REM Grab and run second-half of install that runs under WSL and set up Linux graphics.
-wsl -d %Ubuntu% -u ubuntu -e curl -L -o /home/ubuntu/install_wsl.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/install_wsl.sh" >nul 2>&1
+wsl -d %Ubuntu% -u ubuntu -e curl -L -o /home/ubuntu/install_wsl.sh "https://raw.githubusercontent.com/miklevin/mykoz/main/install_wsl.sh" >nul 2>&1
 wsl -d %Ubuntu% -e bash -c "bash /home/ubuntu/install_wsl.sh %python% 2>&1
 
 REM ACLs need a wsl --shutdown for git clone to work. Also keep the WSL session alive.
 wsl -t %Ubuntu% >nul 2>&1
 
 REM Finessing permissions so that git clone works.
-wsl -d %Ubuntu% -u root -e chown ubuntu:ubuntu /mnt/c/Users/%USERNAME%/.ssh/id_rsa_drinkme >nul 2>&1
-wsl -d %Ubuntu% -u root -e chown ubuntu:ubuntu /mnt/c/Users/%USERNAME%/.ssh/id_rsa_drinkme.pub >nul 2>&1
+wsl -d %Ubuntu% -u root -e chown ubuntu:ubuntu /mnt/c/Users/%USERNAME%/.ssh/id_rsa_mykoz >nul 2>&1
+wsl -d %Ubuntu% -u root -e chown ubuntu:ubuntu /mnt/c/Users/%USERNAME%/.ssh/id_rsa_mykoz.pub >nul 2>&1
 wsl -d %Ubuntu% -u root -e chown ubuntu:ubuntu /mnt/c/Users/%USERNAME%/.ssh/config >nul 2>&1
-wsl -d %Ubuntu% -u root -e chmod 600 /mnt/c/Users/%USERNAME%/.ssh/id_rsa_drinkme >nul 2>&1
-wsl -d %Ubuntu% -u root -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh" >nul 2>&1
+wsl -d %Ubuntu% -u root -e chmod 600 /mnt/c/Users/%USERNAME%/.ssh/id_rsa_mykoz >nul 2>&1
+wsl -d %Ubuntu% -u root -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "https://raw.githubusercontent.com/miklevin/mykoz/main/git_installs.sh" >nul 2>&1
 
 REM Install git repos
 wsl -d %Ubuntu% -e bash -lic "sh /home/ubuntu/repos/transfer/git_installs.sh" >nul 2>&1
 
 REM Create the Bash on Ubuntu on Windows shortcut
-set SCRIPT="%TEMP%\drinkme-%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
+set SCRIPT="%TEMP%\mykoz-%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
 echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
 echo sLinkFile = "%~dp0Linux Shell.lnk" >> %SCRIPT%
 echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%

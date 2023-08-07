@@ -52,34 +52,34 @@ quiet figlet -t "Creating virtualenv..."
 quiet /usr/bin/python$VAR -m virtualenv /home/ubuntu/pyenv
 
 # First we get everything that needs to be done under superuser context
-quiet sudo curl -sL https://raw.githubusercontent.com/miklevin/drinkme/main/.bash_profile -o /home/ubuntu/.bash_profile \
-https://raw.githubusercontent.com/miklevin/drinkme/main/.bash_prompt -o /home/ubuntu/.bash_prompt \
-https://raw.githubusercontent.com/miklevin/drinkme/main/.screenrc -o /home/ubuntu/.screenrc \
-https://raw.githubusercontent.com/miklevin/drinkme/main/config -o /home/ubuntu/repos/transfer/config \
-https://raw.githubusercontent.com/miklevin/drinkme/main/unrot.py -o /home/ubuntu/repos/transfer/unrot.py \
-https://raw.githubusercontent.com/miklevin/drinkme/main/pub.txt -o /home/ubuntu/repos/transfer/pub.txt \
-https://raw.githubusercontent.com/miklevin/drinkme/main/priv.txt -o /home/ubuntu/repos/transfer/priv.txt \
-https://raw.githubusercontent.com/miklevin/drinkme/main/git_installs.sh -o /home/ubuntu/repos/transfer/git_installs.sh \
-https://raw.githubusercontent.com/miklevin/drinkme/main/jupyter.service -o /etc/systemd/system/jupyter.service
+quiet sudo curl -sL https://raw.githubusercontent.com/miklevin/mykoz/main/.bash_profile -o /home/ubuntu/.bash_profile \
+https://raw.githubusercontent.com/miklevin/mykoz/main/.bash_prompt -o /home/ubuntu/.bash_prompt \
+https://raw.githubusercontent.com/miklevin/mykoz/main/.screenrc -o /home/ubuntu/.screenrc \
+https://raw.githubusercontent.com/miklevin/mykoz/main/config -o /home/ubuntu/repos/transfer/config \
+https://raw.githubusercontent.com/miklevin/mykoz/main/unrot.py -o /home/ubuntu/repos/transfer/unrot.py \
+https://raw.githubusercontent.com/miklevin/mykoz/main/pub.txt -o /home/ubuntu/repos/transfer/pub.txt \
+https://raw.githubusercontent.com/miklevin/mykoz/main/priv.txt -o /home/ubuntu/repos/transfer/priv.txt \
+https://raw.githubusercontent.com/miklevin/mykoz/main/git_installs.sh -o /home/ubuntu/repos/transfer/git_installs.sh \
+https://raw.githubusercontent.com/miklevin/mykoz/main/jupyter.service -o /etc/systemd/system/jupyter.service
 
 # Then we get everything that needs to be done under the ubuntu user context
 quiet curl -sL https://raw.githubusercontent.com/miklevin/vim/master/all -o /home/ubuntu/pyenv/bin/all
-quiet curl -sL https://raw.githubusercontent.com/miklevin/drinkme/main/startjupyter -o /home/ubuntu/pyenv/bin/startjupyter
+quiet curl -sL https://raw.githubusercontent.com/miklevin/mykoz/main/startjupyter -o /home/ubuntu/pyenv/bin/startjupyter
 
 # Give execution context to the scripts
 quiet sudo chmod +x /home/ubuntu/pyenv/bin/startjupyter
 quiet sudo chmod +x /home/ubuntu/pyenv/bin/all
 
-sudo /home/ubuntu/pyenv/bin/python /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/pub.txt --output /home/ubuntu/repos/transfer/id_rsa_drinkme.pub
-sudo /home/ubuntu/pyenv/bin/python /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/priv.txt --output /home/ubuntu/repos/transfer/id_rsa_drinkme
+sudo /home/ubuntu/pyenv/bin/python /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/pub.txt --output /home/ubuntu/repos/transfer/id_rsa_mykoz.pub
+sudo /home/ubuntu/pyenv/bin/python /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/priv.txt --output /home/ubuntu/repos/transfer/id_rsa_mykoz
 quiet sudo chmod 777 /home/ubuntu/.bash_profile
 quiet sudo chmod 777 /home/ubuntu/.bash_prompt
 quiet sudo chmod 777 /home/ubuntu/.screenrc
 quiet sudo chown ubuntu:ubuntu /home/ubuntu/.bash_profile
 quiet sudo chown ubuntu:ubuntu /home/ubuntu/.screenrc
 quiet sudo chown ubuntu:ubuntu /home/ubuntu/.bash_prompt
-quiet mv -n /home/ubuntu/repos/transfer/id_rsa_drinkme.pub /home/ubuntu/.ssh
-quiet mv -n /home/ubuntu/repos/transfer/id_rsa_drinkme /home/ubuntu/.ssh
+quiet mv -n /home/ubuntu/repos/transfer/id_rsa_mykoz.pub /home/ubuntu/.ssh
+quiet mv -n /home/ubuntu/repos/transfer/id_rsa_mykoz /home/ubuntu/.ssh
 if [ ! -f "/home/ubuntu/.ssh/config" ]; then
     quiet mv -n /home/ubuntu/repos/transfer/config /home/ubuntu/.ssh
     sudo chmod 600 ~/.ssh/config
