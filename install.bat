@@ -154,7 +154,7 @@ REM THIS IS THE THIRD SCREEN OF THE INSTALLER.
 :::mykoz::: |_|  |_|\__, |_|\_\___/___(_)_/   \_\___|  |_| \_\___|\__,_|_/_/  \___/|____/ 
 :::mykoz:::         |___/ MyKoz.AI Real/OS Tow-It-Ism: Small Portable Lifelong Linux Tech
 :::mykoz:::
-
+for /f "delims=: tokens=1*" %%a in ('findstr /b ":::mykoz:::" "%~f0"') do (echo.%%b)
 timeout /t 3 >nul
 @cscript //nologo "%TEMP%\tt.vbs" " You've heard of Marcus Aurelius and Stoicism? This is MyKoz: AReal/OS and "
 echo.
@@ -171,7 +171,7 @@ timeout /t 2 >nul
 :::future:::   | * vim text editor   |      |__>-\_>_>   |  PCs |  Relevant!  '  _.'  |
 :::future:::   | * git code control  |  Linux Subsystem   \____/   AIs? NP!   '-'/    \
 :::future:::   |_____________________|
-for /f "delims=: tokens=1*" %%A in ('findstr /b ":::future:::" "%~f0"') do (echo.%%B)
+for /f "delims=: tokens=1*" %%a in ('findstr /b ":::future:::" "%~f0"') do (echo.%%b)
 timeout /t 2 >nul
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" " Running JupyterLab on Linux Python in Window opens the door to unparalleled"
