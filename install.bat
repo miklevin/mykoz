@@ -38,9 +38,11 @@ set "wsl_status="
 REM CHECK IF WSL IS INSTALLED
 for /f "delims=" %%i in ('wsl --status 2^>nul') do set "wsl_status=%%i"
 if "%wsl_status%" == "" (
-    echo WSL is not installed. Do you want to install it now? Y/N
+    echo WSL is not installed. Do you want to install it now?
     echo Your system will be rebooted after the installation.
     echo After reboot, please run this script again.
+    echo .
+    echo Proceed with WSL install? Y/N
     set /p choice=
     if /i "%choice%"=="y" (
         wsl --install
