@@ -42,24 +42,9 @@ if "%wsl_status%" == "" (
     echo Your system will be rebooted after the installation.
     echo After reboot, please run this script again.
     echo.
-    echo Proceed with WSL install? Y/N
-    set /p choice="y/n"
-    if "%choice%"=="y" (
-        wsl --install
-        echo.
-        echo WSL is being installed. Your system will reboot after installation.
-        echo After wsl is installed, please run this script again.
-        set /p warning= %
-        exit
-    ) else (
-        echo WSL installation was skipped. Please install WSL using 
-        echo 'wsl --install' from Powershell or Command Prompt to set 
-        echo up Windows Subsystem for Linux. Press [Enter] to close.
-        set /p warning= %
-        exit
-    )
+    echo Press [Enter] to install WSL (or Ctrl+C to Escape)...
     set /p warning= %
-    exit
+    wsl --install
 )
 
 REM SET UP ENVIRONMENT VARIABLES
@@ -130,7 +115,7 @@ echo.
 @cscript //nologo "%TEMP%\tt.vbs" " keeping a 1-text-file Journal in vim for the rest of your life."
 echo.
 echo.
-echo                         Press [Enter] to continue (or ctrl+c to escape)...
+echo                         Press [Enter] to continue (or Ctrl+C to Escape)...
 echo                                                                 prompt 1/4
 set /p warning= %
 cls
@@ -170,7 +155,7 @@ timeout /t 3 >nul
 :::unicorn:::
 :::unicorn:::
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::unicorn:::" "%~f0"') do (echo.%%B)
-echo                         Press [Enter] to continue (or ctrl+c to escape)...
+echo                         Press [Enter] to continue (or Ctrl+C to Escape)...
 echo                                                                 prompt 2/4
 set /p warning= %
 cls
@@ -213,7 +198,7 @@ echo.
 @cscript //nologo "%TEMP%\tt.vbs" " Yet the amazing thing is this is an experience you will find nowhere else."
 echo.
 echo.
-echo                         Press [Enter] to continue (or ctrl+c to escape)...
+echo                         Press [Enter] to continue (or Ctrl+C to Escape)...
 echo                                                                 prompt 3/4
 set /p warning= %
 cls
@@ -264,7 +249,7 @@ echo.
 @cscript //nologo "%TEMP%\tt.vbs" " 22.04 installation and replace it with one configured for JupyterLab."
 echo.
 echo.
-echo                         Press [Enter] to continue (or ctrl+c to escape)...
+echo                         Press [Enter] to continue (or Ctrl+C to Escape)...
 echo                                                                 prompt 4/4
 set /p warning= %
 
