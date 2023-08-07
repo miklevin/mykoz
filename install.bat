@@ -62,7 +62,7 @@ REM THIS IS THE FIRST SCREEN OF THE INSTALLER.
 :::rabbit::: ------------------------------------------------------------------------
 :::rabbit:::
 :::rabbit::: <== Comfort Zone      WHO DO YOU WANT TO BE?             Your Future ==>
-:::rabbit::                        A) A newb every 2 to 5 years
+:::rabbit:::                       A) A newb every 2 to 5 years
 :::rabbit:::                       B) Forever improving                    /)  ___
 :::rabbit:::     ____ _                      __  __      _           /)\__//  /   \
 :::rabbit:::    / ___| |__   __ _ ___  ___  |  \/  | ___| |      ___(/_ 0 0  |     |
@@ -84,7 +84,7 @@ echo   WScript.StdOut.Write strTempText
 echo   WScript.Sleep intPause
 echo Next
 )>"%TEMP%\tt.vbs"
-@cscript //nologo "%TEMP%\tt.vbs" "                                           WOULD YOU LIKE TO PLAY A GAME?"
+@cscript //nologo "%TEMP%\tt.vbs" "                                     WOULD YOU LIKE TO IMPROVE YOUR GAME?"
 echo.
 echo.
 timeout /t 2 >nul
