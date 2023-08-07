@@ -38,32 +38,27 @@ set "wsl_status="
 REM CHECK IF WSL IS INSTALLED
 for /f "delims=" %%i in ('wsl --status 2^>nul') do set "wsl_status=%%i"
 if "%wsl_status%" == "" (
-    echo WSL is not installed. Please run this Command: 'wsl --install'
-    echo from PowerShell or Command Prompt to set up Windows Subsystem
-    echo for Linux. Your system will reboot after WSL is installed.
-    echo.
-    echo After WSL is installed, please run this script again.
+    echo WSL is not installed. Do you want to install it now? Y/N
+    echo Your system will be rebooted after the installation.
+    echo After reboot, please run this script again.
+    set /p choice=
+    if /i "%choice%"=="y" (
+        wsl --install
+        echo.
+        echo WSL is being installed. Your system will reboot after installation.
+        echo After wsl is installed, please run this script again.
+        set /p warning= %
+        exit
+    ) else (
+        echo WSL installation was skipped. Please install WSL using 
+        echo 'wsl --install' from Powershell or Command Prompt to set 
+        echo up Windows Subsystem for Linux.
+        set /p warning= %
+        exit
+    )
     set /p warning= %
     exit
 )
-
-:: for /f "delims=" %%i in ('wsl --status 2^>nul') do set "wsl_status=%%i"
-:: if "%wsl_status%" == "" (
-::     echo WSL is not installed. Do you want to install it now? (Y/N)
-::     set /p choice=
-::     if /i "%choice%"=="Y" (
-::         wsl --install
-::         echo.
-::         echo WSL is being installed. Your system will reboot after installation.
-::         echo After WSL is installed, please run this script again.
-::         set /p warning= %
-::         exit
-::     ) else (
-::         echo WSL installation was skipped. Please install WSL using 'wsl --install' from PowerShell or Command Prompt to set up Windows Subsystem for Linux.
-::         set /p warning= %
-::         exit
-::     )
-:: )
 
 REM SET UP ENVIRONMENT VARIABLES
 set giturl=https://raw.githubusercontent.com/miklevin/mykoz/main/
