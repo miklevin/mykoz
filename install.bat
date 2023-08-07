@@ -42,7 +42,7 @@ if "%wsl_status%" == "" (
     echo Your system will be rebooted after the installation.
     echo After reboot, please run this script again.
     echo.
-    echo Press [Enter] to install WSL (or Ctrl+C to Escape)...
+    echo Press [Enter] to install WSL or Ctrl+C to Escape...
     set /p warning= %
     wsl --install
 )
