@@ -33,6 +33,16 @@
 @echo off
 cls
 
+set "wsl_status="
+
+REM CHECK IF WSL IS INSTALLED
+for /f "delims=" %%i in ('wsl --status 2^>nul') do set "wsl_status=%%i"
+if "%wsl_status%" == "" (
+    echo WSL is not installed. Please run 'wsl --install' to set up Windows Subsystem for Linux.
+    set /p warning= %
+    exit
+)
+
 REM SET UP ENVIRONMENT VARIABLES
 set giturl=https://raw.githubusercontent.com/miklevin/mykoz/main/
 set mykoz=0.9.57
@@ -84,7 +94,7 @@ echo   WScript.StdOut.Write strTempText
 echo   WScript.Sleep intPause
 echo Next
 )>"%TEMP%\tt.vbs"
-@cscript //nologo "%TEMP%\tt.vbs" "                                     WOULD YOU LIKE TO IMPROVE YOUR GAME?"
+@cscript //nologo "%TEMP%\tt.vbs" "                                    WOULD YOU LIKE TO IMPROVE YOUR GAME?"
 echo.
 echo.
 timeout /t 2 >nul
