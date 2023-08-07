@@ -40,11 +40,7 @@ for /f "delims=" %%i in ('wsl --status 2^>nul') do set "wsl_status=%%i"
 if "%wsl_status%" == "" (
     echo WSL is not installed. Please run this Command: 'wsl --install' 
     echo from PowerShell or Command Prompt to set up Windows Subsystem 
-    echo for Linux. This script requires WSL to be installed.
-    echo.
-    echo Alternatively, you can go to the Microsoft Store and install 
-    echo any Ubuntu 22.04. That Ubuntu will be replaced by this script
-    echo but the process will also perform the WSL install.
+    echo for Linux. Your system will reboot after WSL is installed.
     echo.
     echo After WSL is installed, please run this script again.
     set /p warning= %
@@ -72,12 +68,13 @@ if not "%1" == "" (
 
 REM THIS IS THE FIRST SCREEN OF THE INSTALLER.
 
-:::rabbit::: ------------------------------------------------------------------------
-:::rabbit::: Before continuing this script, Install Ubuntu 22.04 from Microsoft Store
-:::rabbit::: or by using the "wsl --install" command. After WSL is installed run this
-:::rabbit::: script. This script can be re-run often to update your Linux environment
-:::rabbit::: All your configuration and files will be preserved. You can even upgrade
-:::rabbit::: ------------------------------------------------------------------------
+
+
+:::rabbit::: -------------------------------------------------------------------------
+::rabbit:::  This installs Linux JupyterLab on Windows 10 or 11. Make sure your system
+:::rabbit::: is up to date. This script can be re-run occasionally to update WSL Linux
+:::rabbit::: All your configuration files, data & Notebooks are kept safe Windows-side
+:::rabbit::: -------------------------------------------------------------------------
 :::rabbit:::
 :::rabbit::: <== Comfort Zone      WHO DO YOU WANT TO BE?             Your Future ==>
 :::rabbit:::                       A) A newb every 2 to 5 years
