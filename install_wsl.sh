@@ -113,8 +113,8 @@ then
     echo " ------------------------------------------------------------------------------"
     figlet -t "pip installs..."
     echo " Grabbing a few of the 300K+ Python Packaging Index (PyPI or pip) packages." | pv -qL 100
-    echo " Python is the most popular programming language in the world, and pip is how." | pv -qL 100
-    echo " non-standard libraries get installed. It's like Python Store but it's all free." | pv -qL 100
+    echo " Python is the most popular programming language in the world, and pip is how" | pv -qL 100
+    echo " 3r-party libraries get installed. It's like a Python Store but it's all free." | pv -qL 100
     echo " We're installing Pandas and the minimum for data science and machine learning..." | pv -qL 100
     quiet /home/ubuntu/pyenv/bin/python -m pip install -r /home/ubuntu/repos/transfer/requirements.txt
     echo ""
