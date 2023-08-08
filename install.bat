@@ -101,7 +101,7 @@ echo   WScript.StdOut.Write strTempText
 echo   WScript.Sleep intPause
 echo Next
 )>"%TEMP%\tt.vbs"
-@cscript //nologo "%TEMP%\tt.vbs" "                                    WOULD YOU LIKE TO IMPROVE YOUR GAME?"
+@cscript //nologo "%TEMP%\tt.vbs" "                                         WOULD YOU LIKE TO UP YOUR GAME?"
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" "                                                      (MyKoz.AI: %mykoz%)"
 echo.
