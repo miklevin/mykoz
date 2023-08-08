@@ -227,13 +227,13 @@ echo.
 echo.
 echo.
 timeout /t 5 >nul
-@cscript //nologo "%TEMP%\tt.vbs" " But the approach I propose is devistatingly clever and simple. Merely by"
+@cscript //nologo "%TEMP%\tt.vbs" " But the approach I propose is elegant, clever and simple. Merely by"
 echo.
-@cscript //nologo "%TEMP%\tt.vbs" " making your JupyterLab powered by real Linux, coming from the Microsoft"
+@cscript //nologo "%TEMP%\tt.vbs" " making your JupyterLab powered by ACTUAL Linux, coming from the Microsoft"
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" " Subsystem for Linux, you will be able to do things that few others can;"
 echo.
-@cscript //nologo "%TEMP%\tt.vbs" " specifically that step from a LOST button-pusher to REAL AUTOMATION."
+@cscript //nologo "%TEMP%\tt.vbs" " specifically that step from a 'LOST' button-pusher to REAL AUTOMATION."
 echo.
 echo.
 timeout /t 5 >nul

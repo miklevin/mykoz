@@ -1,4 +1,7 @@
-# Activate py310 virtual environment.
+# Make sure clock hasn't drifted from sleep.
+sudo hwclock -s
+
+# Activate Python virtual environment.
 source ~/pyenv/bin/activate
 
 # Color-code prompt.
