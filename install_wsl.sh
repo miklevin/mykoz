@@ -31,7 +31,7 @@ echo " -------------------------------------------------------------------------
 figlet -t "Python $VAR..."
 echo " Have you ever had difficulty getting the latest Python or controlling which"| pv -qL 100
 echo " version Python you're using? Just re-run this script to upgrade to the latest!" | pv -qL 100
-echo " You'll be using the genuine Linux Python running on cloud servers around the" | pv -qL 100
+echo " You'll be using the genuine Linux Python running on Cloud Servers around the" | pv -qL 100
 echo " world. No more DOS backslashes or pathing issues. Just Python bliss..." | pv -qL 100
 # Add 2 custom PPS's (Personal Package Sources) to repository list
 quiet figlet -t "Adding PPA's..."
