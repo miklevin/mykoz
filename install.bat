@@ -35,7 +35,7 @@ cls
 
 REM SET UP ENVIRONMENT VARIABLES
 set giturl=https://raw.githubusercontent.com/miklevin/mykoz/main/
-set mykoz=0.9.58
+set mykoz=0.9.59
 set python=3.11
 set "wsl_status="
 
@@ -106,7 +106,7 @@ echo.
 echo.
 timeout /t 2 >nul
 
-@cscript //nologo "%TEMP%\tt.vbs" " There are many paths in life that will lead to dead ends. This isn't one."
+@cscript //nologo "%TEMP%\tt.vbs" " %mykoz% There are many paths in life that will lead to dead ends. This isn't one."
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" " By installing the Linux version of JupyterLab on Windows, you are running"
 echo.
