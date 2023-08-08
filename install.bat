@@ -333,6 +333,13 @@ set wsluser="ubuntu"
 set password="foo"
 call %install_command%
 
+REM We update the software repository on the Ubuntu 22.04 Machine
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " Hold tight. I'm updating Ubuntu, which takes a moment."
+echo.
+@cscript //nologo "%TEMP%\tt.vbs" " I'll start typing to you again when it gets good..."
+echo.
+
 REM SET UP DEFAULT UBUNTU USER
 wsl -d %Ubuntu% -u root useradd -m "%wsluser%" >nul 2>&1
 wsl -d %Ubuntu% -u root sh -c "echo "%wsluser%:%password%" | chpasswd" >nul 2>&1
@@ -375,10 +382,6 @@ if exist %USERPROFILE%\.gitconfig (wsl -d %Ubuntu% -e bash -lic "cp /mnt/c/Users
 if exist %USERPROFILE%\.vimrc (wsl -d %Ubuntu% -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/" >nul 2>&1) else (wsl -d ubuntu -u ubuntu -e curl -l -o /home/ubuntu/.vimrc "%giturl%.vimrc" >nul 2>&1)
 if exist %USERPROFILE%\.pypirc (wsl -d %Ubuntu% -e bash -lic "cp /mnt/c/Users/%USERNAME%/.pypirc /home/ubuntu/" >nul 2>&1) else (wsl -d ubuntu -u ubuntu -e curl -l -o /home/ubuntu/.pypirc "%giturl%.pypirc" >nul 2>&1)
 
-REM We update the software repository on the Ubuntu 22.04 Machine
-echo.
-@cscript //nologo "%TEMP%\tt.vbs" " Hold tight. I'll start typing to you again as it gets good..."
-echo.
 wsl -d %Ubuntu% -u root -e sudo apt update >nul 2>&1
 
 REM And now the big upgrading of all the Ubuntu 22.04 software.
