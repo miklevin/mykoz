@@ -339,6 +339,7 @@ echo.
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" " I'll start typing to you again when it gets good..."
 echo.
+echo.
 
 REM SET UP DEFAULT UBUNTU USER
 wsl -d %Ubuntu% -u root useradd -m "%wsluser%" >nul 2>&1
