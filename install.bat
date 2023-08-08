@@ -35,7 +35,7 @@ cls
 
 REM SET UP ENVIRONMENT VARIABLES
 set giturl=https://raw.githubusercontent.com/miklevin/mykoz/main/
-set mykoz=0.9.67
+set mykoz=0.9.68
 set python=3.11
 set "wsl_status="
 
@@ -425,6 +425,11 @@ echo olink.IconLocation = "%USERPROFILE%\.config\bash.ico" >> %SCRIPT%
 echo oLink.Save >> %SCRIPT%
 cscript /nologo %SCRIPT%
 del %SCRIPT%
+
+REM FORCE DESKTOP REFRESH
+setlocal EnableExtensions DisableDelayedExpansion
+ie4uinit.exe -show
+endlocal
 
 del /Q %USERPROFILE%\repos\transfer\*
 
