@@ -21,7 +21,7 @@ export PULSE_SERVER=/mnt/wslg/pulseserver
 # Shouldn't be necessary, but is.
 screen -wipe >/dev/null 2>&1
 if ! screen -list | grep -q "ping"; then
-    screen -dmS ping ping -i 5 172.17.224.1
+    screen -dmS ping ping -i 5 23.46.225.227
 fi
 
 cd ~/repos
