@@ -63,12 +63,12 @@ https://raw.githubusercontent.com/miklevin/mykoz/main/git_installs.sh -o /home/u
 https://raw.githubusercontent.com/miklevin/mykoz/main/jupyter.service -o /etc/systemd/system/jupyter.service
 
 # Then we get everything that needs to be done under the ubuntu user context
-quiet curl -sL https://raw.githubusercontent.com/miklevin/vim/master/all -o /home/ubuntu/pyenv/bin/all
+quiet curl -sL https://raw.githubusercontent.com/miklevin/Journal/main/_code/vimit -o /home/ubuntu/pyenv/bin/vimit
 quiet curl -sL https://raw.githubusercontent.com/miklevin/mykoz/main/startjupyter -o /home/ubuntu/pyenv/bin/startjupyter
 
 # Give execution context to the scripts
 quiet sudo chmod +x /home/ubuntu/pyenv/bin/startjupyter
-quiet sudo chmod +x /home/ubuntu/pyenv/bin/all
+quiet sudo chmod +x /home/ubuntu/pyenv/bin/vimit
 
 sudo /home/ubuntu/pyenv/bin/python /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/pub.txt --output /home/ubuntu/repos/transfer/id_rsa_mykoz.pub
 sudo /home/ubuntu/pyenv/bin/python /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/priv.txt --output /home/ubuntu/repos/transfer/id_rsa_mykoz
