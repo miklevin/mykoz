@@ -35,7 +35,7 @@ cls
 
 REM SET UP ENVIRONMENT VARIABLES
 set giturl=https://raw.githubusercontent.com/miklevin/mykoz/main/
-set mykoz=0.9.65
+set mykoz=0.9.66
 set python=3.11
 set "wsl_status="
 
@@ -78,9 +78,9 @@ REM THIS IS THE FIRST SCREEN OF THE INSTALLER.
 :::rabbit::: All your configuration files, data & Notebooks are kept safe Windows-side
 :::rabbit::: -------------------------------------------------------------------------
 :::rabbit:::
-:::rabbit::: <== B) Comfort zone     WHO DO YOU WANT TO BE?        A) Your Future ==>
-:::rabbit:::                         A) Forever improving        
-:::rabbit:::                         B) A newb every 2 to 5 years          /)  ___
+:::rabbit::: <== B) Comfort zone    WHO DO YOU WANT TO BE?         A) Your Future ==>
+:::rabbit:::                        A) Improving skills forever?
+:::rabbit:::                        B) A newb every 2 to 5 years.          /)  ___
 :::rabbit:::     ____ _                      __  __      _           /)\__//  /   \
 :::rabbit:::    / ___| |__   __ _ ___  ___  |  \/  | ___| |      ___(/_ 0 0  |     |
 :::rabbit:::   | |   | '_ \ / _` / __|/ _ \ | |\/| |/ _ \ |    *(    ==(_T_)==LINUX|
