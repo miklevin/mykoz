@@ -35,7 +35,7 @@ cls
 
 REM SET UP ENVIRONMENT VARIABLES
 set giturl=https://raw.githubusercontent.com/miklevin/mykoz/main/
-set mykoz=0.9.59
+set mykoz=0.9.60
 set python=3.11
 set "wsl_status="
 
@@ -101,7 +101,8 @@ echo   WScript.StdOut.Write strTempText
 echo   WScript.Sleep intPause
 echo Next
 )>"%TEMP%\tt.vbs"
-@cscript //nologo "%TEMP%\tt.vbs" " (MyKoz.AI: %mykoz%)                WOULD YOU LIKE TO IMPROVE YOUR GAME?"
+@cscript //nologo "%TEMP%\tt.vbs" "                                    WOULD YOU LIKE TO IMPROVE YOUR GAME?"
+@cscript //nologo "%TEMP%\tt.vbs" "                                                        (MyKoz.AI: %mykoz%)"
 echo.
 echo.
 timeout /t 2 >nul
