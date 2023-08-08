@@ -418,7 +418,7 @@ del %SCRIPT%
 
 REM Create the JupyterLab URL shortcut
 curl -s -o "JupyterLab.url" "https://raw.githubusercontent.com/miklevin/mykoz/main/icons/JupyterLab.url"
-echo "%USERPROFILE%\.config\jupyter.ico" >> JupyterLab.url
+echo IconFile="%USERPROFILE%\.config\jupyter.ico" >> JupyterLab.url
 
 del /Q %USERPROFILE%\repos\transfer\*
 
