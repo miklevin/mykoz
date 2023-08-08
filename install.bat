@@ -103,7 +103,7 @@ echo Next
 )>"%TEMP%\tt.vbs"
 @cscript //nologo "%TEMP%\tt.vbs" "                                    WOULD YOU LIKE TO IMPROVE YOUR GAME?"
 echo.
-@cscript //nologo "%TEMP%\tt.vbs" "                                                        (MyKoz.AI: %mykoz%)"
+@cscript //nologo "%TEMP%\tt.vbs" "                                                      (MyKoz.AI: %mykoz%)"
 echo.
 echo.
 timeout /t 2 >nul
