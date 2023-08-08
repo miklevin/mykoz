@@ -20,9 +20,19 @@
 You now have Windows Subsystem for Linux installed with JupyterLab running as a
 Linux service, reachable from your Windows browser at http://localhost:8888
 
-This is different from other JupyterLab installations on Windows. MyKoz.AI runs
-Jupyter with a genuine Linux Python, meaning all the coding you do will be
-Linux Cloud and local-automation ready. 
+- You can visit the URL directly: http://localhost:8888
+- You can use the URL Icon that's been left out on your Desktop.
+- You can turn it into a "stand-alone" app with Microsoft Edge.
 
+The password is: foo
 
+This JupyterLab installation on Windows is unlike that of other installers such
+as Anaconda or JupyterLab-Desktop because it's genuinely backended by Linux and
+that makes all the difference. Right now as you read this, there's a 24x7 x365
+"daemon" running that you can step in and take control of using a plain Jupyter
+Notebook, thus starting your Linux Wizard practice.
 
+Of course this Linux service will "sleep" with your Laptop, but it's a 1st step.
+
+Once you're in Jupyter, find the folder named `Intro` and run the Notebook named
+`Intro.ipynb` which starts you on your Linux, Python, vim & git (LPvg) journey.
