@@ -126,7 +126,7 @@ echo " -------------------------------------------------------------------------
 figlet -t "NodeJS..."
 echo " NodeJS has taken the world by storm, but it's completely the opposite of STOIC." | pv -qL 100
 echo " You might call it BLOATIC. So why is it here? Because one essential thing we're" | pv -qL 100
-echo " doing here is browser-automation for Web data collection, and that needs node." | pv -qL 100
+echo " doing here is browser-automation for Web data collection, and that needs NodeJS." | pv -qL 100
 echo " Use the right tool for the job. Just be aware of 'the deal' with each tool..." | pv -qL 100
 quiet curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
 quiet sudo bash /tmp/nodesource_setup.sh
