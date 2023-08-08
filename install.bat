@@ -429,7 +429,7 @@ del /Q %USERPROFILE%\repos\transfer\*
 :::thump:::                                                       .-----------------. 
 :::thump:::                                                       | Oh, my fur and  | 
 :::thump:::                                                      (   Whiskers! To   |
-:::thump:::        MyKoz.AI Real/OS HAS...                    /)O | JupyterLab I go |
+:::thump:::        MyKoz.AI Real/OS HAS...                    /)O | JupyterLab I go...
 :::thump::: _                    _          _ _        /)\___//o  '-----------------'
 :::thump:::| |    __ _ _ __   __| | ___  __| | |   ___(/_ 0 0  
 :::thump:::| |   / _` | '_ \ / _` |/ _ \/ _` | | *(    ==(_T_)==  * Open JupyterLab.
