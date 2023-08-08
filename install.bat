@@ -101,12 +101,12 @@ echo   WScript.StdOut.Write strTempText
 echo   WScript.Sleep intPause
 echo Next
 )>"%TEMP%\tt.vbs"
-@cscript //nologo "%TEMP%\tt.vbs" "                                    WOULD YOU LIKE TO IMPROVE YOUR GAME?"
+@cscript //nologo "%TEMP%\tt.vbs" " (MyKoz.AI: %mykoz%)                WOULD YOU LIKE TO IMPROVE YOUR GAME?"
 echo.
 echo.
 timeout /t 2 >nul
 
-@cscript //nologo "%TEMP%\tt.vbs" " %mykoz% There are many paths in life that will lead to dead ends. This isn't one."
+@cscript //nologo "%TEMP%\tt.vbs" " There are many paths in life that will lead to dead ends. This isn't one."
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" " By installing the Linux version of JupyterLab on Windows, you are running"
 echo.
