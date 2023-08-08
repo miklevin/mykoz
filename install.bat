@@ -35,7 +35,7 @@ cls
 
 REM SET UP ENVIRONMENT VARIABLES
 set giturl=https://raw.githubusercontent.com/miklevin/mykoz/main/
-set mykoz=0.9.62
+set mykoz=0.9.63
 set python=3.11
 set "wsl_status="
 
@@ -175,7 +175,7 @@ REM THIS IS THE THIRD SCREEN OF THE INSTALLER.
 :::mykoz:::
 for /f "delims=: tokens=1*" %%a in ('findstr /b ":::mykoz:::" "%~f0"') do (echo.%%b)
 timeout /t 3 >nul
-@cscript //nologo "%TEMP%\tt.vbs" " You've heard of Marcus Aurelius and Stoicism? This is MyKoz: AReal/OS and "
+@cscript //nologo "%TEMP%\tt.vbs" " How in the World can Stoicism apply to Tech? MyKoz.AI: Real/OS offers "
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" " Tow-it-ism; a way of using a Linux Subsystem for timeless computing."
 echo.
