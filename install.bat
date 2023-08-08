@@ -33,6 +33,10 @@
 cls
 @echo off
 
+REM SET UP ENVIRONMENT VARIABLES
+set giturl=https://raw.githubusercontent.com/miklevin/mykoz/main/
+set mykoz=0.9.58
+set python=3.11
 set "wsl_status="
 
 REM CHECK IF WSL IS INSTALLED
@@ -49,11 +53,6 @@ if "%wsl_status%" == "" (
     set /p warning= %
     exit
 )
-
-REM SET UP ENVIRONMENT VARIABLES
-set giturl=https://raw.githubusercontent.com/miklevin/mykoz/main/
-set mykoz=0.9.57
-set python=3.11
 
 REM Check if a different version of Python was requested by
 REM passing a version number as an argument to this script.
@@ -74,7 +73,7 @@ REM THIS IS THE FIRST SCREEN OF THE INSTALLER.
 
 
 :::rabbit::: -------------------------------------------------------------------------
-::rabbit:::  This installs Linux JupyterLab on Windows 10 or 11. Make sure your system
+:::rabbit::: This installs Linux JupyterLab on Windows 10 or 11. Make sure your system
 :::rabbit::: is up to date. This script can be re-run occasionally to update WSL Linux
 :::rabbit::: All your configuration files, data & Notebooks are kept safe Windows-side
 :::rabbit::: -------------------------------------------------------------------------
