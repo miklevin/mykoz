@@ -35,7 +35,7 @@ cls
 
 REM SET UP ENVIRONMENT VARIABLES
 set giturl=https://raw.githubusercontent.com/miklevin/mykoz/main/
-set mykoz=0.9.84
+set mykoz=0.9.85
 set python=3.11
 set "wsl_status="
 
@@ -397,7 +397,7 @@ REM Grab and run second-half of install that runs under WSL and set up Linux gra
 wsl -d %Ubuntu% -u ubuntu -e curl -L -o /home/ubuntu/install_wsl.sh "%giturl%install_wsl.sh" >nul 2>&1
 wsl -d %Ubuntu% -e bash -c "bash /home/ubuntu/install_wsl.sh %python% 2>&1
 
-REM ACLs need a wsl --shutdown for git clone to work.
+REM ACLs need a wsl --shutdown for git clone to work. Also runs sleep infinity.
 wsl -t %Ubuntu% >nul 2>&1
 
 REM Finessing permissions so that git clone works.
@@ -425,9 +425,6 @@ echo olink.IconLocation = "%USERPROFILE%\.config\bash.ico" >> %SCRIPT%
 echo oLink.Save >> %SCRIPT%
 cscript /nologo %SCRIPT%
 del %SCRIPT%
-
-REM FORCE SYSTEMD TO KEEP RUNNING
-wsl -d %Ubuntu% -e bash -lic "nohup sleep infinity >/dev/null 2>&1 &" >nul 2>&1
 
 REM FORCE DESKTOP REFRESH
 setlocal EnableExtensions DisableDelayedExpansion
