@@ -25,5 +25,6 @@ export PULSE_SERVER=/mnt/wslg/pulseserver
 
 cd ~/repos
 
-echo "Ctrl+Click http://localhost:8888 to run JupyterLab or"
+echo "To see how JupyterLab runs invisibly type: screen -ls
+echo "Ctrl+Click http://localhost:8888 to use JupyterLab or"
 echo "to begin your vim (NeoVim) experience, type 'vimtutor'"
