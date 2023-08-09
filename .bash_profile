@@ -17,15 +17,7 @@ export XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir
 export WAYLAND_DISPLAY=wayland-0
 export PULSE_SERVER=/mnt/wslg/pulseserver
 
-# Ping in a screen session to keep systemd alive.
-# Shouldn't be necessary, but is.
-screen -wipe >/dev/null 2>&1
-if ! screen -list | grep -q "awake"; then
-    screen -dmS awake bash -lic "sleep infinity"
-fi
-
 cd ~/repos
-alias vim='nvim'
 
 echo "Visit http://localhost:8888 for JupyterLab, or to see where it's running, type: screen -ls"
 echo "To begin your vim (NeoVim) experience, type 'vimtutor'"

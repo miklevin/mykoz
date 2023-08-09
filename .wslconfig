@@ -1,5 +1,6 @@
-# [boot]
-# systemd=true
-# vmIdleTimeout=-1
-# [automount]
-# options="metadata"
+[boot]
+systemd = true
+vmIdleTimeout=-1
+command = loginctl enable-linger ubuntu
+[automount]
+options = "metadata"
