@@ -397,7 +397,7 @@ REM Grab and run second-half of install that runs under WSL and set up Linux gra
 wsl -d %Ubuntu% -u ubuntu -e curl -L -o /home/ubuntu/install_wsl.sh "%giturl%install_wsl.sh" >nul 2>&1
 wsl -d %Ubuntu% -e bash -c "bash /home/ubuntu/install_wsl.sh %python% 2>&1
 
-REM ACLs need a wsl --shutdown for git clone to work. Also keep the WSL session alive.
+REM ACLs need a wsl --shutdown for git clone to work.
 wsl -t %Ubuntu% >nul 2>&1
 
 REM Finessing permissions so that git clone works.
@@ -407,7 +407,7 @@ wsl -d %Ubuntu% -u root -e chown ubuntu:ubuntu /mnt/c/Users/%USERNAME%/.ssh/conf
 wsl -d %Ubuntu% -u root -e chmod 600 /mnt/c/Users/%USERNAME%/.ssh/id_rsa_mykoz >nul 2>&1
 wsl -d %Ubuntu% -u root -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "%giturl%git_installs.sh" >nul 2>&1
 
-REM Install git repos
+REM Install git repos and hit now-present.
 wsl -d %Ubuntu% -e bash -lic "sh /home/ubuntu/repos/transfer/git_installs.sh" >nul 2>&1
 
 REM Create the JupyterLab URL shortcut
@@ -432,10 +432,6 @@ ie4uinit.exe -show
 endlocal
 
 del /Q %USERPROFILE%\repos\transfer\*
-
-REM Open JupyterLab and keep the WSL session alive.
-start /B wsl -d %Ubuntu% -e bash -lic "sleep infinity" >nul 2>&1
-
 
 :::thump:::                                                       .-----------------. 
 :::thump:::                                                       | Oh, my fur and  | 

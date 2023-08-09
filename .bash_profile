@@ -20,8 +20,8 @@ export PULSE_SERVER=/mnt/wslg/pulseserver
 # Ping in a screen session to keep systemd alive.
 # Shouldn't be necessary, but is.
 screen -wipe >/dev/null 2>&1
-if ! screen -list | grep -q "ping"; then
-    screen -dmS ping ping -i 5 23.46.225.227
+if ! screen -list | grep -q "awake"; then
+    screen -dmS awake bash -lic "sleep infinity"
 fi
 
 cd ~/repos
