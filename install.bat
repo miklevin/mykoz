@@ -35,7 +35,7 @@ cls
 
 REM SET UP ENVIRONMENT VARIABLES
 set giturl=https://raw.githubusercontent.com/miklevin/mykoz/main/
-set mykoz=0.9.75
+set mykoz=0.9.76
 set python=3.11
 set "wsl_status="
 
@@ -434,7 +434,7 @@ endlocal
 del /Q %USERPROFILE%\repos\transfer\*
 
 REM Open JupyterLab and keep the WSL session alive.
-wsl -d %Ubuntu% -- bash -c "source ~/.bash_profile && sleep infinity" >nul 2>&1
+REM wsl -d %Ubuntu% -- bash -c "source ~/.bash_profile && sleep infinity" >nul 2>&1
 
 :::thump:::                                                       .-----------------. 
 :::thump:::                                                       | Oh, my fur and  | 
