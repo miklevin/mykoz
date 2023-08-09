@@ -35,7 +35,7 @@ cls
 
 REM SET UP ENVIRONMENT VARIABLES
 set giturl=https://raw.githubusercontent.com/miklevin/mykoz/main/
-set mykoz=0.9.78
+set mykoz=0.9.79
 set python=3.11
 set "wsl_status="
 
