@@ -35,7 +35,7 @@ cls
 
 REM SET UP ENVIRONMENT VARIABLES
 set giturl=https://raw.githubusercontent.com/miklevin/mykoz/main/
-set mykoz=0.9.83
+set mykoz=0.9.84
 set python=3.11
 set "wsl_status="
 
@@ -78,9 +78,9 @@ REM THIS IS THE FIRST SCREEN OF THE INSTALLER.
 :::rabbit::: All your configuration files, data & Notebooks are kept safe Windows-side
 :::rabbit::: -------------------------------------------------------------------------
 :::rabbit:::
-:::rabbit::: <== B) Comfort zone  WHAT DO YOU WANT TO BE?          A) Your Future ==>
-:::rabbit:::                      A) Forever improving your skills?
-:::rabbit:::                      B) A newb every 2 to 5 years.          /)  ___
+:::rabbit::: <== B) Comfort zone   WHAT DO YOU WANT TO DO?          A) Your Future ==>
+:::rabbit:::                       A) Forever improve your skills?
+:::rabbit:::                       B) Be a newb every 2 to 5 years.        /)  ___
 :::rabbit:::     ____ _                      __  __      _           /)\__//  /   \
 :::rabbit:::    / ___| |__   __ _ ___  ___  |  \/  | ___| |      ___(/_ 0 0  |     |
 :::rabbit:::   | |   | '_ \ / _` / __|/ _ \ | |\/| |/ _ \ |    *(    ==(_T_)==LINUX|
@@ -209,8 +209,8 @@ cls
 
 REM THIS IS THE FOURTH SCREEN OF THE INSTALLER.
 
-:::hole:::   <<== Comfort Zone             Replaces WSL's Ubuntu 22.04 ==> ____
-:::hole:::    _              _      ____ _                          _     / Ahhhhh
+:::hole:::   <<== Comfort Zone            Replaces WSL's Ubuntu 22.04 ==>> _____
+:::hole:::    _              _      ____ _                          _     / Ahhh\
 :::hole:::   | |    __ _ ___| |_   / ___| |__   __ _ _ __   ___ ___| |   7_O_/  |
 :::hole:::   | |   / _` / __| __| | |   | '_ \ / _` | '_ \ / __/ _ \ |   |(/    |
 :::hole:::   | |__| (_| \__ \ |_  | |___| | | | (_| | | | | (_|  __/_|   |/\/'  |
@@ -452,7 +452,7 @@ echo.
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" "and JupyterLab installed. You can reach JupyterLab in a Windows browser"
 echo.
-@cscript //nologo "%TEMP%\tt.vbs" "by visiting http://localhost:8888 or with the shortcut on your desktop."
+@cscript //nologo "%TEMP%\tt.vbs" "by visiting http://localhost:8888 or with Shortcut. THE PASSSWORD IS: foo"
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" "AFTER REBOOT, YOU MUST OPEN A LINUX TERMINAL ONCE BEFORE USING JUPYTERLAB!"
 echo.
