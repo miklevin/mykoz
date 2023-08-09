@@ -1,4 +1,5 @@
 # Make sure clock hasn't drifted from sleep.
+loginctl enable-linger ubuntu
 sudo hwclock -s
 
 # Activate Python virtual environment.
