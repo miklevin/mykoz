@@ -1,5 +1,10 @@
-# Make sure clock hasn't drifted from sleep.
-nohup sleep infinity >/dev/null 2>&1 &
+# Keep systemd services running in the background.
+if ! ps ax | grep -v grep | grep sleep > /dev/null
+then
+    nohup sleep infinity >/dev/null 2>&1 &
+fi
+
+# Make sure clock hasn't drifted.
 sudo hwclock -s
 
 # Activate Python virtual environment.
@@ -20,5 +25,5 @@ export PULSE_SERVER=/mnt/wslg/pulseserver
 
 cd ~/repos
 
-echo "Visit http://localhost:8888 for JupyterLab, or to see where it's running, type: screen -ls"
-echo "To begin your vim (NeoVim) experience, type 'vimtutor'"
+echo "Ctrl+Click http://localhost:8888 to run JupyterLab or"
+echo "to begin your vim (NeoVim) experience, type 'vimtutor'"

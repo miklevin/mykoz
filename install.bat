@@ -35,7 +35,7 @@ cls
 
 REM SET UP ENVIRONMENT VARIABLES
 set giturl=https://raw.githubusercontent.com/miklevin/mykoz/main/
-set mykoz=0.9.81
+set mykoz=0.9.83
 set python=3.11
 set "wsl_status="
 
@@ -78,9 +78,9 @@ REM THIS IS THE FIRST SCREEN OF THE INSTALLER.
 :::rabbit::: All your configuration files, data & Notebooks are kept safe Windows-side
 :::rabbit::: -------------------------------------------------------------------------
 :::rabbit:::
-:::rabbit::: <== B) Comfort zone    WHO DO YOU WANT TO BE?         A) Your Future ==>
-:::rabbit:::                        A) Improving skills forever?
-:::rabbit:::                        B) A newb every 2 to 5 years.          /)  ___
+:::rabbit::: <== B) Comfort zone  WHAT DO YOU WANT TO BE?          A) Your Future ==>
+:::rabbit:::                      A) Forever improving your skills?
+:::rabbit:::                      B) A newb every 2 to 5 years.          /)  ___
 :::rabbit:::     ____ _                      __  __      _           /)\__//  /   \
 :::rabbit:::    / ___| |__   __ _ ___  ___  |  \/  | ___| |      ___(/_ 0 0  |     |
 :::rabbit:::   | |   | '_ \ / _` / __|/ _ \ | |\/| |/ _ \ |    *(    ==(_T_)==LINUX|
@@ -426,7 +426,7 @@ echo oLink.Save >> %SCRIPT%
 cscript /nologo %SCRIPT%
 del %SCRIPT%
 
-REM FORCE systemd TO KEEP RUNNING
+REM FORCE SYSTEMD TO KEEP RUNNING
 wsl -d %Ubuntu% -e bash -lic "nohup sleep infinity >/dev/null 2>&1 &" >nul 2>&1
 
 REM FORCE DESKTOP REFRESH
@@ -438,8 +438,8 @@ del /Q %USERPROFILE%\repos\transfer\*
 
 :::thump:::                                                       .-----------------. 
 :::thump:::                                                       | Oh, my fur and  | 
-:::thump:::                                                      (   Whiskers! To   |
-:::thump:::        MyKoz.AI Real/OS HAS...                    /)O | JupyterLab I go...
+:::thump:::           CONGRATULATIONS!                           (   Whiskers! To   |
+:::thump:::        MyKoz.AI Real/OS HAS...                    /)O | JupyterLab I go.| 
 :::thump::: _                    _          _ _        /)\___//o  '-----------------'
 :::thump:::| |    __ _ _ __   __| | ___  __| | |   ___(/_ 0 0  
 :::thump:::| |   / _` | '_ \ / _` |/ _ \/ _` | | *(    ==(_T_)==  * Open JupyterLab.
@@ -448,22 +448,15 @@ del /Q %USERPROFILE%\repos\transfer\*
 for /f "delims=: tokens=1*" %%A in ('findstr /b ":::thump:::" "%~f0"') do (echo.%%B)
 echo.
 echo.
-@cscript //nologo "%TEMP%\tt.vbs" "Congratulations! You have a working Ubuntu 22.04 system with Python %python%"
+@cscript //nologo "%TEMP%\tt.vbs" "Congratulations! You have a working %Ubuntu% system with Python %python%"
 echo.
-@cscript //nologo "%TEMP%\tt.vbs" "and JupyterLab installed. You can reach JupyterLab in a Windows browser at"
+@cscript //nologo "%TEMP%\tt.vbs" "and JupyterLab installed. You can reach JupyterLab in a Windows browser"
 echo.
-@cscript //nologo "%TEMP%\tt.vbs" "http://localhost:8888 or with the shortcut on your desktop (hit F5 to refresh"
+@cscript //nologo "%TEMP%\tt.vbs" "by visiting http://localhost:8888 or with the shortcut on your desktop."
 echo.
-@cscript //nologo "%TEMP%\tt.vbs" "if you don't see it). This is where you should start: Python in the browser."
+@cscript //nologo "%TEMP%\tt.vbs" "AFTER REBOOT, YOU MUST OPEN A LINUX TERMINAL ONCE BEFORE USING JUPYTERLAB!"
 echo.
-echo.
-@cscript //nologo "%TEMP%\tt.vbs" "There is also a Linux Shell shortcut on your desktop. Windows 10 users should"
-echo.
-@cscript //nologo "%TEMP%\tt.vbs" "install Windows Terminal from the Microsoft Store to make it work. The Linux"
-echo.
-@cscript //nologo "%TEMP%\tt.vbs" "Shell is what we will use to teach you the vim text editor. If you're feeling"
-echo.
-@cscript //nologo "%TEMP%\tt.vbs" "brave, you can try it out now by typing vimtutor at the Linux Shell prompt."
+@cscript //nologo "%TEMP%\tt.vbs" "Windows 10 users MUST install Windows Terminal from the Microsoft Store."
 echo.
 echo.
 
@@ -477,4 +470,3 @@ curl -s -o "README.txt" "%URL%" ^
     --proxy-header "Cache-Control: no-store"
 
 set /p warning=Press [Enter] to release this console window. %
-
