@@ -19,10 +19,10 @@ export PULSE_SERVER=/mnt/wslg/pulseserver
 
 # Ping in a screen session to keep systemd alive.
 # Shouldn't be necessary, but is.
-# screen -wipe >/dev/null 2>&1
-# if ! screen -list | grep -q "ping"; then
-#     screen -dmS ping ping -i 5 23.46.225.227
-# fi
+screen -wipe >/dev/null 2>&1
+if ! screen -list | grep -q "ping"; then
+    screen -dmS ping ping -i 5 23.46.225.227
+fi
 
 cd ~/repos
 alias vim='nvim'
