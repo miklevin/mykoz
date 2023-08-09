@@ -18,7 +18,7 @@
               '------------------'        |_____________________|
 
 You now have Windows Subsystem for Linux installed with JupyterLab running as a
-Linux service, reachable from your Windows browser at http://localhost:8888
+Linux service reachable from your browser http://localhost:8888 password is foo
 
 - You can visit the URL directly: http://localhost:8888
 - You can use the URL Icon that's been left out on your Desktop.
