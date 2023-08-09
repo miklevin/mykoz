@@ -1,5 +1,5 @@
 # Make sure clock hasn't drifted from sleep.
-loginctl enable-linger ubuntu
+nohup sleep infinity >/dev/null 2>&1 &
 sudo hwclock -s
 
 # Activate Python virtual environment.
