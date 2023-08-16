@@ -1,18 +1,18 @@
 art
 black
-httpx
 jupyterlab
 nb-clean
 ohawf
 openai
 pandas
-playwright
 pyfiglet
 python-slugify
 requests
 sqlitedict
 tiktoken
 tldextract
+# httpx
+# playwright
 # ImageHash
 # Levenshtein
 # PyYAML
