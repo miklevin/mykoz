@@ -451,9 +451,9 @@ echo.
 echo.
 @cscript //nologo "%TEMP%\tt.vbs" "by visiting http://localhost:8888 or with Shortcut. THE PASSSWORD IS: foo"
 echo.
-@cscript //nologo "%TEMP%\tt.vbs" "YOU MUST OPEN A LINUX TERMINAL ONCE TO USE JUPYTERLAB, NOW & AFTER REBOOTS!"
+@cscript //nologo "%TEMP%\tt.vbs" "You must open a Linux Terminal once after reboots to activate Jupyter!"
 echo.
-@cscript //nologo "%TEMP%\tt.vbs" "Windows 10 users MUST install Windows Terminal from the Microsoft Store."
+@cscript //nologo "%TEMP%\tt.vbs" "Windows 10 users should install Windows Terminal from the Microsoft Store."
 echo.
 echo.
 
