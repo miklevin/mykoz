@@ -49,7 +49,8 @@ if "%wsl_status%" == "" (
     echo Press [Enter] to install WSL or close this window.
     set /p warning= %
     wsl --install
-    echo Reboot system and run this script again.
+    echo Reboot system and run this script again, after the
+    echo post-reboot second half of the WSL install completes.
     set /p warning= %
     exit
 )
@@ -456,6 +457,8 @@ echo.
 @cscript //nologo "%TEMP%\tt.vbs" "Windows 10 users should install Windows Terminal from the Microsoft Store."
 echo.
 echo.
+
+rmdir "%USERPROFILE%\repos\transfer"
 
 REM GET README.TXT FROM GITHUB
 set "URL=https://raw.githubusercontent.com/miklevin/mykoz/main/README.txt?cache=%T%"
