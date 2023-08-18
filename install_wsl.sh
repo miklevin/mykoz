@@ -9,7 +9,7 @@
 
 # Set this variable to control the quiet mode
 quiet_mode=true
-VAR=${1:-3.12} # If no version is specified, use 3.12
+VAR=${1:-3.11} # If no version is specified, use 3.12
 
 # Function to silence output based on the quiet_mode
 quiet() {
