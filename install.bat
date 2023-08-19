@@ -35,7 +35,7 @@ cls
 
 REM SET UP ENVIRONMENT VARIABLES
 set giturl=https://raw.githubusercontent.com/miklevin/mykoz/main/
-set mykoz=0.9.90
+set mykoz=0.9.91
 set python=3.11
 set "wsl_status="
 
@@ -410,6 +410,7 @@ wsl -d %Ubuntu% -u root -e curl -L -o /home/ubuntu/repos/transfer/git_installs.s
 
 REM Install git repos and hit now-present.
 wsl -d %Ubuntu% -e bash -lic "sh /home/ubuntu/repos/transfer/git_installs.sh" >nul 2>&1
+wsl -d %Ubuntu% -e bash -lic "rm /home/ubuntu/install_wsl.sh" >nul 2>&1
 
 REM Create the JupyterLab URL shortcut
 curl -s -o "JupyterLab.url" "https://raw.githubusercontent.com/miklevin/mykoz/main/icons/JupyterLab.url"

@@ -148,6 +148,7 @@ quiet sudo systemctl enable jupyter
 quiet sudo systemctl start jupyter
 quiet sudo systemctl enable yourservice
 quiet sudo systemctl start yourservice
+quiet rm /home/ubuntu/get-pip.py
 echo ""
 echo " Done JupyterLab install!"
 echo " ------------------------------------------------------------------------------"
