@@ -8,7 +8,7 @@
 #                                     |___/                                   
 
 # Set this variable to control the quiet mode
-quiet_mode=true
+quiet_mode=false
 VAR=${1:-3.11} # If no version is specified, use 3.12
 
 # Function to silence output based on the quiet_mode
@@ -52,7 +52,7 @@ quiet figlet -t "Creating virtualenv..."
 quiet /usr/bin/python$VAR -m virtualenv /home/ubuntu/pyenv
 
 # First we get everything that needs to be done under superuser context
-quiet figlet -t "The big curl..."
+quiet figlet -t "the big sudo curl..."
 quiet sudo curl -sL https://raw.githubusercontent.com/miklevin/mykoz/main/.bash_profile -o /home/ubuntu/.bash_profile \
 https://raw.githubusercontent.com/miklevin/mykoz/main/.bash_prompt -o /home/ubuntu/.bash_prompt \
 https://raw.githubusercontent.com/miklevin/mykoz/main/.screenrc -o /home/ubuntu/.screenrc \
@@ -64,11 +64,12 @@ https://raw.githubusercontent.com/miklevin/mykoz/main/git_installs.sh -o /home/u
 https://raw.githubusercontent.com/miklevin/mykoz/main/jupyter.service -o /etc/systemd/system/jupyter.service \
 https://raw.githubusercontent.com/miklevin/mykoz/main/your.service -o /etc/systemd/system/your.service \
 https://raw.githubusercontent.com/miklevin/mykoz/main/startjupyter -o /home/ubuntu/pyenv/bin/startjupyter \
-https://raw.githubusercontent.com/miklevin/mykoz/main/startyourservice -o /home/ubuntu/pyenv/bin/startyourservice \
-https://raw.githubusercontent.com/miklevin/journal/main/_code/init.vim -o /home/ubuntu/.config/nvim/init.vim
+https://raw.githubusercontent.com/miklevin/mykoz/main/startyourservice -o /home/ubuntu/pyenv/bin/startyourservice
 
 # Then we get everything that needs to be done under the ubuntu user context
-quiet curl -sL https://raw.githubusercontent.com/miklevin/journal/main/_code/vimit -o /home/ubuntu/pyenv/bin/vimit
+quiet figlet -t "the small ubuntu curl..."
+quiet curl -sL https://raw.githubusercontent.com/miklevin/journal/main/_code/vimit -o /home/ubuntu/pyenv/bin/vimit \
+https://raw.githubusercontent.com/miklevin/journal/main/_code/init.vim -o /home/ubuntu/.config/nvim/init.vim
 
 # Give execution context to the scripts
 quiet sudo chmod +x /home/ubuntu/pyenv/bin/startjupyter
@@ -83,7 +84,6 @@ quiet sudo chmod 777 /home/ubuntu/.screenrc
 quiet sudo chown ubuntu:ubuntu /home/ubuntu/.bash_profile
 quiet sudo chown ubuntu:ubuntu /home/ubuntu/.screenrc
 quiet sudo chown ubuntu:ubuntu /home/ubuntu/.bash_prompt
-quiet sudo chown ubuntu:ubuntu /home/ubuntu/.config/nvim/init.vim
 quiet mv -n /home/ubuntu/repos/transfer/id_rsa_mykoz.pub /home/ubuntu/.ssh
 quiet mv -n /home/ubuntu/repos/transfer/id_rsa_mykoz /home/ubuntu/.ssh
 if [ ! -f "/home/ubuntu/.ssh/config" ]; then
