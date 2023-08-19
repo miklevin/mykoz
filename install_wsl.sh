@@ -52,6 +52,7 @@ quiet figlet -t "Creating virtualenv..."
 quiet /usr/bin/python$VAR -m virtualenv /home/ubuntu/pyenv
 
 # First we get everything that needs to be done under superuser context
+quiet figlet -t "The big curl..."
 quiet sudo curl -sL https://raw.githubusercontent.com/miklevin/mykoz/main/.bash_profile -o /home/ubuntu/.bash_profile \
 https://raw.githubusercontent.com/miklevin/mykoz/main/.bash_prompt -o /home/ubuntu/.bash_prompt \
 https://raw.githubusercontent.com/miklevin/mykoz/main/.screenrc -o /home/ubuntu/.screenrc \
@@ -82,6 +83,7 @@ quiet sudo chmod 777 /home/ubuntu/.screenrc
 quiet sudo chown ubuntu:ubuntu /home/ubuntu/.bash_profile
 quiet sudo chown ubuntu:ubuntu /home/ubuntu/.screenrc
 quiet sudo chown ubuntu:ubuntu /home/ubuntu/.bash_prompt
+quiet sudo chown ubuntu:ubuntu /home/ubuntu/.config/init.vim
 quiet mv -n /home/ubuntu/repos/transfer/id_rsa_mykoz.pub /home/ubuntu/.ssh
 quiet mv -n /home/ubuntu/repos/transfer/id_rsa_mykoz /home/ubuntu/.ssh
 if [ ! -f "/home/ubuntu/.ssh/config" ]; then
