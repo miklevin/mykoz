@@ -10,6 +10,9 @@ sudo hwclock -s
 # Activate Python virtual environment.
 source ~/pyenv/bin/activate
 
+# Make vim find its .vimrc same place as NeoVim
+export VIMINIT="source ~/.config/nvim/init.vim"
+
 # Color-code prompt.
 source ~/.bash_prompt
 
