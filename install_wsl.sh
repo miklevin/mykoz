@@ -83,7 +83,7 @@ quiet sudo chmod 777 /home/ubuntu/.screenrc
 quiet sudo chown ubuntu:ubuntu /home/ubuntu/.bash_profile
 quiet sudo chown ubuntu:ubuntu /home/ubuntu/.screenrc
 quiet sudo chown ubuntu:ubuntu /home/ubuntu/.bash_prompt
-quiet sudo chown ubuntu:ubuntu /home/ubuntu/.config/init.vim
+quiet sudo chown ubuntu:ubuntu /home/ubuntu/.config/nvim/init.vim
 quiet mv -n /home/ubuntu/repos/transfer/id_rsa_mykoz.pub /home/ubuntu/.ssh
 quiet mv -n /home/ubuntu/repos/transfer/id_rsa_mykoz /home/ubuntu/.ssh
 if [ ! -f "/home/ubuntu/.ssh/config" ]; then
