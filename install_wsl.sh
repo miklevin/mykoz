@@ -66,7 +66,7 @@ https://raw.githubusercontent.com/miklevin/mykoz/main/startjupyter -o /home/ubun
 https://raw.githubusercontent.com/miklevin/mykoz/main/startyourservice -o /home/ubuntu/pyenv/bin/startyourservice
 
 # Then we get everything that needs to be done under the ubuntu user context
-quiet curl -sL https://raw.githubusercontent.com/miklevin/journal/main/_code/vimit -o /home/ubuntu/pyenv/bin/vimit \
+quiet sudo curl -sL https://raw.githubusercontent.com/miklevin/journal/main/_code/vimit -o /home/ubuntu/pyenv/bin/vimit \
 https://raw.githubusercontent.com/miklevin/journal/main/_code/init.vim -o /home/ubuntu/.config/nvim/init.vim
 
 # Give execution context to the scripts
