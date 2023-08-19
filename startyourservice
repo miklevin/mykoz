@@ -1,0 +1,10 @@
+#! /usr/bin/env bash
+
+source /home/ubuntu/pyenv/bin/activate
+
+# To prevent double-running
+cd ~/repos
+screen -wipe >/dev/null 2>&1
+if ! screen -list | grep -q "yourservice"; then
+    screen -dmS yourservice /home/ubuntu/pyenv/bin/python /home/ubuntu/repos/yourservice/yourservice.py
+fi
