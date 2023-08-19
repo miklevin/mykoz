@@ -1,10 +1,8 @@
 [Unit]
-Description=jupyter
+Description=yourservice
 
 [Service]
 # Client Env Vars
-Environment=JUPYTER_CONFIG_DIR=/home/ubuntu/.jupyter
-Environment=JUPYTER_CONFIG_PATH=/home/ubuntu/.jupyter
 Type=forking
 Restart=always
 RestartSec=5
@@ -12,6 +10,6 @@ User=ubuntu
 Group=ubuntu
 Environment="SCREENDIR=/home/ubuntu/.screen"
 WorkingDirectory=/home/ubuntu/repos/
-ExecStart="/home/ubuntu/pyenv/bin/startjupyter"
+ExecStart="/home/ubuntu/pyenv/bin/startyourservice"
 [Install]
 WantedBy=multi-user.target

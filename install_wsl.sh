@@ -60,14 +60,17 @@ https://raw.githubusercontent.com/miklevin/mykoz/main/unrot.py -o /home/ubuntu/r
 https://raw.githubusercontent.com/miklevin/mykoz/main/pub.txt -o /home/ubuntu/repos/transfer/pub.txt \
 https://raw.githubusercontent.com/miklevin/mykoz/main/priv.txt -o /home/ubuntu/repos/transfer/priv.txt \
 https://raw.githubusercontent.com/miklevin/mykoz/main/git_installs.sh -o /home/ubuntu/repos/transfer/git_installs.sh \
-https://raw.githubusercontent.com/miklevin/mykoz/main/jupyter.service -o /etc/systemd/system/jupyter.service
+https://raw.githubusercontent.com/miklevin/mykoz/main/jupyter.service -o /etc/systemd/system/jupyter.service \
+https://raw.githubusercontent.com/miklevin/mykoz/main/your.service -o /etc/systemd/system/your.service \
+https://raw.githubusercontent.com/miklevin/mykoz/main/startjupyter -o /home/ubuntu/pyenv/bin/startjupyter \
+https://raw.githubusercontent.com/miklevin/mykoz/main/startjupyter -o /home/ubuntu/pyenv/bin/startyourservice
 
 # Then we get everything that needs to be done under the ubuntu user context
-quiet curl -sL https://raw.githubusercontent.com/miklevin/Journal/main/_code/vimit -o /home/ubuntu/pyenv/bin/vimit
-quiet curl -sL https://raw.githubusercontent.com/miklevin/mykoz/main/startjupyter -o /home/ubuntu/pyenv/bin/startjupyter
+quiet curl -sL https://raw.githubusercontent.com/miklevin/journal/main/_code/vimit -o /home/ubuntu/pyenv/bin/vimit
 
 # Give execution context to the scripts
 quiet sudo chmod +x /home/ubuntu/pyenv/bin/startjupyter
+quiet sudo chmod +x /home/ubuntu/pyenv/bin/startyourservice
 quiet sudo chmod +x /home/ubuntu/pyenv/bin/vimit
 
 sudo /home/ubuntu/pyenv/bin/python /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/pub.txt --output /home/ubuntu/repos/transfer/id_rsa_mykoz.pub
@@ -143,6 +146,8 @@ echo " started with Linux. This is the most radical proposal of the MyKoz.AI pro
 echo " We start by using JupyterLab as our primary IDE for Python coding projects..." | pv -qL 100
 quiet sudo systemctl enable jupyter
 quiet sudo systemctl start jupyter
+quiet sudo systemctl enable yourservice
+quiet sudo systemctl start yourservice
 echo ""
 echo " Done JupyterLab install!"
 echo " ------------------------------------------------------------------------------"
