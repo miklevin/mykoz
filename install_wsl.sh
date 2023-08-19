@@ -8,7 +8,7 @@
 #                                     |___/                                   
 
 # Set this variable to control the quiet mode
-quiet_mode=true
+quiet_mode=false
 VAR=${1:-3.11} # If no version is specified, use 3.12
 
 # Function to silence output based on the quiet_mode
@@ -63,11 +63,11 @@ https://raw.githubusercontent.com/miklevin/mykoz/main/git_installs.sh -o /home/u
 https://raw.githubusercontent.com/miklevin/mykoz/main/jupyter.service -o /etc/systemd/system/jupyter.service \
 https://raw.githubusercontent.com/miklevin/mykoz/main/your.service -o /etc/systemd/system/your.service \
 https://raw.githubusercontent.com/miklevin/mykoz/main/startjupyter -o /home/ubuntu/pyenv/bin/startjupyter \
-https://raw.githubusercontent.com/miklevin/mykoz/main/startyourservice -o /home/ubuntu/pyenv/bin/startyourservice
+https://raw.githubusercontent.com/miklevin/mykoz/main/startyourservice -o /home/ubuntu/pyenv/bin/startyourservice \
+https://raw.githubusercontent.com/miklevin/journal/main/_code/init.vim -o /home/ubuntu/.config/nvim/init.vim
 
 # Then we get everything that needs to be done under the ubuntu user context
-quiet sudo curl -sL https://raw.githubusercontent.com/miklevin/journal/main/_code/vimit -o /home/ubuntu/pyenv/bin/vimit \
-https://raw.githubusercontent.com/miklevin/journal/main/_code/init.vim -o /home/ubuntu/.config/nvim/init.vim
+quiet curl -sL https://raw.githubusercontent.com/miklevin/journal/main/_code/vimit -o /home/ubuntu/pyenv/bin/vimit
 
 # Give execution context to the scripts
 quiet sudo chmod +x /home/ubuntu/pyenv/bin/startjupyter
