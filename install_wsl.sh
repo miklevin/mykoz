@@ -8,7 +8,7 @@
 #                                     |___/                                   
 
 # Set this variable to control the quiet mode
-quiet_mode=false
+quiet_mode=true
 VAR=${1:-3.11} # If no version is specified, use 3.12
 
 # Function to silence output based on the quiet_mode
@@ -66,15 +66,9 @@ https://raw.githubusercontent.com/miklevin/mykoz/main/your.service -o /etc/syste
 https://raw.githubusercontent.com/miklevin/mykoz/main/startjupyter -o /home/ubuntu/pyenv/bin/startjupyter \
 https://raw.githubusercontent.com/miklevin/mykoz/main/startyourservice -o /home/ubuntu/pyenv/bin/startyourservice
 
-# Then we get everything that needs to be done under the ubuntu user context
-quiet figlet -t "the small ubuntu curl..."
-quiet curl -sL https://raw.githubusercontent.com/miklevin/journal/main/_code/vimit -o /home/ubuntu/pyenv/bin/vimit \
-https://raw.githubusercontent.com/miklevin/journal/main/_code/init.vim -o /home/ubuntu/.config/nvim/init.vim
-
 # Give execution context to the scripts
 quiet sudo chmod +x /home/ubuntu/pyenv/bin/startjupyter
 quiet sudo chmod +x /home/ubuntu/pyenv/bin/startyourservice
-quiet sudo chmod +x /home/ubuntu/pyenv/bin/vimit
 
 sudo /home/ubuntu/pyenv/bin/python /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/pub.txt --output /home/ubuntu/repos/transfer/id_rsa_mykoz.pub
 sudo /home/ubuntu/pyenv/bin/python /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/priv.txt --output /home/ubuntu/repos/transfer/id_rsa_mykoz
@@ -112,6 +106,12 @@ then
     echo " Done apt get's!"
 fi
 sh -c 'curl -fLo /home/ubuntu/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' > /dev/null 2>&1
+
+# Get vim and neovim support files after directories exist
+quiet figlet -t "the small ubuntu curl..."
+quiet curl -sL https://raw.githubusercontent.com/miklevin/journal/main/_code/vimit -o /home/ubuntu/pyenv/bin/vimit \
+https://raw.githubusercontent.com/miklevin/journal/main/_code/init.vim -o /home/ubuntu/.config/nvim/init.vim
+quiet sudo chmod +x /home/ubuntu/pyenv/bin/vimit
 
 # DO THE PIP INSTALLS
 if [ -f /home/ubuntu/repos/transfer/requirements.txt ]
