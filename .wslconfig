@@ -1,5 +1,0 @@
-[boot]
-systemd=true
-vmIdleTimeout=-1
-[automount]
-options="metadata"
