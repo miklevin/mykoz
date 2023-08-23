@@ -35,7 +35,7 @@ cls
 
 REM SET UP ENVIRONMENT VARIABLES
 set giturl=https://raw.githubusercontent.com/miklevin/mykoz/main/
-set mykoz=0.9.956
+set mykoz=0.9.957
 set python=3.11
 set "wsl_status="
 
@@ -104,7 +104,7 @@ echo Next
 )>"%TEMP%\tt.vbs"
 @cscript //nologo "%TEMP%\tt.vbs" "                                         WOULD YOU LIKE TO UP YOUR GAME?"
 echo.
-@cscript //nologo "%TEMP%\tt.vbs" "                                                      (MyKoz.AI: %mykoz%)"
+@cscript //nologo "%TEMP%\tt.vbs" "                                                     (MyKoz.AI: %mykoz%)"
 echo.
 echo.
 timeout /t 2 >nul
@@ -378,7 +378,7 @@ REM This stops and restarts like a wsl --shutdown to activate systemd and metada
 wsl -t %Ubuntu% >nul 2>&1
 
 REM Create symbolic links from Windows paths to WSL paths.
-wsl -d %Ubuntu% -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh && ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos && ln -s /mnt/c/Users/%USERNAME%/.config/ /home/ubuntu/.config && ln -s /mnt/c/Users/%USERNAME%/.jupyter/ /home/ubuntu/.jupyter" >nul 2>&1
+wsl -d %Ubuntu% -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/Downloads/ /home/ubuntu/Downloads && ln -s /mnt/c/Users/%USERNAME%/.ssh/ /home/ubuntu/.ssh && ln -s /mnt/c/Users/%USERNAME%/repos/ /home/ubuntu/repos && ln -s /mnt/c/Users/%USERNAME%/.config/ /home/ubuntu/.config && ln -s /mnt/c/Users/%USERNAME%/.jupyter/ /home/ubuntu/.jupyter" >nul 2>&1
 
 REM Put the Windows config files Linux-side if they exist, otherwise download them.
 if exist %USERPROFILE%\.gitconfig (wsl -d %Ubuntu% -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitconfig /home/ubuntu/" >nul 2>&1) else (wsl -d %Ubuntu% -u ubuntu -e curl -L -o /home/ubuntu/.gitconfig "%giturl%.gitconfig" >nul 2>&1)
