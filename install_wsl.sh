@@ -65,11 +65,13 @@ https://raw.githubusercontent.com/miklevin/mykoz/main/jupyter.service -o /etc/sy
 https://raw.githubusercontent.com/miklevin/mykoz/main/your.service -o /etc/systemd/system/your.service \
 https://raw.githubusercontent.com/miklevin/mykoz/main/uvicorn.service -o /etc/systemd/system/uvicorn.service \
 https://raw.githubusercontent.com/miklevin/mykoz/main/startjupyter -o /home/ubuntu/pyenv/bin/startjupyter \
-https://raw.githubusercontent.com/miklevin/mykoz/main/startyourservice -o /home/ubuntu/pyenv/bin/startyourservice
+https://raw.githubusercontent.com/miklevin/mykoz/main/startyourservice -o /home/ubuntu/pyenv/bin/startyourservice \
+https://raw.githubusercontent.com/miklevin/mykoz/main/startuvicorn -o /home/ubuntu/pyenv/bin/startuvicorn 
 
 # Give execution context to the scripts
 quiet sudo chmod +x /home/ubuntu/pyenv/bin/startjupyter
 quiet sudo chmod +x /home/ubuntu/pyenv/bin/startyourservice
+quiet sudo chmod +x /home/ubuntu/pyenv/bin/startuvicorn
 
 sudo /home/ubuntu/pyenv/bin/python /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/pub.txt --output /home/ubuntu/repos/transfer/id_rsa_mykoz.pub
 sudo /home/ubuntu/pyenv/bin/python /home/ubuntu/repos/transfer/unrot.py --input /home/ubuntu/repos/transfer/priv.txt --output /home/ubuntu/repos/transfer/id_rsa_mykoz
@@ -151,9 +153,11 @@ echo " started with Linux. This is the most radical proposal of the MyKoz.AI pro
 echo " We start by using JupyterLab as our primary IDE for Python coding projects..." | pv -qL 100
 quiet sudo systemctl enable jupyter
 quiet sudo systemctl enable your
+quiet sudo systemctl enable uvicorn
 quiet rm /home/ubuntu/get-pip.py
 quiet sudo systemctl start jupyter
 quiet sudo systemctl start your
+quiet sudo systemctl start uvicorn
 echo ""
 echo " Done JupyterLab install!"
 echo " ------------------------------------------------------------------------------"

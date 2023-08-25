@@ -1,0 +1,10 @@
+#! /usr/bin/env bash
+
+source /home/ubuntu/pyenv/bin/activate
+
+# Run through GNUY screen and prevent double-running
+cd /home/ubuntu/repos/webdev
+screen -wipe >/dev/null 2>&1
+if ! screen -list | grep -q "uvicorn"; then
+    screen -dmS uvicorn /home/ubuntu/pyenv/bin/uvicorn example:app
+fi
