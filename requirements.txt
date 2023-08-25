@@ -4,6 +4,7 @@ jupyterlab
 nb-clean
 ohawf
 openai
+nltk
 pandas
 pyfiglet
 python-slugify
@@ -11,6 +12,7 @@ requests
 sqlitedict
 tiktoken
 tldextract
+uvicorn[standard]
 # httpx
 # playwright
 # ImageHash
@@ -31,11 +33,9 @@ tldextract
 # matplotlib
 # nbdev
 # nest_asyncio
-# nltk
 # openpyxl
 # pillow
 # plotly
-# pyarrow
 # pyarrow
 # python-levenshtein
 # rapidfuzz

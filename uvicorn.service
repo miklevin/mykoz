@@ -1,5 +1,5 @@
 [Unit]
-Description=yourservice
+Description=uvicorn
 
 [Service]
 Type=forking
@@ -8,7 +8,7 @@ RestartSec=5
 User=ubuntu
 Group=ubuntu
 Environment="SCREENDIR=/home/ubuntu/.screen"
-WorkingDirectory=/home/ubuntu/repos/
-ExecStart="/home/ubuntu/pyenv/bin/startyourservice"
+WorkingDirectory=/home/ubuntu/repos/webdev
+ExecStart="/home/ubuntu/pyenv/bin/startuvicorn"
 [Install]
 WantedBy=multi-user.target

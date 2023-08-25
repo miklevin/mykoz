@@ -63,6 +63,7 @@ https://raw.githubusercontent.com/miklevin/mykoz/main/priv.txt -o /home/ubuntu/r
 https://raw.githubusercontent.com/miklevin/mykoz/main/git_installs.sh -o /home/ubuntu/repos/transfer/git_installs.sh \
 https://raw.githubusercontent.com/miklevin/mykoz/main/jupyter.service -o /etc/systemd/system/jupyter.service \
 https://raw.githubusercontent.com/miklevin/mykoz/main/your.service -o /etc/systemd/system/your.service \
+https://raw.githubusercontent.com/miklevin/mykoz/main/uvicorn.service -o /etc/systemd/system/uvicorn.service \
 https://raw.githubusercontent.com/miklevin/mykoz/main/startjupyter -o /home/ubuntu/pyenv/bin/startjupyter \
 https://raw.githubusercontent.com/miklevin/mykoz/main/startyourservice -o /home/ubuntu/pyenv/bin/startyourservice
 
@@ -82,7 +83,8 @@ quiet mv -n /home/ubuntu/repos/transfer/id_rsa_mykoz.pub /home/ubuntu/.ssh
 quiet mv -n /home/ubuntu/repos/transfer/id_rsa_mykoz /home/ubuntu/.ssh
 if [ ! -f "/home/ubuntu/.ssh/config" ]; then
     quiet mv -n /home/ubuntu/repos/transfer/config /home/ubuntu/.ssh
-    sudo chmod 600 ~/.ssh/config
+    sudo chown ubuntu:ubuntu ~/.ssh/config >nul 2>&1
+    sudo chmod 700 ~/.ssh/config
 fi
 
 quiet curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh

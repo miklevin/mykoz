@@ -35,7 +35,7 @@ cls
 
 REM SET UP ENVIRONMENT VARIABLES
 set giturl=https://raw.githubusercontent.com/miklevin/mykoz/main/
-set mykoz=0.9.957
+set mykoz=0.9.958
 set python=3.11
 set "wsl_status="
 
@@ -382,7 +382,6 @@ wsl -d %Ubuntu% -e bash -lic "ln -s /mnt/c/Users/%USERNAME%/Downloads/ /home/ubu
 
 REM Put the Windows config files Linux-side if they exist, otherwise download them.
 if exist %USERPROFILE%\.gitconfig (wsl -d %Ubuntu% -e bash -lic "cp /mnt/c/Users/%USERNAME%/.gitconfig /home/ubuntu/" >nul 2>&1) else (wsl -d %Ubuntu% -u ubuntu -e curl -L -o /home/ubuntu/.gitconfig "%giturl%.gitconfig" >nul 2>&1)
-if exist %USERPROFILE%\.vimrc (wsl -d %Ubuntu% -e bash -lic "cp /mnt/c/Users/%USERNAME%/.vimrc /home/ubuntu/" >nul 2>&1) else (wsl -d ubuntu -u ubuntu -e curl -l -o /home/ubuntu/.vimrc "%giturl%.vimrc" >nul 2>&1)
 if exist %USERPROFILE%\.pypirc (wsl -d %Ubuntu% -e bash -lic "cp /mnt/c/Users/%USERNAME%/.pypirc /home/ubuntu/" >nul 2>&1) else (wsl -d ubuntu -u ubuntu -e curl -l -o /home/ubuntu/.pypirc "%giturl%.pypirc" >nul 2>&1)
 
 wsl -d %Ubuntu% -u root -e sudo apt update >nul 2>&1
@@ -403,7 +402,6 @@ wsl -t %Ubuntu% >nul 2>&1
 REM Finessing permissions so that git clone works.
 wsl -d %Ubuntu% -u root -e chown ubuntu:ubuntu /mnt/c/Users/%USERNAME%/.ssh/id_rsa_mykoz >nul 2>&1
 wsl -d %Ubuntu% -u root -e chown ubuntu:ubuntu /mnt/c/Users/%USERNAME%/.ssh/id_rsa_mykoz.pub >nul 2>&1
-wsl -d %Ubuntu% -u root -e chown ubuntu:ubuntu /mnt/c/Users/%USERNAME%/.ssh/config >nul 2>&1
 wsl -d %Ubuntu% -u root -e chmod 600 /mnt/c/Users/%USERNAME%/.ssh/id_rsa_mykoz >nul 2>&1
 wsl -d %Ubuntu% -u root -e curl -L -o /home/ubuntu/repos/transfer/git_installs.sh "%giturl%git_installs.sh" >nul 2>&1
 
