@@ -2,9 +2,12 @@
 
 source /home/ubuntu/pyenv/bin/activate
 
+# To have access to an X-Server under Jupyter
+export WATCHFILES_FORCE_POLLING=1
+
 # Run through GNUY screen and prevent double-running
 cd /home/ubuntu/repos/webdev
 screen -wipe >/dev/null 2>&1
 if ! screen -list | grep -q "uvicorn"; then
-    screen -dmS uvicorn /home/ubuntu/pyenv/bin/uvicorn example:app
+    screen -dmS uvicorn /home/ubuntu/pyenv/bin/uvicorn example:app --reload
 fi
