@@ -2,10 +2,11 @@ art
 black
 jupyterlab
 nb-clean
+nltk
 ohawf
 openai
-nltk
 pandas
+playwright
 pyfiglet
 python-slugify
 requests
@@ -14,7 +15,6 @@ tiktoken
 tldextract
 uvicorn[standard]
 # httpx
-# playwright
 # ImageHash
 # Levenshtein
 # PyYAML
