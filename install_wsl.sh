@@ -105,7 +105,7 @@ then
     echo " Debian-derivative distros like Ubuntu have a package manager called apt." | pv -qL 100
     echo " It's like the Windows Store, but automatable in server install scripts." | pv -qL 100
     echo " We're mainly installing NeoVim, Chrome and enough to do Linux graphics..." | pv -qL 100
-    source /home/ubuntu/repos/transfer/apt_installs.sh > /dev/null 2>&1
+    quiet source /home/ubuntu/repos/transfer/apt_installs.sh
     echo ""
     echo " Done apt get's!"
 fi
