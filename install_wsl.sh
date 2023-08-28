@@ -113,9 +113,9 @@ sh -c 'curl -fLo /home/ubuntu/.local/share/nvim/site/autoload/plug.vim --create-
 
 # Get vim and neovim support files after directories exist
 quiet figlet -t "the small ubuntu curl..."
-quiet curl -sL https://raw.githubusercontent.com/miklevin/journal/main/_code/vimit -o /home/ubuntu/pyenv/bin/vimit \
+quiet curl -sL https://raw.githubusercontent.com/miklevin/journal/main/_code/journal -o /home/ubuntu/pyenv/bin/journal \
 https://raw.githubusercontent.com/miklevin/journal/main/_code/init.vim -o /home/ubuntu/.config/nvim/init.vim
-quiet sudo chmod +x /home/ubuntu/pyenv/bin/vimit
+quiet sudo chmod +x /home/ubuntu/pyenv/bin/journal
 
 # DO THE PIP INSTALLS
 if [ -f /home/ubuntu/repos/transfer/requirements.txt ]
