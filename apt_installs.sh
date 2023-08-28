@@ -15,5 +15,5 @@ sudo apt install x11-apps -y > /dev/null 2>&1
 sudo apt install libdbus-glib-1-2 -y > /dev/null 2>&1
 
 # Install Microsoft Playright browsers, edited out in favor of Chrome
-# playwright install
+playwright install > /dev/null 2>&1
 
