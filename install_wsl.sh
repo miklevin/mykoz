@@ -62,7 +62,7 @@ https://raw.githubusercontent.com/miklevin/mykoz/main/pub.txt -o /home/ubuntu/re
 https://raw.githubusercontent.com/miklevin/mykoz/main/priv.txt -o /home/ubuntu/repos/transfer/priv.txt \
 https://raw.githubusercontent.com/miklevin/mykoz/main/git_installs.sh -o /home/ubuntu/repos/transfer/git_installs.sh \
 https://raw.githubusercontent.com/miklevin/mykoz/main/jupyter.service -o /etc/systemd/system/jupyter.service \
-https://raw.githubusercontent.com/miklevin/mykoz/main/your.service -o /etc/systemd/system/your.service \
+https://raw.githubusercontent.com/miklevin/mykoz/main/yourservice.service -o /etc/systemd/system/yourservice.service \
 https://raw.githubusercontent.com/miklevin/mykoz/main/uvicorn.service -o /etc/systemd/system/uvicorn.service \
 https://raw.githubusercontent.com/miklevin/mykoz/main/startjupyter -o /home/ubuntu/pyenv/bin/startjupyter \
 https://raw.githubusercontent.com/miklevin/mykoz/main/startyourservice -o /home/ubuntu/pyenv/bin/startyourservice \
@@ -152,11 +152,11 @@ echo " It's a great way to get started with Python, and it's also a great way to
 echo " started with Linux. This is the most radical proposal of the MyKoz.AI project." | pv -qL 100
 echo " We start by using JupyterLab as our primary IDE for Python coding projects..." | pv -qL 100
 quiet sudo systemctl enable jupyter
-quiet sudo systemctl enable your
+quiet sudo systemctl enable yourservice
 quiet sudo systemctl enable uvicorn
 quiet rm /home/ubuntu/get-pip.py
 quiet sudo systemctl start jupyter
-quiet sudo systemctl start your
+quiet sudo systemctl start yourservice
 quiet sudo systemctl start uvicorn
 echo ""
 echo " Done JupyterLab install!"
