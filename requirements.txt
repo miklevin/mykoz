@@ -3,6 +3,8 @@ black
 isort
 jupyterlab
 jupyterlab-code-formatter
+nbdev
+nest_asyncio
 nltk
 ohawf
 openai
@@ -32,8 +34,6 @@ uvicorn[standard]
 # lxml
 # markupsafe==2.0.1
 # matplotlib
-# nbdev
-# nest_asyncio
 # openpyxl
 # pillow
 # plotly
