@@ -4,6 +4,7 @@ isort
 jupyterlab
 jupyterlab-code-formatter
 nbdev
+nb-clean
 nest_asyncio
 nltk
 ohawf
