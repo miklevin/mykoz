@@ -152,8 +152,8 @@ echo " It's a great way to get started with Python, and it's also a great way to
 echo " started with Linux. This is the most radical proposal of the MyKoz.AI project." | pv -qL 100
 echo " We start by using JupyterLab as our primary IDE for Python coding projects..." | pv -qL 100
 quiet sudo systemctl enable jupyter
-quiet sudo systemctl enable yourservice
-quiet sudo systemctl enable uvicorn
+# quiet sudo systemctl enable yourservice
+# quiet sudo systemctl enable uvicorn
 quiet rm /home/ubuntu/get-pip.py
 quiet sudo systemctl start jupyter
 quiet sudo systemctl start yourservice
