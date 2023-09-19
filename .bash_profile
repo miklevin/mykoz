@@ -32,4 +32,4 @@ cd ~/repos
 echo "To see how JupyterLab runs invisibly type: screen -ls"
 echo "JupyterLab URL: http://localhost:8888 password is foo"
 echo "To begin your vim (NeoVim) experience, type: vimtutor"
-echo "Visit http://localhost:8000 for more on MyKoz.AI."
+# echo "Visit http://localhost:8000 for more on MyKoz.AI."
